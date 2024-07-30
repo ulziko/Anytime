@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Алчуур угаах",
+        "bodyPart": "Мөр",
+        "equipment": "Алчуур",
+        "sets": "3-4 (30 секундын зайтай)",
+        "reps": "10-12",
+        "additionalInfo": "Оролт бүрд усаа солих"
+    },
+    {
+        "id": 2,
+        "name": "Workout 2",
+        "bodyPart": "Legs",
+        "equipment": "Dumbbell",
+        "sets": "4-5 (45 секундын зайтай)",
+        "reps": "12-15",
+        "additionalInfo": "Drink water after each set"
+    }
+]
