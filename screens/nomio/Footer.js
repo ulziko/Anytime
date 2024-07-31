@@ -34,8 +34,9 @@ const Footer = () => {
 const styles = StyleSheet.create({
   footer: {
     position: 'absolute',
-    bottom: 0,
+    bottom: 65,
     width: '100%',
+    right: -215,
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 20,

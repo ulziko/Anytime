@@ -14,13 +14,17 @@ const { width } = Dimensions.get('window');
 
 const InfoSection = () => {
   const [editingField, setEditingField] = useState(null);
-  const User=useContext(UserContext);
+  const User = useContext(UserContext);
   const [info, setInfo] = useState({
     dateOfBirth: User.bday,
     weight: User.weight,
     height: User.height,
     password: 'Нууц үг солих'
   });
+
+  const [newDateOfBirth, setNewDateOfBirth] = useState('');
+  const [newWeight, setNewWeight] = useState('');
+  const [newHeight, setNewHeight] = useState('');
 
   const navigation = useNavigation();
   const scrollViewRef = useRef(null);
@@ -51,13 +55,21 @@ const InfoSection = () => {
 
     if (field === 'dateOfBirth') {
       formattedValue = formatDate(value);
-      User.setBday(formattedValue);
-    } else if (field === 'weight' || field === 'height') {
+      setNewDateOfBirth(formattedValue);
+    } else if (field === 'weight') {
       formattedValue = value.replace(/[^0-9]/g, '');
       if (formattedValue.length > 3) {
         formattedValue = formattedValue.slice(0, 3);
       }
-      formattedValue += field === 'weight' ? 'кг' : 'см';
+      formattedValue += 'кг';
+      setNewWeight(formattedValue);
+    } else if (field === 'height') {
+      formattedValue = value.replace(/[^0-9]/g, '');
+      if (formattedValue.length > 3) {
+        formattedValue = formattedValue.slice(0, 3);
+      }
+      formattedValue += 'см';
+      setNewHeight(formattedValue);
     }
 
     setInfo(prevInfo => ({ ...prevInfo, [field]: formattedValue }));
