@@ -4,6 +4,7 @@ import { CurvedBottomBarExpo } from 'react-native-curved-bottom-bar';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 import ProfileScreen from '../v10d/ProfileScreen';
+import Detail from '../enkheelei/Detail';
 
 const Screen1 = () => {
   return (
@@ -18,7 +19,7 @@ function NavigationButton() {
   const _renderIcon = (routeName, selectedTab) => {
     let icon = '';
     switch (routeName) {
-      case 'title1':
+      case 'Detail':
         icon = 'retweet';
         break;
       case 'ProfileScreen':
@@ -70,9 +71,9 @@ function NavigationButton() {
       tabBar={renderTabBar}
     >
       <CurvedBottomBarExpo.Screen
-        name="title1"
+        name="Detail"
         position="LEFT"
-        component={Screen1}
+        component={Detail}
       />
       <CurvedBottomBarExpo.Screen
         name="ProfileScreen"

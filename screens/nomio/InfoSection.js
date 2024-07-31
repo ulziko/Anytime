@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, Dimensions } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, Dimensions, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
+import { Philosopher_400Regular, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
 
 const DateIcon = require('./../../assets/Date.png');
 const JinIcon = require('./../../assets/Jin.png');
@@ -13,31 +15,49 @@ const InfoSection = () => {
   const [editingField, setEditingField] = useState(null);
   const [info, setInfo] = useState({
     dateOfBirth: '11/12/2000',
-    weight: '70kg',
-    height: '170cm',
+    weight: '70кг',
+    height: '170см',
     password: 'Нууц үг солих'
   });
 
   const navigation = useNavigation();
+  const scrollViewRef = useRef(null);
+  const inputRefs = useRef({});
+
+  const [fontsLoaded] = useFonts({
+    Nunito_400Regular,
+    Nunito_700Bold,
+    Philosopher_400Regular,
+    Philosopher_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return null; // or a loading spinner
+  }
 
   const handlePress = (field) => {
     if (field === 'password') {
       navigation.navigate('Question');
     } else {
       setEditingField(field);
+      setInfo(prevInfo => ({ ...prevInfo, [field]: '' }));
     }
   };
 
   const handleChange = (field, value) => {
+    let formattedValue = value;
+
     if (field === 'dateOfBirth') {
-      setInfo({ ...info, [field]: formatDate(value) });
-    } else if (field === 'weight') {
-      setInfo({ ...info, [field]: value.replace(/[^0-9]/g, '') + 'kg' });
-    } else if (field === 'height') {
-      setInfo({ ...info, [field]: value.replace(/[^0-9]/g, '') + 'cm' });
-    } else {
-      setInfo({ ...info, [field]: value });
+      formattedValue = formatDate(value);
+    } else if (field === 'weight' || field === 'height') {
+      formattedValue = value.replace(/[^0-9]/g, '');
+      if (formattedValue.length > 3) {
+        formattedValue = formattedValue.slice(0, 3);
+      }
+      formattedValue += field === 'weight' ? 'кг' : 'см';
     }
+
+    setInfo(prevInfo => ({ ...prevInfo, [field]: formattedValue }));
   };
 
   const formatDate = (date) => {
@@ -52,7 +72,6 @@ const InfoSection = () => {
     } else {
       formatted = `${cleaned.slice(0, 2)}/${cleaned.slice(2, 4)}/${cleaned.slice(4, 8)}`;
     }
-
     return formatted;
   };
 
@@ -68,36 +87,67 @@ const InfoSection = () => {
           value={value}
           onChangeText={(text) => handleChange(field, text)}
           onBlur={() => setEditingField(null)}
-          maxLength={10}
-          keyboardType="numeric"
+          placeholder={
+            field === 'dateOfBirth' ? 'Өдөр/Сар/Он' :
+            field === 'weight' ? 'Жин' :
+            field === 'height' ? 'Өндөр' : ''
+          }
+          placeholderTextColor='rgba(255, 255, 255, 0.6)'
+          maxLength={field === 'dateOfBirth' ? 10 : 6}
+          keyboardType={field === 'dateOfBirth' ? 'numeric' : 'number-pad'}
+          ref={(ref) => { inputRefs.current[field] = ref; }}
+          onFocus={() => {
+            setTimeout(() => {
+              if (scrollViewRef.current && inputRefs.current[field]) {
+                scrollViewRef.current.scrollTo({ y: inputRefs.current[field].offsetTop, animated: true });
+              }
+            }, 100);
+          }}
         />
       ) : (
-        <Text style={styles.infoValue}>{value}</Text>
+        <Text style={[styles.infoValue, field === 'weight' || field === 'height' || field === 'password' ? styles.boldText : null]}>
+          {value}
+        </Text>
       )}
     </TouchableOpacity>
   );
 
   return (
-    <View style={styles.infoSection}>
-      {renderInfoItem(DateIcon, 'dateOfBirth', info.dateOfBirth)}
-      {renderInfoItem(JinIcon, 'weight', info.weight)}
-      {renderInfoItem(OndorIcon, 'height', info.height)}
-      {renderInfoItem(NuutsugIcon, 'password', info.password)}
-    </View>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}
+    >
+      <ScrollView
+        style={styles.infoSection}
+        ref={scrollViewRef}
+        contentContainerStyle={styles.scrollViewContent}
+      >
+        {renderInfoItem(DateIcon, 'dateOfBirth', info.dateOfBirth)}
+        {renderInfoItem(JinIcon, 'weight', info.weight)}
+        {renderInfoItem(OndorIcon, 'height', info.height)}
+        {renderInfoItem(NuutsugIcon, 'password', info.password)}
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   infoSection: {
-    paddingHorizontal: width * 0.06,
-    paddingVertical: width * 0.11,
+    paddingHorizontal: width * 0.05,
+    paddingVertical: width * 0.15,
     backgroundColor: '#000',
+  },
+  scrollViewContent: {
+    paddingBottom: 20,
   },
   infoItem: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 7,
-    padding: width * 0.05,
+    padding: width * 0.04,
     borderRadius: 25,
     borderWidth: 1,
     borderColor: '#9800ff',
@@ -106,6 +156,9 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: width * 0.04,
     flex: 1,
+  },
+  boldText: {
+    fontFamily: 'Nunito_700Bold',
   },
   customBackground: {
     backgroundColor: 'rgba(152, 0, 255, 0.33)',

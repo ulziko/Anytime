@@ -13,17 +13,19 @@ import FitnessAppPage from "../screens/anhrax/FitnessAppPage";
 import OtherPage from '../screens/anhrax/OtherPage';
 import TwoButton from '../screens/anhrax/components/TwoButton';
 import WorkoutContainer from "../screens/enkheelei/WorkoutContainer";
-import CameraSection from '../screens/nomio/ProfileImageProvider';
+import CameraSection from '../screens/nomio/InfoSection';
 import Question from '../screens/nomio/Question';
 import NewPass from '../screens/nomio/NewPass';
 import Done from '../screens/nomio/Done';
+import Detail from "../screens/enkheelei/Detail";
 import ProfileScreen from "../screens/v10d/ProfileScreen";
-import tmp from "../screens/nomio/ProfileImageProvider";
+import { ProfileImageProvider } from '../screens/nomio/ProfileImageContext';
 
 const Stack = createNativeStackNavigator();
 
 export default function AppNavigation(){
     return(
+        <ProfileImageProvider>
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Start">
                 <Stack.Screen name='Home' options={{headerShown: false}} component={HomeScreen} />
@@ -38,11 +40,13 @@ export default function AppNavigation(){
                 <Stack.Screen name="TwoButton" options={{ headerShown: false }} component={TwoButton} />
                 <Stack.Screen name="Workout" options={{ headerShown: false }} component={WorkoutContainer} />
                 <Stack.Screen name="ProfileScreen" options={{ headerShown: false }} component={ProfileScreen} />
-                <Stack.Screen name="CameraSection" options={{ headerShown: false }} component={tmp} />
+                <Stack.Screen name="CameraSection" options={{ headerShown: false }} component={CameraSection} />
                 <Stack.Screen name="Question" options={{ headerShown: false }} component={Question} />
                 <Stack.Screen name="NewPass" options={{ headerShown: false }} component={NewPass} /> 
                 <Stack.Screen name="Done" options={{ headerShown: false }} component={Done} />
+                <Stack.Screen name="Detail" options={{ headerShown: false }} component={Detail} />
             </Stack.Navigator>
         </NavigationContainer>
+        </ProfileImageProvider>
     )
 }

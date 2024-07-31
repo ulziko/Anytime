@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 const { width, height } = Dimensions.get('window');
 
-export default function Start() {
+export default function Register_4() {
     const navigation = useNavigation();
     const anytimeIcon = require('../../assets/logo.png'); 
     const doneIcon = require('../../assets/nike.png'); 
@@ -28,19 +28,22 @@ export default function Start() {
             <ImageBackground className="flex-1" source={null}>
                 <SafeAreaView className="flex-1">
                     <View className="flex-1 justify-center items-center ">
-                        <Image 
-                            source={anytimeIcon} 
-                            className="w-[70vw] h-[22vh] mb-[6vh]"
-                            style={{ resizeMode: 'contain', alignSelf: 'center' }}
-                        />
-                        <View className="w-[85vw] h-[30vh] py-[2vh] items-center justify-center bg-gray-800 rounded-2xl px-[3vw] z-10">
+                        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
                             <Image 
-                                source={doneIcon} 
-                                className="absolute top-[-100px] transform -translate-y-1/2"
-                                style={{ resizeMode: 'contain', marginBottom: height * 0.02, height: height*0.22 }}
+                                source={anytimeIcon} 
+                                className="w-[70vw] h-[22vh] mb-[6vh]"
+                                style={{ resizeMode: 'contain', alignSelf: 'center' }}
                             />
-                            <Text className="text-3xl mb-[0.2vh] text-center text-purple-600">Таны нууц үг амжилттай солигдлоо.</Text>
-                        </View>
+                        
+                            <View className="w-[85vw] h-[30vh] py-[2vh] items-center justify-center bg-gray-800 rounded-2xl px-[3vw] z-10">
+                                <Image 
+                                    source={doneIcon} 
+                                    className="absolute top-[-100px] transform -translate-y-1/2"
+                                    style={{ resizeMode: 'contain', marginBottom: height * 0.02, height: height*0.22 }}
+                                />
+                                <Text className="text-3xl mb-[0.2vh] text-center text-purple-600">Таны нууц үг амжилттай солигдлоо.</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                     <Image source={Icon1} className="absolute w-[10vw] h-[5vh] top-[10%] left-[10%]" />
                     <Image source={Icon2} className="absolute w-[5vw] h-[3vh] top-[20%] left-[40%]" />

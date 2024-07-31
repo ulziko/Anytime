@@ -12,10 +12,4 @@ export const ProfileImageProvider = ({ children }) => {
   );
 };
 
-export const useProfileImage = () => {
-  const context = useContext(ProfileImageContext);
-  if (!context) {
-    throw new Error('useProfileImage must be used within a ProfileImageProvider');
-  }
-  return context;
-};
+export const useProfileImage = () => useContext(ProfileImageContext);

@@ -22,9 +22,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'absolute',
-    top: '-5%',
-    left: '20%',
+    top:"-10%",
   },
   image: {
     width: 100,

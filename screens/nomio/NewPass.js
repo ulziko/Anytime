@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, ImageBackground, SafeAreaView, Dimensions } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
+import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
+import { Philosopher_400Regular, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
 
 
 const anytimeIcon = require('./../../assets/anytimeLogo.png'); 
@@ -22,6 +24,17 @@ const { width, height } = Dimensions.get('window');
 
 const NewPass = () => {
   const navigation = useNavigation(); 
+
+  const [fontsLoaded] = useFonts({
+    Nunito_400Regular,
+    Nunito_700Bold,
+    Philosopher_400Regular,
+    Philosopher_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return null; // or a loading spinner
+  }
 
   return (
     <View style={styles.container}>
@@ -57,7 +70,7 @@ const NewPass = () => {
                   placeholderTextColor="#888"
                   style={styles.textInput}
                 />
-                <MaterialCommunityIcons name="paw" size={24} color="#7200ca" style={styles.inputIcon} />
+                <MaterialCommunityIcons name="lock-reset" size={24} color="#7200ca" style={styles.inputIcon} />
               </View>
               <Text style={styles.questionText}>Шинэ нууц үг давтах</Text>
               <View style={styles.inputContainer}>
@@ -66,7 +79,7 @@ const NewPass = () => {
                   placeholderTextColor="#888"
                   style={styles.textInput}
                 />
-                <MaterialCommunityIcons name="paw" size={24} color="#7200ca" style={styles.inputIcon} />
+                <MaterialCommunityIcons name="lock-reset" size={26} color="#7200ca" style={styles.inputIcon} />
               </View>
             </View>
           </View>
@@ -120,13 +133,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: width * 0.05,
   },
   backButton: {
-    marginRight: width * 0.05,
+    marginRight: width * 0.01,
   },
   headerText: {
     color: '#fff',
     fontSize: width * 0.045,
     fontWeight: 'bold',
     textAlign: 'center',
+    fontFamily: 'Philosopher_700Bold',
   },
   emptyView: {
     width: width * 0.05,
@@ -143,7 +157,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     alignSelf: 'center',
     marginBottom: height * 0.02, // Reduced marginBottom
-    top:-60,
+    top:-65,
   },
   infoSection: {
     width: width * 0.85,
@@ -159,8 +173,9 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: width * 0.045,
     marginBottom: height * 0.02,
-    textAlign: '',
-    top: -25,
+    textAlign: 'left',
+    top: -20,
+    fontFamily: 'Nunito_400Regular',
   },
   inputContainer: {
     width: width * 0.75,
@@ -224,7 +239,7 @@ const styles = StyleSheet.create({
     left: '20%',
   },
   icon7: {
-    top: '50%',
+    top: '55%',
     right: '20%',
   },
   icon8: {

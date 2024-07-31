@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, Image, Dimensions } from 'react-native';
+import { useFonts, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
 
 const helpIcon = require('./../../assets/help.png');
 const exitIcon = require('./../../assets/exit.png');
@@ -7,16 +8,16 @@ const exitIcon = require('./../../assets/exit.png');
 const { width } = Dimensions.get('window');
 
 const Footer = () => {
+  const [fontsLoaded] = useFonts({
+    Philosopher_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return null; // or a loading spinner
+  }
+
   return (
     <View style={styles.footer}>
-      <TouchableOpacity style={styles.button}>
-        <Image
-          source={helpIcon}
-          style={styles.image}
-          resizeMode="contain"
-        />
-        <Text style={styles.buttonText}>Тусламж</Text>
-      </TouchableOpacity>
       <TouchableOpacity style={styles.button}>
         <Image
           source={exitIcon}
@@ -28,6 +29,7 @@ const Footer = () => {
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   footer: {

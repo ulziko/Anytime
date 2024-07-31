@@ -26,10 +26,13 @@ export default function Start() {
             <ImageBackground className="flex-1" source={null}>
                 <SafeAreaView className="flex-1">
                     <TouchableOpacity 
-                        className='absolute top-[45%] left-[6%]'
+                        className='flex items-center justify-center content-center'
                         onPress={() => navigation.navigate("Login")}
                     >
-                        <Image source={anytimeIcon}/>
+                        <Image 
+                            source={anytimeIcon}
+                            className='my-[40vh]'
+                        />
                     </TouchableOpacity>
                     <Image source={Icon1} className="absolute w-[10vw] h-[5vh] top-[10%] left-[10%]" />
                     <Image source={Icon2} className="absolute w-[5vw] h-[3vh] top-[20%] right-[40%]" />

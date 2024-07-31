@@ -1,97 +1,121 @@
-import { View, Text, TouchableOpacity, Image, TextInput, Alert } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, TouchableOpacity, Image, TextInput, Alert, Pressable, Platform } from 'react-native'
+import React, { useState, useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {ArrowLeftIcon} from 'react-native-heroicons/solid';
 import {ArrowRightIcon} from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import RegisterHeader from './components/RegisterHeader';
 import { themeColors } from '../../theme';
+import Textt from './components/Textt';
+import Input from './components/Input';
 
-export default function Register_1(){
+export default function Register_2(){
     const navigation = useNavigation();
     const [bday, setBday] = useState('');
     const [weight, setWeight] = useState('');
     const [height, setHeight] = useState('');
 
+    const [date, setDate] = useState(new Date());
+    const [showPicker, setShowPicker] = useState(false);
+
+    const toggleDatePicker = () => {
+        setShowPicker(!showPicker)
+    };
+
+    const onChange = ({ type }, selectedDate) => {
+        if (type == 'set'){
+            const currentDate = selectedDate;
+            setDate(currentDate);
+            toggleDatePicker();
+            setBday(currentDate.toDateString());
+        } else {
+            toggleDatePicker();
+        }
+    };
+
+    const inputs = [
+        // {
+        //     label: "Төрсөн он сар өдөр",
+        //     value: bday,
+        //     onChangeText: setBday,
+        // },
+        {
+            label: "Биеийн жин",
+            value: weight,
+            onChangeText: setWeight,
+        },
+        {
+            label: "Нууц үгээ давтах",
+            value: height,
+            onChangeText: setHeight,
+        },
+    ];
+
+    const textt = [
+        {
+            label: " Мэдээллээ оруулна уу",
+        },
+    ];
+
     return (
         <View className="flex-1 bg-purple-600">
-            <View className="bg-black rounded-b-2xl" style={{height: 280}}>
-                <SafeAreaView className="flex">
-                    <View  className="flex-row justify-center py-12">
-                        <Image 
-                        className='mt-8'
-                        source={require('../../assets/logo.png')} 
-                        style={{width: 200, height: 50}} />
-                    </View>
-                    <View className="flex-row justify-center pt-4">
-                        <TouchableOpacity onPress={()=> navigation.navigate('Login')}>
-                            <Text className="font-semibold text-purple-600"> Нэвтрэх</Text>
-                        </TouchableOpacity>
-                        <View className='flex-col items-end'>
-                            <TouchableOpacity className='pl-32' onPress={()=> navigation.navigate('Register1')}>
-                                <Text className="font-semibold text-purple-600"> Бүртгүүлэх</Text>
-                            </TouchableOpacity>
-                            <View 
-                                className='bg-purple-700 rounded-full ml-1 mt-1'
-                                style={{height: 3, width:68}}
-                            />
-                        </View>
-                    </View>
-                </SafeAreaView>
-            </View>
+            <RegisterHeader />
             <LinearGradient start={{x: 0, y: 0}} end={{x: 0, y: 1}} colors={['#9800FF', '#000000']} style={themeColors.grad}>
-            <View className="flex-1 px-8 pt-8">
-                <Text 
-                    className="text-white font-bold text-3xl text-center pb-8">
-                    Мэдээллээ оруулна уу
-                </Text>
-                <View className="form space-y-2">
-                    <Text className="text-white ml-4">Төрсөн он сар өдөр</Text>
-                    <TextInput
-                        className="p-5 bg-gray-100 rounded-2xl mb-3"
-                        value={bday}
-                        onChangeText={value=> setBday(value)}
-                    />
-                    <Text className="text-white ml-4">Биеийн жин</Text>
-                    <TextInput
-                        className="p-5 bg-gray-100 rounded-2xl mb-3"
-                        value={weight}
-                        onChangeText={value=> setWeight(value)}
-                    />
-                    <Text className="text-white ml-4">Биеийн өндөр</Text>
-                    <TextInput
-                        className="p-5 bg-gray-100 rounded-2xl mb-7"
-                        secureTextEntry
-                        value={height}
-                        onChangeText={value=> setHeight(value)}
-                    />
+            <View className="flex-1 px-[8vw] pt-[6vh]">
+                <Textt textt={textt}/>
+                <View className="pb-[2vh]">
+                    <Text className="pb-[1vh] text-white ml-[2vw]">Төрсөн он сар өдөр</Text>
+
+                    {showPicker && (
+                        <DateTimePicker
+                            mode='date'
+                            display='spinner'
+                            value={date}
+                            onChange={onChange}
+                        />
+                    )}
+
+                    {!showPicker && (
+                        <Pressable onPress={toggleDatePicker}>
+                            <TextInput
+                                className="p-[1.8vh] bg-gray-100 text-gray-700 rounded-2xl mb-[2vh]"
+                                value={bday}
+                                onChangeText={setBday}
+                                placeholder='MM/DD/YYYY'
+                                editable={false}
+                                // onPressIn={toggleDatePicker}
+                            />
+                        </Pressable>
+                    )}
+
+                    <Input inputs={inputs} />
                 </View>
-                <View className="flex-row justify-end">
+                <View className="flex-row justify-center">
                     <TouchableOpacity 
                         onPress={()=> navigation.goBack()}
-                        className="flex justify-center items-center bg-purple-600 rounded-3xl"
-                        style={{width: 80, height: 50}}
+                        className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
                     >
                         <ArrowLeftIcon size="20" color="white" />
                     </TouchableOpacity>
                     <Text 
-                        className="px-16"
+                        className="p-[8vh]"
                     >
 
                     </Text>
                     <TouchableOpacity 
                         onPress={()=> navigation.navigate('Register3')}
-                        className="flex justify-center items-center bg-purple-600 rounded-3xl"
-                        style={{width: 80, height: 50}}
+                        className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
                     >
                         <ArrowRightIcon size="20" color="white" />
                     </TouchableOpacity>
                 </View> 
-                <View className="flex-row justify-center mt-7">
+                {/* <View className="flex-row justify-center mt-7">
                     <TouchableOpacity onPress={()=> navigation.navigate('Login')}>
                         <Text className="font-semibold text-purple-600"> Нэвтрэх</Text>
                     </TouchableOpacity>
-                </View>
+                </View> */}
             </View>
             </LinearGradient>
         </View>

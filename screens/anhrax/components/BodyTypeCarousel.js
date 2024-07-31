@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   bodyImage: {
-    width: '150%',
+    width: '130%',
     height: width,
     resizeMode: 'contain',
   },

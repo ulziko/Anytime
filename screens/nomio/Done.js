@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, ImageBackground, SafeAreaView, Dimensions } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
+import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
+import { Philosopher_400Regular, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
 
 
 const anytimeIcon = require('../../assets/anytimeLogo.png'); 
@@ -23,6 +25,17 @@ const { width, height } = Dimensions.get('window');
 
 const Done = () => {
   const navigation = useNavigation(); 
+
+  const [fontsLoaded] = useFonts({
+    Nunito_400Regular,
+    Nunito_700Bold,
+    Philosopher_400Regular,
+    Philosopher_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return null; // or a loading spinner
+  }
 
   return (
     <View style={styles.container}>
@@ -63,7 +76,7 @@ const Done = () => {
           <View style={styles.footer}>
             <TouchableOpacity 
               style={styles.nextButton}
-              onPress={() => navigation.navigate('ProfileScreen')}
+              onPress={() => navigation.navigate('MainScreen')}
             >
               <Ionicons name="arrow-forward" size={24} color="white" />
             </TouchableOpacity>
@@ -108,13 +121,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: width * 0.05,
   },
   backButton: {
-    marginRight: width * 0.05,
+    marginRight: width * 0.01,
   },
   headerText: {
     color: '#fff',
     fontSize: width * 0.045,
     fontWeight: 'bold',
     textAlign: 'center',
+    fontFamily: 'Philosopher_700Bold',
   },
   emptyView: {
     width: width * 0.05,
@@ -131,17 +145,18 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     alignSelf: 'center',
     marginBottom: height * 0.02, // Reduced marginBottom
-    top:-50,
+    top:-65,
   },
   infoSection: {
     width: width * 0.85,
-    height: height * 0.35,
+    height: height * 0.30,
     paddingVertical: height * 0.09, 
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#3e206d',
     borderRadius: 20,
     paddingHorizontal: width * 0.05,
+    top: -40,
     
   },
   doneIcon: {
@@ -156,7 +171,8 @@ const styles = StyleSheet.create({
     fontSize: width * 0.045,
     marginBottom: height * 0.01,
     textAlign: 'center',
-    top: -100
+    top: -100,
+    fontFamily: 'Nunito_700Bold',
   },
 
   footer: {
@@ -169,6 +185,7 @@ const styles = StyleSheet.create({
     paddingVertical: height * 0.015,
     paddingHorizontal: width * 0.07,
     borderRadius: 40,
+    top: -70,
   },
   icon: {
     position: 'absolute',
