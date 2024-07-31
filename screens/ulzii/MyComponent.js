@@ -3,18 +3,16 @@ import Header from "./Header";
 import UserInfo from "./UserInfo";
 import Calendar from "./Calendar";
 import { useState } from 'react';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
-import WorkoutPlan from "./WorkoutPlan";
-import User from './User'
+import { StyleSheet, View } from 'react-native';
 import NoPlan from "./NoPlan";
 
 function MyComponent() {
   const [selectedDate, setSelectedDate] = useState(null);
-  const Ex_user= new  User("Тамир",23,170,57);
+
   return (
     <>
      <Header/>
-     <UserInfo  Name={Ex_user.Name}  Pro_pic={Ex_user.Pro_pic} Age={Ex_user.Age}   Height={Ex_user.Height}  Weight={Ex_user.Weight} />
+     <UserInfo />
      <View>
       <Calendar onSelectDate={setSelectedDate} selected={selectedDate} />
     </View>

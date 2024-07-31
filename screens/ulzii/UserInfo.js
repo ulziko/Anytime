@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useContext} from "react";
 import {
   StyleSheet,
   View,
@@ -7,13 +7,15 @@ import {
   Image,
   Dimensions,
 } from "react-native";
+import UserContext from "../../context/UserContext";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Fontisto } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("window");
 
-const UserInfo = ({ Name, Age, Height, Weight }) => {
+const UserInfo = () => {
+  const User=useContext(UserContext);
   return (
     // background image
     <ImageBackground
@@ -32,7 +34,7 @@ const UserInfo = ({ Name, Age, Height, Weight }) => {
           </View>
           <View style={styles.name}>
             <Text style={styles.greeting}>Тавтай морил!</Text>
-            <Text style={styles.userName}>{Name}</Text>
+            <Text style={styles.userName}>{User.name}</Text>
           </View>
         </View>
         <View style={styles.userDetails}>
@@ -40,7 +42,7 @@ const UserInfo = ({ Name, Age, Height, Weight }) => {
             <View style={styles.icon_base}>
               <FontAwesome name="balance-scale" size={20} color="#ffffff" />
             </View>
-            <Text style={styles.userDetail1}>{Weight}КГ</Text>
+            <Text style={styles.userDetail1}>{User.weight}КГ</Text>
             <Text style={styles.userDetail}>ЖИН</Text>
           </View>
           <View style={styles.userDetailContainer}>
@@ -51,14 +53,14 @@ const UserInfo = ({ Name, Age, Height, Weight }) => {
                 color="#ffffff"
               />
             </View>
-            <Text style={styles.userDetail1}>{Height}</Text>
+            <Text style={styles.userDetail1}>{User.height}</Text>
             <Text style={styles.userDetail}>ӨНДӨР</Text>
           </View>
           <View style={styles.userDetailContainer}>
             <View style={styles.icon_base}>
               <Fontisto name="heartbeat-alt" size={24} color="#ffffff" />
             </View>
-            <Text style={styles.userDetail1}>{Age}</Text>
+            <Text style={styles.userDetail1}>{User.age}</Text>
             <Text style={styles.userDetail}>НАС</Text>
           </View>
         </View>

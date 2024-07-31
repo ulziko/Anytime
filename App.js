@@ -1,9 +1,11 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import AppNavigation from './navigation/appNavigation';
+import {UserStore} from './context/UserContext';
 
 export default function App() {
   return (
-    <AppNavigation />
+    <UserStore>
+      <AppNavigation />
+    </UserStore>
   );
 }

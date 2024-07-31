@@ -56,13 +56,14 @@ const Date = ({ date, onSelectDate, selected }) => {
   const day =  moment(date).format('ddd')
   const dayNumber = moment(date).format('D')
   const fullDate = moment(date).format('YYYY-MM-DD')
+  const today =moment().format('YYYY-MM-DD')
   return (
     <TouchableOpacity
       onPress={() => onSelectDate(fullDate)}
-      style={[styles.card, selected === fullDate && { backgroundColor: "#9800ff" }]}
+      style={[styles.card, fullDate === today && { backgroundColor: "#9800ff" }]}
     >
       <Text
-        style={[styles.big, selected === fullDate && { color: "#fff" }]}
+        style={[styles.big, fullDate === today  && { color: "#fff" }]}
       >
         {day} 
       </Text>
@@ -70,7 +71,7 @@ const Date = ({ date, onSelectDate, selected }) => {
       <Text
         style={[
           styles.medium,
-          selected === fullDate && { color: "#fff", fontWeight: 'bold', fontSize: 24 },
+          today === fullDate && { color: "#fff", fontWeight: 'bold', fontSize: 24 },
         ]}
       >
         {dayNumber}
