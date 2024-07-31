@@ -1,36 +1,45 @@
 import { View, Text, TouchableOpacity, Image, TextInput, Alert } from 'react-native'
-import React, { useState } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import {ArrowLeftIcon} from 'react-native-heroicons/solid';
+import React, { useContext , useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { ArrowLeftIcon } from 'react-native-heroicons/solid';
 import {ArrowRightIcon} from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient'
-import { themeColors } from '../../theme'
+import { themeColors } from '../../theme';
 import Input from './components/Input'
 import RegisterHeader from './components/RegisterHeader';
 import Textt from './components/Textt';
+import UserContext from "../../context/UserContext";
 
-export default function Register_1(){
-    const navigation = useNavigation();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [password1, check] = useState('');
+export default function Register_1() {
+    // user object 
+    const User=useContext(UserContext);
+    const [tmp_pass01, setTmp_pass01]=useState(null);
+    const [tmp_pass02, setTmp_pass02]=useState(null);
+    const check= (pass01, pass02)=> {
+        if (pass01===pass02 ){
+            User.setPassword(pass01);
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
 
     const inputs = [
         {
             label: "Нэвтрэх нэр",
-            value: username,
-            onChangeText: setUsername,
+            value: User.name,
+            onChangeText: User.setName,
         },
         {
             label: "Нууц үг",
-            value: password,
-            onChangeText: setPassword,
+            value: tmp_pass01,
             secureTextEntry: true,
         },
         {
             label: "Нууц үгээ давтах",
-            value: password1,
+            value: tmp_pass02,
             onChangeText: check,
             secureTextEntry: true,
         },
@@ -53,7 +62,7 @@ export default function Register_1(){
                     </View>
                     <View className="flex-row justify-end">
                         <TouchableOpacity 
-                            onPress={()=> navigation.navigate('Register2')}
+                             onPress={()=> check(tmp_pass01,tmp_pass02)? navigation.navigate('Register2'): alert("enter again")}
                             className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
                         >
                             <ArrowRightIcon size="20" color="white" />

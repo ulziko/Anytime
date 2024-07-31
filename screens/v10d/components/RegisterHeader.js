@@ -5,7 +5,6 @@ import { useNavigation } from '@react-navigation/native';
 
 const RegisterHeader = () => {
     const navigation = useNavigation();
-
     return (
         <View className="bg-black rounded-b-2xl h-[33vh]">
                 <SafeAreaView className="flex">
