@@ -1,17 +1,28 @@
 import { View, Text, TouchableOpacity, Image, TextInput, Alert } from 'react-native'
-import React, { useState } from 'react'
+import React, { useContext , useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {ArrowLeftIcon} from 'react-native-heroicons/solid';
 import {ArrowRightIcon} from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient'
 import { themeColors } from '../../theme'
+import UserContext from "../../context/UserContext";
 
 export default function Register_1(){
+    // user object 
+    const User=useContext(UserContext);
     const navigation = useNavigation();
-    const [username, setUsername] = useState('');
-    const [password, check] = useState('');
-    const [password1, setPassword] = useState('');
+    const [tmp_pass01, setTmp_pass01]=useState(null);
+    const [tmp_pass02, setTmp_pass02]=useState(null);
+    const check= (pass01, pass02)=> {
+        if (pass01===pass02 ){
+            User.setPassword(pass01);
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
 
     return (
         <View className="flex-1 bg-purple-600">
@@ -48,26 +59,26 @@ export default function Register_1(){
                         <Text className="text-white ml-4">Нэвтрэх нэр</Text>
                         <TextInput
                             className="p-5 bg-gray-100 rounded-2xl mb-3"
-                            value={username}
-                            onChangeText={value=> setUsername(value)}
+                            value={User.name}
+                            onChangeText={value=> User.setName(value)}
                         />
                         <Text className="text-white ml-4">Нууц үг</Text>
                         <TextInput
                             className="p-5 bg-gray-100 rounded-2xl mb-3"
-                            value={password}
-                            onChangeText={value=> setPassword(value)}
+                            value={tmp_pass01}
+                            onChangeText={value=> setTmp_pass01(value)}
                         />
                         <Text className="text-white ml-4">Нууц үгээ давтах</Text>
                         <TextInput
                             className="p-5 bg-gray-100 rounded-2xl mb-7"
                             secureTextEntry
-                            value={password1}
-                            onChangeText={value=> check(value)}
+                            value={tmp_pass02}
+                            onChangeText={value=> setTmp_pass02(value)}
                         />
                     </View>
                     <View className="flex-row justify-end">
                         <TouchableOpacity 
-                            onPress={()=> navigation.navigate('Register2')}
+                            onPress={()=> check(tmp_pass01,tmp_pass02)? navigation.navigate('Register2'): alert("enter again")}
                             className="flex justify-center items-center bg-purple-600 rounded-3xl"
                             style={{width: 80, height: 50}}
                         >
