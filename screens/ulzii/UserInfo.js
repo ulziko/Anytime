@@ -22,7 +22,7 @@ const UserInfo = () => {
     return dateOne.diff(dateTwo, 'years', true);
 }
 // Function call
-  let age =parseInt( getYearDiff(moment(), (moment(User.bday))));
+  var age =parseInt( getYearDiff(moment(), (moment(User.bday))));
 
   return (
     // background image

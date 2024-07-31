@@ -8,7 +8,7 @@ const {height } = Dimensions.get('window');
 const Calendar = ({ onSelectDate, selected }) => {
   const [dates, setDates] = useState([])
 
-// get the dates from today to 7 days from now, format them as strings and store them in state
+// get the dates from today to 7 days from now
   const getDates = () => {
     const _dates = []
     for (let i = 0; i < 7; i++) {
