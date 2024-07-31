@@ -7,9 +7,11 @@ export const UserStore = (props) => {
   const [weight, setWeight] = useState(60);
   const [age, setAge] = useState(18);
   const [height, setHeight] = useState(170);
+  const [password, setPassword] = useState(null);
+
   return (
     <UserContext.Provider
-      value={{isLoggedIn,  SetIsLoggedIn, name, setName, weight, setWeight, age, setAge, height, setHeight}}
+      value={{isLoggedIn,  SetIsLoggedIn, name, setName, weight, setWeight, age, setAge, height, setHeight, password, setPassword}}
     >
       {props.children}
     </UserContext.Provider>

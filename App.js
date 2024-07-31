@@ -5,7 +5,7 @@ import {UserStore} from './context/UserContext';
 export default function App() {
   return (
     <UserStore>
-      <AppNavigation />
+      <AppNavigation/>
     </UserStore>
   );
 }

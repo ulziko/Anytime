@@ -1,15 +1,15 @@
 import { View, Text, TouchableOpacity, Image, TextInput } from 'react-native';
-import React, { useState } from 'react';
+import React, {useContext} from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { themeColors } from '../../theme';
+import UserContext from "../../context/UserContext";
+
 
 export default function Login() {
     const navigation = useNavigation();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-
+    const User=useContext(UserContext);
     return (
         <View className="flex-1 justify-center bg-purple-600">
             <View className="bg-black rounded-b-3xl h-[40vh]">
@@ -42,15 +42,15 @@ export default function Login() {
                         <Text className="text-white ml-[2vw]">Нэвтрэх нэр</Text>
                         <TextInput
                             className="p-[2.2vh] bg-gray-100 text-gray-700 rounded-2xl mb-[2vh]"
-                            value={username}
-                            onChangeText={value => setUsername(value)}
+                            value={User.name}
+                            onChangeText={value => User.setName(value)}
                         />
                         <Text className="text-white ml-[1vh]">Нууц үг</Text>
                         <TextInput
                             className="p-[2.2vh] bg-gray-100 text-gray-700 rounded-2xl"
                             secureTextEntry
-                            value={password}
-                            onChangeText={value => setPassword(value)}
+                            value={User.Password}
+                            onChangeText={value => User.setPassword(value)}
                         />
                         <TouchableOpacity className="flex items-end">
                             <Text className="text-purple-600 mb-5">Нууц үгээ мартсан уу?</Text>
