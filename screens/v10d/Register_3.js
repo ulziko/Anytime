@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, Image, TextInput, Alert } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {ArrowLeftIcon} from 'react-native-heroicons/solid';
 import {ArrowRightIcon} from 'react-native-heroicons/solid';
@@ -10,17 +10,17 @@ import { themeColors } from '../../theme';
 import Textt from './components/Textt';
 import Input from './components/Input';
 import Dropdown from './components/Dropdown';
+import UserContext from "../../context/UserContext";
 
 export default function Register_3(){
     const navigation = useNavigation();
-    const [question, setQuestion] = useState('');
-    const [answer, setAnswer] = useState('');
+    const User=useContext(UserContext);
 
     const inputs = [
         {
             label: "Баталгаажуулах асуултын хариу",
-            value: question,
-            onChangeText: setQuestion,
+            value: User.questionAnswer,
+            onChangeText: User.setQuestionAnswer,
         },
     ];
 
