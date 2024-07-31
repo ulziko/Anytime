@@ -1,12 +1,15 @@
 import React from 'react';
+import { StatusBar } from 'react-native';
 import AppNavigation from './navigation/appNavigation';
 import {UserStore} from './context/UserContext';
 
 export default function App() {
-  // nomioo check
   return (
-    <UserStore>
+    <>
+    <StatusBar barStyle="light-content"/>
+    <UserStore >
       <AppNavigation/>
     </UserStore>
+    </>
   );
 }
