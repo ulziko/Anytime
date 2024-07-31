@@ -10,10 +10,12 @@ import Input from './components/Input'
 import RegisterHeader from './components/RegisterHeader';
 import Textt from './components/Textt';
 import UserContext from "../../context/UserContext";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Register_1() {
     // user object 
     const User=useContext(UserContext);
+    const navigation = useNavigation();
     const [tmp_pass01, setTmp_pass01]=useState(null);
     const [tmp_pass02, setTmp_pass02]=useState(null);
     const check= (pass01, pass02)=> {
@@ -26,6 +28,15 @@ export default function Register_1() {
         }
     };
 
+    const save=()=>{
+        if (User.name!="default name") {
+            AsyncStorage.setItem("user_name", User.name);
+            AsyncStorage.setItem("user_password", User.password);
+        }
+        return true;
+    }
+
+    
     const inputs = [
         {
             label: "Нэвтрэх нэр",
@@ -35,12 +46,13 @@ export default function Register_1() {
         {
             label: "Нууц үг",
             value: tmp_pass01,
+            onChangeText: setTmp_pass01,
             secureTextEntry: true,
         },
         {
             label: "Нууц үгээ давтах",
             value: tmp_pass02,
-            onChangeText: check,
+            onChangeText: setTmp_pass02,
             secureTextEntry: true,
         },
     ];
@@ -62,7 +74,18 @@ export default function Register_1() {
                     </View>
                     <View className="flex-row justify-end">
                         <TouchableOpacity 
-                             onPress={()=> check(tmp_pass01,tmp_pass02)? navigation.navigate('Register2'): alert("enter again")}
+                             onPress={async () => {
+                                if (check(tmp_pass01, tmp_pass02)) {
+                                  try {
+                                    await save();
+                                    navigation.navigate('Register2');
+                                  } catch (error) {
+                                    alert("Error saving data");
+                                  }
+                                } else {
+                                  alert("Enter again");
+                                }
+                              }}
                             className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
                         >
                             <ArrowRightIcon size="20" color="white" />

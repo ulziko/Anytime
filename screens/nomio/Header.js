@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useContext} from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, Alert } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
@@ -6,10 +6,12 @@ import { useProfileImage } from './ProfileImageContext';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as ImagePicker from 'expo-image-picker';
 import { useFonts, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
+import UserContext from "../../context/UserContext";
 
 const { width } = Dimensions.get('window');
 
 const Header = () => {
+  const User=useContext(UserContext);
   const navigation = useNavigation();
   const { profileImage, setProfileImage } = useProfileImage();
 
@@ -65,7 +67,7 @@ const Header = () => {
         <TouchableOpacity style={styles.iconContainer} onPress={pickImage}>
           <MaterialCommunityIcons name="camera-flip" size={23} color="#fff" />
         </TouchableOpacity>
-        <Text style={styles.profileName}>Ганболд</Text>
+        <Text style={styles.profileName}>{User.name}</Text>
       </View>
     </LinearGradient>
   );

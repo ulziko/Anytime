@@ -1,4 +1,4 @@
-import React , {useContext} from "react";
+import React , {useContext, useState} from "react";
 import {
   StyleSheet,
   View,
@@ -11,11 +11,19 @@ import UserContext from "../../context/UserContext";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Fontisto } from "@expo/vector-icons";
+import moment from 'moment';
 
-const { width, height } = Dimensions.get("window");
+const { height } = Dimensions.get("window");
 
 const UserInfo = () => {
+  //user info
   const User=useContext(UserContext);
+  function getYearDiff(dateOne, dateTwo) {
+    return dateOne.diff(dateTwo, 'years', true);
+}
+// Function call
+  let age =parseInt( getYearDiff(moment(), (moment(User.bday))));
+
   return (
     // background image
     <ImageBackground
@@ -60,7 +68,7 @@ const UserInfo = () => {
             <View style={styles.icon_base}>
               <Fontisto name="heartbeat-alt" size={24} color="#ffffff" />
             </View>
-            <Text style={styles.userDetail1}>{User.age}</Text>
+            <Text style={styles.userDetail1}>{age}</Text>
             <Text style={styles.userDetail}>НАС</Text>
           </View>
         </View>

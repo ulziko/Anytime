@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, Image, TextInput, Alert, Pressable, Platform } from 'react-native'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {ArrowLeftIcon} from 'react-native-heroicons/solid';
 import {ArrowRightIcon} from 'react-native-heroicons/solid';
@@ -10,15 +10,16 @@ import RegisterHeader from './components/RegisterHeader';
 import { themeColors } from '../../theme';
 import Textt from './components/Textt';
 import Input from './components/Input';
+import UserContext from "../../context/UserContext";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Register_2(){
     const navigation = useNavigation();
-    const [bday, setBday] = useState('');
-    const [weight, setWeight] = useState('');
-    const [height, setHeight] = useState('');
-
     const [date, setDate] = useState(new Date());
     const [showPicker, setShowPicker] = useState(false);
+
+    //user info 
+    const User=useContext(UserContext);
 
     const toggleDatePicker = () => {
         setShowPicker(!showPicker)
@@ -29,7 +30,7 @@ export default function Register_2(){
             const currentDate = selectedDate;
             setDate(currentDate);
             toggleDatePicker();
-            setBday(currentDate.toDateString());
+            User.setBday(currentDate.toDateString());
         } else {
             toggleDatePicker();
         }
@@ -43,13 +44,13 @@ export default function Register_2(){
         // },
         {
             label: "Биеийн жин",
-            value: weight,
-            onChangeText: setWeight,
+            value: User.weight,
+            onChangeText: User.setWeight,
         },
         {
             label: "Нууц үгээ давтах",
-            value: height,
-            onChangeText: setHeight,
+            value:User.height,
+            onChangeText: User.setHeight,
         },
     ];
 
@@ -81,8 +82,8 @@ export default function Register_2(){
                         <Pressable onPress={toggleDatePicker}>
                             <TextInput
                                 className="p-[1.8vh] bg-gray-100 text-gray-700 rounded-2xl mb-[2vh]"
-                                value={bday}
-                                onChangeText={setBday}
+                                value={User.bday}
+                                onChangeText={User.setBday}
                                 placeholder='MM/DD/YYYY'
                                 editable={false}
                                 // onPressIn={toggleDatePicker}
