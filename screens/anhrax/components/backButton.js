@@ -17,14 +17,14 @@ const BackButton = () => {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    top: '10%',
+    top: width < 800 ? 80 : 100,
     left: '10%',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
   },
   image: {
-    width: 30,
-    height: 30,
+    width: width < 800 ? 30 : 50,
+    height: width < 800 ? 30 : 50,
     resizeMode: 'contain',
   },
   text: {
