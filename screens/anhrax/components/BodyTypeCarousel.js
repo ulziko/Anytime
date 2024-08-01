@@ -60,26 +60,27 @@ const BodyTypeCarousel = () => {
 const styles = StyleSheet.create({
   carouselContainer: {
     alignItems: 'center',
-    marginBottom: width * 0.8,
-    paddingHorizontal: 20,
+    marginBottom: width < 800 ? height * 0.47 : height * 0.34,
+    left: width < 800 ? 160 : 0,
+    paddingHorizontal: width < 800 ? 20 : 20,
   },
   bodyContainer: {
     width: width * 0.7,
     alignItems: 'center',
+    right: width < 800 ? 150 : 0,
   },
   bodyImage: {
-    width: '130%',
-    height: width,
+    width: width < 800 ? '110%' : '100%',
+    height: height * 0.4,
     resizeMode: 'contain',
   },
   textContainer: {
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 0,
   },
   text: {
     color: '#FFFFFF',
-    fontSize: 12,
-    fontFamily: 'Nunito_700Bold',
+    fontSize: width * 0.04,
   },
 });
 
