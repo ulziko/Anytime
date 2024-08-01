@@ -5,7 +5,6 @@ import UserContext from "../../../context/UserContext";
 
 const Dropdown = () => {
   const User=useContext(UserContext);
-
   return(
     <View className='h-full w-full border-none text-gray-700'>
       {/* <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps="handled"> */}

@@ -22,7 +22,6 @@ const InfoSection = () => {
     password: 'Нууц үг солих'
   });
 
-  const [newDateOfBirth, setNewDateOfBirth] = useState('');
   const [newWeight, setNewWeight] = useState('');
   const [newHeight, setNewHeight] = useState('');
 
@@ -54,7 +53,7 @@ const InfoSection = () => {
     let formattedValue = value;
     if (field === 'dateOfBirth') {
       formattedValue = formatDate(value);
-      setNewDateOfBirth(formattedValue);
+      User.setBday(formattedValue);
     } else if (field === 'weight') {
       formattedValue = value.replace(/[^0-9]/g, '');
       if (formattedValue.length > 3) {
@@ -77,15 +76,15 @@ const InfoSection = () => {
   const formatDate = (date) => {
     const cleaned = date.replace(/\D/g, '');
     let formatted = '';
-    if (cleaned.length <= 2) {
+    
+    if (cleaned.length <= 4) {
       formatted = cleaned;
-    } else if (cleaned.length <= 4) {
-      formatted = `${cleaned.slice(0, 2)}-${cleaned.slice(2)}`;
     } else if (cleaned.length <= 6) {
-      formatted = `${cleaned.slice(0, 2)}-${cleaned.slice(2, 4)}-${cleaned.slice(4)}`;
+      formatted = `${cleaned.slice(0, 4)}-${cleaned.slice(4)}`;
     } else {
-      formatted = `${cleaned.slice(0, 2)}-${cleaned.slice(2, 4)}-${cleaned.slice(4, 8)}`;
+      formatted = `${cleaned.slice(0, 4)}-${cleaned.slice(4, 6)}-${cleaned.slice(6, 8)}`;
     }
+    
     return formatted;
   };
 
@@ -102,7 +101,7 @@ const InfoSection = () => {
           onChangeText={(text) => handleChange(field, text)}
           onBlur={() => setEditingField(null)}
           placeholder={
-            field === 'dateOfBirth' ? 'Өдөр-Сар-Он' :
+            field === 'dateOfBirth' ? 'Он-сар-өдөр' :
             field === 'weight' ? 'Жин' :
             field === 'height' ? 'Өндөр' : ''
           }
