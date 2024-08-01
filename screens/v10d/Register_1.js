@@ -1,7 +1,5 @@
 import { View, Text, TouchableOpacity, Image, TextInput, Alert } from 'react-native'
 import React, { useContext , useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { ArrowLeftIcon } from 'react-native-heroicons/solid';
 import {ArrowRightIcon} from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient'
@@ -39,13 +37,14 @@ export default function Register_1() {
                 return false;
             }
         }
-        return true;
+        return false;
     };
     
     const inputs = [
         {
             label: "Нэвтрэх нэр",
             value: User.name,
+            defaultValue:'Нэрээ оруул.',
             onChangeText: User.setName,
         },
         {

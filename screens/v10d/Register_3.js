@@ -29,14 +29,28 @@ export default function Register_3(){
             label: " Мэдээллээ оруулна уу",
         },
     ];
-
+    // sync process
+    const save = async () => {
+        if (User.name !== "default name") {
+            try {
+                await AsyncStorage.setItem("user_age", User.bday);
+                await AsyncStorage.setItem("user_weight", User.weight);
+                return true;
+            } catch (error) {
+                console.error("Error saving data", error);
+                return false;
+            }
+        }
+        return true;
+    };
+    
     return (
         <View className="flex-1 bg-purple-600">
             <RegisterHeader />
             <LinearGradient start={{x: 0, y: 0}} end={{x: 0, y: 1}} colors={['#9800FF', '#000000']} style={themeColors.grad}>
             <View className="flex-1 px-[8vw] pt-[6vh]">
                 <Textt textt={textt}/>
-                <View className="form space-y-2">
+                <View className="form space-y-2 items-center">
                     <Text className="text-white ml-[2vw]">Баталгаажуулах асуултаа сонгоно уу?</Text>
                     <View 
                         className='w-[76vw] h-[6vh] flex-row justify-start items-center  bg-gray-100 rounded-2xl z-20'
@@ -75,7 +89,24 @@ export default function Register_3(){
 
                     </Text>
                     <TouchableOpacity 
-                        onPress={()=> navigation.navigate('Register4')}
+                        onPress={async () => {
+                            if (check(tmp_pass01, tmp_pass02)) {
+                                try {
+                                    const saveResult = await save();
+                                    if (saveResult) {
+                                        navigation.navigate('Register2');
+                                    } else {
+                                        alert("Error saving data");
+                                    }
+                                } catch (error) {
+                                    alert("Error during save or navigation");
+                                    console.error("Error:", error);
+                                }
+                            } else {
+                                alert("Passwords do not match. Enter again");
+                            }
+                        }}
+                        
                         className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
                     >
                         <ArrowRightIcon size="20" color="white" />
