@@ -42,17 +42,17 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#9800ff',
-    fontSize: 38,
+    fontSize: width < 800 ? 36 : 64,
     fontWeight: 'bold',
     marginVertical: 150,
-    marginBottom: 40,
-    fontFamily: 'Philosopher_700Bold',
+    top: width < 800 ? 0 : 20,
+    marginBottom: width < 800 ? 40 : 20,
   },
   footerText: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: width * 0.04,
     marginVertical: '-70%',
-    fontFamily: 'Nunito_700Bold',
+    top: width < 800 ? 0 : 200,
   },
 });
 
