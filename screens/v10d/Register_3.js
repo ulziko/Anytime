@@ -49,7 +49,7 @@ export default function Register_3(){
                         />
                     </View>
                 </View>
-                <View className='flex justify-center items-center py-[2vh] m-[2vh] text-xs mt-[3vh]'>
+                <View className='flex justify-center items-center py-[2vh] m-[2vh] text-xs mt-[3vh] -z-10'>
                     <Text 
                         className="text-gray-100"
                     >

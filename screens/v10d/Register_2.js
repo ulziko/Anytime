@@ -48,7 +48,7 @@ export default function Register_2(){
             onChangeText: User.setWeight,
         },
         {
-            label: "Нууц үгээ давтах",
+            label: "Биеийн өндөр",
             value:User.height,
             onChangeText: User.setHeight,
         },
