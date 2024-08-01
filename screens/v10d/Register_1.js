@@ -74,18 +74,18 @@ export default function Register_1() {
                     </View>
                     <View className="flex-row justify-end">
                         <TouchableOpacity 
-                             onPress={async () => {
-                                if (check(tmp_pass01, tmp_pass02)) {
-                                  try {
-                                    await save();
-                                    navigation.navigate('Register2');
-                                  } catch (error) {
-                                    alert("Error saving data");
-                                  }
-                                } else {
-                                  alert("Enter again");
-                                }
-                              }}
+                                onPress={async () => {
+                                    if (check(tmp_pass01, tmp_pass02)) {
+                                    try {
+                                        await save();
+                                        navigation.navigate('Register2');
+                                    } catch (error) {
+                                        alert("Error saving data");
+                                    }
+                                    } else {
+                                    alert("Enter again");
+                                    }
+                                }}
                             className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
                         >
                             <ArrowRightIcon size="20" color="white" />
