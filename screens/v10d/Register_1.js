@@ -28,14 +28,19 @@ export default function Register_1() {
         }
     };
 
-    const save=()=>{
-        if (User.name!="default name") {
-            AsyncStorage.setItem("user_name", User.name);
-            AsyncStorage.setItem("user_password", User.password);
+    const save = async () => {
+        if (User.name !== "default name") {
+            try {
+                await AsyncStorage.setItem("user_name", User.name);
+                await AsyncStorage.setItem("user_password", User.password);
+                return true;
+            } catch (error) {
+                console.error("Error saving data", error);
+                return false;
+            }
         }
         return true;
-    }
-
+    };
     
     const inputs = [
         {
@@ -80,7 +85,7 @@ export default function Register_1() {
                                     await save();
                                     navigation.navigate('Register2');
                                   } catch (error) {
-                                    alert("Error saving data");
+                                    alert("Error on navigation");
                                   }
                                 } else {
                                   alert("Enter again");

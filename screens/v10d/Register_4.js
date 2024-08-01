@@ -41,7 +41,7 @@ export default function Register_4() {
                                     className="absolute top-[-100px] transform -translate-y-1/2"
                                     style={{ resizeMode: 'contain', marginBottom: height * 0.02, height: height*0.22 }}
                                 />
-                                <Text className="text-3xl mb-[0.2vh] text-center text-purple-600">Таны нууц үг амжилттай солигдлоо.</Text>
+                                <Text className="text-3xl mb-[0.2vh] text-center text-purple-600">Та амжилттай нэвтэрлээ.</Text>
                             </View>
                         </TouchableOpacity>
                     </View>

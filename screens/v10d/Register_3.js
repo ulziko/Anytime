@@ -43,7 +43,7 @@ export default function Register_3(){
                     >
                         <Dropdown />
                     </View>
-                    <View className='pt-[2vh]'>
+                    <View className='pt-[2vh] w-[76vw]'>
                         <Input 
                             inputs={inputs} 
                         />
