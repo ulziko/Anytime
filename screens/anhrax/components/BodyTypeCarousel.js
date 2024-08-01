@@ -27,7 +27,6 @@ const BodyTypeCarousel = () => {
 
   const handlePress = (id) => {
     navigation.navigate('OtherPage', { id });
-    
   };
     
 

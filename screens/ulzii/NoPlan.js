@@ -36,6 +36,8 @@ const { height } = Dimensions.get('window');
 const NoPlan = () => {
   const navigation = useNavigation();
 
+
+
   return (
     <View style={styles.noPlanContainer}>
       <View style={styles.addButton}>

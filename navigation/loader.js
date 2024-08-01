@@ -26,11 +26,13 @@ const Loader = () => {
     Philosopher_400Regular,
     Philosopher_700Bold,
   });
-
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.navigate('FitnessApp');
     }, 5000); // 5 seconds
+
+    
 
     return () => clearTimeout(timer); // Cleanup timer on component unmount
   }, [navigation]);
@@ -52,7 +54,7 @@ const Loader = () => {
               style={styles.anytimeIcon}
             />
           </TouchableOpacity>
-          <Text style={styles.text}>Таны төлөвлөгөөг  боловсруулж {'\n'}  байна...</Text>
+          <Text style={styles.text}>Таны төлөвлөгөөг боловсруулж {'\n'}  байна...</Text>
           <Image source={Icon1} style={[styles.icon, { top: '10%', left: '10%' }]} />
           <Image source={Icon2} style={[styles.icon, { top: '20%', right: '40%' }]} />
           <Image source={Icon3} style={[styles.icon, { top: '10%', right: '15%' }]} />
