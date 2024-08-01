@@ -6,7 +6,6 @@ import UserContext from "../../../context/UserContext";
 const Dropdown = () => {
   const User=useContext(UserContext);
   const [category, setCategory] = useState("");
-  const [subCategory, setSubCategory] = useState("");
 
   const categories = [
     {key:'1', value:'Таны анхны хайрын нэр?'},

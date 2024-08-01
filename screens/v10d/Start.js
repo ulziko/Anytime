@@ -1,12 +1,24 @@
 import { View, Text, Image, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
-import React from 'react';
+import React, { useContext } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
+import { useState } from 'react';
+import UserContext from "../../context/UserContext";
 
 const { width, height } = Dimensions.get('screen');
 
 export default function Start() {
+    const User = useContext(UserContext);
     const navigation = useNavigation();
+
+    const handlePress = () => {
+        if (User.isLoggedIn) {
+            navigation.navigate("Home");
+        } else {
+            navigation.navigate("Login")
+        }
+    };
+
     const anytimeIcon = require('../../assets/logo.png'); 
     const Icon1 = require('../../assets/icon1.png');
     const Icon2 = require('../../assets/icon2.png');
@@ -27,7 +39,7 @@ export default function Start() {
                 <SafeAreaView className="flex-1">
                     <TouchableOpacity 
                         className='flex items-center justify-center content-center'
-                        onPress={() => navigation.navigate("Login")}
+                        onPress={handlePress}
                     >
                         <Image 
                             source={anytimeIcon}
