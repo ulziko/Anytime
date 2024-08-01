@@ -14,19 +14,19 @@ const Light = () => {
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
-        top: 550,
-        left: -200,
+        top: height * 0.45,
+        left: -width * 0.2,
         zIndex: -2,
-        width: '100%',
-        height: '100%',
+        width: width * 1.5,
+        height: height * 1.5,
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
     },
     image: {
-        width: 800,
-        height: 800,
+        width: width * 1.5,
+        height: height * 1.5,
         position: 'absolute',
-        top: 40,
+        top: height * 0.05,
         left: 0,
         zIndex: 0
     },
