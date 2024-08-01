@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, FlatList, Dimensions, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import TwoButton from './TwoButton'; // Assuming backButton.js is in the same directory
+import TwoButton from './TwoButton';
 
-const { width } = Dimensions.get('window'); // Extract width outside the component
+const { width } = Dimensions.get('window');
 
 const BodyTypeCarousel = () => {
-  const [sex, setSex] = useState(2); // Default value is 2
+  const [sex, setSex] = useState(2);
   const navigation = useNavigation();
 
   const bodyTypes = sex === 1
