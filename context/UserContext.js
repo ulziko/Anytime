@@ -12,8 +12,8 @@ export const UserStore = (props) => {
   const questions_obj = [
     {key:'1', value:'Таны анхны хайрын нэр?'},
     {key:'2', value:'Та биеийнхээ аль хэсэгт хамгийн их дуртай вэ?'},
-    {key:'3', value:'Хамгийн дуртай хичээл тань юу байсан бэ? '},
-    {key:'4', value:'Хамгийн анхны үзсэн Анимэ хүүхэлдэйн  нэр?'},
+    {key:'3', value:'Хамгийн дуртай хичээл юу байсан бэ? '},
+    {key:'4', value:'Хамгийн анхны үзсэн Анимэ хүүхэлдэйн нэр?'},
   ];
   const [questionKey, setQuestionKey]=useState(null);
 
