@@ -39,7 +39,7 @@ export default function Register_3(){
                 <View className="form space-y-2">
                     <Text className="text-white ml-[2vw]">Баталгаажуулах асуултаа сонгоно уу?</Text>
                     <View 
-                        className='w-[76vw] h-[6vh] flex-row justify-start items-center  bg-gray-100 rounded-2xl z-10'
+                        className='w-[76vw] h-[6vh] flex-row justify-start items-center  bg-gray-100 rounded-2xl z-20'
                     >
                         <Dropdown />
                     </View>
