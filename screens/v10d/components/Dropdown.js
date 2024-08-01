@@ -5,18 +5,6 @@ import UserContext from "../../../context/UserContext";
 
 const Dropdown = () => {
   const User=useContext(UserContext);
-<<<<<<< HEAD
-  const [category, setCategory] = useState("");
-
-  const categories = [
-    {key:'1', value:'Таны анхны хайрын нэр?'},
-    {key:'2', value:'Та биеийнхээ аль хэсэгт хамгийн их дуртай вэ?'},
-    {key:'3', value:'Хамгийн дуртай хичээл тань юу байсан бэ? '},
-    {key:'4', value:'Хамгийн анхны үзсэн Анимэ хүүхэлдэйн  нэр?'},
-  ];
-=======
->>>>>>> 724797a7c539a04cd78ddacce91adeb166a317f0
-
   return(
     <View className='h-full w-full border-none text-gray-700'>
       {/* <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps="handled"> */}

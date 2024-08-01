@@ -25,6 +25,7 @@ const { width, height } = Dimensions.get('window');
 const Question = () => {
   const navigation = useNavigation(); 
   const User=useContext(UserContext);
+  const index= User.questionKey;
   const [fontsLoaded] = useFonts({
     Nunito_400Regular,
     Nunito_700Bold,
@@ -63,7 +64,7 @@ const Question = () => {
 
             {/* Information Section */}
             <View style={styles.infoSection}>
-              <Text style={styles.questionText}>{User.questions_obj[User.questionKey].value}</Text>
+              <Text style={styles.questionText}>{User.questions_obj[index].value}</Text>
               <View style={styles.inputContainer}>
                 <TextInput 
                   placeholder="хариулт"

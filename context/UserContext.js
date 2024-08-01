@@ -15,7 +15,7 @@ export const UserStore = (props) => {
     {key:'2', value:'Хамгийн дуртай хичээл юу байсан бэ? '},
     {key:'3', value:'Хамгийн анхны үзсэн Анимэ хүүхэлдэйн нэр?'},
   ];
-  const [questionKey, setQuestionKey]=useState(null);
+  const [questionKey, setQuestionKey]=useState(0);
 
   return (
     <UserContext.Provider
