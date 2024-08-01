@@ -14,17 +14,17 @@ const Arrow = () => {
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
-        top: 650,
-        left: 150,
+        top: width < 800 ? 650 : '75%',
+        left: width < 800 ? 190 : '40%',
         zIndex: -1,
-        width: '100%',
+        width: width < 800 ? '100%' : '150%',
         height: '100%',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
     },
     image: {
-        width: 100,
-        height: 100,
+        width: width < 800 ? '10%' : '10%',
+        height: width < 800 ? '10%' : '10%',
         position: 'absolute',
         top: 90,
         left: 0,
