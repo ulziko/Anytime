@@ -28,7 +28,7 @@ function NavigationButton() {
     }
 
     return (
-      <AntDesign name={icon} size={24} color={routeName === selectedTab ? '#9800FF' : 'gray'} />
+      <AntDesign name={icon} size={24} color='gray' />
     );
   };
 
@@ -62,7 +62,6 @@ function NavigationButton() {
         <Animated.View style={styles.btnCircleUp}>
           <TouchableOpacity
             style={styles.button}
-            onPress={() => Alert.alert('Click Action')}
           >
             <AntDesign name={'home'} color="#9800FF" size={25} />
           </TouchableOpacity>
