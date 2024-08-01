@@ -27,7 +27,9 @@ const BodyTypeCarousel = () => {
 
   const handlePress = (id) => {
     navigation.navigate('OtherPage', { id });
+    
   };
+    
 
   const renderItem = ({ item }) => (
     <TouchableOpacity style={[styles.bodyContainer, { marginHorizontal: item.margin }]} onPress={() => handlePress(item.id)}>
