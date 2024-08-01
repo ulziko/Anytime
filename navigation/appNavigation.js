@@ -20,10 +20,11 @@ import Done from '../screens/nomio/Done';
 import Detail from "../screens/enkheelei/Detail";
 import ProfileScreen from "../screens/v10d/ProfileScreen";
 import { ProfileImageProvider } from '../screens/nomio/ProfileImageContext';
+import UserContext from "../context/UserContext";
 
 const Stack = createNativeStackNavigator();
 
-export default function AppNavigation(){
+export default function AppNavigation(){    
     return(
         <ProfileImageProvider>
         <NavigationContainer>

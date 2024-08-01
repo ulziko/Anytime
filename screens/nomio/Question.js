@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, ImageBackground, SafeAreaView, Dimensions } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
 import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
 import { Philosopher_400Regular, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
-
+import UserContext from '../../context/UserContext';
 
 const anytimeIcon = require('./../../assets/anytimeLogo.png'); 
 const Icon1 = require('./../../assets/icon1.png');
@@ -24,7 +24,7 @@ const { width, height } = Dimensions.get('window');
 
 const Question = () => {
   const navigation = useNavigation(); 
-
+  const User=useContext(UserContext);
   const [fontsLoaded] = useFonts({
     Nunito_400Regular,
     Nunito_700Bold,
@@ -63,7 +63,7 @@ const Question = () => {
 
             {/* Information Section */}
             <View style={styles.infoSection}>
-              <Text style={styles.questionText}>Таны тэжээж байсан анхны амьтан?</Text>
+              <Text style={styles.questionText}>"questin goes here"</Text>
               <View style={styles.inputContainer}>
                 <TextInput 
                   placeholder="хариулт"

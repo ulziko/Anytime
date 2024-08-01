@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useState , useContext} from "react";
 import { View, Text, TouchableOpacity, TextInput, ScrollView } from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
+import UserContext from "../../../context/UserContext";
 
 const Dropdown = () => {
-
+  const User=useContext(UserContext);
   const [category, setCategory] = useState("");
   const [subCategory, setSubCategory] = useState("");
 
   const categories = [
-    {key:'1', value:'Tmp'},
-    {key:'2', value:'v10d'},
-    {key:'3', value:'Lztgs'},
-    {key:'4', value:'ttt'},
-    {key:'5', value:'kkkk'},
+    {key:'1', value:'Таны анхны хайрын нэр?'},
+    {key:'2', value:'Та биеийнхээ аль хэсэгт хамгийн их дуртай вэ?'},
+    {key:'3', value:'Хамгийн дуртай хичээл тань юу байсан бэ? '},
+    {key:'4', value:'Хамгийн анхны үзсэн Анимэ хүүхэлдэйн  нэр?'},
   ];
 
   return(
@@ -20,10 +20,10 @@ const Dropdown = () => {
       {/* <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps="handled"> */}
         {/* <View >  */}
       <SelectList
-        setSelected={setCategory}
-        data={categories}
-        placeholder={"Tmp"}
-        defaultOption={{key:'1', value:'Tmp'}}
+        setSelected={User.setQuestionKey}
+        data={User.questions_obj}
+        placeholder={" "}
+        defaultOption={User.questions_obj[0]}
         boxStyles={{ backgroundColor: 'white', borderRadius: 15, height: 60 }}
         inputStyles={{ color: 'black', fontSize: 18, textAlign: 'center', paddingTop: 4}}
         dropdownStyles={{ backgroundColor: 'white', height: 240}}

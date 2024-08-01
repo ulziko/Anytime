@@ -74,7 +74,10 @@ const UserInfo = () => {
         </View>
       </View>
       <View style={styles.quote}>
-        <Text style={styles.motto}>
+        <Text 
+          style={styles.motto}
+          className='text-2xl'
+        >
           Дасгал хөдөлгөөн нь{"\n"}эрүүл амьдралын{"\n"}
           <Text style={[styles.motto, { color: "#9800FF" }]}>үндэс</Text>
         </Text>
@@ -165,11 +168,13 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   motto: {
-    fontSize: height * 0.035,
+    // fontSize: height * 0.028,
     color: "#fff",
     margin: height * 0.018,
     paddingLeft: "3%",
     textAlign: "left",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

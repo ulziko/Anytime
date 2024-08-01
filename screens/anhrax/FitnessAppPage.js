@@ -7,7 +7,7 @@ import Arrow from './components/Arrow';
 import Light from './components/light';
 import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
 import { Philosopher_400Regular, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
-import AppLoading from 'expo-app-loading';
+// import AppLoading from 'expo-app-loading';
 
 function FitnessAppPage() {
   let [fontsLoaded] = useFonts({
@@ -17,9 +17,9 @@ function FitnessAppPage() {
     Philosopher_700Bold,
   });
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
+  // if (!fontsLoaded) {
+  //   return <AppLoading />;
+  // }
 
   return (
     <View style={styles.container}>
