@@ -63,7 +63,7 @@ const Question = () => {
 
             {/* Information Section */}
             <View style={styles.infoSection}>
-              <Text style={styles.questionText}>User.questionKey.value</Text>
+              <Text style={styles.questionText}>{User.questions_obj[User.questionKey].value}</Text>
               <View style={styles.inputContainer}>
                 <TextInput 
                   placeholder="хариулт"

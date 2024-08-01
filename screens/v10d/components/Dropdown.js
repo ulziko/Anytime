@@ -5,15 +5,6 @@ import UserContext from "../../../context/UserContext";
 
 const Dropdown = () => {
   const User=useContext(UserContext);
-  const [category, setCategory] = useState("");
-  const [subCategory, setSubCategory] = useState("");
-
-  const categories = [
-    {key:'1', value:'Таны анхны хайрын нэр?'},
-    {key:'2', value:'Та биеийнхээ аль хэсэгт хамгийн их дуртай вэ?'},
-    {key:'3', value:'Хамгийн дуртай хичээл тань юу байсан бэ? '},
-    {key:'4', value:'Хамгийн анхны үзсэн Анимэ хүүхэлдэйн  нэр?'},
-  ];
 
   return(
     <View className='h-full w-full border-none text-gray-700'>
