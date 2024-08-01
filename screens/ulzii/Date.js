@@ -67,7 +67,7 @@ const Date = ({ date, onSelectDate, selected }) => {
       >
         {day} 
       </Text>
-      <View style={{ height: 10 }} />
+      <View />
       <Text
         style={[
           styles.medium,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     color:"#ffffff"
   },
   medium: {
-    fontSize: width*0.0,
+    fontSize: width*0.043,
     color: '#ffffff'
   },
 })

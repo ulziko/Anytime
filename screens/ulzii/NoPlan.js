@@ -45,7 +45,7 @@ const NoPlan = () => {
       <Arrow delay={500}  direction='L' />
       <Arrow delay={600}  direction='L' />
       </View>
-    <Text style={styles.plan_date}> Шинэ төлөвлөгөө {'\n'} үүсгэх</Text>
+    <Text style={styles.plan_word}> Шинэ төлөвлөгөө {'\n'} үүсгэх</Text>
     <View style={styles.arrowContainer}>
       <Arrow delay={600}  direction='R' />
       <Arrow delay={500}  direction='R'/>
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
-  plan_date: {
+  plan_word: {
     marginVertical:2,
     width: '60%',
     padding:2,
@@ -104,19 +104,18 @@ const styles = StyleSheet.create({
   arrow: {
     flexDirection: 'column',
     alignItems: 'center',
-    paddingTop: 5,
   },
   arrowPart: {
-    width: 15,
-    height: 15,
+    width: 20,
+    height: 20,
     backgroundColor: '#9800FF',
     marginHorizontal:3,
     transform: [{ skewY: '45deg' }],
   },
   arrowPart02: {
     marginHorizontal:3,
-    width: 15,
-    height: 15,
+    width: 20,
+    height: 20,
     backgroundColor: '#9800FF',
     transform: [{ skewY: '135deg' }],
   },
