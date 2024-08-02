@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image, TouchableOpacity, Modal } from "react-native";
+import { View, Text, Image, TouchableOpacity} from "react-native";
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
 import { Svg, Circle } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
 import workoutsData from "./workout.json";
 
 const WorkoutPage = ({ workoutId, navigation }) => {
-  const [IsModalVisible, setIsModalVisible] = React.useState();
-  IsModalVisible = false;
   const navigation1 = useNavigation();
   const [workout, setWorkout] = useState(null);
   const [seconds, setSeconds] = useState(0);
@@ -181,27 +179,6 @@ const WorkoutPage = ({ workoutId, navigation }) => {
       >
         <Text className="text-white text-lg">▶</Text>
       </TouchableOpacity>
-      <Modal
-        visible={IsModalVisible}
-        transparent
-        animationType="fade"
-        presentationStyle="pageSheet"
-        statusBarTranslucent
-        onRequestClose={() => {
-          setIsModalVisible(false);
-        }}
-      >
-        <View>
-          <View className="w-screen h-screen bg-black opacity-10 -z-10"></View>
-          <View
-            className={`p-20
-                            bg-gray-400 opacity-100 rounded-xl shadow-2xl shadow-purple-600
-                          my-auto mx-auto w-[80%] h-[25%] -z-10`}
-          >
-            <Text className="text-3xl text-white z-10">Video Player</Text>
-          </View>
-        </View>
-      </Modal>
     </View>
   );
 };
