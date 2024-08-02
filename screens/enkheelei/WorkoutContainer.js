@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import { ArrowLeftIcon } from 'react-native-heroicons/solid';
-import { Svg, Circle } from 'react-native-svg';
-import { useNavigation } from '@react-navigation/native';
-import workoutsData from './workout.json';
+import React, { useState, useEffect } from "react";
+import { View, Text, Image, TouchableOpacity, Modal } from "react-native";
+import { ArrowLeftIcon } from "react-native-heroicons/solid";
+import { Svg, Circle } from "react-native-svg";
+import { useNavigation } from "@react-navigation/native";
+import workoutsData from "./workout.json";
 
 const WorkoutPage = ({ workoutId, navigation }) => {
+  const [IsModalVisible, setIsModalVisible] = React.useState();
+  IsModalVisible = false;
   const navigation1 = useNavigation();
   const [workout, setWorkout] = useState(null);
   const [seconds, setSeconds] = useState(0);
@@ -13,7 +15,7 @@ const WorkoutPage = ({ workoutId, navigation }) => {
 
   useEffect(() => {
     const loadWorkout = () => {
-      const selectedWorkout = workoutsData.find(w => w.id === workoutId);
+      const selectedWorkout = workoutsData.find((w) => w.id === workoutId);
       setWorkout(selectedWorkout);
     };
 
@@ -40,7 +42,9 @@ const WorkoutPage = ({ workoutId, navigation }) => {
   const formatTime = (sec) => {
     const minutes = Math.floor(sec / 60);
     const seconds = sec % 60;
-    return `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    return `${minutes < 10 ? "0" : ""}${minutes}:${
+      seconds < 10 ? "0" : ""
+    }${seconds}`;
   };
 
   const toggle = () => {
@@ -74,7 +78,7 @@ const WorkoutPage = ({ workoutId, navigation }) => {
     <View className="flex-1 bg-black p-5">
       {/* Header */}
       <View className="flex-row justify-between items-center">
-        <TouchableOpacity 
+        <TouchableOpacity
           onPress={() => navigation1.navigate("Home")}
           className="flex justify-center items-center mt-[2vh] bg-purple-600 rounded-3xl w-[11vw] h-[5vh]"
         >
@@ -86,53 +90,61 @@ const WorkoutPage = ({ workoutId, navigation }) => {
       <View className="flex items-center justify-center mt-[4vh]">
         <View className="flex-row bg-gray-800 p-[3vh] rounded-3xl w-full items-center h-[40vh]">
           <Image
-            source={require('../../assets/man.png')} 
+            source={require("../../assets/man.png")}
             className="w-[30vw]"
             resizeMode="contain"
           />
-          <View className='flex-col mb-[10vh]'>
-            <Text className="text-purple-600 text-3xl font-bold">{workout.name}</Text>
+          <View className="flex-col mb-[10vh]">
+            <Text className="text-purple-600 text-3xl font-bold">
+              {workout.name}
+            </Text>
             <View className="flex items-center justify-around mt-3 w-full">
-              <View className='flex-row justify-start items-start p-[1vh] m-[2vh]'>
+              <View className="flex-row justify-start items-start p-[1vh] m-[2vh]">
                 <Image
-                  source={require('../../assets/Vector.png')}
-                  className='h-[3vh] w-[3vh]'
+                  source={require("../../assets/Vector.png")}
+                  className="h-[3vh] w-[3vh]"
                 />
-                <Text className="text-white text-xl pl-8">{workout.bodyPart}</Text>
+                <Text className="text-white text-xl pl-8">
+                  {workout.bodyPart}
+                </Text>
               </View>
-              <View className='flex-row justify-start items-start p-[1vh]'>
+              <View className="flex-row justify-start items-start p-[1vh]">
                 <Image
-                  source={require('../../assets/vector2.png')}
-                  className='h-[3vh] w-[3vh] left-2.5'
+                  source={require("../../assets/vector2.png")}
+                  className="h-[3vh] w-[3vh] left-2.5"
                 />
-                <Text className="text-white text-xl pl-8">{workout.equipment}</Text>
+                <Text className="text-white text-xl pl-8">
+                  {workout.equipment}
+                </Text>
               </View>
             </View>
           </View>
-          <View className='absolute top-[75%] right-[20%]'>
+          <View className="absolute top-[75%] right-[20%]">
             <TouchableOpacity onPress={handleCircleClick} activeOpacity={1}>
               <Svg height="100" width="100" viewBox="0 0 100 100">
-              <Circle
-                cx="50"
-                cy="50"
-                r={radius}
-                stroke="grey"
-                strokeWidth={strokeWidth}
-                fill="none"
-              />
-              <Circle
-                cx="50"
-                cy="50"
-                r={radius}
-                stroke="#9800FF"
-                strokeWidth={strokeWidth}
-                fill="none"
-                strokeDasharray={circumference}
-                strokeDashoffset={circumference - progress * circumference}
-                strokeLinecap="round"
-              />
+                <Circle
+                  cx="50"
+                  cy="50"
+                  r={radius}
+                  stroke="grey"
+                  strokeWidth={strokeWidth}
+                  fill="none"
+                />
+                <Circle
+                  cx="50"
+                  cy="50"
+                  r={radius}
+                  stroke="#9800FF"
+                  strokeWidth={strokeWidth}
+                  fill="none"
+                  strokeDasharray={circumference}
+                  strokeDashoffset={circumference - progress * circumference}
+                  strokeLinecap="round"
+                />
               </Svg>
-              <Text className='absolute top-[43%] left-[37%] text-center text-purple-600'>{formatTime(seconds)}</Text>
+              <Text className="absolute top-[43%] left-[37%] text-center text-purple-600">
+                {formatTime(seconds)}
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -155,13 +167,41 @@ const WorkoutPage = ({ workoutId, navigation }) => {
           <View className="bg-gray-700 p-3 rounded-full">
             <Text className="text-white">💬</Text>
           </View>
-          <Text className="text-white ml-3">Нэмэлт: {workout.additionalInfo}</Text>
+          <Text className="text-white ml-3">
+            Нэмэлт: {workout.additionalInfo}
+          </Text>
         </View>
       </View>
       {/* Start Button */}
-      <TouchableOpacity className="bg-purple-600 p-4 mt-5 rounded-full items-center justify-center">
+      <TouchableOpacity
+        className="bg-purple-600 p-4 mt-5 rounded-full items-center justify-center"
+        onPress={(_) => {
+          setIsModalVisible(true);
+        }}
+      >
         <Text className="text-white text-lg">▶</Text>
       </TouchableOpacity>
+      <Modal
+        visible={IsModalVisible}
+        transparent
+        animationType="fade"
+        presentationStyle="pageSheet"
+        statusBarTranslucent
+        onRequestClose={() => {
+          setIsModalVisible(false);
+        }}
+      >
+        <View>
+          <View className="w-screen h-screen bg-black opacity-10 -z-10"></View>
+          <View
+            className={`p-20
+                            bg-gray-400 opacity-100 rounded-xl shadow-2xl shadow-purple-600
+                          my-auto mx-auto w-[80%] h-[25%] -z-10`}
+          >
+            <Text className="text-3xl text-white z-10">Video Player</Text>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };

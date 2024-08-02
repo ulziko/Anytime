@@ -1,0 +1,275 @@
+[
+    {
+        "id": "1",
+        "title": "Даваа",
+        "exercises": [
+            {
+                "name": "Warm-up",
+                "desc": "5-10 minutes of light cardio",
+                "sets": "",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Bench Press",
+                "desc": "3",
+                "sets": "8-12",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Dumbbell Flyes",
+                "desc": "3",
+                "sets": "10-12",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Pull-Ups or Assisted Pull-Ups",
+                "desc": "3",
+                "sets": "6-10",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Lateral Raises",
+                "desc": "3",
+                "sets": "12-15",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Cable Bicep Curls",
+                "desc": "3",
+                "sets": "12-15",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Skull Crushers",
+                "desc": "3",
+                "sets": "10-12",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Cool down",
+                "desc": "Stretching for 5-10 minutes",
+                "sets": "",
+                "reps": "",
+                "weight": ""
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "title": "Мягмар",
+        "exercises": [
+            {
+                "name": "Warm-up",
+                "desc": "5 minutes of light cardio",
+                "sets": "",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "20-30 minutes of HIIT (e.g., 30 seconds of sprinting followed by 1 minute of walking, repeat)",
+                "desc": "",
+                "sets": "",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "V-Ups",
+                "desc": "3",
+                "sets": "15",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Toe Touches",
+                "desc": "3",
+                "sets": "20",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Flutter Kicks",
+                "desc": "3",
+                "sets": "30",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Cool down",
+                "desc": "Stretching for 5-10 minutes",
+                "sets": "",
+                "reps": "",
+                "weight": ""
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "title": "Лхагва",
+        "exercises": [
+            {
+                "name": "Warm-up",
+                "desc": "5-10 minutes of light cardio",
+                "sets": "",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Front Squats",
+                "desc": "3",
+                "sets": "10-12",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Deadlifts",
+                "desc": "3",
+                "sets": "8-12",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Step-Ups",
+                "desc": "3",
+                "sets": "12",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Leg Extensions",
+                "desc": "3",
+                "sets": "12-15",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Seated Calf Raises",
+                "desc": "3",
+                "sets": "15-20",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Cool down",
+                "desc": "Stretching for 5-10 minutes",
+                "sets": "",
+                "reps": "",
+                "weight": ""
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "title": "Пүрэв",
+        "exercises": [
+            {
+                "name": "Light activity such as a brisk walk, gentle yoga, or stretching for 30-45 minutes",
+                "desc": "",
+                "sets": "",
+                "reps": "",
+                "weight": ""
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "title": "Баасан",
+        "exercises": [
+            {
+                "name": "Warm-up",
+                "desc": "5-10 minutes of light cardio",
+                "sets": "",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Deadlift to Press",
+                "desc": "3",
+                "sets": "12",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Burpees",
+                "desc": "3",
+                "sets": "15",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Dumbbell Thrusters",
+                "desc": "3",
+                "sets": "12",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Kettlebell Swings",
+                "desc": "3",
+                "sets": "15",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Bicycle Crunches",
+                "desc": "3",
+                "sets": "20",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Cool down",
+                "desc": "Stretching for 5-10 minutes",
+                "sets": "",
+                "reps": "",
+                "weight": ""
+            }
+        ]
+    },
+    {
+        "id": "6",
+        "title": "Бямба",
+        "exercises": [
+            {
+                "name": "Warm-up",
+                "desc": "5 minutes of light cardio",
+                "sets": "",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "45-60 minutes of steady-state cardio (e.g., long run, cycling, or rowing at a consistent pace)",
+                "desc": "",
+                "sets": "",
+                "reps": "",
+                "weight": ""
+            },
+            {
+                "name": "Cool down",
+                "desc": "Stretching for 5-10 minutes",
+                "sets": "",
+                "reps": "",
+                "weight": ""
+            }
+        ]
+    },
+    {
+        "id": "7",
+        "title": "Ням",
+        "exercises": [
+            {
+                "name": "Optional light activity such as a casual walk, gentle stretching, or relaxation exercises",
+                "desc": "",
+                "sets": "",
+                "reps": "",
+                "weight": ""
+            }
+        ]
+    }
+]
