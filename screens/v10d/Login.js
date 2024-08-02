@@ -1,6 +1,5 @@
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import React, { useContext } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { themeColors } from '../../theme';
@@ -8,27 +7,12 @@ import LoginHeader from './components/LoginHeader';
 import Input from './components/Input';
 import Textt from './components/Textt';
 import UserContext from "../../context/UserContext";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Login() {
     const navigation = useNavigation();
     const User=useContext(UserContext);
 
-    const checkValueExists = async (key) => {
-        try {
-          const value = await AsyncStorage.getItem(key);
-          if (value !== null) {
-            // Value exists
-            return true;
-          } else {
-            // Value does not exist
-            console.log(`No value found for ${key}`);
-            return false;
-          }
-        } catch (error) {
-          console.error('Error reading from AsyncStorage:', error);
-          return false;
-        }
-      };
     const inputs = [
         {
             label: "Нэвтрэх нэр",

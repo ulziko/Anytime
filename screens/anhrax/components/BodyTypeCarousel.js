@@ -60,17 +60,17 @@ const BodyTypeCarousel = () => {
 const styles = StyleSheet.create({
   carouselContainer: {
     alignItems: 'center',
-    marginBottom: width < 800 ? height * 0.47 : height * 0.34,
-    left: width < 800 ? 160 : 0,
+    marginBottom: width < 500 ? height * 0.47 : height * 0.34,
+    left: width < 500 ? 160 : 0,
     paddingHorizontal: width < 800 ? 20 : 20,
   },
   bodyContainer: {
     width: width * 0.7,
     alignItems: 'center',
-    right: width < 800 ? 150 : 0,
+    right: width < 500 ? 150 : 0,
   },
   bodyImage: {
-    width: width < 800 ? '110%' : '100%',
+    width: width < 500 ? '110%' : '100%',
     height: height * 0.4,
     resizeMode: 'contain',
   },
