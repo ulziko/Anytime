@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 
+const { width } = Dimensions.get("window");
 const localImage1 = require('../../../assets/14.png');
 const localImage2 = require('../../../assets/15.png');
 
@@ -22,11 +23,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    top:"-10%",
+    top: width < 800 ? '-10%': "0%",
   },
   image: {
-    width: 100,
-    height: 100,
+    width: width < 800 ? 100 : 150,
+    height: width < 800 ? 100 : 150,
     resizeMode: 'contain',
     marginHorizontal: 10,
   },

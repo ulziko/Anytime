@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 
+const { width, height } = Dimensions.get('window');
 const localImage = require('../../../assets/stand.png');
 
 const SquarePattern = () => {
@@ -14,19 +15,20 @@ const SquarePattern = () => {
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
-        top: 350,
-        left: 0,
+        top: height < 900 ? 340 : 485,
+        left: width < 600 ? 0 : 65,
         zIndex: -1,
-        width: '100%',
-        height: '100%',
+        width: width * 0.5,
+        height: width * 0.5,
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
     },
     image: {
-        width: 400,
-        height: 400,
+        width: width < 800 ? '200%' : '150%',
+        height: width < 800 ? '200%' : '150%',
+        resizeMode: 'contain',
         position: 'absolute',
-        top: 40,
+        top: 0,
         left: 0,
         zIndex: 0
     },

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, FlatList, Dimensions, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import TwoButton from './TwoButton'; // Assuming backButton.js is in the same directory
+import TwoButton from './TwoButton';
 
-const { width } = Dimensions.get('window'); // Extract width outside the component
+const { width, height } = Dimensions.get('window');
 
 const BodyTypeCarousel = () => {
-  const [sex, setSex] = useState(2); // Default value is 2
+  const [sex, setSex] = useState(2);
   const navigation = useNavigation();
 
   const bodyTypes = sex === 1
@@ -28,6 +28,7 @@ const BodyTypeCarousel = () => {
   const handlePress = (id) => {
     navigation.navigate('OtherPage', { id });
   };
+    
 
   const renderItem = ({ item }) => (
     <TouchableOpacity style={[styles.bodyContainer, { marginHorizontal: item.margin }]} onPress={() => handlePress(item.id)}>
@@ -59,26 +60,27 @@ const BodyTypeCarousel = () => {
 const styles = StyleSheet.create({
   carouselContainer: {
     alignItems: 'center',
-    marginBottom: width * 0.8,
-    paddingHorizontal: 20,
+    marginBottom: width < 800 ? height * 0.47 : height * 0.34,
+    left: width < 800 ? 160 : 0,
+    paddingHorizontal: width < 800 ? 20 : 20,
   },
   bodyContainer: {
     width: width * 0.7,
     alignItems: 'center',
+    right: width < 800 ? 150 : 0,
   },
   bodyImage: {
-    width: '130%',
-    height: width,
+    width: width < 800 ? '110%' : '100%',
+    height: height * 0.4,
     resizeMode: 'contain',
   },
   textContainer: {
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 0,
   },
   text: {
     color: '#FFFFFF',
-    fontSize: 12,
-    fontFamily: 'Nunito_700Bold',
+    fontSize: width * 0.04,
   },
 });
 

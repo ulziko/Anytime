@@ -1,7 +1,5 @@
 import { View, Text, TouchableOpacity, Image, TextInput, Alert } from 'react-native'
 import React, { useContext , useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { ArrowLeftIcon } from 'react-native-heroicons/solid';
 import {ArrowRightIcon} from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient'
@@ -28,19 +26,25 @@ export default function Register_1() {
         }
     };
 
-    const save=()=>{
-        if (User.name!="default name") {
-            AsyncStorage.setItem("user_name", User.name);
-            AsyncStorage.setItem("user_password", User.password);
+    const save = async () => {
+        if (User.name !== "default name") {
+            try {
+                await AsyncStorage.setItem("user_name", User.name);
+                await AsyncStorage.setItem("user_password", User.password);
+                return true;
+            } catch (error) {
+                console.error("Error saving data", error);
+                return false;
+            }
         }
-        return true;
-    }
-
+        return false;
+    };
     
     const inputs = [
         {
             label: "Нэвтрэх нэр",
             value: User.name,
+            defaultValue:'Нэрээ оруул.',
             onChangeText: User.setName,
         },
         {
@@ -74,18 +78,18 @@ export default function Register_1() {
                     </View>
                     <View className="flex-row justify-end">
                         <TouchableOpacity 
-                                onPress={async () => {
-                                    if (check(tmp_pass01, tmp_pass02)) {
-                                    try {
-                                        await save();
-                                        navigation.navigate('Register2');
-                                    } catch (error) {
-                                        alert("Error saving data");
-                                    }
-                                    } else {
-                                    alert("Enter again");
-                                    }
-                                }}
+                             onPress={async () => {
+                                if (check(tmp_pass01, tmp_pass02)) {
+                                  try {
+                                    await save();
+                                    navigation.navigate('Register2');
+                                  } catch (error) {
+                                    alert("Error on navigation");
+                                  }
+                                } else {
+                                  alert("Enter again");
+                                }
+                              }}
                             className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
                         >
                             <ArrowRightIcon size="20" color="white" />

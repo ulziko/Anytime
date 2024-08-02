@@ -1,6 +1,5 @@
 import { View, Text, TouchableOpacity, Image, TextInput, Alert, Pressable, Platform } from 'react-native'
 import React, { useState, useContext } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import {ArrowLeftIcon} from 'react-native-heroicons/solid';
 import {ArrowRightIcon} from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';

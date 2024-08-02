@@ -17,13 +17,11 @@ const InfoSection = () => {
   const User = useContext(UserContext);
   const [info, setInfo] = useState({
     dateOfBirth: User.bday,
-    weight: User.weight,
+    weight: User.weight ,
     height: User.height,
     password: 'Нууц үг солих'
   });
 
-  const [newWeight, setNewWeight] = useState('');
-  const [newHeight, setNewHeight] = useState('');
 
   const navigation = useNavigation();
   const scrollViewRef = useRef(null);
@@ -59,15 +57,15 @@ const InfoSection = () => {
       if (formattedValue.length > 3) {
         formattedValue = formattedValue.slice(0, 3);
       }
+      User.setWeight(formattedValue);
       formattedValue += 'кг';
-      setNewWeight(formattedValue);
     } else if (field === 'height') {
       formattedValue = value.replace(/[^0-9]/g, '');
       if (formattedValue.length > 3) {
         formattedValue = formattedValue.slice(0, 3);
       }
+      User.setHeight(formattedValue);
       formattedValue += 'см';
-      setNewHeight(formattedValue);
     }
 
     setInfo(prevInfo => ({ ...prevInfo, [field]: formattedValue }));

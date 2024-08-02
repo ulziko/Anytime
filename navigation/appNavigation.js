@@ -21,6 +21,7 @@ import Detail from "../screens/enkheelei/Detail";
 import ProfileScreen from "../screens/v10d/ProfileScreen";
 import { ProfileImageProvider } from '../screens/nomio/ProfileImageContext';
 import UserContext from "../context/UserContext";
+import loader from "../navigation/loader";
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +47,7 @@ export default function AppNavigation(){
                 <Stack.Screen name="NewPass" options={{ headerShown: false }} component={NewPass} /> 
                 <Stack.Screen name="Done" options={{ headerShown: false }} component={Done} />
                 <Stack.Screen name="Detail" options={{ headerShown: false }} component={Detail} />
+                <Stack.Screen name="loader" options={{headerShown:false}} component={loader}/>
             </Stack.Navigator>
         </NavigationContainer>
         </ProfileImageProvider>

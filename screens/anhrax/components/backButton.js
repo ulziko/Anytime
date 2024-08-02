@@ -1,7 +1,9 @@
 import React from 'react';
-import { Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+
+const { width } = Dimensions.get("window");
 const localImage = require('../../../assets/backButton.png');
 
 const BackButton = () => {
@@ -17,14 +19,14 @@ const BackButton = () => {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    top: '10%',
+    top: width < 800 ? 80 : 100,
     left: '10%',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
   },
   image: {
-    width: 30,
-    height: 30,
+    width: width < 800 ? 30 : 50,
+    height: width < 800 ? 30 : 50,
     resizeMode: 'contain',
   },
   text: {

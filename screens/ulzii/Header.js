@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image, Dimensions } from 'react-native';
+const { width, height } = Dimensions.get("window");
 
 const Header = () => {
   const logoUri = require('../../assets/anytimeLogo.png'); 
@@ -17,8 +18,8 @@ const styles = StyleSheet.create({
     marginTop: 25,
   },
   logoImage: {
-    width:120,
-    height: 40,
+    width: height *0.22,
+    height: height*0.04,
     marginBottom: 10,
   }
 });
