@@ -89,10 +89,12 @@ export default function Register_3(){
 
                     </Text>
                     <TouchableOpacity 
-                         onPress={()=> navigation.navigate('Register4')}
-                        
+                        onPress={()=> 
+                            navigation.navigate('Register4')
+                        }
                         className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
                     >
+                        User.SetIsLoggedIn(true);
                         <ArrowRightIcon size="20" color="white" />
                     </TouchableOpacity>
                 </View> 

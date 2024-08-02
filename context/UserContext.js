@@ -16,11 +16,12 @@ export const UserStore = (props) => {
     {key:'3', value:'Хамгийн анхны үзсэн Анимэ хүүхэлдэйн нэр?'},
   ];
   const [questionKey, setQuestionKey]=useState(0);
+  const [plan, checkPlan] = useState(false);
 
   
   return (
     <UserContext.Provider
-      value={{isLoggedIn,  SetIsLoggedIn, name, setName, weight, setWeight, bday, setBday, height, setHeight, password, setPassword, questions_obj, questionKey, setQuestionKey,questionAnswer,setQuestionAnswer}}
+      value={{isLoggedIn,  SetIsLoggedIn, name, setName, weight, setWeight, bday, setBday, height, setHeight, password, setPassword, questions_obj, questionKey, setQuestionKey,questionAnswer,setQuestionAnswer, plan, checkPlan}}
     >
       {props.children}
     </UserContext.Provider>
