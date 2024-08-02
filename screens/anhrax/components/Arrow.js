@@ -1,7 +1,11 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet,Dimensions } from 'react-native';
+
+const { width } = Dimensions.get("window");
 
 const localImage = require('../../../assets/arrow.gif');
+
+
 
 const Arrow = () => {
     return (

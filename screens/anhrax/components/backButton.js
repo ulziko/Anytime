@@ -1,7 +1,9 @@
 import React from 'react';
-import { Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+
+const { width } = Dimensions.get("window");
 const localImage = require('../../../assets/backButton.png');
 
 const BackButton = () => {

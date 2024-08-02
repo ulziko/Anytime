@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -7,22 +7,38 @@ import { themeColors } from '../../theme';
 import LoginHeader from './components/LoginHeader';
 import Input from './components/Input';
 import Textt from './components/Textt';
+import UserContext from "../../context/UserContext";
 
 export default function Login() {
     const navigation = useNavigation();
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const User=useContext(UserContext);
 
+    const checkValueExists = async (key) => {
+        try {
+          const value = await AsyncStorage.getItem(key);
+          if (value !== null) {
+            // Value exists
+            return true;
+          } else {
+            // Value does not exist
+            console.log(`No value found for ${key}`);
+            return false;
+          }
+        } catch (error) {
+          console.error('Error reading from AsyncStorage:', error);
+          return false;
+        }
+      };
     const inputs = [
         {
             label: "Нэвтрэх нэр",
-            value: username,
-            onChangeText: setUsername,
+            value: User.name,
+            onChangeText: checkValueExists('user_name'),
         },
         {
             label: "Нууц үг",
-            value: password,
-            onChangeText: setPassword,
+            value: User.password,
+            onChangeText: checkValueExists('user_password'),
             secureTextEntry: true,
         },
     ];
@@ -32,6 +48,9 @@ export default function Login() {
             label: "Тавтай морилно уу",
         },
     ];
+
+    
+      
 
     return (
         <View className="flex-1 justify-center bg-purple-600">

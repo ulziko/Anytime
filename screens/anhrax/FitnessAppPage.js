@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import BodyTypeCarousel from './components/BodyTypeCarousel';
 import BackButton from './components/backButton';
 import SquarePattern from './components/Pattern';
@@ -9,6 +9,7 @@ import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/
 import { Philosopher_400Regular, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
 // import AppLoading from 'expo-app-loading';
 
+const { width, height } = Dimensions.get('window');
 function FitnessAppPage() {
   let [fontsLoaded] = useFonts({
     Nunito_400Regular,

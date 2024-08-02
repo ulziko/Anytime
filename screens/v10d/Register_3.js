@@ -89,23 +89,7 @@ export default function Register_3(){
 
                     </Text>
                     <TouchableOpacity 
-                        onPress={async () => {
-                            if (check(tmp_pass01, tmp_pass02)) {
-                                try {
-                                    const saveResult = await save();
-                                    if (saveResult) {
-                                        navigation.navigate('Register2');
-                                    } else {
-                                        alert("Error saving data");
-                                    }
-                                } catch (error) {
-                                    alert("Error during save or navigation");
-                                    console.error("Error:", error);
-                                }
-                            } else {
-                                alert("Passwords do not match. Enter again");
-                            }
-                        }}
+                         onPress={()=> navigation.navigate('Register4')}
                         
                         className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
                     >

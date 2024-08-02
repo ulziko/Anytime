@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, FlatList, Dimensions, TouchableOpacity }
 import { useNavigation } from '@react-navigation/native';
 import TwoButton from './TwoButton';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 const BodyTypeCarousel = () => {
   const [sex, setSex] = useState(2);

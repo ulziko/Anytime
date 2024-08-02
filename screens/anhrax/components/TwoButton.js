@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 
+const { width } = Dimensions.get("window");
 const localImage1 = require('../../../assets/14.png');
 const localImage2 = require('../../../assets/15.png');
 
