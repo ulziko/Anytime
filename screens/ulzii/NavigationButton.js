@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Alert, Animated, StyleSheet, TouchableOpacity, View, Text } from 'react-native';
 import { CurvedBottomBarExpo } from 'react-native-curved-bottom-bar';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 import ProfileScreen from '../v10d/ProfileScreen';
 import Detail from '../enkheelei/Detail';
+import UserContext from "../../context/UserContext";
 
 const Screen1 = () => {
   return (
@@ -15,6 +16,7 @@ const Screen1 = () => {
 };
 
 function NavigationButton() {
+  const User = useContext(UserContext);
   const navigation = useNavigation();
   const _renderIcon = (routeName, selectedTab) => {
     let icon = '';
@@ -38,7 +40,12 @@ function NavigationButton() {
         onPress={() => {
           // console.log(`Navigating to ${routeName}`);
           // Alert.alert(`Navigating to ${routeName}`);
-          navigation.navigate(routeName)
+          // navigation.navigate(routeName)
+          if (User.plan || routeName=='ProfileScreen') {
+            navigation.navigate(routeName);
+          } else {
+            Alert.alert('Дасгалын заавар харахийн тул эхлээд төлөвлөгөө үүсгэнэ үү.');
+          }
         }}
         style={styles.tabbarItem}
       >
