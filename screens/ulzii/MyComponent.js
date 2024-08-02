@@ -4,19 +4,19 @@ import UserInfo from "./UserInfo";
 import Calendar from "./Calendar";
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import NoPlan from "./NoPlan";
+import PlanContainer from "./PlanContainer";
 
 function MyComponent() {
   const [selectedDate, setSelectedDate] = useState(null);
 
   return (
     <>
-     <Header/>
-     <UserInfo />
-     <View>
-      <Calendar onSelectDate={setSelectedDate} selected={selectedDate} />
-    </View>
-      <NoPlan/>
+      <Header/>
+      <UserInfo />
+      <View>
+        <Calendar onSelectDate={setSelectedDate} selected={selectedDate} />
+      </View>
+      <PlanContainer/>
     
     </>
   );
