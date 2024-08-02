@@ -12,7 +12,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
 // import YoutubePlayer from "react-native-youtube-iframe";
-import plan from "../../plans/1.json";
+import plan from "./plans/1.json";
 
 const { width, height } = Dimensions.get("window");
 // 411.5 274.3 137.2 68.6 34
