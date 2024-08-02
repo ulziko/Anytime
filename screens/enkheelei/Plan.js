@@ -11,7 +11,6 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
-// import YoutubePlayer from "react-native-youtube-iframe";
 import plan from "./plans/1.json";
 
 const { width, height } = Dimensions.get("window");
@@ -38,6 +37,7 @@ export default function Plan() {
 
   return (
     <View className={"flex flex-1 h-full bg-black justify-center items-center"}>
+      {/* Header */}
       <View className="flex-row justify-between items-center w-full mt-5">
         <TouchableOpacity
           onPress={() => navigation.goBack()}
@@ -47,7 +47,7 @@ export default function Plan() {
         </TouchableOpacity>
         <Text className="text-white text-4xl mx-auto">Workout</Text>
       </View>
-
+      {/* days */}
       <Animated.FlatList
         data={plan}
         horizontal
@@ -156,5 +156,3 @@ export default function Plan() {
     </View>
   );
 }
-
-// https://www.youtube.com/watch?v=Noy9fdL7Jhs
