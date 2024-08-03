@@ -1,0 +1,374 @@
+[
+    {
+        "id": "1",
+        "title": "Даваа",
+        "exercises": [
+            {
+                "name": "Warm-up /f-1/",
+                "bodyPart": "Мөр",
+                "desc": "5-10 minutes of light cardio (e.g., jogging or jumping jacks)",
+                "equipment": "Алчуур",
+                "sets": "3-4 (30 секундын зайтай)",
+                "reps": "10-12",
+                "weight": "",
+                "additionalInfo": "Оролт бүрд усаа солих"
+            },
+            {
+                "name": "Push-ups",
+                "bodyPart": "Цээж",
+                "desc": "Standard push-ups",
+                "equipment": "",
+                "sets": "3",
+                "reps": "10-15",
+                "weight": "",
+                "additionalInfo": "Maintain a straight body line"
+            },
+            {
+                "name": "Dumbbell Bench Press",
+                "bodyPart": "Цээж",
+                "desc": "Press dumbbells upward while lying on a bench",
+                "equipment": "Дамббелл",
+                "sets": "3",
+                "reps": "8-12",
+                "weight": "",
+                "additionalInfo": "Keep elbows at 45 degrees"
+            },
+            {
+                "name": "Bent Over Rows",
+                "bodyPart": "Нуруу",
+                "desc": "Pull weights towards your torso while bent over",
+                "equipment": "Дамббелл",
+                "sets": "3",
+                "reps": "10-12",
+                "weight": "",
+                "additionalInfo": "Keep back straight"
+            },
+            {
+                "name": "Shoulder Press",
+                "bodyPart": "Мөр",
+                "desc": "Press weights overhead while seated or standing",
+                "equipment": "Дамббелл",
+                "sets": "3",
+                "reps": "10-12",
+                "weight": "",
+                "additionalInfo": "Avoid arching back"
+            },
+            {
+                "name": "Bicep Curls",
+                "bodyPart": "Гар",
+                "desc": "Curl weights towards shoulders",
+                "equipment": "Дамббелл",
+                "sets": "3",
+                "reps": "12-15",
+                "weight": "",
+                "additionalInfo": "Keep elbows close to sides"
+            },
+            {
+                "name": "Tricep Dips",
+                "bodyPart": "Гар",
+                "desc": "Lower and lift body using arms on parallel bars",
+                "equipment": "Параллел бар",
+                "sets": "3",
+                "reps": "10-15",
+                "weight": "",
+                "additionalInfo": "Keep elbows pointing back"
+            },
+            {
+                "name": "Cool down",
+                "bodyPart": "",
+                "desc": "Stretching for 5-10 minutes",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": "Focus on all major muscle groups"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "title": "Мягмар",
+        "exercises": [
+            {
+                "name": "Warm-up",
+                "bodyPart": "",
+                "desc": "5 minutes of light cardio",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": ""
+            },
+            {
+                "name": "Steady-state cardio",
+                "bodyPart": "Бүх бие",
+                "desc": "30-40 minutes of steady-state cardio (e.g., running, cycling, swimming)",
+                "equipment": "Cardio machine or space for running",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": "Maintain a consistent pace"
+            },
+            {
+                "name": "Plank",
+                "bodyPart": "Цээж",
+                "desc": "Hold a plank position",
+                "equipment": "",
+                "sets": "3",
+                "reps": "30-60 секунд",
+                "weight": "",
+                "additionalInfo": "Keep body straight"
+            },
+            {
+                "name": "Russian Twists",
+                "bodyPart": "Гэдэс",
+                "desc": "Rotate torso side to side while holding a weight",
+                "equipment": "Дамббелл эсвэл бөмбөг",
+                "sets": "3",
+                "reps": "20",
+                "weight": "",
+                "additionalInfo": "Keep feet off the ground"
+            },
+            {
+                "name": "Leg Raises",
+                "bodyPart": "Гэдэс",
+                "desc": "Lift legs while lying flat on your back",
+                "equipment": "",
+                "sets": "3",
+                "reps": "15",
+                "weight": "",
+                "additionalInfo": "Keep legs straight"
+            },
+            {
+                "name": "Cool down",
+                "bodyPart": "",
+                "desc": "Stretching for 5-10 minutes",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": "Focus on all major muscle groups"
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "title": "Лхагва",
+        "exercises": [
+            {
+                "name": "Warm-up",
+                "bodyPart": "",
+                "desc": "5-10 minutes of light cardio",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": ""
+            },
+            {
+                "name": "Squats",
+                "bodyPart": "Хөл",
+                "desc": "Lower body while bending knees",
+                "equipment": "",
+                "sets": "3",
+                "reps": "10-15",
+                "weight": "",
+                "additionalInfo": "Keep back straight"
+            },
+            {
+                "name": "Deadlifts",
+                "bodyPart": "Хөл",
+                "desc": "Lift weight from the ground to hip level",
+                "equipment": "Барбелл",
+                "sets": "3",
+                "reps": "8-12",
+                "weight": "",
+                "additionalInfo": "Keep back straight"
+            },
+            {
+                "name": "Lunges",
+                "bodyPart": "Хөл",
+                "desc": "Step forward and lower body",
+                "equipment": "",
+                "sets": "3",
+                "reps": "10-12",
+                "weight": "",
+                "additionalInfo": "Keep knee behind toes"
+            },
+            {
+                "name": "Leg Press",
+                "bodyPart": "Хөл",
+                "desc": "Press weight away from body using legs",
+                "equipment": "Leg press machine",
+                "sets": "3",
+                "reps": "10-15",
+                "weight": "",
+                "additionalInfo": "Keep feet shoulder-width apart"
+            },
+            {
+                "name": "Calf Raises",
+                "bodyPart": "Хөл",
+                "desc": "Raise heels off the ground",
+                "equipment": "",
+                "sets": "3",
+                "reps": "15-20",
+                "weight": "",
+                "additionalInfo": "Hold for a second at the top"
+            },
+            {
+                "name": "Cool down",
+                "bodyPart": "",
+                "desc": "Stretching for 5-10 minutes",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": "Focus on all major muscle groups"
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "title": "Пүрэв",
+        "exercises": [
+            {
+                "name": "Light activity",
+                "bodyPart": "Бүх бие",
+                "desc": "Light activity such as walking, yoga, or stretching for 30-45 minutes",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": "Keep it gentle and relaxing"
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "title": "Баасан",
+        "exercises": [
+            {
+                "name": "Warm-up",
+                "bodyPart": "",
+                "desc": "5-10 minutes of light cardio",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": ""
+            },
+            {
+                "name": "Burpees",
+                "bodyPart": "Бүх бие",
+                "desc": "Perform a full-body exercise combining a squat, push-up, and jump",
+                "equipment": "",
+                "sets": "3",
+                "reps": "10-15",
+                "weight": "",
+                "additionalInfo": "Explosive movements"
+            },
+            {
+                "name": "Kettlebell Swings",
+                "bodyPart": "Хөл",
+                "desc": "Swing a kettlebell between legs and up to chest level",
+                "equipment": "Kettlebell",
+                "sets": "3",
+                "reps": "15",
+                "weight": "",
+                "additionalInfo": "Engage the core"
+            },
+            {
+                "name": "Mountain Climbers",
+                "bodyPart": "Бүх бие",
+                "desc": "Run in place in a plank position",
+                "equipment": "",
+                "sets": "3",
+                "reps": "30 секунд",
+                "weight": "",
+                "additionalInfo": "Keep hips low"
+            },
+            {
+                "name": "Dumbbell Snatches",
+                "bodyPart": "Бүх бие",
+                "desc": "Lift a dumbbell from the ground to overhead in one motion",
+                "equipment": "Дамббелл",
+                "sets": "3",
+                "reps": "10-12",
+                "weight": "",
+                "additionalInfo": "Use explosive power"
+            },
+            {
+                "name": "Box Jumps",
+                "bodyPart": "Хөл",
+                "desc": "Jump onto a box or platform",
+                "equipment": "Box or platform",
+                "sets": "3",
+                "reps": "10-15",
+                "weight": "",
+                "additionalInfo": "Land softly"
+            },
+            {
+                "name": "Cool down",
+                "bodyPart": "",
+                "desc": "Stretching for 5-10 minutes",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": "Focus on all major muscle groups"
+            }
+        ]
+    },
+    {
+        "id": "6",
+        "title": "Бямба",
+        "exercises": [
+            {
+                "name": "Warm-up",
+                "bodyPart": "",
+                "desc": "5 minutes of light cardio",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": ""
+            },
+            {
+                "name": "High-intensity interval training (HIIT)",
+                "bodyPart": "Бүх бие",
+                "desc": "20-30 minutes of high-intensity interval training",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": "Alternate between high-intensity exercise and low-intensity recovery"
+            },
+            {
+                "name": "Cool down",
+                "bodyPart": "",
+                "desc": "Stretching for 5-10 minutes",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": "Focus on all major muscle groups"
+            }
+        ]
+    },
+    {
+        "id": "7",
+        "title": "Ням",
+        "exercises": [
+            {
+                "name": "Optional light activity",
+                "bodyPart": "Бүх бие",
+                "desc": "Optional light activity such as a leisurely walk or gentle stretching",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": "Keep it light and relaxing"
+            }
+        ]
+    }
+]

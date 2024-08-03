@@ -1,22 +1,18 @@
-import * as React from "react";
+import * as React from 'react';
 import {
-  SafeAreaView,
   View,
   Text,
-  FlatList,
   Dimensions,
   Animated,
   TouchableOpacity,
-} from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import { useNavigation } from "@react-navigation/native";
-import { ArrowLeftIcon } from "react-native-heroicons/solid";
-import plan from "./plans/1.json";
+} from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
+import { ArrowLeftIcon } from 'react-native-heroicons/solid';
+import plansMapping from './Mapping';  // Import the mapping
 
-const { width, height } = Dimensions.get("window");
-// 411.5 274.3 137.2 68.6 34
+const { width, height } = Dimensions.get('window');
 const cardWidth = width;
-const spaceCard = (width - cardWidth) / 2;
 
 const Item = ({ title }) => (
   <View style={styles.item}>
@@ -24,10 +20,31 @@ const Item = ({ title }) => (
   </View>
 );
 
-export default function Plan() {
+export default function Plan({ route }) {
   const navigation = useNavigation();
-  const scrollX = React.useRef(new Animated.Value(0)).current; //hajuu tiish guilgehed
-  const [active, setActive] = React.useState([]);
+  const scrollX = React.useRef(new Animated.Value(0)).current;
+  const [active, setActive] = React.useState(0);
+  const [plan, setPlan] = React.useState([]);
+  const { id, sex } = route.params;
+
+  React.useEffect(() => {
+    const getPlanFileKey = (id, sex) => {
+      const genderPrefix = sex === 1 ? 'm' : 'f';
+      return `${genderPrefix}_${id}`;
+    };
+
+    const loadPlan = () => {
+      try {
+        const fileKey = getPlanFileKey(id, sex);
+        const planData = plansMapping[fileKey];
+        setPlan(planData);
+      } catch (error) {
+        console.error('Error loading plan:', error);
+      }
+    };
+
+    loadPlan();
+  }, [id, sex]);
 
   const onCardChanged = React.useRef(({ viewableItems }) => {
     if (viewableItems.length > 0) {
@@ -36,8 +53,7 @@ export default function Plan() {
   }).current;
 
   return (
-    <View className={"flex flex-1 h-full bg-black justify-center items-center"}>
-      {/* Header */}
+    <View className={'flex flex-1 h-full bg-black justify-center items-center'}>
       <View className="flex-row justify-between items-center w-full mt-5">
         <TouchableOpacity
           onPress={() => navigation.goBack()}
@@ -47,7 +63,6 @@ export default function Plan() {
         </TouchableOpacity>
         <Text className="text-white text-4xl mx-auto">Workout</Text>
       </View>
-      {/* days */}
       <Animated.FlatList
         data={plan}
         horizontal
@@ -65,8 +80,8 @@ export default function Plan() {
         onViewableItemsChanged={onCardChanged}
         contentContainerStyle={{
           flexGrow: 1,
-          justifyContent: "center",
-          alignContent: "flex-start",
+          justifyContent: 'center',
+          alignContent: 'flex-start',
         }}
         getItemLayout={(data, index) => ({
           length: cardWidth,
@@ -87,27 +102,27 @@ export default function Plan() {
             <View
               style={{ width: cardWidth }}
               className={`${
-                index === active ? "h-3/5" : "h-2/5 -z-10"
+                index === active ? 'h-3/5' : 'h-2/5 -z-10'
               }  my-auto`}
             >
               <Animated.View
                 style={{ transform: [{ translateY }] }}
                 className={
-                  "flex flex-1 border-2 border-white items-center shadow-xl shadow-white rounded-3xl mx-auto w-2/3 h-full"
+                  'flex flex-1 border-2 border-white items-center shadow-xl shadow-white rounded-3xl mx-auto w-2/3 h-full'
                 }
               >
                 <LinearGradient
                   start={{ x: 0, y: 0 }}
                   end={{ x: 0, y: 1 }}
                   colors={[
-                    `${index === active ? "#9800FF" : "#475569"}`,
-                    "#000000",
+                    `${index === active ? '#9800FF' : '#475569'}`,
+                    '#000000',
                   ]}
-                  className={"flex bg-black w-full h-full rounded-3xl"}
+                  className={'flex bg-black w-full h-full rounded-3xl'}
                 >
                   <Text
                     className={`${
-                      index === active ? "text-white" : "text-purple-600"
+                      index === active ? 'text-white' : 'text-purple-600'
                     } flex flex-2 text-center text-3xl my-5 w-full h-12`}
                   >
                     {item.title}
@@ -121,27 +136,27 @@ export default function Plan() {
                         key={idx}
                         className={`${
                           index === active
-                            ? "text-left text-lg mx-12 w-full text-white"
-                            : "-z-10"
+                            ? 'text-left text-lg mx-12 w-full text-white'
+                            : '-z-10'
                         }`}
                       >
-                        {item.name} {index} {active}
+                        {item.name}
                       </Text>
                     ))}
                   </View>
                   <TouchableOpacity
                     className={`${
                       index === active
-                        ? "w-2/5 h-[8%] mx-auto my-auto bottom-0 rounded-full bg-purple-600 justify-center"
-                        : "invisible"
+                        ? 'w-2/5 h-[8%] mx-auto my-auto bottom-0 rounded-full bg-purple-600 justify-center'
+                        : 'invisible'
                     }`}
-                    onPress={() => navigation.navigate("Detail")}
+                    onPress={() => navigation.navigate('Detail')}
                   >
                     <Text
                       className={`${
                         index === active
-                          ? "text-white text-lg text-center"
-                          : "invisible"
+                          ? 'text-white text-lg text-center'
+                          : 'invisible'
                       }`}
                     >
                       Эхлэх

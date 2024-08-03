@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View, TouchableOpacity, Text, StyleSheet, Image, Dimensions } from 'react-native';
 import { useFonts, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
 
@@ -8,6 +9,7 @@ const exitIcon = require('./../../assets/exit.png');
 const { width, height } = Dimensions.get('window');
 
 const Footer = () => {
+  const navigation = useNavigation();
   const [fontsLoaded] = useFonts({
     Philosopher_700Bold,
   });
@@ -18,7 +20,10 @@ const Footer = () => {
 
   return (
     <View style={styles.footer}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity 
+        style={styles.button}
+        onPress={() => navigation.navigate('Login')}
+      >
         <Image
           source={exitIcon}
           style={styles.image}

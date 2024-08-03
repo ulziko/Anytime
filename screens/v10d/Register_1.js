@@ -9,13 +9,16 @@ import RegisterHeader from './components/RegisterHeader';
 import Textt from './components/Textt';
 import UserContext from "../../context/UserContext";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth, firestore } from '../../config/firebase';
+import { doc, setDoc } from 'firebase/firestore';
 
 export default function Register_1() {
-    // user object 
     const User=useContext(UserContext);
     const navigation = useNavigation();
     const [tmp_pass01, setTmp_pass01]=useState(null);
     const [tmp_pass02, setTmp_pass02]=useState(null);
+    // const [email, setEmail] = useState('user@example.com');
     const check= (pass01, pass02)=> {
         if (pass01===pass02 ){
             User.setPassword(pass01);
@@ -38,6 +41,28 @@ export default function Register_1() {
             }
         }
         return false;
+    };
+
+    const handleRegister = async () => {
+        const username = User.name;
+        const password = User.password;
+        const email = `${username}@anytime.com`; 
+
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+
+            await setDoc(doc(firestore, 'users', username), { email });
+
+            await save();
+
+            navigation.navigate('Register2');
+        } catch (err) {
+            console.log('Got error: ', err.message);
+            let msg = err.message;
+            if (msg.includes('auth/email-already-in-use')) msg = "Username already in use";
+            if (msg.includes('auth/invalid-email')) msg = "Please use a valid username";
+            Alert.alert('Sign Up', msg);
+        }
     };
     
     const inputs = [
@@ -78,18 +103,19 @@ export default function Register_1() {
                     </View>
                     <View className="flex-row justify-end">
                         <TouchableOpacity 
-                             onPress={async () => {
-                                if (check(tmp_pass01, tmp_pass02)) {
-                                  try {
-                                    await save();
-                                    navigation.navigate('Register2');
-                                  } catch (error) {
-                                    alert("Error on navigation");
-                                  }
-                                } else {
-                                  alert("Enter again");
-                                }
-                              }}
+                                onPress={async () => {
+                                    if (check(tmp_pass01, tmp_pass02)) {
+                                    try {
+                                        // await save();
+                                        // navigation.navigate('Register2');
+                                        await handleRegister();
+                                    } catch (error) {
+                                        alert("Error on navigation");
+                                    }
+                                    } else {
+                                        Alert.alert("Error", "Passwords do not match. Enter again.");
+                                    }
+                                }}
                             className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
                         >
                             <ArrowRightIcon size="20" color="white" />

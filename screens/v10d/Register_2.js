@@ -12,6 +12,17 @@ import Input from './components/Input';
 import UserContext from "../../context/UserContext";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+function calculateAge(birthDate) {
+    const today = new Date();
+    const birth = new Date(birthDate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+        age--;
+    }
+    return age;
+}
+
 export default function Register_2(){
     const navigation = useNavigation();
     const [date, setDate] = useState(new Date());
@@ -30,6 +41,7 @@ export default function Register_2(){
             setDate(currentDate);
             toggleDatePicker();
             User.setBday(currentDate.toDateString());
+            User.setAge(calculateAge(currentDate));
         } else {
             toggleDatePicker();
         }
