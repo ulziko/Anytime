@@ -1,16 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Modal,
+  Pressable,
+  Button,
+} from "react-native";
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
 import { Svg, Circle } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import workoutsData from "./workout.json";
 
 const WorkoutPage = ({ workoutId, navigation }) => {
   const navigation1 = useNavigation();
   const [workout, setWorkout] = useState(null);
   const [seconds, setSeconds] = useState(0);
-  const [isModalVisible, setIsModalVisible] = useState();
   const [isActive, setIsActive] = useState(false);
+  const [isVideoVisible, setVideoVisible] = useState(false);
+  const [questionVisible, setQuestionVisible] = useState(false);
+
+  const watchVideo = () => {
+    setVideoVisible(!isVideoVisible);
+  };
+
+  const showDetails = () => {
+    setQuestionVisible(!questionVisible);
+    console.log("show details");
+  };
 
   useEffect(() => {
     const loadWorkout = () => {
@@ -174,12 +194,61 @@ const WorkoutPage = ({ workoutId, navigation }) => {
       {/* Start Button */}
       <TouchableOpacity
         className="bg-purple-600 p-4 mt-5 rounded-full items-center justify-center"
-        onPress={(_) => {
-          setIsModalVisible(true);
+        onPress={() => {
+          watchVideo(true);
         }}
       >
-        <Text className="text-white text-lg">▶</Text>
+        <FontAwesome5 name="play" size={24} color="white" />
       </TouchableOpacity>
+      <View>
+        <Modal animationType="fade" visible={isVideoVisible} transparent={true}>
+          <Pressable
+            onPressOut={() => {
+              watchVideo(!isVideoVisible);
+            }}
+            className="flex h-screen w-screen justify-center items-center content-center bg-black/75"
+          >
+            <View className="flex bg-white items-center border-solid border-2 rounded-xl w-[80%] h-[22%]">
+              <Text className="text-3xl text-purple-600"> Video Player</Text>
+            </View>
+            <TouchableOpacity
+              onPress={() => {
+                watchVideo(!isVideoVisible);
+                showDetails(!questionVisible);
+              }}
+              className="rounded-full items-end w-4/5 p-5"
+            >
+              <FontAwesome
+                name="question-circle-o"
+                size={24}
+                color="white"
+                className="w-[10%] h-[10%]"
+              />
+            </TouchableOpacity>
+          </Pressable>
+        </Modal>
+      </View>
+      <View>
+        <Modal
+          animationType="fade"
+          visible={questionVisible}
+          transparent={true}
+        >
+          <Pressable
+            onPressOut={() => {
+              showDetails(!questionVisible);
+            }}
+            className="flex h-screen w-screen justify-center items-center content-center bg-black/75"
+          >
+            <View className="flex items-center rounded-xl w-[80%] h-[22%]">
+              <Text className="text-lg font-bold text-white">Хөтөлбөр</Text>
+              <Text className="text-lg font-bold text-purple-600">
+                Хөтөлбөр
+              </Text>
+            </View>
+          </Pressable>
+        </Modal>
+      </View>
     </View>
   );
 };
