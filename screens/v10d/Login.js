@@ -16,13 +16,13 @@ export default function Login() {
     const inputs = [
         {
             label: "Нэвтрэх нэр",
-            value: User.name,
-            onChangeText: checkValueExists('user_name'),
+            // value: User.name,
+            // onChangeText: checkValueExists('user_name'),
         },
         {
             label: "Нууц үг",
             value: User.password,
-            onChangeText: checkValueExists('user_password'),
+            ///onChangeText: checkValueExists('user_password'),
             secureTextEntry: true,
         },
     ];

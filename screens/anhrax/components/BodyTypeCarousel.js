@@ -42,7 +42,7 @@ const BodyTypeCarousel = () => {
 
   return (
     <View>
-      <TwoButton setSex={setSex} />
+      {/* <TwoButton setSex={setSex} /> */}
       <FlatList
         data={bodyTypes}
         renderItem={renderItem}
