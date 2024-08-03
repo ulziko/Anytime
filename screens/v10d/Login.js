@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
 import React, { useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -37,13 +37,18 @@ export default function Login() {
       
 
     return (
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={{ flex: 1 }}
+            keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
+    >
         <View className="flex-1 justify-center bg-purple-600">
             <LoginHeader />
             <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} colors={['#9800FF', '#000000']} style={themeColors.grad}>
                 <View className="flex justify-center px-[8vw] py-[4vh]">
                     <Textt textt={textt}/>
                     <View>
-                    <Input inputs={inputs} />
+                        <Input inputs={inputs} />
                         <TouchableOpacity 
                             className="flex items-end"
                             onPress={() => navigation.navigate('Question')}
@@ -62,5 +67,6 @@ export default function Login() {
                 </View>
             </LinearGradient>
         </View>
+    </KeyboardAvoidingView>
     );
 }
