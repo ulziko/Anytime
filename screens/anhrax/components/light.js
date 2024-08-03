@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
+import { View, Image, StyleSheet, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 const localImage = require('../../../assets/light.png');
@@ -20,13 +20,13 @@ const styles = StyleSheet.create({
         zIndex: -2,
         width: width * 1.5,
         height: height * 1.5,
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     image: {
         width: width * 1.5,
         height: height * 1.5,
-        position: 'absolute',
+        position: 'center',
         top: height * 0.05,
         left: 0,
         zIndex: 0

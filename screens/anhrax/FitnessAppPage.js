@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: width * 0.04,
     marginVertical: '-70%',
-    top: width < 800 ? 0 : 200,
+    top: width < 600 ? 0 : 150,
   },
 });
 

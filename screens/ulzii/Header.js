@@ -15,11 +15,11 @@ const Header = () => {
 const styles = StyleSheet.create({
   header: {
     alignItems: 'center',
-    marginTop: 25,
+    marginTop: 40,
   },
   logoImage: {
-    width: height *0.22,
-    height: height*0.04,
+    width: height *0.18,
+    height: height*0.035,
     marginBottom: 10,
   }
 });
