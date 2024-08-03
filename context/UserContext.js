@@ -18,11 +18,11 @@ export const UserStore = (props) => {
   const [questionKey, setQuestionKey]=useState(0);
   const [plan, checkPlan] = useState(false);
   const [age, setAge] = useState(20);
+  const [gender, setGender] = useState("f");
 
-  
   return (
     <UserContext.Provider
-      value={{isLoggedIn,  SetIsLoggedIn, name, setName, weight, setWeight, bday, setBday, height, setHeight, password, setPassword, questions_obj, questionKey, setQuestionKey,questionAnswer,setQuestionAnswer, plan, checkPlan, age, setAge}}
+      value={{isLoggedIn,  SetIsLoggedIn, name, setName, weight, setWeight, bday, setBday, height, setHeight, password, setPassword, questions_obj, questionKey, setQuestionKey,questionAnswer,setQuestionAnswer, plan, checkPlan, age, setAge, gender, setGender}}
     >
       {props.children}
     </UserContext.Provider>

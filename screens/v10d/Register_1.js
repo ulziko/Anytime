@@ -75,7 +75,7 @@ export default function Register_1() {
                                     onPress={async () => {
                                         if (check(tmp_pass01, tmp_pass02)) {
                                             try {
-                                                await save();
+                                                // await save();
                                                 navigation.navigate('Register2');
                                             } catch (error) {
                                                 alert("Error on navigation");

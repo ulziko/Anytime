@@ -8,9 +8,9 @@ const RegisterHeader = () => {
     return (
         <View className="bg-black rounded-b-2xl h-[35%]">
                 <SafeAreaView className="flex">
-                    <View  className="flex-row justify-center py-[15%]">
+                    <View  className="flex-row justify-center py-[14.5%]">
                         <Image 
-                        className='mt-[1.5%] h-[5vh] w-[45%]'
+                        className='h-[5vh] w-[45%]'
                         source={require('../../../assets/logo.png')}  />
                     </View>
                     <View className="flex-row justify-center pt-[4vh]">

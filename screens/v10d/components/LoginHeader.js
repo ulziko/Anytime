@@ -11,7 +11,7 @@ const LoginHeader = () => {
             <SafeAreaView className="flex">
                 <View className="flex-row justify-center py-[16%]">
                     <Image
-                        className="mt-[4%] w-[45%] h-[7vh]"
+                        className="mt-[2%] w-[45%] h-[7vh]"
                         source={require('../../../assets/logo.png')}
                     />
                 </View>

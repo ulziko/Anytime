@@ -44,7 +44,7 @@ export default function Register_3() {
                             <Input inputs={inputs} />
                         </View>
                     </View>
-                    <View className='flex justify-center items-center py-[2vh] m-[2vh] text-xs mt-[3vh] -z-10'>
+                    <View className='flex justify-center items-center py-[2vh] m-[2vh] text-xs mt-[3vh] z-10'>
                         <Text className="text-gray-100">Та энэ асуултын хариуг мартсанаас нууц</Text>
                         <Text className="text-gray-100">үгээ мартсан нь дээр шүү 🤗</Text>
                     </View>

@@ -34,8 +34,8 @@ export default function AppNavigation(){
                 <Stack.Screen name='Login' options={{headerShown: false}} component={Login} />
                 <Stack.Screen name='Register1' options={{headerShown: false}} component={Register_1} />
                 <Stack.Screen name='Register2' options={{headerShown: false}} component={Register_2} />
-                <Stack.Screen name='Register3' options={{headerShown: false}} component={Register_3} />
-                <Stack.Screen name='Register4' options={{headerShown: false}} component={Register_4} />
+                {/* <Stack.Screen name='Register3' options={{headerShown: false}} component={Register_3} /> */}
+                <Stack.Screen name='Register3' options={{headerShown: false}} component={Register_4} />
                 <Stack.Screen name="FitnessApp" options={{ headerShown: false }} component={FitnessAppPage} />
                 <Stack.Screen name="Plan" options={{ headerShown: false }} component={Plan} />
                 <Stack.Screen name="TwoButton" options={{ headerShown: false }} component={TwoButton} />
@@ -43,8 +43,8 @@ export default function AppNavigation(){
                 <Stack.Screen name="ProfileScreen" options={{ headerShown: false }} component={ProfileScreen} />
                 <Stack.Screen name="CameraSection" options={{ headerShown: false }} component={CameraSection} />
                 <Stack.Screen name="Question" options={{ headerShown: false }} component={Question} />
-                <Stack.Screen name="NewPass" options={{ headerShown: false }} component={NewPass} /> 
-                <Stack.Screen name="Done" options={{ headerShown: false }} component={Done} />
+                {/* <Stack.Screen name="NewPass" options={{ headerShown: false }} component={NewPass} />  */}
+                {/* <Stack.Screen name="Done" options={{ headerShown: false }} component={Done} /> */}
                 <Stack.Screen name="loader" options={{headerShown:false}} component={loader}/>
             </Stack.Navigator>
         </NavigationContainer>
