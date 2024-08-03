@@ -16,52 +16,10 @@ export default function Login() {
     const navigation = useNavigation();
     const User=useContext(UserContext);
 
-    const checkValueExists = async (key) => {
-        try {
-            const value = await AsyncStorage.getItem(key);
-            if (value !== null) {
-                // Value exists
-                return true;
-            } else {
-                // Value does not exist
-                console.log(`No value found for ${key}`);
-                return false;
-            }
-            } catch (error) {
-            console.error('Error reading from AsyncStorage:', error);
-            return false;
-        }
-    };
-
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                navigation.navigate('Home');
-            }
-        });
-        return unsubscribe;
-    }, []);
-
-    const handleLogin = async () => {
-        const username = User.name;
-        const password = User.password;
-        const email = `${username}@yourapp.com`; 
-
-        try {
-            await signInWithEmailAndPassword(auth, email, password);
-            await AsyncStorage.setItem("user_name", username);
-            await AsyncStorage.setItem("user_password", password);
-            navigation.navigate('Home');
-        } catch (err) {
-            console.log('Got error: ', err.message);
-            Alert.alert('Login Failed', err.message);
-        }
-    };
-
     const inputs = [
         {
             label: "Нэвтрэх нэр",
-            // value: User.name,
+            value: User.name,
             // onChangeText: checkValueExists('user_name'),
         },
         {
@@ -93,8 +51,8 @@ export default function Login() {
                             <Text className="text-purple-600 mb-[5vh]">Нууц үгээ мартсан уу?</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            // onPress={() => navigation.navigate('Home')}
-                            onPress={handleLogin}
+                            onPress={() => navigation.navigate('Home')}
+                            // onPress={handleLogin}
                             className="py-[1.5vh] bg-purple-600 rounded-3xl"
                         >
                             <Text className="text-xl font-bold text-center text-white">

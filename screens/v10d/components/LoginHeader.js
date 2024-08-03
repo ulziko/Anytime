@@ -7,11 +7,11 @@ const LoginHeader = () => {
     const navigation = useNavigation();
 
     return (
-        <View className="bg-black rounded-b-3xl h-[40vh]">
+        <View className="bg-black rounded-b-3xl h-[40%]">
             <SafeAreaView className="flex">
-                <View className="flex-row justify-center py-[9vh]">
+                <View className="flex-row justify-center py-[16%]">
                     <Image
-                        className="mt-[2vh] w-[50vw] h-[7vh]"
+                        className="mt-[4%] w-[45%] h-[7vh]"
                         source={require('../../../assets/logo.png')}
                     />
                 </View>
@@ -20,7 +20,7 @@ const LoginHeader = () => {
                         <TouchableOpacity>
                             <Text className="font-semibold text-purple-600">Нэвтрэх</Text>
                         </TouchableOpacity>
-                        <View className="flex justify-center items-center bg-purple-700 rounded-full ml-[1vw] mt-[0.5vh] h-[0.5vh] w-[12vw]" />
+                        <View className="flex justify-center items-center bg-purple-700 rounded-full ml-[-5%] mt-[5%] h-[6%] w-[110%]" />
                     </View>
                     <TouchableOpacity className="pl-[16vh]" onPress={() => navigation.navigate('Register1')}>
                         <Text className="font-semibold text-purple-600">Бүртгүүлэх</Text>

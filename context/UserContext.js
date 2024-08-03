@@ -3,9 +3,9 @@ const UserContext = React.createContext();
 
 export const UserStore = (props) => {
   const [isLoggedIn, SetIsLoggedIn] = useState(false);
-  const [name, setName] = useState("Хэрэглэгч");
+  const [name, setName] = useState("");
   const [weight, setWeight] = useState(60);
-  const [bday, setBday] = useState('2000-01-01');
+  const [bday, setBday] = useState('');
   const [height, setHeight] = useState(170);
   const [password, setPassword] = useState(null);
   const [questionAnswer,setQuestionAnswer]=useState(null);

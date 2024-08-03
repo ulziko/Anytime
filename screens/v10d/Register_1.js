@@ -28,42 +28,6 @@ export default function Register_1() {
             return false;
         }
     };
-
-    const save = async () => {
-        if (User.name !== "default name") {
-            try {
-                await AsyncStorage.setItem("user_name", User.name);
-                await AsyncStorage.setItem("user_password", User.password);
-                return true;
-            } catch (error) {
-                console.error("Error saving data", error);
-                return false;
-            }
-        }
-        return false;
-    };
-
-    const handleRegister = async () => {
-        const username = User.name;
-        const password = User.password;
-        const email = `${username}@anytime.com`; 
-
-        try {
-            await createUserWithEmailAndPassword(auth, email, password);
-
-            await setDoc(doc(firestore, 'users', username), { email });
-
-            await save();
-
-            navigation.navigate('Register2');
-        } catch (err) {
-            console.log('Got error: ', err.message);
-            let msg = err.message;
-            if (msg.includes('auth/email-already-in-use')) msg = "Username already in use";
-            if (msg.includes('auth/invalid-email')) msg = "Please use a valid username";
-            Alert.alert('Sign Up', msg);
-        }
-    };
     
     const inputs = [
         {
@@ -106,9 +70,8 @@ export default function Register_1() {
                                 onPress={async () => {
                                     if (check(tmp_pass01, tmp_pass02)) {
                                     try {
-                                        // await save();
-                                        // navigation.navigate('Register2');
-                                        await handleRegister();
+                                        navigation.navigate('Register2');
+                                        // await handleRegister();
                                     } catch (error) {
                                         alert("Error on navigation");
                                     }

@@ -43,21 +43,21 @@ export default function Start() {
                     >
                         <Image 
                             source={anytimeIcon}
-                            className='my-[40vh]'
+                            className='my-[45vh]'
                         />
                     </TouchableOpacity>
-                    <Image source={Icon1} className="absolute w-[10vw] h-[5vh] top-[10%] left-[10%]" />
-                    <Image source={Icon2} className="absolute w-[5vw] h-[3vh] top-[20%] right-[40%]" />
-                    <Image source={Icon3} className="absolute w-[10vw] h-[5vh] top-[10%] right-[15%]" />
-                    <Image source={Icon4} className="absolute w-[10vw] h-[5vh] top-[25%] left-[5%]" />
-                    <Image source={Icon5} className="absolute w-[10vw] h-[5vh] top-[40%] right-[15%]" />
-                    <Image source={Icon6} className="absolute w-[10vw] h-[5vh] top-[35%] left-[30%]" />
-                    <Image source={Icon7} className="absolute w-[5vw] h-[3vh] top-[80%] right-[40%]" />
-                    <Image source={Icon8} className="absolute w-[10vw] h-[5vh] top-[65%] left-[30%]" />
-                    <Image source={Icon9} className="absolute w-[10vw] h-[5vh] top-[70%] right-[20%]" />
-                    <Image source={Icon10} className="absolute w-[10vw] h-[5vh] top-[80%] left-[10%]" />
-                    <Image source={Icon11} className="absolute w-[10vw] h-[5vh] top-[93%] right-[25%]" />
-                    <Image source={Icon12} className="absolute w-[10vw] h-[5vh] top-[90%] left-[35%]" />
+                    <Image source={Icon1} className="absolute  top-[10%] left-[10%]" />
+                    <Image source={Icon2} className="absolute  top-[20%] right-[40%]" />
+                    <Image source={Icon3} className="absolute  top-[10%] right-[15%]" />
+                    <Image source={Icon4} className="absolute  top-[25%] left-[5%]" />
+                    <Image source={Icon5} className="absolute  top-[40%] right-[15%]" />
+                    <Image source={Icon6} className="absolute  top-[35%] left-[30%]" />
+                    <Image source={Icon7} className="absolute  top-[80%] right-[40%]" />
+                    <Image source={Icon8} className="absolute  top-[65%] left-[30%]" />
+                    <Image source={Icon9} className="absolute  top-[70%] right-[20%]" />
+                    <Image source={Icon10} className="absolute  top-[80%] left-[10%]" />
+                    <Image source={Icon11} className="absolute  top-[93%] right-[25%]" />
+                    <Image source={Icon12} className="absolute  top-[90%] left-[35%]" />
                 </SafeAreaView>
             </ImageBackground>
         </View>
