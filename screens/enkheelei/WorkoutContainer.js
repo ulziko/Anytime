@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image, TouchableOpacity} from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
 import { Svg, Circle } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
@@ -9,6 +9,7 @@ const WorkoutPage = ({ workoutId, navigation }) => {
   const navigation1 = useNavigation();
   const [workout, setWorkout] = useState(null);
   const [seconds, setSeconds] = useState(0);
+  const [isModalVisible, setIsModalVisible] = useState();
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
