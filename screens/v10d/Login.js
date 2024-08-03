@@ -1,6 +1,5 @@
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
-import React, { useContext, useEffect } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { View, Text, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import React, { useContext, useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { themeColors } from '../../theme';
@@ -14,18 +13,34 @@ import { auth } from '../../config/firebase';
 
 export default function Login() {
     const navigation = useNavigation();
-    const User=useContext(UserContext);
+    const User = useContext(UserContext);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    useEffect(() => {
+        const loadUserData = async () => {
+            const storedUsername = await AsyncStorage.getItem('user_name');
+            const storedPassword = await AsyncStorage.getItem('user_password');
+            if (storedUsername && storedPassword) {
+                setUsername(storedUsername);
+                setPassword(storedPassword);
+                User.setName(storedUsername);
+                User.setPassword(storedPassword);
+            }
+        };
+        loadUserData();
+    }, []);
 
     const inputs = [
         {
             label: "Нэвтрэх нэр",
-            value: User.name,
-            // onChangeText: checkValueExists('user_name'),
+            value: username,
+            onChangeText: setUsername,
         },
         {
             label: "Нууц үг",
-            value: User.password,
-            ///onChangeText: checkValueExists('user_password'),
+            value: password,
+            onChangeText: setPassword,
             secureTextEntry: true,
         },
     ];
@@ -37,31 +52,41 @@ export default function Login() {
     ];
 
     return (
-        <View className="flex-1 justify-center bg-purple-600">
-            <LoginHeader />
-            <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} colors={['#9800FF', '#000000']} style={themeColors.grad}>
-                <View className="flex justify-center px-[8vw] py-[4vh]">
-                    <Textt textt={textt}/>
-                    <View>
-                    <Input inputs={inputs} />
-                        <TouchableOpacity 
-                            className="flex items-end"
-                            onPress={() => navigation.navigate('Question')}
-                        >
-                            <Text className="text-purple-600 mb-[5vh]">Нууц үгээ мартсан уу?</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate('Home')}
-                            // onPress={handleLogin}
-                            className="py-[1.5vh] bg-purple-600 rounded-3xl"
-                        >
-                            <Text className="text-xl font-bold text-center text-white">
-                                Нэвтрэх
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={{ flex: 1 }}
+        >
+            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+                <View className="flex-1 justify-center bg-purple-600">
+                    <LoginHeader />
+                    <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }} colors={['#9800FF', '#000000']} style={themeColors.grad}>
+                        <View className="flex justify-center px-[8vw] py-[4vh]">
+                            <Textt textt={textt} />
+                            <View>
+                                <Input inputs={inputs} />
+                                <TouchableOpacity 
+                                    className="flex items-end"
+                                    onPress={() => navigation.navigate('Question')}
+                                >
+                                    <Text className="text-purple-600 mb-[5vh]">Нууц үгээ мартсан уу?</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        User.setName(username);
+                                        User.setPassword(password);
+                                        navigation.navigate('Home');
+                                    }}
+                                    className="py-[1.5vh] bg-purple-600 rounded-3xl"
+                                >
+                                    <Text className="text-xl font-bold text-center text-white">
+                                        Нэвтрэх
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    </LinearGradient>
                 </View>
-            </LinearGradient>
-        </View>
+            </ScrollView>
+        </KeyboardAvoidingView>
     );
 }
