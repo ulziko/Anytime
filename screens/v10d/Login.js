@@ -1,10 +1,10 @@
-import { View, Text, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import React, { useContext, useState, useEffect } from 'react';
+import { View, Text, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollView, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
 import { themeColors } from '../../theme';
 import LoginHeader from './components/LoginHeader';
-import Input from './components/Input';
 import Textt from './components/Textt';
 import UserContext from "../../context/UserContext";
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -16,6 +16,7 @@ export default function Login() {
     const User = useContext(UserContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
         const loadUserData = async () => {
@@ -30,20 +31,6 @@ export default function Login() {
         };
         loadUserData();
     }, []);
-
-    const inputs = [
-        {
-            label: "Нэвтрэх нэр",
-            value: username,
-            onChangeText: setUsername,
-        },
-        {
-            label: "Нууц үг",
-            value: password,
-            onChangeText: setPassword,
-            secureTextEntry: true,
-        },
-    ];
 
     const textt = [
         {
@@ -63,7 +50,28 @@ export default function Login() {
                         <View className="flex justify-center px-[8vw] py-[4vh]">
                             <Textt textt={textt} />
                             <View>
-                                <Input inputs={inputs} />
+                                <View style={{ marginBottom: 20 }}>
+                                    <Text style={{ color: 'white', marginBottom: 5 }}>Нэвтрэх нэр</Text>
+                                    <TextInput
+                                        style={{ backgroundColor: 'white', padding: 15, borderRadius: 13 }}
+                                        value={username}
+                                        onChangeText={setUsername}
+                                    />
+                                </View>
+                                <View style={{ marginBottom: 20 }}>
+                                    <Text style={{ color: 'white', marginBottom: 5 }}>Нууц үг</Text>
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: 'white', borderRadius: 13 }}>
+                                        <TextInput
+                                            style={{ flex: 1, padding: 16 }}
+                                            value={password}
+                                            onChangeText={setPassword}
+                                            secureTextEntry={!showPassword}
+                                        />
+                                        <TouchableOpacity onPress={() => setShowPassword(!showPassword)} style={{ padding: 10 }}>
+                                            <Ionicons name={showPassword ? "eye-outline" : "eye-off-outline"} size={24} color="black" />
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
                                 <TouchableOpacity 
                                     className="flex items-end"
                                     onPress={() => navigation.navigate('Question')}
