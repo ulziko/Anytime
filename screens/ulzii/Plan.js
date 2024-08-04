@@ -1,6 +1,8 @@
 // PlanList.js
-import React from "react";
+import React, {useContext} from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { useNavigation } from '@react-navigation/native';
+import UserContext from "../../context/UserContext";
 import {
   View,
   Text,
@@ -11,26 +13,27 @@ import {
 } from "react-native";
 
 const { height } = Dimensions.get('window');
+const plan_names = ["Enjoy plan", "Killer plan", "Iron discipline plan", 'Monster plan', "Unstopable plan"];
 
-const Plan = ({ plans, addNewPlan }) => (
+const Plan = () => {
+  const User=useContext(UserContext)
+  const navigation = useNavigation();
+  return (
   <View style={styles.container}>
-    <ScrollView contentContainerStyle={styles.scrollView}>
-      <View style={styles.plansContainer}>
-        {plans.map((plan) => (
+    <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('plan')}>
+    <View style={styles.plansContainer}>
           <View style={styles.plan}>
-            <Text style={styles.planTitle}>{plan.title}</Text>
-            <Text style={styles.planDate}>үүсгэсэн: {plan.date}</Text>
+            <Text style={styles.planTitle}>{plan_names[User.planId-1]}</Text>
           </View>
-        ))}
       </View>
-      <TouchableOpacity style={styles.addButton} onPress={addNewPlan}>
+    </TouchableOpacity>
+      <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('loader')}>
         <View style={styles.plan}>
           <AntDesign name="plus" size={26} color="white" alignSelf="center"/>
         </View>
       </TouchableOpacity>
-    </ScrollView>
   </View>
-);
+  )};
 
 const styles = StyleSheet.create({
   container: {
@@ -38,7 +41,7 @@ const styles = StyleSheet.create({
     width: "90%",
   },
   scrollView: {
-    paddingVertical: height*0.012,
+    paddingVertical: height*0.01,
   },
   plansContainer: {
     padding: 10,
