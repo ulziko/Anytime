@@ -4,7 +4,7 @@ import { CurvedBottomBarExpo } from 'react-native-curved-bottom-bar';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 import ProfileScreen from '../v10d/ProfileScreen';
-import Detail from '../enkheelei/Detail';
+import WorkoutContainer from '../enkheelei/WorkoutContainer';
 import UserContext from "../../context/UserContext";
 
 const Screen1 = () => {
@@ -21,7 +21,7 @@ function NavigationButton() {
   const _renderIcon = (routeName, selectedTab) => {
     let icon = '';
     switch (routeName) {
-      case 'Detail':
+      case 'Workout':
         icon = 'retweet';
         break;
       case 'ProfileScreen':
@@ -77,9 +77,9 @@ function NavigationButton() {
       tabBar={renderTabBar}
     >
       <CurvedBottomBarExpo.Screen
-        name="Detail"
+        name="Workout"
         position="LEFT"
-        component={Detail}
+        component={WorkoutContainer}
       />
       <CurvedBottomBarExpo.Screen
         name="ProfileScreen"

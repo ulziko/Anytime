@@ -1,4 +1,4 @@
-import React , {useContext}from "react";
+import React from "react";
 import Header from "./Header";
 import UserInfo from "./UserInfo";
 import Calendar from "./Calendar";
@@ -8,7 +8,6 @@ import PlanContainer from "./PlanContainer";
 
 function MyComponent() {
   const [selectedDate, setSelectedDate] = useState(null);
-
   return (
     <>
       <Header/>

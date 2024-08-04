@@ -2,7 +2,7 @@ import React ,{useContext} from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, Alert } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
-import { useProfileImage } from './ProfileImageContext';
+import { useProfileImage } from '../../context/ProfileImageContext';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as ImagePicker from 'expo-image-picker';
 import { useFonts, Philosopher_700Bold } from '@expo-google-fonts/philosopher';

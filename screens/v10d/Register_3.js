@@ -1,8 +1,7 @@
-import { View, Text, TouchableOpacity, Image, TextInput, Alert } from 'react-native'
-import React, { useState, useContext } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import {ArrowLeftIcon} from 'react-native-heroicons/solid';
-import {ArrowRightIcon} from 'react-native-heroicons/solid';
+import { View, Text, TouchableOpacity, Image, TextInput, Alert } from 'react-native';
+import React, { useState, useContext } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { ArrowLeftIcon, ArrowRightIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import RegisterHeader from './components/RegisterHeader';
@@ -12,9 +11,9 @@ import Input from './components/Input';
 import Dropdown from './components/Dropdown';
 import UserContext from "../../context/UserContext";
 
-export default function Register_3(){
+export default function Register_3() {
     const navigation = useNavigation();
-    const User=useContext(UserContext);
+    const User = useContext(UserContext);
 
     const inputs = [
         {
@@ -29,77 +28,45 @@ export default function Register_3(){
             label: " Мэдээллээ оруулна уу",
         },
     ];
-    // sync process
-    const save = async () => {
-        if (User.name !== "default name") {
-            try {
-                await AsyncStorage.setItem("user_age", User.bday);
-                await AsyncStorage.setItem("user_weight", User.weight);
-                return true;
-            } catch (error) {
-                console.error("Error saving data", error);
-                return false;
-            }
-        }
-        return true;
-    };
-    
+
     return (
         <View className="flex-1 bg-purple-600">
             <RegisterHeader />
             <LinearGradient start={{x: 0, y: 0}} end={{x: 0, y: 1}} colors={['#9800FF', '#000000']} style={themeColors.grad}>
-            <View className="flex-1 px-[8vw] pt-[6vh]">
-                <Textt textt={textt}/>
-                <View className="form space-y-2 items-center">
-                    <Text className="text-white ml-[2vw]">Баталгаажуулах асуултаа сонгоно уу?</Text>
-                    <View 
-                        className='w-[76vw] h-[6vh] flex-row justify-start items-center  bg-gray-100 rounded-2xl z-20'
-                    >
-                        <Dropdown />
+                <View className="flex-1 px-[8vw] pt-[6vh]">
+                    <Textt textt={textt}/>
+                    <View className="form space-y-2 items-center">
+                        <Text className="text-white ml-[2vw]">Баталгаажуулах асуултаа сонгоно уу?</Text>
+                        <View className='w-[76vw] h-[6vh] flex-row justify-start items-center bg-gray-100 rounded-2xl z-20'>
+                            <Dropdown />
+                        </View>
+                        <View className='pt-[2vh] w-[76vw]'>
+                            <Input inputs={inputs} />
+                        </View>
                     </View>
-                    <View className='pt-[2vh] w-[76vw]'>
-                        <Input 
-                            inputs={inputs} 
-                        />
+                    <View className='flex justify-center items-center py-[2vh] m-[2vh] text-xs mt-[3vh] z-10'>
+                        <Text className="text-gray-100">Та энэ асуултын хариуг мартсанаас нууц</Text>
+                        <Text className="text-gray-100">үгээ мартсан нь дээр шүү 🤗</Text>
                     </View>
+                    <View className="flex-row justify-center items-center">
+                        <TouchableOpacity 
+                            onPress={() => navigation.goBack()}
+                            className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
+                        >
+                            <ArrowLeftIcon size="20" color="white" />
+                        </TouchableOpacity>
+                        <TouchableOpacity 
+                            onPress={() => {
+                                User.SetIsLoggedIn(true);
+                                navigation.navigate('Register4');
+                            }}
+                            className="w-[20vw] h-[6vh] m-[5%] flex justify-center items-center bg-purple-600 rounded-3xl"
+                        >
+                            <ArrowRightIcon size="20" color="white" />
+                        </TouchableOpacity>
+                    </View> 
                 </View>
-                <View className='flex justify-center items-center py-[2vh] m-[2vh] text-xs mt-[3vh] -z-10'>
-                    <Text 
-                        className="text-gray-100"
-                    >
-                        Та энэ асуултын хариуг мартсанаас нууц
-                    </Text>
-                    <Text 
-                        className="text-gray-100"
-                    >
-                        үгээ мартсан нь дээр шүү 🤗
-                    </Text>
-                </View>
-                
-                <View className="flex-row justify-center items-center">
-                    <TouchableOpacity 
-                        onPress={()=> navigation.goBack()}
-                        className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
-                    >
-                        <ArrowLeftIcon size="20" color="white" />
-                    </TouchableOpacity>
-                    <Text 
-                        className="px-16"
-                    >
-
-                    </Text>
-                    <TouchableOpacity 
-                        onPress={()=> 
-                            navigation.navigate('Register4')
-                        }
-                        className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
-                    >
-                        User.SetIsLoggedIn(true);
-                        <ArrowRightIcon size="20" color="white" />
-                    </TouchableOpacity>
-                </View> 
-            </View>
             </LinearGradient>
         </View>
-    )
+    );
 }
