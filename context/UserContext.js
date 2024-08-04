@@ -23,12 +23,7 @@ export const UserStore = (props) => {
 
   return (
     <UserContext.Provider
-<<<<<<< HEAD
-      value={{isLoggedIn,  SetIsLoggedIn, name, setName, weight, setWeight, bday, setBday, height, setHeight, password, setPassword, questions_obj, questionKey, setQuestionKey,questionAnswer,setQuestionAnswer,planId,setPlanId ,plan, checkPlan,age, setAge}}>
-=======
-      value={{isLoggedIn,  SetIsLoggedIn, name, setName, weight, setWeight, bday, setBday, height, setHeight, password, setPassword, questions_obj, questionKey, setQuestionKey,questionAnswer,setQuestionAnswer, plan, checkPlan, age, setAge, gender, setGender}}
-    >
->>>>>>> 570f8e3a2e3216cf0b3ce48760ed75617e1da0fd
+      value={{isLoggedIn,  SetIsLoggedIn, name, setName, weight, setWeight, bday, setBday, height, setHeight, password, setPassword, questions_obj, questionKey, setQuestionKey,questionAnswer,setQuestionAnswer,planId,setPlanId ,plan, checkPlan,age, setAge, gender, setGender}}>
       {props.children}
     </UserContext.Provider>
   );
