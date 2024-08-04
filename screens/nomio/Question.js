@@ -1,10 +1,12 @@
-import React, {useContext} from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, ImageBackground, SafeAreaView, Dimensions } from 'react-native';
+import React, { useContext, useState } from 'react';
+import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, ImageBackground, SafeAreaView, Dimensions, Alert } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
 import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
 import { Philosopher_400Regular, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
 import UserContext from '../../context/UserContext';
+import { auth } from '../../config/firebase';
+import { sendPasswordResetEmail } from 'firebase/auth';
 
 const anytimeIcon = require('./../../assets/anytimeLogo.png'); 
 const Icon1 = require('./../../assets/icon1.png');
@@ -24,8 +26,9 @@ const { width, height } = Dimensions.get('window');
 
 const Question = () => {
   const navigation = useNavigation(); 
-  const User=useContext(UserContext);
-  const index= User.questionKey;
+  const User = useContext(UserContext);
+  const index = User.questionKey;
+  const [email, setEmail] = useState('');
   const [fontsLoaded] = useFonts({
     Nunito_400Regular,
     Nunito_700Bold,
@@ -33,16 +36,32 @@ const Question = () => {
     Philosopher_700Bold,
   });
 
+  const changePassword = (email) => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        Alert.alert("Success", "Password reset email sent!", [{ text: "OK" }]);
+      })
+      .catch((error) => {
+        Alert.alert("Error", error.message, [{ text: "OK" }]);
+      });
+  }
+
   if (!fontsLoaded) {
     return null; // or a loading spinner
   }
 
+  const handlePasswordReset = () => {
+    if (email) {
+      changePassword(email);
+    } else {
+      Alert.alert("Error", "Please enter an email address", [{ text: "OK" }]);
+    }
+  };
+
   return (
     <View style={styles.container}>
       {/* Background Image */}
-      <ImageBackground 
-        style={styles.background}
-      >
+      <ImageBackground style={styles.background}>
         <SafeAreaView style={styles.safeArea}>
           {/* Header */}
           <View style={styles.header}>
@@ -64,12 +83,14 @@ const Question = () => {
 
             {/* Information Section */}
             <View style={styles.infoSection}>
-              <Text style={styles.questionText}>{User.questions_obj[index].value}</Text>
+              <Text style={styles.questionText}>Бүртгэлтэй имэйлээ оруулна уу</Text>
               <View style={styles.inputContainer}>
                 <TextInput 
-                  placeholder="хариулт"
+                  placeholder="test@gmail.com"
                   placeholderTextColor="#888"
                   style={styles.textInput}
+                  value={email} // Bind the TextInput value to the email state
+                  onChangeText={text => setEmail(text)} // Update the email state on text change
                 />
                 <MaterialCommunityIcons name="marker" size={26} color="#7200ca" style={styles.inputIcon} />
               </View>
@@ -80,7 +101,7 @@ const Question = () => {
           <View style={styles.footer}>
             <TouchableOpacity 
               style={styles.nextButton}
-              onPress={() => navigation.navigate('NewPass')}
+              onPress={handlePasswordReset} // Show alert with the entered email on button press
             >
               <Ionicons name="arrow-forward" size={24} color="white" />
             </TouchableOpacity>
@@ -94,7 +115,6 @@ const Question = () => {
           <Image source={Icon5} style={[styles.icon, styles.icon5]} />
           <Image source={Icon6} style={[styles.icon, styles.icon6]} />
           <Image source={Icon7} style={[styles.icon, styles.icon7]} />
-          <Image source={Icon8} style={[styles.icon, styles.icon8]} />
           <Image source={Icon9} style={[styles.icon, styles.icon9]} />
           <Image source={Icon10} style={[styles.icon, styles.icon10]} />
           <Image source={Icon11} style={[styles.icon, styles.icon11]} />
@@ -244,15 +264,15 @@ const styles = StyleSheet.create({
   },
   icon10: {
     top: '75%',
-    left: '10%',
+    left: '25%',
   },
   icon11: {
     top: '85%',
-    right: '25%',
+    right: '5%',
   },
   icon12: {
-    top: '90%',
-    left: '20%',
+    top: '95%',
+    left: '15%',
   },
 });
 

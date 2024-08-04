@@ -20,7 +20,7 @@ const Plan = () => {
   const navigation = useNavigation();
   return (
   <View style={styles.container}>
-    <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('plan')}>
+    <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('Plan')}>
     <View style={styles.plansContainer}>
           <View style={styles.plan}>
             <Text style={styles.planTitle}>{plan_names[User.planId-1]}</Text>
