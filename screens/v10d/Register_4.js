@@ -1,9 +1,12 @@
 import { View, Text, Image, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
-import React from 'react';
+import React, { useContext } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 const { width, height } = Dimensions.get('window');
+import UserContext from "../../context/UserContext";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../config/firebase";
 
 export default function Register_4() {
     const navigation = useNavigation();
@@ -22,12 +25,18 @@ export default function Register_4() {
     const Icon11 = require('../../assets/icon11.png');
     const Icon12 = require('../../assets/icon12.png');
 
+    const User = useContext(UserContext);
+
     return (
         <View className="flex-1 bg-black">
             <ImageBackground className="flex-1" source={null}>
                 <SafeAreaView className="flex-1">
                     <View className="flex-1 justify-center items-center ">
-                        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+                        <TouchableOpacity onPress={() =>{
+                            User.SetIsLoggedIn(true)
+                            navigation.navigate("Home")
+                        }
+                        }>
                             <Image 
                                 source={anytimeIcon} 
                                 className="w-[70vw] h-[22vh] mb-[6vh]"

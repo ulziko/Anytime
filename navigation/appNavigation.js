@@ -1,5 +1,5 @@
 import { View, Text } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from '../screens/v10d/HomeScreen';
@@ -26,8 +26,9 @@ import useAuth from '../hooks/useAuth'
 const Stack = createNativeStackNavigator();
 
 export default function AppNavigation(){  
+    const User = useContext(UserContext);
     const { user } = useAuth();
-    if (user){
+    if (user && User.isLoggedIn){
         return(
             <ProfileImageProvider>
             <NavigationContainer>
@@ -55,6 +56,17 @@ export default function AppNavigation(){
             <NavigationContainer>
                 <Stack.Navigator initialRouteName="Start">
                     <Stack.Screen name='Home' options={{headerShown: false}} component={HomeScreen} />
+
+                    <Stack.Screen name="FitnessApp" options={{ headerShown: false }} component={FitnessAppPage} />
+                    <Stack.Screen name="Plan" options={{ headerShown: false }} component={Plan} />
+                    <Stack.Screen name="TwoButton" options={{ headerShown: false }} component={TwoButton} />
+                    <Stack.Screen name="Workout" options={{ headerShown: false }} component={WorkoutContainer} />
+                    <Stack.Screen name="ProfileScreen" options={{ headerShown: false }} component={ProfileScreen} />
+                    <Stack.Screen name="CameraSection" options={{ headerShown: false }} component={CameraSection} />
+                    {/* <Stack.Screen name="NewPass" options={{ headerShown: false }} component={NewPass} />  */}
+                    {/* <Stack.Screen name="Done" options={{ headerShown: false }} component={Done} /> */}
+                    <Stack.Screen name="loader" options={{headerShown:false}} component={loader}/>
+
                     <Stack.Screen name='Start' options={{headerShown: false}} component={Start} />
                     <Stack.Screen name="Question" options={{ headerShown: false }} component={Question} />
                     <Stack.Screen name='Login' options={{headerShown: false}} component={Login} />
