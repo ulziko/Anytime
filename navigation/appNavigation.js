@@ -18,7 +18,7 @@ import Question from '../screens/nomio/Question';
 import NewPass from '../screens/nomio/NewPass';
 import Done from '../screens/nomio/Done';
 import ProfileScreen from "../screens/v10d/ProfileScreen";
-import { ProfileImageProvider } from '../screens/nomio/ProfileImageContext';
+import { ProfileImageProvider } from '../context/ProfileImageContext';
 import UserContext from "../context/UserContext";
 import loader from "../navigation/loader";
 import useAuth from '../hooks/useAuth'
