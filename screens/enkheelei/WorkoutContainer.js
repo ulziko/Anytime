@@ -1,20 +1,62 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Modal,
+  Pressable,
+} from "react-native";
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
 import { Svg, Circle } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import workoutsData from "./workout.json";
+// import { WebView } from "react-native-webview";
 
 const WorkoutPage = ({ workoutId }) => {
   const navigation1 = useNavigation();
   const [workout, setWorkout] = useState(null);
+  const [id, setId] = useState(0);
   const [seconds, setSeconds] = useState(0);
-  const [isModalVisible, setIsModalVisible] = useState();
   const [isActive, setIsActive] = useState(false);
+  const [isVideoVisible, setVideoVisible] = useState(false);
+  const [questionVisible, setQuestionVisible] = useState(false);
+  const selectedWorkout = workoutsData.find((w) => w.id === workoutId);
+
+  const watchVideo = () => {
+    setVideoVisible(!isVideoVisible);
+  };
+
+  const showDetails = () => {
+    setQuestionVisible(!questionVisible);
+    console.log("show details");
+  };
+
+  const prevWorkout = () => {
+    setId(id - 1);
+    resetPage();
+    console.log({ id });
+  };
+
+  const nextWorkout = () => {
+    setId(id + 1);
+    resetPage();
+    console.log({ id });
+  };
+
+  const resetPage = () => {
+    const selectedWorkout = workoutsData.find((w) => w.id === id);
+    setWorkout(null);
+    setSeconds(0);
+    setIsActive(false);
+    setWorkout(selectedWorkout);
+  };
 
   useEffect(() => {
     const loadWorkout = () => {
-      const selectedWorkout = workoutsData.find((w) => w.id === workoutId);
+      setId(workoutId);
       setWorkout(selectedWorkout);
     };
 
@@ -74,33 +116,33 @@ const WorkoutPage = ({ workoutId }) => {
   }
 
   return (
-    <View className="flex-1 bg-black p-5">
+    <View className="flex w-screen h-screen bg-black p-5">
       {/* Header */}
-      <View className="flex-row justify-between items-center">
+      <View className="flex-row justify-between mt-4">
         <TouchableOpacity
           onPress={() => navigation1.navigate("Home")}
-          className="flex justify-center items-center mt-[2vh] bg-purple-600 rounded-3xl w-[11vw] h-[5vh]"
+          className="flex justify-center items-center bg-purple-600 rounded-3xl w-[11vw] h-[5vh]"
         >
           <ArrowLeftIcon size="20" color="white" />
         </TouchableOpacity>
-        <Text className="text-white text-4xl mt-[2vh] mr-[14vh]">Workout</Text>
+        <Text className="text-white text-4xl mx-auto">Workout</Text>
       </View>
       {/* Main Content */}
-      <View className="flex items-center justify-center mt-[4vh]">
-        <View className="flex-row bg-gray-800 p-[3vh] rounded-3xl w-full items-center h-[40vh]">
+      <View className="flex mt-5 h-[50%]">
+        <View className="flex-row bg-gray-800 p-[3vh] rounded-3xl w-full h-full">
           <Image
             source={require("../../assets/man.png")}
-            className="w-[30vw]"
-            resizeMode="contain"
+            className="w-[40%] h-[90%] m-5"
+            resizeMode="stretch"
           />
-          <View className="flex-col mb-[10vh]">
+          <View className="flex-col mt-5 mx-auto">
             <Text className="text-purple-600 text-3xl font-bold">
               {workout.name}
             </Text>
             <View className="flex items-center justify-around mt-3 w-full">
               <View className="flex-row justify-start items-start p-[1vh] m-[2vh]">
                 <Image
-                  source={require("../../assets/Vector.png")}
+                  source={require("../../assets/e_target.png")}
                   className="h-[3vh] w-[3vh]"
                 />
                 <Text className="text-white text-xl pl-8">
@@ -109,7 +151,7 @@ const WorkoutPage = ({ workoutId }) => {
               </View>
               <View className="flex-row justify-start items-start p-[1vh]">
                 <Image
-                  source={require("../../assets/vector2.png")}
+                  source={require("../../assets/e_weight.png")}
                   className="h-[3vh] w-[3vh] left-2.5"
                 />
                 <Text className="text-white text-xl pl-8">
@@ -118,6 +160,7 @@ const WorkoutPage = ({ workoutId }) => {
               </View>
             </View>
           </View>
+          {/* timer */}
           <View className="absolute top-[75%] right-[20%]">
             <TouchableOpacity onPress={handleCircleClick} activeOpacity={1}>
               <Svg height="100" width="100" viewBox="0 0 100 100">
@@ -149,37 +192,114 @@ const WorkoutPage = ({ workoutId }) => {
         </View>
       </View>
       {/* Exercise Details */}
-      <View className="mt-5">
+      <View className="flex flex-col m-5">
         <View className="flex-row items-center mb-3">
           <View className="bg-gray-700 p-3 rounded-full">
-            <Text className="text-white">🔄</Text>
+            <Image
+              source={require("../../assets/e_sets.png")}
+              className="h-[3vh] w-[3vh]"
+            />
           </View>
-          <Text className="text-white ml-3">Оролт: {workout.sets}</Text>
+          <Text className="text-purple-600 text-2xl ml-3">Оролт: </Text>
+          <Text className="text-white text-lg">{workout.sets}</Text>
         </View>
         <View className="flex-row items-center mb-3">
           <View className="bg-gray-700 p-3 rounded-full">
-            <Text className="text-white">1️⃣0️⃣</Text>
+            <Image
+              source={require("../../assets/e_reps.png")}
+              className="h-[3vh] w-[3vh]"
+            />
           </View>
-          <Text className="text-white ml-3">Давтах: {workout.reps}</Text>
+          <Text className="text-purple-600 text-2xl ml-3">Давталт: </Text>
+          <Text className="text-white text-lg">{workout.reps}</Text>
         </View>
         <View className="flex-row items-center">
           <View className="bg-gray-700 p-3 rounded-full">
-            <Text className="text-white">💬</Text>
+            <Image
+              source={require("../../assets/e_plus.png")}
+              className="h-[3vh] w-[3vh]"
+            />
           </View>
-          <Text className="text-white ml-3">
-            Нэмэлт: {workout.additionalInfo}
-          </Text>
+          <Text className="text-purple-600 text-2xl ml-3">Нэмэлт: </Text>
+          <Text className="text-white text-lg">{workout.additionalInfo}</Text>
         </View>
       </View>
       {/* Start Button */}
       <TouchableOpacity
-        className="bg-purple-600 p-4 mt-5 rounded-full items-center justify-center"
-        onPress={(_) => {
-          setIsModalVisible(true);
+        className="bg-purple-600 w-3/5 mx-auto p-4 mt-5 rounded-full items-center justify-center"
+        onPress={() => {
+          watchVideo(true);
         }}
       >
-        <Text className="text-white text-lg">▶</Text>
+        <Image
+          source={require("../../assets/e_play.png")}
+          className="h-[3vh] w-[3vh]"
+        />
       </TouchableOpacity>
+      <View>
+        <Modal animationType="fade" visible={isVideoVisible} transparent={true}>
+          <Pressable
+            onPressOut={() => {
+              watchVideo(!isVideoVisible);
+            }}
+            className="flex h-screen w-screen justify-center items-center content-center bg-black/75"
+          >
+            <View className="flex bg-white items-center border-solid border-2 rounded-xl w-[80%] h-[22%]">
+              {/* <WebView
+                source={{ uri: `https://www.youtube.com/watch?v=Dduy3fa9X74` }}
+                style={{ flex: 1 }}
+              /> */}
+            </View>
+            <TouchableOpacity
+              onPress={() => {
+                watchVideo(!isVideoVisible);
+                showDetails(!questionVisible);
+              }}
+              className="rounded-full items-end w-4/5 p-5"
+            >
+              <FontAwesome
+                name="question-circle-o"
+                size={24}
+                color="white"
+                className="w-[10%] h-[10%]"
+              />
+            </TouchableOpacity>
+          </Pressable>
+        </Modal>
+      </View>
+      <View>
+        <Modal
+          animationType="fade"
+          visible={questionVisible}
+          transparent={true}
+        >
+          <Pressable
+            onPressOut={() => {
+              showDetails(!questionVisible);
+            }}
+            className="flex h-screen w-screen justify-center items-center content-center bg-black/75"
+          >
+            <View className="flex items-center rounded-xl w-[80%] h-[22%]">
+              <Text className="text-lg font-bold text-white">Хөтөлбөр</Text>
+              <Text className="text-lg font-bold text-purple-600">
+                Хөтөлбөр
+              </Text>
+            </View>
+          </Pressable>
+        </Modal>
+      </View>
+      <View className="h-[100%] w-[100%] my-auto">
+        <View className="flex flex-row w-full h-1/5">
+          <TouchableOpacity
+            className="bg-purple-600 rounded-full mr-auto -ml-10 w-[10%] h-full"
+            onPress={prevWorkout}
+          ></TouchableOpacity>
+          <TouchableOpacity
+            className="bg-purple-300 rounded-full ml-auto -mr-10 w-[10%] h-full"
+            onPress={nextWorkout}
+          ></TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 };
