@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, {  useContext } from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import Plan from './Plan';
 import NoPlan from './NoPlan';
@@ -18,7 +18,7 @@ const WorkoutPlan = () => {
  return (
    <View style={styles.container}>
      {User.Plan==true ? (
-       <Plan planName={User.planId}/>
+       <Plan />
      ) : (
     //   <TouchableOpacity onPress={() => navigation.navigate('Plan')}>
         <NoPlan/>

@@ -1,7 +1,8 @@
 // PlanList.js
-import React from "react";
+import React, {useContext} from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { useNavigation } from '@react-navigation/native';
+import UserContext from "../../context/UserContext";
 import {
   View,
   Text,
@@ -12,15 +13,17 @@ import {
 } from "react-native";
 
 const { height } = Dimensions.get('window');
+const plan_names = ["Enjoy plan", "Killer plan", "Iron discipline plan", 'Monster plan', "Unstopable plan"];
 
-const Plan = ({planName}) => {
+const Plan = () => {
+  const User=useContext(UserContext)
   const navigation = useNavigation();
   return (
   <View style={styles.container}>
-    <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('loader')}>
+    <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('plan')}>
     <View style={styles.plansContainer}>
           <View style={styles.plan}>
-            <Text style={styles.planTitle}>{planName}</Text>
+            <Text style={styles.planTitle}>{plan_names[User.planId-1]}</Text>
           </View>
       </View>
     </TouchableOpacity>

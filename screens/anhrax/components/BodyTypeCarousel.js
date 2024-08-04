@@ -83,13 +83,11 @@ const BodyTypeCarousel = () => {
         { id: '5', image: require('../../../assets/10.png'), weight: '75 - 80', mass: Math.floor(65*mass), margin: 0.15 * width },
       ];
   const handlePress = (id, sex) => {
-    
-    User.setPlanId({id});
+    User.setPlanId(id);
     User.checkPlan(true);
     navigation.navigate('Plan', { id, sex });
   };
     
-
   const renderItem = ({ item }) => (
     <TouchableOpacity style={[styles.bodyContainer, { marginHorizontal: item.margin }]} onPress={() => handlePress(item.id)}>
       <Image source={item.image} style={styles.bodyImage} />
