@@ -12,6 +12,7 @@ const Input = ({ inputs }) => {
                         value={input.value}
                         onChangeText={input.onChangeText}
                         secureTextEntry={input.secureTextEntry}
+                        placeholder={input.placeholder}
                     />
                 </View>
             ))}

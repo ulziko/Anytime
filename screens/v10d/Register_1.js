@@ -17,19 +17,19 @@ import { doc, setDoc } from 'firebase/firestore';
 export default function Register_1() {
     const User = useContext(UserContext);
     const navigation = useNavigation();
-    const [tmp_pass01, setTmp_pass01] = useState('');
-    const [tmp_pass02, setTmp_pass02] = useState('');
+    // const [tmp_pass01, setTmp_pass01] = useState('');
+    // const [tmp_pass02, setTmp_pass02] = useState('');
     const [showPassword1, setShowPassword1] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
 
-    const check = (pass01, pass02) => {
-        if (pass01 === pass02) {
-            User.setPassword(pass01);
-            return true;
-        } else {
-            return false;
-        }
-    };
+    // const check = (pass01, pass02) => {
+    //     if (pass01 === pass02) {
+    //         User.setPassword(pass01);
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // };
 
     const inputs = [
         {
@@ -37,18 +37,21 @@ export default function Register_1() {
             value: User.name,
             defaultValue: 'Нэрээ оруул.',
             onChangeText: User.setName,
+            placeholder: "Өлзийтөгс"
+        },
+        {
+            label: "Цахим хаяг",
+            value: User.email,
+            onChangeText: User.setEmail,
+            secureTextEntry: !showPassword2,
+            placeholder: "test@example.com"
         },
         {
             label: "Нууц үг",
-            value: tmp_pass01,
-            onChangeText: setTmp_pass01,
+            value: User.password,
+            onChangeText: User.setPassword,
             secureTextEntry: !showPassword1,
-        },
-        {
-            label: "Нууц үгээ давтах",
-            value: tmp_pass02,
-            onChangeText: setTmp_pass02,
-            secureTextEntry: !showPassword2,
+            placeholder: "Str0ng_P@ssw0rd"
         },
     ];
 
@@ -85,29 +88,18 @@ export default function Register_1() {
                                                     <Ionicons name={showPassword1 ? "eye-off-outline" : "eye-outline"} size={24} color="black" />
                                                 </TouchableOpacity>
                                             )}
-                                            {input.label === "Нууц үгээ давтах" && (
+                                            {/* {input.label === "Цахим хаяг" && (
                                                 <TouchableOpacity onPress={() => setShowPassword2(!showPassword2)} style={{ padding: 14}}>
                                                     <Ionicons name={showPassword2 ? "eye-outline" : "eye-off-outline"} size={24} color="black" />
                                                 </TouchableOpacity>
-                                            )}
+                                            )} */}
                                         </View>
                                     </View>
                                 ))}
                             </View>
                             <View className="flex-row justify-end">
                                 <TouchableOpacity 
-                                    onPress={async () => {
-                                        if (check(tmp_pass01, tmp_pass02)) {
-                                            try {
-                                                // await save();
-                                                navigation.navigate('Register2');
-                                            } catch (error) {
-                                                alert("Error on navigation");
-                                            }
-                                        } else {
-                                            alert("Enter again");
-                                        }
-                                    }}
+                                    onPress={() => { navigation.navigate('Register2');}}
                                     className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
                                 >
                                     <ArrowRightIcon size="20" color="white" />

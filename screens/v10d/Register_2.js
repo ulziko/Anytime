@@ -6,10 +6,11 @@ import { LinearGradient } from 'expo-linear-gradient';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import RegisterHeader from './components/RegisterHeader';
 import { themeColors } from '../../theme';
-import Textt from './components/Textt';
 import Input from './components/Input';
 import UserContext from "../../context/UserContext";
 import { RadioButton } from 'react-native-paper'; 
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../config/firebase';
 
 function calculateAge(birthDate) {
     const today = new Date();
@@ -28,6 +29,22 @@ export default function Register_2() {
     const [showPicker, setShowPicker] = useState(false);
 
     const User = useContext(UserContext);
+
+    const handleSubmit = async ()=>{
+        if(User.email && User.password){
+            try{
+                await createUserWithEmailAndPassword(auth, User.email, User.password);
+                User.SetIsLoggedIn(true);
+                navigation.navigate('Register4')
+            }catch(err){
+                console.log('got error: ',err.message);
+                let msg = err.message;
+                if(msg.includes('auth/email-already-in-use')) msg = "Email already in use"
+                if(msg.includes('auth/invalid-email)')) msg = "Please use a valid email"
+                Alert.alert('Sign Up', err.message);
+            }
+        }
+    }
 
     const toggleDatePicker = () => {
         setShowPicker(!showPicker);
@@ -50,17 +67,13 @@ export default function Register_2() {
             label: "Биеийн жин",
             value: User.weight,
             onChangeText: User.setWeight,
+            placeholder: "70"
         },
         {
             label: "Биеийн өндөр",
             value: User.height,
             onChangeText: User.setHeight,
-        },
-    ];
-
-    const textt = [
-        {
-            label: " Мэдээллээ оруулна уу",
+            placeholder: "170"
         },
     ];
 
@@ -134,7 +147,7 @@ export default function Register_2() {
                             </TouchableOpacity>
                             <Text className="p-[24%]" />
                             <TouchableOpacity
-                                onPress={() => navigation.navigate('Register3')}
+                                onPress={handleSubmit}
                                 className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
                             >
                                 <ArrowRightIcon size="20" color="white" />

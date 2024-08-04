@@ -21,33 +21,48 @@ import ProfileScreen from "../screens/v10d/ProfileScreen";
 import { ProfileImageProvider } from '../screens/nomio/ProfileImageContext';
 import UserContext from "../context/UserContext";
 import loader from "../navigation/loader";
+import useAuth from '../hooks/useAuth'
 
 const Stack = createNativeStackNavigator();
 
-export default function AppNavigation(){    
-    return(
-        <ProfileImageProvider>
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="Start">
-                <Stack.Screen name='Home' options={{headerShown: false}} component={HomeScreen} />
-                <Stack.Screen name='Start' options={{headerShown: false}} component={Start} />
-                <Stack.Screen name='Login' options={{headerShown: false}} component={Login} />
-                <Stack.Screen name='Register1' options={{headerShown: false}} component={Register_1} />
-                <Stack.Screen name='Register2' options={{headerShown: false}} component={Register_2} />
-                {/* <Stack.Screen name='Register3' options={{headerShown: false}} component={Register_3} /> */}
-                <Stack.Screen name='Register3' options={{headerShown: false}} component={Register_4} />
-                <Stack.Screen name="FitnessApp" options={{ headerShown: false }} component={FitnessAppPage} />
-                <Stack.Screen name="Plan" options={{ headerShown: false }} component={Plan} />
-                <Stack.Screen name="TwoButton" options={{ headerShown: false }} component={TwoButton} />
-                <Stack.Screen name="Workout" options={{ headerShown: false }} component={WorkoutContainer} />
-                <Stack.Screen name="ProfileScreen" options={{ headerShown: false }} component={ProfileScreen} />
-                <Stack.Screen name="CameraSection" options={{ headerShown: false }} component={CameraSection} />
-                <Stack.Screen name="Question" options={{ headerShown: false }} component={Question} />
-                {/* <Stack.Screen name="NewPass" options={{ headerShown: false }} component={NewPass} />  */}
-                {/* <Stack.Screen name="Done" options={{ headerShown: false }} component={Done} /> */}
-                <Stack.Screen name="loader" options={{headerShown:false}} component={loader}/>
-            </Stack.Navigator>
-        </NavigationContainer>
-        </ProfileImageProvider>
-    )
+export default function AppNavigation(){  
+    const { user } = useAuth();
+    if (user){
+        return(
+            <ProfileImageProvider>
+            <NavigationContainer>
+                <Stack.Navigator initialRouteName="Start">
+                    <Stack.Screen name='Home' options={{headerShown: false}} component={HomeScreen} />
+                    <Stack.Screen name='Start' options={{headerShown: false}} component={Start} />
+                    <Stack.Screen name="FitnessApp" options={{ headerShown: false }} component={FitnessAppPage} />
+                    <Stack.Screen name="Plan" options={{ headerShown: false }} component={Plan} />
+                    <Stack.Screen name="TwoButton" options={{ headerShown: false }} component={TwoButton} />
+                    <Stack.Screen name="Workout" options={{ headerShown: false }} component={WorkoutContainer} />
+                    <Stack.Screen name="ProfileScreen" options={{ headerShown: false }} component={ProfileScreen} />
+                    <Stack.Screen name="CameraSection" options={{ headerShown: false }} component={CameraSection} />
+                    <Stack.Screen name="Question" options={{ headerShown: false }} component={Question} />
+                    {/* <Stack.Screen name="NewPass" options={{ headerShown: false }} component={NewPass} />  */}
+                    {/* <Stack.Screen name="Done" options={{ headerShown: false }} component={Done} /> */}
+                    <Stack.Screen name="loader" options={{headerShown:false}} component={loader}/>
+                </Stack.Navigator>
+            </NavigationContainer>
+            </ProfileImageProvider>
+        )
+    }else{
+        return(
+            <ProfileImageProvider>
+            <NavigationContainer>
+                <Stack.Navigator initialRouteName="Start">
+                    <Stack.Screen name='Home' options={{headerShown: false}} component={HomeScreen} />
+                    <Stack.Screen name='Start' options={{headerShown: false}} component={Start} />
+                    <Stack.Screen name='Login' options={{headerShown: false}} component={Login} />
+                    <Stack.Screen name='Register1' options={{headerShown: false}} component={Register_1} />
+                    <Stack.Screen name='Register2' options={{headerShown: false}} component={Register_2} />
+                    {/* <Stack.Screen name='Register3' options={{headerShown: false}} component={Register_3} /> */}
+                    <Stack.Screen name='Register4' options={{headerShown: false}} component={Register_4} />
+                </Stack.Navigator>
+            </NavigationContainer>
+            </ProfileImageProvider>
+        )
+    }
 }

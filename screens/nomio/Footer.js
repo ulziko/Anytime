@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, TouchableOpacity, Text, StyleSheet, Image, Dimensions } from 'react-native';
 import { useFonts, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
+import { signOut } from 'firebase/auth'
+import { auth } from '../../config/firebase'
 
 const helpIcon = require('./../../assets/help.png');
 const exitIcon = require('./../../assets/exit.png');
@@ -14,6 +16,11 @@ const Footer = () => {
     Philosopher_700Bold,
   });
 
+  const handleLogout = async ()=>{
+    await signOut(auth);
+    navigation.navigate('Login');;
+  }
+
   if (!fontsLoaded) {
     return null; // or a loading spinner
   }
@@ -22,7 +29,7 @@ const Footer = () => {
     <View style={styles.footer}>
       <TouchableOpacity 
         style={styles.button}
-        onPress={() => navigation.navigate('Login')}
+        onPress={handleLogout}
       >
         <Image
           source={exitIcon}

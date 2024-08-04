@@ -8,29 +8,45 @@ import LoginHeader from './components/LoginHeader';
 import Textt from './components/Textt';
 import UserContext from "../../context/UserContext";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../config/firebase';
 
 export default function Login() {
     const navigation = useNavigation();
     const User = useContext(UserContext);
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
-    useEffect(() => {
-        const loadUserData = async () => {
-            const storedUsername = await AsyncStorage.getItem('user_name');
-            const storedPassword = await AsyncStorage.getItem('user_password');
-            if (storedUsername && storedPassword) {
-                setUsername(storedUsername);
-                setPassword(storedPassword);
-                User.setName(storedUsername);
-                User.setPassword(storedPassword);
+    // useEffect(() => {
+    //     const loadUserData = async () => {
+    //         const storedUsername = await AsyncStorage.getItem('user_name');
+    //         const storedPassword = await AsyncStorage.getItem('user_password');
+    //         if (storedUsername && storedPassword) {
+    //             setUsername(storedUsername);
+    //             setPassword(storedPassword);
+    //             User.setName(storedUsername);
+    //             User.setPassword(storedPassword);
+    //         }
+    //     };
+    //     loadUserData();
+    // }, []);
+
+    const handleSubmit = async ()=>{
+        if(email && password){
+            try{
+                await signInWithEmailAndPassword(auth, email, password);
+                User.SetIsLoggedIn(true);
+                navigation.navigate('Home')
+            }catch(err){
+                console.log('got error: ',err.message);
+                let msg = err.message;
+                if(msg.includes('invalid-login-credentials')) msg = "Invalid credentials";
+                if(msg.includes('auth/invalid-email')) msg = "Invalid email";
+                Alert.alert('Sign In', msg);
             }
-        };
-        loadUserData();
-    }, []);
+        }
+    }
 
     const textt = [
         {
@@ -51,11 +67,11 @@ export default function Login() {
                             <Textt textt={textt} />
                             <View>
                                 <View style={{ marginBottom: 20 }}>
-                                    <Text style={{ color: 'white', marginBottom: 5 }}>Нэвтрэх нэр</Text>
+                                    <Text style={{ color: 'white', marginBottom: 5 }}>Цахим хаяг</Text>
                                     <TextInput
                                         style={{ backgroundColor: 'white', padding: 15, borderRadius: 13 }}
-                                        value={username}
-                                        onChangeText={setUsername}
+                                        value={email}
+                                        onChangeText={setEmail}
                                     />
                                 </View>
                                 <View style={{ marginBottom: 20 }}>
@@ -79,11 +95,12 @@ export default function Login() {
                                     <Text className="text-purple-600 mb-[5vh]">Нууц үгээ мартсан уу?</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity
-                                    onPress={() => {
-                                        User.setName(username);
-                                        User.setPassword(password);
-                                        navigation.navigate('Home');
-                                    }}
+                                    // onPress={() => {
+                                        // User.setName(username);
+                                        // User.setPassword(password);
+                                    //     navigation.navigate('Home');
+                                    // }}
+                                    onPress={handleSubmit}
                                     className="py-[1.5vh] bg-purple-600 rounded-3xl"
                                 >
                                     <Text className="text-xl font-bold text-center text-white">
