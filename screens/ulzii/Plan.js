@@ -21,11 +21,9 @@ const Plan = () => {
   return (
   <View style={styles.container}>
     <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('Plan')}>
-    <View style={styles.plansContainer}>
           <View style={styles.plan}>
             <Text style={styles.planTitle}>{plan_names[User.planId-1]}</Text>
           </View>
-      </View>
     </TouchableOpacity>
       <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('loader')}>
         <View style={styles.plan}>
@@ -51,6 +49,7 @@ const styles = StyleSheet.create({
   plan: {
     height: height*0.09,
     justifyContent: "center",
+    alignItems: "center",
     backgroundColor: "rgba(152, 0, 255, 0.3)",
     borderRadius: 20,
     borderColor: "#9800FF",
@@ -59,6 +58,7 @@ const styles = StyleSheet.create({
     marginVertical: 5,
   },
   planTitle: {
+    textAlign: 'center',
     fontSize: height*0.02,
     paddingBottom: 10,
     width: "100%",

@@ -1,0 +1,230 @@
+[
+    {
+        "id": "1",
+        "title": "Эхний өдөр",
+        "exercises": [
+            {
+                "name": "Incline Bench Press",
+                "bodyPart": "Цээж",
+                "sets": "3",
+                "reps": "8-10",
+                "weight": "",
+                "additionalInfo": ""
+            },
+            {
+                "name": "One Arm Dumbbell Row ",
+                "bodyPart": "Нурууний дээд булчин",
+                "sets": "3",
+                "reps": "10-12",
+                "weight": "",
+                "additionalInfo": ""
+            },
+            {
+                "name": "Seated Barbell Press",
+                "bodyPart": "Мөр",
+                "sets": "3",
+                "reps": "8-10",
+                "weight": "",
+                "additionalInfo": "Keep elbows at 45 degrees"
+            },
+            {
+                "name": "Pull Ups",
+                "bodyPart": "Нуруу",
+                "sets": "3",
+                "reps": "10",
+                "weight": "",
+                "additionalInfo": "Keep back straight"
+            },
+            {
+                "name": "Skullcrushers",
+                "bodyPart": "Мөр",
+                "sets": "3",
+                "reps": "10-12",
+                "weight": "",
+                "additionalInfo": "Avoid arching back"
+            },
+            {
+                "name": "Dumbbell Curl",
+                "bodyPart": "Гар",
+                "sets": "3",
+                "reps": "10-12",
+                "weight": "",
+                "additionalInfo": "Keep elbows close to sides"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "title": "Мягмар",
+        "exercises": [
+            {
+                "name": "Warm-up",
+                "bodyPart": "",
+                "desc": "5 minutes of light cardio",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": ""
+            },
+            {
+                "name": "Steady-state cardio",
+                "bodyPart": "Бүх бие",
+                "desc": "30-40 minutes of steady-state cardio (e.g., running, cycling, swimming)",
+                "equipment": "Cardio machine or space for running",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": "Maintain a consistent pace"
+            },
+            {
+                "name": "Plank",
+                "bodyPart": "Цээж",
+                "desc": "Hold a plank position",
+                "equipment": "",
+                "sets": "3",
+                "reps": "30-60 секунд",
+                "weight": "",
+                "additionalInfo": "Keep body straight"
+            },
+            {
+                "name": "Russian Twists",
+                "bodyPart": "Гэдэс",
+                "desc": "Rotate torso side to side while holding a weight",
+                "equipment": "Дамббелл эсвэл бөмбөг",
+                "sets": "3",
+                "reps": "20",
+                "weight": "",
+                "additionalInfo": "Keep feet off the ground"
+            },
+            {
+                "name": "Leg Raises",
+                "bodyPart": "Гэдэс",
+                "desc": "Lift legs while lying flat on your back",
+                "equipment": "",
+                "sets": "3",
+                "reps": "15",
+                "weight": "",
+                "additionalInfo": "Keep legs straight"
+            },
+            {
+                "name": "Cool down",
+                "bodyPart": "",
+                "desc": "Stretching for 5-10 minutes",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": "Focus on all major muscle groups"
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "title": "Пүрэв",
+        "exercises": [
+            {
+                "name": "Амралт",
+                "bodyPart": "",
+                "desc": "30-40 минут алхах эсвэл  хөнгөн дасгал хийгээрэй.",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": ""
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "title": "Лхагва",
+        "exercises": [
+            {
+                "name": "Warm-up",
+                "bodyPart": "",
+                "desc": "5-10 minutes of light cardio",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": ""
+            },
+            {
+                "name": "Squats",
+                "bodyPart": "Хөл",
+                "desc": "Lower body while bending knees",
+                "equipment": "",
+                "sets": "3",
+                "reps": "10-15",
+                "weight": "",
+                "additionalInfo": "Keep back straight"
+            },
+            {
+                "name": "Deadlifts",
+                "bodyPart": "Хөл",
+                "desc": "Lift weight from the ground to hip level",
+                "equipment": "Барбелл",
+                "sets": "3",
+                "reps": "8-12",
+                "weight": "",
+                "additionalInfo": "Keep back straight"
+            },
+            {
+                "name": "Lunges",
+                "bodyPart": "Хөл",
+                "desc": "Step forward and lower body",
+                "equipment": "",
+                "sets": "3",
+                "reps": "10-12",
+                "weight": "",
+                "additionalInfo": "Keep knee behind toes"
+            },
+            {
+                "name": "Leg Press",
+                "bodyPart": "Хөл",
+                "desc": "Press weight away from body using legs",
+                "equipment": "Leg press machine",
+                "sets": "3",
+                "reps": "10-15",
+                "weight": "",
+                "additionalInfo": "Keep feet shoulder-width apart"
+            },
+            {
+                "name": "Calf Raises",
+                "bodyPart": "Хөл",
+                "desc": "Raise heels off the ground",
+                "equipment": "",
+                "sets": "3",
+                "reps": "15-20",
+                "weight": "",
+                "additionalInfo": "Hold for a second at the top"
+            },
+            {
+                "name": "Cool down",
+                "bodyPart": "",
+                "desc": "Stretching for 5-10 minutes",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": "Focus on all major muscle groups"
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "title": "Пүрэв",
+        "exercises": [
+            {
+                "name": "Амралт",
+                "bodyPart": "",
+                "desc": "30-40 минут алхах эсвэл  хөнгөн дасгал хийгээрэй.",
+                "equipment": "",
+                "sets": "",
+                "reps": "",
+                "weight": "",
+                "additionalInfo": ""
+            }
+        ]
+    }
+]
