@@ -40,11 +40,11 @@ export default function AppNavigation(){
                     <Stack.Screen name="Workout" options={{ headerShown: false }} component={WorkoutContainer} />
                     <Stack.Screen name="ProfileScreen" options={{ headerShown: false }} component={ProfileScreen} />
                     <Stack.Screen name="CameraSection" options={{ headerShown: false }} component={CameraSection} />
+                    <Stack.Screen name='Login' options={{headerShown: false}} component={Login} />
                     <Stack.Screen name="Question" options={{ headerShown: false }} component={Question} />
                     {/* <Stack.Screen name="NewPass" options={{ headerShown: false }} component={NewPass} />  */}
                     {/* <Stack.Screen name="Done" options={{ headerShown: false }} component={Done} /> */}
                     <Stack.Screen name="loader" options={{headerShown:false}} component={loader}/>
-                    <Stack.Screen name='Register4' options={{headerShown: false}} component={Register_4} />
                 </Stack.Navigator>
             </NavigationContainer>
             </ProfileImageProvider>
