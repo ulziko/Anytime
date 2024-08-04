@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: '#fff',
-    fontSize: width * 0.045,
+    fontSize: width * 0.06,
     fontWeight: 'bold',
     textAlign: 'center',
     fontFamily: 'Philosopher_700Bold',

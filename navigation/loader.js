@@ -45,15 +45,15 @@ const Loader = () => {
     <View style={styles.container}>
       <ImageBackground style={styles.background} source={null}>
         <SafeAreaView style={styles.safeArea}>
-          <TouchableOpacity 
+          {/* <TouchableOpacity 
             style={styles.touchable}
             onPress={() => navigation.navigate("Login")}
-          >
+          > */}
             <Image 
               source={anytimeIcon}
               style={styles.anytimeIcon}
             />
-          </TouchableOpacity>
+          {/* </TouchableOpacity> */}
           <Text style={styles.text}>Таны төлөвлөгөөг боловсруулж {'\n'}  байна...</Text>
           <Image source={Icon1} style={[styles.icon, { top: '10%', left: '10%' }]} />
           <Image source={Icon2} style={[styles.icon, { top: '20%', right: '40%' }]} />

@@ -43,7 +43,7 @@ export default function Register_1() {
             label: "Цахим хаяг",
             value: User.email,
             onChangeText: User.setEmail,
-            secureTextEntry: !showPassword2,
+            // secureTextEntry: !showPassword2,
             placeholder: "test@example.com"
         },
         {

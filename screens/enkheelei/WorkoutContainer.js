@@ -5,7 +5,7 @@ import { Svg, Circle } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
 import workoutsData from "./workout.json";
 
-const WorkoutPage = ({ workoutId, navigation }) => {
+const WorkoutPage = ({ workoutId }) => {
   const navigation1 = useNavigation();
   const [workout, setWorkout] = useState(null);
   const [seconds, setSeconds] = useState(0);

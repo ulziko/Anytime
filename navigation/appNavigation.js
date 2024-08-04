@@ -44,6 +44,7 @@ export default function AppNavigation(){
                     {/* <Stack.Screen name="NewPass" options={{ headerShown: false }} component={NewPass} />  */}
                     {/* <Stack.Screen name="Done" options={{ headerShown: false }} component={Done} /> */}
                     <Stack.Screen name="loader" options={{headerShown:false}} component={loader}/>
+                    <Stack.Screen name='Register4' options={{headerShown: false}} component={Register_4} />
                 </Stack.Navigator>
             </NavigationContainer>
             </ProfileImageProvider>
@@ -55,6 +56,7 @@ export default function AppNavigation(){
                 <Stack.Navigator initialRouteName="Start">
                     <Stack.Screen name='Home' options={{headerShown: false}} component={HomeScreen} />
                     <Stack.Screen name='Start' options={{headerShown: false}} component={Start} />
+                    <Stack.Screen name="Question" options={{ headerShown: false }} component={Question} />
                     <Stack.Screen name='Login' options={{headerShown: false}} component={Login} />
                     <Stack.Screen name='Register1' options={{headerShown: false}} component={Register_1} />
                     <Stack.Screen name='Register2' options={{headerShown: false}} component={Register_2} />
