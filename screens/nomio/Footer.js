@@ -9,7 +9,7 @@ const exitIcon = require('./../../assets/exit.png');
 
 const { width, height } = Dimensions.get('window');
 
-const YourComponent = () => {
+const Footer = () => {
   const navigation = useNavigation();
   const [fontsLoaded] = useFonts({
     Philosopher_700Bold,
@@ -96,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default YourComponent;
+export default Footer;
