@@ -27,30 +27,16 @@ export default function Register_4() {
 
     const User = useContext(UserContext);
 
-    const handleSubmit = async () => {
-        if (User.email && User.password) {
-            try {
-                await createUserWithEmailAndPassword(auth, User.email, User.password);
-                User.SetIsLoggedIn(true);
-                navigation.navigate("Home")
-            } catch (err) {
-                console.log("got error: ", err.message);
-                let msg = err.message;
-                if (msg.includes("auth/email-already-in-use"))
-                msg = "Email already in use";
-                if (msg.includes("auth/invalid-email)"))
-                msg = "Please use a valid email";
-                Alert.alert("Sign Up", err.message);
-            }
-        }
-    };
-
     return (
         <View className="flex-1 bg-black">
             <ImageBackground className="flex-1" source={null}>
                 <SafeAreaView className="flex-1">
                     <View className="flex-1 justify-center items-center ">
-                        <TouchableOpacity onPress={handleSubmit}>
+                        <TouchableOpacity onPress={() =>{
+                            User.SetIsLoggedIn(true)
+                            navigation.navigate("Home")
+                        }
+                        }>
                             <Image 
                                 source={anytimeIcon} 
                                 className="w-[70vw] h-[22vh] mb-[6vh]"

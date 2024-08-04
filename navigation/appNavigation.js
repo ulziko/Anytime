@@ -1,5 +1,5 @@
 import { View, Text } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from '../screens/v10d/HomeScreen';
@@ -26,8 +26,9 @@ import useAuth from '../hooks/useAuth'
 const Stack = createNativeStackNavigator();
 
 export default function AppNavigation(){  
+    const User = useContext(UserContext);
     const { user } = useAuth();
-    if (user){
+    if (user && User.isLoggedIn){
         return(
             <ProfileImageProvider>
             <NavigationContainer>
