@@ -1,9 +1,10 @@
 import React, { useState, useContext, useRef } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, Dimensions, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, Dimensions, KeyboardAvoidingView, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
 import { Philosopher_400Regular, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
 import UserContext from "../../context/UserContext";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const DateIcon = require('./../../assets/Date.png');
 const JinIcon = require('./../../assets/Jin.png');
@@ -17,11 +18,10 @@ const InfoSection = () => {
   const User = useContext(UserContext);
   const [info, setInfo] = useState({
     dateOfBirth: User.bday,
-    weight: User.weight ,
+    weight: User.weight,
     height: User.height,
-    password: 'Нууц үг солих'
+    password: 'Нууц үг солих',
   });
-
 
   const navigation = useNavigation();
   const scrollViewRef = useRef(null);
@@ -43,7 +43,7 @@ const InfoSection = () => {
       navigation.navigate('Question');
     } else {
       setEditingField(field);
-      setInfo(prevInfo => ({ ...prevInfo, [field]: '' }));
+      setInfo((prevInfo) => ({ ...prevInfo, [field]: '' }));
     }
   };
 
@@ -68,13 +68,13 @@ const InfoSection = () => {
       formattedValue += 'см';
     }
 
-    setInfo(prevInfo => ({ ...prevInfo, [field]: formattedValue }));
+    setInfo((prevInfo) => ({ ...prevInfo, [field]: formattedValue }));
   };
 
   const formatDate = (date) => {
     const cleaned = date.replace(/\D/g, '');
     let formatted = '';
-    
+
     if (cleaned.length <= 4) {
       formatted = cleaned;
     } else if (cleaned.length <= 6) {
@@ -82,7 +82,7 @@ const InfoSection = () => {
     } else {
       formatted = `${cleaned.slice(0, 4)}-${cleaned.slice(4, 6)}-${cleaned.slice(6, 8)}`;
     }
-    
+
     return formatted;
   };
 
@@ -110,13 +110,18 @@ const InfoSection = () => {
           onFocus={() => {
             setTimeout(() => {
               if (scrollViewRef.current && inputRefs.current[field]) {
-                scrollViewRef.current.scrollTo({ y: inputRefs.current[field].offsetTop, animated: true });
+                scrollViewRef.current.scrollToPosition(0, inputRefs.current[field].offsetTop, true);
               }
             }, 100);
           }}
         />
       ) : (
-        <Text style={[styles.infoValue, field === 'weight' || field === 'height' || field === 'password' ? styles.boldText : null]}>
+        <Text
+          style={[
+            styles.infoValue,
+            field === 'weight' || field === 'height' || field === 'password' ? styles.boldText : null,
+          ]}
+        >
           {value}
         </Text>
       )}
@@ -128,16 +133,18 @@ const InfoSection = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}
     >
-      <ScrollView
+      <KeyboardAwareScrollView
         style={styles.infoSection}
-        ref={scrollViewRef}
         contentContainerStyle={styles.scrollViewContent}
+        enableOnAndroid={true}
+        extraScrollHeight={Platform.OS === 'ios' ? 0 : 0}
+        ref={scrollViewRef}
       >
         {renderInfoItem(DateIcon, 'dateOfBirth', info.dateOfBirth)}
         {renderInfoItem(JinIcon, 'weight', info.weight)}
         {renderInfoItem(OndorIcon, 'height', info.height)}
         {renderInfoItem(NuutsugIcon, 'password', info.password)}
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </KeyboardAvoidingView>
   );
 };

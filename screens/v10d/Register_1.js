@@ -11,25 +11,30 @@ import Textt from './components/Textt';
 import UserContext from "../../context/UserContext";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, firestore } from '../../config/firebase';
-import { doc, setDoc } from 'firebase/firestore';
+import { auth } from '../../config/firebase';
 
 export default function Register_1() {
     const User = useContext(UserContext);
     const navigation = useNavigation();
-    // const [tmp_pass01, setTmp_pass01] = useState('');
-    // const [tmp_pass02, setTmp_pass02] = useState('');
     const [showPassword1, setShowPassword1] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
 
-    // const check = (pass01, pass02) => {
-    //     if (pass01 === pass02) {
-    //         User.setPassword(pass01);
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // };
+    const handleSubmit = async () => {
+        if (User.email && User.password) {
+            try {
+                await createUserWithEmailAndPassword(auth, User.email, User.password);
+                navigation.navigate('Register2')
+            } catch (err) {
+                console.log("got error: ", err.message);
+                let msg = err.message;
+                if (msg.includes("auth/email-already-in-use"))
+                msg = "Email already in use";
+                if (msg.includes("auth/invalid-email)"))
+                msg = "Please use a valid email";
+                Alert.alert("Sign Up", err.message);
+            }
+        }
+    };
 
     const inputs = [
         {
@@ -99,7 +104,7 @@ export default function Register_1() {
                             </View>
                             <View className="flex-row justify-end">
                                 <TouchableOpacity 
-                                    onPress={() => { navigation.navigate('Register2');}}
+                                    onPress={handleSubmit}
                                     className="w-[20vw] h-[6vh] flex justify-center items-center bg-purple-600 rounded-3xl"
                                 >
                                     <ArrowRightIcon size="20" color="white" />
