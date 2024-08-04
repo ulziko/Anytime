@@ -13,7 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import workoutsData from "./workout.json";
-import { WebView } from "react-native-webview";
+// import { WebView } from "react-native-webview";
 
 const WorkoutPage = ({ workoutId, navigation }) => {
   const navigation1 = useNavigation();
@@ -245,10 +245,10 @@ const WorkoutPage = ({ workoutId, navigation }) => {
             className="flex h-screen w-screen justify-center items-center content-center bg-black/75"
           >
             <View className="flex bg-white items-center border-solid border-2 rounded-xl w-[80%] h-[22%]">
-              <WebView
+              {/* <WebView
                 source={{ uri: `https://www.youtube.com/watch?v=Dduy3fa9X74` }}
                 style={{ flex: 1 }}
-              />
+              /> */}
             </View>
             <TouchableOpacity
               onPress={() => {
