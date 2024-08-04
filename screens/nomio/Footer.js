@@ -1,66 +1,81 @@
-import React from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { View, TouchableOpacity, Text, StyleSheet, Image, Dimensions } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, TextInput, StyleSheet, Dimensions, Keyboard, TouchableOpacity, Text, Image } from 'react-native';
 import { useFonts, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
-import { signOut } from 'firebase/auth'
-import { auth } from '../../config/firebase'
+import { signOut } from 'firebase/auth';
+import { useNavigation } from '@react-navigation/native';
+import { auth } from '../../config/firebase';
 
-const helpIcon = require('./../../assets/help.png');
 const exitIcon = require('./../../assets/exit.png');
 
 const { width, height } = Dimensions.get('window');
 
-const Footer = () => {
+const YourComponent = () => {
   const navigation = useNavigation();
   const [fontsLoaded] = useFonts({
     Philosopher_700Bold,
   });
+  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
 
-  const handleLogout = async ()=>{
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => {
+      setKeyboardVisible(true);
+    });
+    const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () => {
+      setKeyboardVisible(false);
+    });
+
+    return () => {
+      keyboardDidHideListener.remove();
+      keyboardDidShowListener.remove();
+    };
+  }, []);
+
+  const handleLogout = async () => {
     await signOut(auth);
-    navigation.navigate('Login');;
-  }
+    navigation.navigate('Login');
+  };
 
   if (!fontsLoaded) {
     return null; // or a loading spinner
   }
 
   return (
-    <View style={styles.footer}>
-      <TouchableOpacity 
-        style={styles.button}
-        onPress={handleLogout}
-      >
-        <Image
-          source={exitIcon}
-          style={styles.image}
-          resizeMode="contain"
-        />
-        <Text style={styles.buttonText}>Гарах</Text>
-      </TouchableOpacity>
-      {/* Uncomment and use if you need a help icon */}
-      {/* <TouchableOpacity style={styles.button}>
-        <Image
-          source={helpIcon}
-          style={styles.image}
-          resizeMode="contain"
-        />
-        <Text style={styles.buttonText}>Тусламж</Text>
-      </TouchableOpacity> */}
+    <View style={styles.container}>
+
+      {!isKeyboardVisible && (
+        <View style={styles.footer}>
+          <TouchableOpacity style={styles.button} onPress={handleLogout}>
+            <Image source={exitIcon} style={styles.image} resizeMode="contain" />
+            <Text style={styles.buttonText}>Гарах</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  
+
+  input: {
+    width: '50%',
+    padding: 5,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    marginBottom: 5,
+  },
   footer: {
     position: 'absolute',
     bottom: 0,
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: width * 0.05, // Horizontal padding relative to screen width
+    width: '0%',
+    //flexDirection: 'row',
+    //justifyContent: 'space-between',
+    //paddingHorizontal: width * 0.05, // Horizontal padding relative to screen width
     paddingVertical: height * 0.02, // Vertical padding relative to screen height
-    backgroundColor: '#000',
+    backgroundColor: '#fff',
   },
   button: {
     flexDirection: 'row',
@@ -81,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Footer;
+export default YourComponent;

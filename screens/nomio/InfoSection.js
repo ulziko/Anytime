@@ -11,6 +11,7 @@ const JinIcon = require('./../../assets/Jin.png');
 const OndorIcon = require('./../../assets/Ondor.png');
 const NuutsugIcon = require('./../../assets/Nuutsug.png');
 
+
 const { width } = Dimensions.get('window');
 
 const InfoSection = () => {
