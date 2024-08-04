@@ -31,7 +31,7 @@ export default function Register_1() {
                 msg = "Email already in use";
                 if (msg.includes("auth/invalid-email)"))
                 msg = "Please use a valid email";
-                Alert.alert("Sign Up", err.message);
+                Alert.alert("Sign Up", msg);
             }
         }
     };
