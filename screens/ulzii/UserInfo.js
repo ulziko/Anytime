@@ -7,6 +7,7 @@ import {
   Image,
   Dimensions,
 } from "react-native";
+import { useProfileImage } from '../../context/ProfileImageContext';
 import UserContext from "../../context/UserContext";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
@@ -17,6 +18,7 @@ const { height } = Dimensions.get("window");
 
 const UserInfo = () => {
   //user info
+  const { profileImage, setProfileImage } = useProfileImage();
   const User=useContext(UserContext);
   function getYearDiff(dateOne, dateTwo) {
     return dateOne.diff(dateTwo, 'years', true);
@@ -35,7 +37,7 @@ const UserInfo = () => {
           <View style={styles.profile_pic}>
             {
               <Image
-                source={require("../../assets/profile_picture.png")}
+              source={profileImage ? { uri: profileImage } : require('../../assets/user.png')}
                 style={styles.proimage}
               />
             }
