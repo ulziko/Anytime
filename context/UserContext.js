@@ -19,11 +19,16 @@ export const UserStore = (props) => {
   const [questionKey, setQuestionKey]=useState(0);
   const [plan, checkPlan] = useState(false);
   const [age, setAge] = useState(20);
+  const [gender, setGender] = useState("f");
 
-  
   return (
     <UserContext.Provider
+<<<<<<< HEAD
       value={{isLoggedIn,  SetIsLoggedIn, name, setName, weight, setWeight, bday, setBday, height, setHeight, password, setPassword, questions_obj, questionKey, setQuestionKey,questionAnswer,setQuestionAnswer,planId,setPlanId ,plan, checkPlan,age, setAge}}>
+=======
+      value={{isLoggedIn,  SetIsLoggedIn, name, setName, weight, setWeight, bday, setBday, height, setHeight, password, setPassword, questions_obj, questionKey, setQuestionKey,questionAnswer,setQuestionAnswer, plan, checkPlan, age, setAge, gender, setGender}}
+    >
+>>>>>>> 570f8e3a2e3216cf0b3ce48760ed75617e1da0fd
       {props.children}
     </UserContext.Provider>
   );

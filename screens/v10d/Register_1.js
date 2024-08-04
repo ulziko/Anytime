@@ -1,8 +1,9 @@
-import { View, Text, TouchableOpacity, Image, TextInput, Alert, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
-import React, { useContext , useState } from 'react';
-import {ArrowRightIcon} from 'react-native-heroicons/solid';
+import { View, Text, TouchableOpacity, TextInput, Alert, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import React, { useContext, useState } from 'react';
+import { ArrowRightIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
 import { themeColors } from '../../theme';
 import Input from './components/Input';
 import RegisterHeader from './components/RegisterHeader';
@@ -14,12 +15,13 @@ import { auth, firestore } from '../../config/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 
 export default function Register_1() {
-    // user object 
     const User = useContext(UserContext);
     const navigation = useNavigation();
-    const [tmp_pass01, setTmp_pass01] = useState(null);
-    const [tmp_pass02, setTmp_pass02] = useState(null);
-    
+    const [tmp_pass01, setTmp_pass01] = useState('');
+    const [tmp_pass02, setTmp_pass02] = useState('');
+    const [showPassword1, setShowPassword1] = useState(false);
+    const [showPassword2, setShowPassword2] = useState(false);
+
     const check = (pass01, pass02) => {
         if (pass01 === pass02) {
             User.setPassword(pass01);
@@ -28,31 +30,31 @@ export default function Register_1() {
             return false;
         }
     };
-    
+
     const inputs = [
         {
             label: "Нэвтрэх нэр",
             value: User.name,
-            defaultValue:'Нэрээ оруул.',
+            defaultValue: 'Нэрээ оруул.',
             onChangeText: User.setName,
         },
         {
             label: "Нууц үг",
             value: tmp_pass01,
             onChangeText: setTmp_pass01,
-            secureTextEntry: true,
+            secureTextEntry: !showPassword1,
         },
         {
             label: "Нууц үгээ давтах",
             value: tmp_pass02,
             onChangeText: setTmp_pass02,
-            secureTextEntry: true,
+            secureTextEntry: !showPassword2,
         },
     ];
 
     const textt = [
         {
-            label: " Мэдээллээ оруулна уу",
+            label: "Мэдээллээ оруулна уу",
         },
     ];
 
@@ -68,14 +70,36 @@ export default function Register_1() {
                         <View className="flex-1 px-[8vw] pt-[6vh]">
                             <Textt textt={textt} />
                             <View className="pb-[2vh]">
-                                <Input inputs={inputs} />
+                                {inputs.map((input, index) => (
+                                    <View key={index} style={{ marginBottom: 20 }}>
+                                        <Text style={{ color: 'white', marginBottom: 7 }}>{input.label}</Text>
+                                        <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: 'white', borderRadius: 12 }}>
+                                            <TextInput
+                                                style={{ flex: 1, padding: 14 }}
+                                                value={input.value}
+                                                onChangeText={input.onChangeText}
+                                                secureTextEntry={input.secureTextEntry}
+                                            />
+                                            {input.label === "Нууц үг" && (
+                                                <TouchableOpacity onPress={() => setShowPassword1(!showPassword1)} style={{ padding: 14 }}>
+                                                    <Ionicons name={showPassword1 ? "eye-off-outline" : "eye-outline"} size={24} color="black" />
+                                                </TouchableOpacity>
+                                            )}
+                                            {input.label === "Нууц үгээ давтах" && (
+                                                <TouchableOpacity onPress={() => setShowPassword2(!showPassword2)} style={{ padding: 14}}>
+                                                    <Ionicons name={showPassword2 ? "eye-outline" : "eye-off-outline"} size={24} color="black" />
+                                                </TouchableOpacity>
+                                            )}
+                                        </View>
+                                    </View>
+                                ))}
                             </View>
                             <View className="flex-row justify-end">
                                 <TouchableOpacity 
                                     onPress={async () => {
                                         if (check(tmp_pass01, tmp_pass02)) {
                                             try {
-                                                await save();
+                                                // await save();
                                                 navigation.navigate('Register2');
                                             } catch (error) {
                                                 alert("Error on navigation");
