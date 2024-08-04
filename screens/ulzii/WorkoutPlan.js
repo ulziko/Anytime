@@ -1,27 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import Plan from './Plan';
 import NoPlan from './NoPlan';
 import { useNavigation } from '@react-navigation/native';
+import UserContext from "../../context/UserContext";
 const WorkoutPlan = () => {
   const navigation = useNavigation();
+  const User=useContext(UserContext);
  // State to hold the list of plans
- const [plans, setPlans] = useState([]);
 
  // Function to add a new plan
- const addNewPlan = () => {
-   const newPlan = { id: plans.length + 1, title: 'Мангас төлөвлөгөө', date: '2024/07/22' };
-   setPlans([...plans, newPlan]);
- };
+//  const addNewPlan = () => {
+//    const newPlan = { id: plans.length + 1, title: 'Мангас төлөвлөгөө', date: '2024/07/22' };
+//    setPlans([...plans, newPlan]);
+//  };
 
  return (
    <View style={styles.container}>
-     {plans.length > 0 ? (
-       <Plan plans={plans} addNewPlan={addNewPlan} />
+     {User.Plan==true ? (
+       <Plan planName={User.planId}/>
      ) : (
-      <TouchableOpacity onPress={() => navigation.navigate('Plan')}>
+    //   <TouchableOpacity onPress={() => navigation.navigate('Plan')}>
         <NoPlan/>
-     </TouchableOpacity>
+    //  </TouchableOpacity>
        
      )}
    </View>

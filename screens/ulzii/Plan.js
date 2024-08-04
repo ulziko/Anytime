@@ -1,6 +1,7 @@
 // PlanList.js
 import React from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { useNavigation } from '@react-navigation/native';
 import {
   View,
   Text,
@@ -12,25 +13,24 @@ import {
 
 const { height } = Dimensions.get('window');
 
-const Plan = ({ plans, addNewPlan }) => (
+const Plan = ({planName}) => {
+  const navigation = useNavigation();
+  return (
   <View style={styles.container}>
-    <ScrollView contentContainerStyle={styles.scrollView}>
-      <View style={styles.plansContainer}>
-        {plans.map((plan) => (
+    <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('loader')}>
+    <View style={styles.plansContainer}>
           <View style={styles.plan}>
-            <Text style={styles.planTitle}>{plan.title}</Text>
-            <Text style={styles.planDate}>үүсгэсэн: {plan.date}</Text>
+            <Text style={styles.planTitle}>{planName}</Text>
           </View>
-        ))}
       </View>
-      <TouchableOpacity style={styles.addButton} onPress={addNewPlan}>
+    </TouchableOpacity>
+      <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('loader')}>
         <View style={styles.plan}>
           <AntDesign name="plus" size={26} color="white" alignSelf="center"/>
         </View>
       </TouchableOpacity>
-    </ScrollView>
   </View>
-);
+  )};
 
 const styles = StyleSheet.create({
   container: {
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     width: "90%",
   },
   scrollView: {
-    paddingVertical: height*0.012,
+    paddingVertical: height*0.01,
   },
   plansContainer: {
     padding: 10,

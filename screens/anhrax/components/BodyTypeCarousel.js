@@ -1,8 +1,10 @@
-import React, { useState, useContext } from 'react';
+
+import React, { useState , useContext} from 'react';
 import { View, Text, Image, StyleSheet, FlatList, Dimensions, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import TwoButton from './TwoButton';
-import UserContext from "../../../context/UserContext";
+import UserContext from '../../../context/UserContext';
+
 
 const { width, height } = Dimensions.get('window');
 
@@ -64,6 +66,7 @@ const BodyTypeCarousel = () => {
   const navigation = useNavigation();
   const User=useContext(UserContext);
   const mass=calculateMuscleMass(User.age, sex)
+
   const bodyTypes = sex === 1
     ? [
         { id: '1', image: require('../../../assets/Slim.png'), weight: '70 - 75', mass: Math.floor(70*mass), margin: 0.1 * width },
@@ -79,8 +82,10 @@ const BodyTypeCarousel = () => {
         { id: '4', image: require('../../../assets/9.png'), weight: '65 - 70', mass: Math.floor(60*mass), margin: -0.05 * width },
         { id: '5', image: require('../../../assets/10.png'), weight: '75 - 80', mass: Math.floor(65*mass), margin: 0.15 * width },
       ];
-
   const handlePress = (id, sex) => {
+    
+    User.setPlanId({id});
+    User.checkPlan(true);
     navigation.navigate('Plan', { id, sex });
   };
     

@@ -9,6 +9,7 @@ export const UserStore = (props) => {
   const [height, setHeight] = useState(170);
   const [password, setPassword] = useState(null);
   const [questionAnswer,setQuestionAnswer]=useState(null);
+  const [planId,setPlanId] = useState(null);
   const questions_obj = [
     {key:'0', value:'Таны анхны хайрын нэр?'},
     {key:'1', value:'Та биеийнхээ аль хэсэгт хамгийн их дуртай вэ?'},
@@ -22,8 +23,7 @@ export const UserStore = (props) => {
   
   return (
     <UserContext.Provider
-      value={{isLoggedIn,  SetIsLoggedIn, name, setName, weight, setWeight, bday, setBday, height, setHeight, password, setPassword, questions_obj, questionKey, setQuestionKey,questionAnswer,setQuestionAnswer, plan, checkPlan, age, setAge}}
-    >
+      value={{isLoggedIn,  SetIsLoggedIn, name, setName, weight, setWeight, bday, setBday, height, setHeight, password, setPassword, questions_obj, questionKey, setQuestionKey,questionAnswer,setQuestionAnswer,planId,setPlanId ,plan, checkPlan,age, setAge}}>
       {props.children}
     </UserContext.Provider>
   );
