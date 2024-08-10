@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA2_trMWV0BQ13DElSghkYbxSIRsmb-bFM",
-  authDomain: "anytimefitness-2be36.firebaseapp.com",
-  projectId: "anytimefitness-2be36",
-  storageBucket: "anytimefitness-2be36.appspot.com",
-  messagingSenderId: "239886760227",
-  appId: "1:239886760227:web:84637ce84acb949818f496"
+  apiKey: "AIzaSyBZ96JHRienO2pg3H0C6Ng7H5KWoK4fOPQ",
+  authDomain: "anytime-8ba38.firebaseapp.com",
+  projectId: "anytime-8ba38",
+  storageBucket: "anytime-8ba38.appspot.com",
+  messagingSenderId: "676908011042",
+  appId: "1:676908011042:web:2a3f158b2c60493256847b"
 };
 
 // Initialize Firebase
