@@ -9,22 +9,23 @@ import {
 } from "react-native";
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
 import { Svg, Circle } from "react-native-svg";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import workoutsData from "./workout.json";
 // import { WebView } from "react-native-webview";
 
-const WorkoutPage = ({ workoutId }) => {
+const WorkoutPage = () => {
   const navigation1 = useNavigation();
+  const route = useRoute();
   const [workout, setWorkout] = useState(null);
   const [id, setId] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [isVideoVisible, setVideoVisible] = useState(false);
   const [questionVisible, setQuestionVisible] = useState(false);
+  const { workoutId } = route.params || {};
   const selectedWorkout = workoutsData.find((w) => w.id === workoutId);
-
   const watchVideo = () => {
     setVideoVisible(!isVideoVisible);
   };
@@ -55,6 +56,7 @@ const WorkoutPage = ({ workoutId }) => {
   };
 
   useEffect(() => {
+    console.log("Received workoutId: ", workoutId);
     const loadWorkout = () => {
       setId(workoutId);
       setWorkout(selectedWorkout);
@@ -111,6 +113,7 @@ const WorkoutPage = ({ workoutId }) => {
     return (
       <View className="flex-1 bg-purple-600 items-center justify-center">
         <Text className="text-white">Loading...</Text>
+        <Text>Workout ID: {workoutId}</Text>
       </View>
     );
   }

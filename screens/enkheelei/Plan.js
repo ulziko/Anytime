@@ -1,26 +1,14 @@
-import * as React from 'react';
-import {
-  View,
-  Text,
-  Dimensions,
-  Animated,
-  TouchableOpacity,
-} from 'react-native';
+import React from 'react';
+import { View, Text, Dimensions, Animated, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { ArrowLeftIcon } from 'react-native-heroicons/solid';
 import plansMapping from './Mapping';  // Import the mapping
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 const cardWidth = width;
 
-const Item = ({ title }) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
-  </View>
-);
-
-export default function Plan({ route }) {
+const Plan = ({ route }) => {
   const navigation = useNavigation();
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const [active, setActive] = React.useState(0);
@@ -131,7 +119,7 @@ export default function Plan({ route }) {
                     key={item.id}
                     className="flex w-3/5 py-1 content-between justify-center"
                   >
-                    {item.exercises.map((item, idx) => (
+                    {item.exercises.map((exercise, idx) => (
                       <Text
                         key={idx}
                         className={`${
@@ -140,7 +128,7 @@ export default function Plan({ route }) {
                             : '-z-10'
                         }`}
                       >
-                        {item.name}
+                        {exercise.name}
                       </Text>
                     ))}
                   </View>
@@ -150,7 +138,10 @@ export default function Plan({ route }) {
                         ? 'w-2/5 h-[8%] mx-auto my-auto bottom-0 rounded-full bg-purple-600 justify-center'
                         : 'invisible'
                     }`}
-                    onPress={() => navigation.navigate('Detail')}
+                    onPress={() => {
+                      console.log('Navigating to Workout with workoutId:', index);
+                      navigation.navigate('Workout', { workoutId: index });
+                    }}
                   >
                     <Text
                       className={`${
@@ -171,3 +162,16 @@ export default function Plan({ route }) {
     </View>
   );
 }
+
+const styles = {
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+  },
+  title: {
+    fontSize: 32,
+  },
+};
+
+export default Plan;

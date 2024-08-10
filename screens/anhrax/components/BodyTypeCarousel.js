@@ -12,7 +12,7 @@ function calculateMuscleMass(age, sex) {
   let muscleMass;
 
   switch (sex) {
-    case 1: // Male
+    case 1:
       switch (true) {
         case age >= 18 && age <= 35:
           muscleMass = 0.42;
@@ -32,7 +32,7 @@ function calculateMuscleMass(age, sex) {
       }
       break;
 
-    case 2: // Female
+    case 2:
     switch (true) {
       case age >= 18 && age <= 35:
         muscleMass = 0.32;
@@ -62,9 +62,9 @@ function calculateMuscleMass(age, sex) {
 
 
 const BodyTypeCarousel = () => {
-  const [sex, setSex] = useState(2);
-  const navigation = useNavigation();
   const User=useContext(UserContext);
+  const [sex, setSex] = useState(User.gender === 'f' ? 2 : 1);
+  const navigation = useNavigation();
   const mass=calculateMuscleMass(User.age, sex)
 
   const bodyTypes = sex === 1
