@@ -1,17 +1,21 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   View,
   Text,
   Dimensions,
   Animated,
   TouchableOpacity,
-} from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation } from '@react-navigation/native';
-import { ArrowLeftIcon } from 'react-native-heroicons/solid';
-import plansMapping from './Mapping';  // Import the mapping
+  Modal,
+  Pressable,
+} from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
+import { ArrowLeftIcon } from "react-native-heroicons/solid";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import plansMapping from "./Mapping"; // Import the mapping
+import { Button } from "react-native-paper";
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 const cardWidth = width;
 
 const Item = ({ title }) => (
@@ -26,10 +30,16 @@ export default function Plan({ route }) {
   const [active, setActive] = React.useState(0);
   const [plan, setPlan] = React.useState([]);
   const { id, sex } = route.params;
+  const [planDetail, setPlanDetail] = React.useState([]);
+
+  const showPlanDetails = () => {
+    setPlanDetail(!planDetail);
+    console.log("show details");
+  };
 
   React.useEffect(() => {
     const getPlanFileKey = (id, sex) => {
-      const genderPrefix = sex === 1 ? 'm' : 'f';
+      const genderPrefix = sex === 1 ? "m" : "f";
       return `${genderPrefix}_${id}`;
     };
 
@@ -39,7 +49,7 @@ export default function Plan({ route }) {
         const planData = plansMapping[fileKey];
         setPlan(planData);
       } catch (error) {
-        console.error('Error loading plan:', error);
+        console.error("Error loading plan:", error);
       }
     };
 
@@ -53,7 +63,7 @@ export default function Plan({ route }) {
   }).current;
 
   return (
-    <View className={'flex flex-1 h-full bg-black justify-center items-center'}>
+    <View className={"flex flex-1 h-full bg-black justify-center items-center"}>
       <View className="flex-row justify-between items-center w-full mt-5">
         <TouchableOpacity
           onPress={() => navigation.goBack()}
@@ -80,8 +90,8 @@ export default function Plan({ route }) {
         onViewableItemsChanged={onCardChanged}
         contentContainerStyle={{
           flexGrow: 1,
-          justifyContent: 'center',
-          alignContent: 'flex-start',
+          justifyContent: "center",
+          alignContent: "flex-start",
         }}
         getItemLayout={(data, index) => ({
           length: cardWidth,
@@ -102,27 +112,27 @@ export default function Plan({ route }) {
             <View
               style={{ width: cardWidth }}
               className={`${
-                index === active ? 'h-3/5' : 'h-2/5 -z-10'
+                index === active ? "h-3/5" : "h-2/5 -z-10"
               }  my-auto`}
             >
               <Animated.View
                 style={{ transform: [{ translateY }] }}
                 className={
-                  'flex flex-1 border-2 border-white items-center shadow-xl shadow-white rounded-3xl mx-auto w-2/3 h-full'
+                  "flex flex-1 border-2 border-white items-center shadow-xl shadow-white rounded-3xl mx-auto w-2/3 h-full"
                 }
               >
                 <LinearGradient
                   start={{ x: 0, y: 0 }}
                   end={{ x: 0, y: 1 }}
                   colors={[
-                    `${index === active ? '#9800FF' : '#475569'}`,
-                    '#000000',
+                    `${index === active ? "#9800FF" : "#475569"}`,
+                    "#000000",
                   ]}
-                  className={'flex bg-black w-full h-full rounded-3xl'}
+                  className={"flex bg-black w-full h-full rounded-3xl"}
                 >
                   <Text
                     className={`${
-                      index === active ? 'text-white' : 'text-purple-600'
+                      index === active ? "text-white" : "text-purple-600"
                     } flex flex-2 text-center text-3xl my-5 w-full h-12`}
                   >
                     {item.title}
@@ -136,8 +146,8 @@ export default function Plan({ route }) {
                         key={idx}
                         className={`${
                           index === active
-                            ? 'text-left text-lg mx-12 w-full text-white'
-                            : '-z-10'
+                            ? "text-left text-lg mx-12 w-full text-white"
+                            : "-z-10"
                         }`}
                       >
                         {item.name}
@@ -147,16 +157,16 @@ export default function Plan({ route }) {
                   <TouchableOpacity
                     className={`${
                       index === active
-                        ? 'w-2/5 h-[8%] mx-auto my-auto bottom-0 rounded-full bg-purple-600 justify-center'
-                        : 'invisible'
+                        ? "w-2/5 h-[8%] mx-auto my-auto bottom-0 rounded-full bg-purple-600 justify-center"
+                        : "invisible"
                     }`}
-                    onPress={() => navigation.navigate('Detail')}
+                    onPress={() => navigation.navigate("Workout")}
                   >
                     <Text
                       className={`${
                         index === active
-                          ? 'text-white text-lg text-center'
-                          : 'invisible'
+                          ? "text-white text-lg text-center"
+                          : "invisible"
                       }`}
                     >
                       Эхлэх
@@ -168,6 +178,32 @@ export default function Plan({ route }) {
           );
         }}
       />
+      <View className="flex-row justify-end items-center w-full pr-5 pb-5">
+        <TouchableOpacity
+          onPress={() => setPlanDetail(!planDetail)}
+          className="flex justify-center items-center mt-[2vh] bg-purple-600 rounded-3xl w-[11vw] h-[5vh]"
+        >
+          <ArrowLeftIcon size="20" color="white" />
+        </TouchableOpacity>
+      </View>
+      {/* Plan Detail */}
+      <View>
+        <Modal animationType="fade" visible={planDetail} transparent={true}>
+          <Pressable
+            onPressOut={() => {
+              showPlanDetails(!planDetail);
+            }}
+            className="flex h-screen w-screen justify-center items-center content-center bg-black/75"
+          >
+            <View className="flex items-center rounded-xl w-[80%] h-[22%]">
+              <Text className="text-lg font-bold text-white">Хөтөлбөр</Text>
+              <Text className="text-lg font-bold text-purple-600">
+                Хөтөлбөр
+              </Text>
+            </View>
+          </Pressable>
+        </Modal>
+      </View>
     </View>
   );
 }
