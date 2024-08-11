@@ -294,7 +294,10 @@ const WorkoutPage = () => {
       <View className="h-[100%] w-[100%] my-auto">
         <View className="flex flex-row w-full h-1/5">
           <TouchableOpacity
-            className="bg-purple-600 rounded-full mr-auto -ml-10 w-[10%] h-full"
+            className={`${
+              id === 0 ? "invisible" : "bg-purple-600"
+            } rounded-full mr-auto -ml-10 w-[10%] h-full`}
+            disabled={`${id === 0 ? "disable" : ""}`}
             onPress={prevWorkout}
           ></TouchableOpacity>
           <TouchableOpacity
