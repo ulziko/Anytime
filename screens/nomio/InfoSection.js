@@ -1,21 +1,40 @@
-import React, { useState, useContext, useRef } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, Dimensions, KeyboardAvoidingView, Platform } from 'react-native';
+import React, { useState, useEffect, useContext, useRef } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  Dimensions,
+  KeyboardAvoidingView,
+  Platform,
+  Alert,
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
+import {
+  useFonts,
+  Nunito_400Regular,
+  Nunito_700Bold,
+} from '@expo-google-fonts/nunito';
 import { Philosopher_400Regular, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
-import UserContext from "../../context/UserContext";
+import UserContext from '../../context/UserContext';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { getDatabase, ref, update, get } from 'firebase/database';
+import { database } from '../../config/firebase';
+import { getAuth } from 'firebase/auth';
 
 const DateIcon = require('./../../assets/Date.png');
 const JinIcon = require('./../../assets/Jin.png');
 const OndorIcon = require('./../../assets/Ondor.png');
 const NuutsugIcon = require('./../../assets/Nuutsug.png');
 
-
 const { width } = Dimensions.get('window');
 
 const InfoSection = () => {
   const [editingField, setEditingField] = useState(null);
+  const [editedFields, setEditedFields] = useState({}); // Track edited fields
+  const [isEdited, setIsEdited] = useState(false); // Track if any fields are edited
   const User = useContext(UserContext);
   const [info, setInfo] = useState({
     dateOfBirth: User.bday,
@@ -35,9 +54,40 @@ const InfoSection = () => {
     Philosopher_700Bold,
   });
 
-  if (!fontsLoaded) {
-    return null; // or a loading spinner
-  }
+  useEffect(() => {
+    const auth = getAuth(); 
+    const user = auth.currentUser; 
+
+    if (user) {
+      const userId = user.uid; 
+      fetchUserData(userId);
+    } else {
+      console.log('No user is logged in');
+      Alert.alert("Error", "User not logged in. Please login.");
+    }
+  }, []);
+
+
+  const fetchUserData = async (userId) => {
+    try {
+      const userRef = ref(database, `users/${userId}`);
+      const snapshot = await get(userRef);
+      if (snapshot.exists()) {
+        const userData = snapshot.val();
+        setInfo({
+          dateOfBirth: userData.dateOfBirth || '',
+          weight: userData.weight ? `${userData.weight}кг` : '',
+          height: userData.height ? `${userData.height}см` : '',
+          password: 'Нууц үг солих',
+        });
+      } else {
+        console.log('No data available');
+        Alert.alert("Error", "Failed to find user data. Please try login again or register again.");
+      }
+    } catch (error) {
+      console.error('Error fetching data: ', error);
+    }
+  };
 
   const handlePress = (field) => {
     if (field === 'password') {
@@ -53,12 +103,15 @@ const InfoSection = () => {
     if (field === 'dateOfBirth') {
       formattedValue = formatDate(value);
       User.setBday(formattedValue);
+      setEditedFields((prev) => ({ ...prev, [field]: true }));
+      setEditedFields((prev) => ({ ...prev, age: true }));
     } else if (field === 'weight') {
       formattedValue = value.replace(/[^0-9]/g, '');
       if (formattedValue.length > 3) {
         formattedValue = formattedValue.slice(0, 3);
       }
       User.setWeight(formattedValue);
+      setEditedFields((prev) => ({ ...prev, [field]: true }));
       formattedValue += 'кг';
     } else if (field === 'height') {
       formattedValue = value.replace(/[^0-9]/g, '');
@@ -66,10 +119,13 @@ const InfoSection = () => {
         formattedValue = formattedValue.slice(0, 3);
       }
       User.setHeight(formattedValue);
+      setEditedFields((prev) => ({ ...prev, [field]: true }));
       formattedValue += 'см';
     }
 
     setInfo((prevInfo) => ({ ...prevInfo, [field]: formattedValue }));
+
+    setIsEdited(true);
   };
 
   const formatDate = (date) => {
@@ -85,6 +141,56 @@ const InfoSection = () => {
     }
 
     return formatted;
+  };
+
+  const handleSave = async () => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+      try {
+        const database = getDatabase();
+        const updates = {};
+
+        if (editedFields.dateOfBirth) {
+          updates.dateOfBirth = info.dateOfBirth;
+        }
+        if (editedFields.weight) {
+          updates.weight = User.weight;
+        }
+        if (editedFields.height) {
+          updates.height = User.height;
+        }
+        if (editedFields.age) {
+          updates.age = calculateAge(info.dateOfBirth);
+        }
+
+        await update(ref(database, 'users/' + user.uid), updates);
+
+        console.log('User data updated successfully!');
+        Alert.alert('Success', 'Your profile has been updated.');
+
+        // Reset edited fields
+        setEditedFields({});
+        setIsEdited(false); // Reset edited state
+      } catch (err) {
+        console.error('Error updating user data: ', err.message);
+        Alert.alert('Error', 'Failed to update user data. Please try again.');
+      }
+    } else {
+      Alert.alert('Error', 'No authenticated user found.');
+    }
+  };
+
+  const calculateAge = (birthDate) => {
+    const today = new Date();
+    const birth = new Date(birthDate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+      age--;
+    }
+    return age;
   };
 
   const renderInfoItem = (icon, field, value) => (
@@ -146,6 +252,11 @@ const InfoSection = () => {
         {renderInfoItem(OndorIcon, 'height', info.height)}
         {renderInfoItem(NuutsugIcon, 'password', info.password)}
       </KeyboardAwareScrollView>
+      {isEdited && ( 
+        <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
+          <Text style={styles.saveButtonText}>Save</Text>
+        </TouchableOpacity>
+      )}
     </KeyboardAvoidingView>
   );
 };
@@ -186,6 +297,19 @@ const styles = StyleSheet.create({
     width: width * 0.1,
     height: width * 0.08,
     marginRight: 18,
+  },
+  saveButton: {
+    marginTop: -50,
+    margin: 20,
+    padding: 10,
+    borderRadius: 15,
+    backgroundColor: '#9800ff',
+    alignItems: 'center',
+  },
+  saveButtonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 

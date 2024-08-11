@@ -18,5 +18,5 @@ export default function useAuth() {
         return unsub;
     },[])
 
-  return { user }
+    return { user }
 }

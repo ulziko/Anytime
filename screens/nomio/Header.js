@@ -1,4 +1,4 @@
-import React ,{useContext} from 'react';
+import React ,{useContext, useEffect, useState} from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, Dimensions, Alert } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
@@ -6,12 +6,14 @@ import { useProfileImage } from '../../context/ProfileImageContext';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as ImagePicker from 'expo-image-picker';
 import { useFonts, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
-import UserContext from "../../context/UserContext";
+import { getDatabase, ref, onValue, set } from 'firebase/database';
+import { getAuth } from 'firebase/auth';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const { width } = Dimensions.get('window');
 
 const Header = () => {
-  const User=useContext(UserContext);
+  const [userName, setUserName] = useState('');
   const navigation = useNavigation();
   const { profileImage, setProfileImage } = useProfileImage();
 
@@ -19,9 +21,56 @@ const Header = () => {
     Philosopher_700Bold,
   });
 
-  if (!fontsLoaded) {
-    return null; // or a loading spinner
-  }
+  useEffect(() => {
+    const fetchUserName = async () => {
+      const auth = getAuth();
+      const userId = auth.currentUser.uid;
+      const db = getDatabase();
+      const userRef = ref(db, 'users/' + userId);
+
+      onValue(userRef, (snapshot) => {
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          setUserName(data.username);
+          setProfileImage(data.profileImage); 
+        } else {
+          console.log("No data available");
+        }
+      });
+    };
+
+    fetchUserName();
+  }, []);
+
+  const uploadImage = async (uri) => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (!user) {
+      throw new Error("User not authenticated");
+    }
+
+    const userId = user.uid;
+    const storage = getStorage();
+    
+    const response = await fetch(uri);
+    const blob = await response.blob();
+
+    const fileRef = storageRef(storage, `users/${userId}/profileImages/${userId}.jpg`);
+    await uploadBytes(fileRef, blob);
+
+    const downloadURL = await getDownloadURL(fileRef);
+    return downloadURL;
+  };
+
+  const saveProfileImage = async (downloadURL) => {
+    const db = getDatabase();
+    const auth = getAuth();
+    const userId = auth.currentUser.uid;
+    
+    const userRef = ref(db, 'users/' + userId + '/profileImage');
+    await set(userRef, downloadURL);
+  };
 
   const pickImage = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -37,7 +86,9 @@ const Header = () => {
 
     if (!result.canceled) {
       const { uri } = result.assets[0];
-      setProfileImage(uri);
+      const downloadURL = await uploadImage(uri);
+      await saveProfileImage(downloadURL); 
+      setProfileImage(downloadURL); 
     }
   };
 
@@ -67,7 +118,7 @@ const Header = () => {
         <TouchableOpacity style={styles.iconContainer} onPress={pickImage}>
           <MaterialCommunityIcons name="camera-flip" size={23} color="#fff" />
         </TouchableOpacity>
-        <Text style={styles.profileName}>{User.name}</Text>
+        <Text style={styles.profileName}>{userName}</Text>
       </View>
     </LinearGradient>
   );

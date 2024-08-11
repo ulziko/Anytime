@@ -1,4 +1,4 @@
-import React , {useContext} from "react";
+import React , {useContext, useState, useEffect} from "react";
 import {
   StyleSheet,
   View,
@@ -12,19 +12,65 @@ import UserContext from "../../context/UserContext";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Fontisto } from "@expo/vector-icons";
-import moment from 'moment';
+import { database } from '../../config/firebase';
+import { getDatabase, ref, set, get } from 'firebase/database';
+import { getAuth } from 'firebase/auth';
 
 const { height } = Dimensions.get("window");
 
 const UserInfo = () => {
-  //user info
   const { profileImage, setProfileImage } = useProfileImage();
   const User=useContext(UserContext);
-  function getYearDiff(dateOne, dateTwo) {
-    return dateOne.diff(dateTwo, 'years', true);
-}
-// Function call
-  var age =parseInt( getYearDiff(moment(), (moment(User.bday))));
+  const [info, setInfo] = useState({
+    age: '',
+    weight: '',
+    height: '',
+    userName: '',
+  });
+
+  useEffect(() => {
+    const auth = getAuth(); 
+    const user = auth.currentUser; 
+
+    if (user) {
+      const userId = user.uid; 
+      fetchUserData(userId);
+    } else {
+      console.log('No user is logged in');
+      Alert.alert("Error", "User not logged in. Please login.");
+    }
+  }, []);
+
+
+  const fetchUserData = async (userId) => {
+    try {
+      const userRef = ref(database, `users/${userId}`);
+      const snapshot = await get(userRef);
+      if (snapshot.exists()) {
+        const userData = snapshot.val();
+        setInfo({
+          age: userData.age || '',
+          weight: userData.weight ? `${userData.weight}кг` : '',
+          height: userData.height ? `${userData.height}см` : '',
+          userName: userData.username || '',
+        });
+      } else {
+        console.log('No data available');
+        Alert.alert("Error", "Failed to find user data. Please try login again or register again.");
+      }
+    } catch (error) {
+      console.error('Error fetching data: ', error);
+    }
+  };
+
+  const saveProfileImage = async (downloadURL) => {
+    const db = getDatabase();
+    const auth = getAuth();
+    const userId = auth.currentUser.uid;
+    
+    const userRef = ref(db, 'users/' + userId + '/profileImage');
+    await set(userRef, downloadURL);
+  };
 
   return (
     // background image
@@ -44,7 +90,7 @@ const UserInfo = () => {
           </View>
           <View style={styles.name}>
             <Text style={styles.greeting}>Тавтай морил!</Text>
-            <Text style={styles.userName}>{User.name}</Text>
+            <Text style={styles.userName}>{info.userName}</Text>
           </View>
         </View>
         <View style={styles.userDetails}>
@@ -52,7 +98,7 @@ const UserInfo = () => {
             <View style={styles.icon_base}>
               <FontAwesome name="balance-scale" size={20} color="#ffffff" />
             </View>
-            <Text style={styles.userDetail1}>{User.weight}КГ</Text>
+            <Text style={styles.userDetail1}>{info.weight}КГ</Text>
             <Text style={styles.userDetail}>ЖИН</Text>
           </View>
           <View style={styles.userDetailContainer}>
@@ -63,14 +109,14 @@ const UserInfo = () => {
                 color="#ffffff"
               />
             </View>
-            <Text style={styles.userDetail1}>{User.height}</Text>
+            <Text style={styles.userDetail1}>{info.height}</Text>
             <Text style={styles.userDetail}>ӨНДӨР</Text>
           </View>
           <View style={styles.userDetailContainer}>
             <View style={styles.icon_base}>
               <Fontisto name="heartbeat-alt" size={24} color="#ffffff" />
             </View>
-            <Text style={styles.userDetail1}>{age}</Text>
+            <Text style={styles.userDetail1}>{info.age}</Text>
             <Text style={styles.userDetail}>НАС</Text>
           </View>
         </View>
