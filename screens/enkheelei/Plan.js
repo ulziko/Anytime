@@ -11,9 +11,7 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import plansMapping from "./Mapping"; // Import the mapping
-import { Button } from "react-native-paper";
 
 const { width, height } = Dimensions.get("window");
 const cardWidth = width;
