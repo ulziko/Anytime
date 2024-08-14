@@ -1,4 +1,4 @@
-import React , {useContext, useState, useEffect} from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -6,41 +6,41 @@ import {
   ImageBackground,
   Image,
   Dimensions,
+  Alert,
 } from "react-native";
-import { useProfileImage } from '../../context/ProfileImageContext';
+import { useProfileImage } from "../../context/ProfileImageContext";
 import UserContext from "../../context/UserContext";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Fontisto } from "@expo/vector-icons";
-import { database } from '../../config/firebase';
-import { getDatabase, ref, set, get } from 'firebase/database';
-import { getAuth } from 'firebase/auth';
+import { database } from "../../config/firebase";
+import { getDatabase, ref, set, get } from "firebase/database";
+import { getAuth } from "firebase/auth";
 
 const { height } = Dimensions.get("window");
 
 const UserInfo = () => {
   const { profileImage, setProfileImage } = useProfileImage();
-  const User=useContext(UserContext);
+  const User = useContext(UserContext);
   const [info, setInfo] = useState({
-    age: '',
-    weight: '',
-    height: '',
-    userName: '',
+    age: "",
+    weight: "",
+    height: "",
+    userName: "",
   });
 
   useEffect(() => {
-    const auth = getAuth(); 
-    const user = auth.currentUser; 
+    const auth = getAuth();
+    const user = auth.currentUser;
 
     if (user) {
-      const userId = user.uid; 
+      const userId = user.uid;
       fetchUserData(userId);
     } else {
-      console.log('No user is logged in');
+      console.log("No user is logged in");
       Alert.alert("Error", "User not logged in. Please login.");
     }
   }, []);
-
 
   const fetchUserData = async (userId) => {
     try {
@@ -49,17 +49,20 @@ const UserInfo = () => {
       if (snapshot.exists()) {
         const userData = snapshot.val();
         setInfo({
-          age: userData.age || '',
-          weight: userData.weight ? `${userData.weight}кг` : '',
-          height: userData.height ? `${userData.height}см` : '',
-          userName: userData.username || '',
+          age: userData.age || "",
+          weight: userData.weight ? `${userData.weight}кг` : "",
+          height: userData.height ? `${userData.height}см` : "",
+          userName: userData.username || "",
         });
       } else {
-        console.log('No data available');
-        Alert.alert("Error", "Failed to find user data. Please try login again or register again.");
+        console.log("No data available");
+        Alert.alert(
+          "Error",
+          "Failed to find user data. Please try login again or register again."
+        );
       }
     } catch (error) {
-      console.error('Error fetching data: ', error);
+      console.error("Error fetching data: ", error);
     }
   };
 
@@ -67,8 +70,8 @@ const UserInfo = () => {
     const db = getDatabase();
     const auth = getAuth();
     const userId = auth.currentUser.uid;
-    
-    const userRef = ref(db, 'users/' + userId + '/profileImage');
+
+    const userRef = ref(db, "users/" + userId + "/profileImage");
     await set(userRef, downloadURL);
   };
 
@@ -83,7 +86,11 @@ const UserInfo = () => {
           <View style={styles.profile_pic}>
             {
               <Image
-              source={profileImage ? { uri: profileImage } : require('../../assets/user.png')}
+                source={
+                  profileImage
+                    ? { uri: profileImage }
+                    : require("../../assets/user.png")
+                }
                 style={styles.proimage}
               />
             }
@@ -122,10 +129,7 @@ const UserInfo = () => {
         </View>
       </View>
       <View style={styles.quote}>
-        <Text 
-          style={styles.motto}
-          className='text-2xl'
-        >
+        <Text style={styles.motto} className="text-2xl">
           Дасгал хөдөлгөөн нь{"\n"}эрүүл амьдралын{"\n"}
           <Text style={[styles.motto, { color: "#9800FF" }]}>үндэс</Text>
         </Text>
