@@ -50,8 +50,8 @@ const UserInfo = () => {
         const userData = snapshot.val();
         setInfo({
           age: userData.age || '',
-          weight: userData.weight ? `${userData.weight}кг` : '',
-          height: userData.height ? `${userData.height}см` : '',
+          weight: userData.weight ? `${userData.weight}` : '',
+          height: userData.height ? `${userData.height}` : '',
           userName: userData.username || '',
         });
       } else {

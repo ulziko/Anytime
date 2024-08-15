@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -10,10 +10,25 @@ import {
   Alert,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import TwoButton from "./TwoButton";
-import UserContext from "../../../context/UserContext";
+import { getDatabase, ref, onValue, set } from 'firebase/database';
+import { getAuth } from 'firebase/auth';
 
 const { width, height } = Dimensions.get("window");
+
+function alertt(currentW, id, sex) {
+  currentW = Number(currentW);
+  id = Number(id);
+  sex = Number(sex);
+  let weight = 15*(5-sex) + (id/sex*10);
+  let difference = currentW - weight;
+  if (difference < 0) {
+    return sex === 1
+      ? `Таньд зориулсан булчингийн масс нэмэх 10 долоо хоногийн төлөвлөө байна.`
+      : `Таньд зориулсан булчингийн масс нэмэх 6 долоо хоногийн төлөвлөө байна.`;
+  } else {
+    return `Таньд зориулсан жин хасах 12 долоо хоногийн төлөвлөө байна.`;
+  }
+};
 
 function calculateMuscleMass(age, sex) {
   let muscleMass;
@@ -68,10 +83,33 @@ function calculateMuscleMass(age, sex) {
 }
 
 const BodyTypeCarousel = () => {
-  const User = useContext(UserContext);
-  const [sex, setSex] = useState(User.gender === "f" ? 2 : 1);
+  const [sex, setSex] = useState(); 
+  const [age, setAge] = useState();
+  const [weight, setWeight] = useState();
+
+  useEffect(() => {
+    const fetchUserName = async () => {
+      const auth = getAuth();
+      const userId = auth.currentUser.uid;
+      const db = getDatabase();
+      const userRef = ref(db, 'users/' + userId);
+
+      onValue(userRef, (snapshot) => {
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          setSex(data.gender === 'f' ? 2 : 1);
+          setAge(data.age);
+          setWeight(data.weight);
+        } else {
+          console.log("No data available");
+        }
+      });
+    };
+  fetchUserName();
+}, []);
+
   const navigation = useNavigation();
-  const mass = calculateMuscleMass(User.age, sex);
+  const mass = calculateMuscleMass(age, sex);
 
   const bodyTypes =
     sex === 1
@@ -144,7 +182,7 @@ const BodyTypeCarousel = () => {
           {
             id: "5",
             image: require("../../../assets/10.png"),
-            weight: "75 - 80",
+            weight: "70 - 75",
             mass: Math.floor(65 * mass),
             margin: 0.15 * width,
           },
@@ -156,33 +194,38 @@ const BodyTypeCarousel = () => {
     navigation.navigate("Plan", { id, sex });
   };
 
-  const renderItem = ({ item }) => (
-    <TouchableOpacity
-      style={[styles.bodyContainer, { marginHorizontal: item.margin }]}
-      onPress={() => {
-        Alert.alert("Анхаар", "Сайн бодсон биз?", [
-          {
-            text: "Үгүй",
-            onPress: () => console.log("Cancel Pressed"),
-            style: "cancel",
-          },
-          {
-            text: "Тийм",
-            onPress: () => {
-              console.log("OK Pressed");
-              handlePress(item.id);
+  const renderItem = ({ item }) => {
+    const alertText = alertt(weight, item.id, sex);
+    return(
+      <TouchableOpacity
+        style={[styles.bodyContainer, { marginHorizontal: item.margin }]}
+        onPress={() => {
+          a = alertt(weight, item.weight, sex);
+          Alert.alert("Анхаар", `Төлөвлөгөө: ${alertText}\nЗорилго: ${item.weight}\nОдоогийн жин: ${weight}\nСайн бодсон биз?`, 
+          [
+            {
+              text: "Үгүй",
+              onPress: () => console.log("Cancel Pressed"),
+              style: "cancel",
             },
-          },
-        ]);
-      }}
-    >
-      <Image source={item.image} style={styles.bodyImage} />
-      <View style={styles.textContainer}>
-        <Text style={styles.text}>Жин: {item.weight}</Text>
-        <Text style={styles.text}>Булчингийн Масс: {item.mass}</Text>
-      </View>
-    </TouchableOpacity>
-  );
+            {
+              text: "Тийм",
+              onPress: () => {
+                console.log("OK Pressed");
+                handlePress(item.id);
+              },
+            },
+          ]);
+        }}
+      >
+        <Image source={item.image} style={styles.bodyImage} />
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>Жин: {item.weight}</Text>
+          <Text style={styles.text}>Булчингийн Масс: {item.mass}</Text>
+        </View>
+      </TouchableOpacity>
+    )
+  };
 
   return (
     <View>
