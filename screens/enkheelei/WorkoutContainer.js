@@ -12,7 +12,7 @@ import { Svg, Circle } from "react-native-svg";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import workoutsData from "./workout.json";
+import workoutsData from "./plans/f_1.json";
 // import { WebView } from "react-native-webview";
 
 const WorkoutPage = () => {
@@ -55,15 +55,10 @@ const WorkoutPage = () => {
     setWorkout(selectedWorkout);
   };
 
-  useEffect(() => {
-    console.log("Received workoutId: ", workoutId);
-    const loadWorkout = () => {
-      setId(workoutId);
-      setWorkout(selectedWorkout);
-    };
-
-    loadWorkout();
-  }, [workoutId]);
+  const loadWorkout = () => {
+    setId(workoutId);
+    setWorkout(selectedWorkout);
+  };
 
   useEffect(() => {
     let interval = null;
