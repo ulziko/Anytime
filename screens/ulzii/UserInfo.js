@@ -49,17 +49,10 @@ const UserInfo = () => {
       if (snapshot.exists()) {
         const userData = snapshot.val();
         setInfo({
-<<<<<<< HEAD
           age: userData.age || '',
           weight: userData.weight ? `${userData.weight}` : '',
           height: userData.height ? `${userData.height}` : '',
           userName: userData.username || '',
-=======
-          age: userData.age || "",
-          weight: userData.weight ? `${userData.weight}кг` : "",
-          height: userData.height ? `${userData.height}см` : "",
-          userName: userData.username || "",
->>>>>>> 98ff78cdfd619ab9afbde70699cabac034d02e30
         });
       } else {
         console.log("No data available");
