@@ -53,7 +53,7 @@ const Plan = ({ route }) => {
     <View className={"flex flex-1 h-full bg-black justify-center items-center"}>
       <View className="flex-row justify-between items-center w-full mt-5">
         <TouchableOpacity
-          onPress={() => navigation.goBack()}
+          onPress={() => navigation.navigate('Home')}
           className="flex justify-center items-center mt-[2vh] bg-purple-600 rounded-3xl w-[11vw] h-[5vh]"
         >
           <ArrowLeftIcon size="20" color="white" />

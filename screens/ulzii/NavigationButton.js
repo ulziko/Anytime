@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Alert, Animated, StyleSheet, TouchableOpacity, View, Text } from 'react-native';
 import { CurvedBottomBarExpo } from 'react-native-curved-bottom-bar';
 import AntDesign from '@expo/vector-icons/AntDesign';
@@ -6,6 +6,8 @@ import { useNavigation } from '@react-navigation/native';
 import ProfileScreen from '../v10d/ProfileScreen';
 import WorkoutContainer from '../enkheelei/WorkoutContainer';
 import UserContext from "../../context/UserContext";
+import { getDatabase, ref, onValue } from 'firebase/database';
+import { getAuth } from 'firebase/auth';
 
 const Screen1 = () => {
   return (
@@ -18,6 +20,28 @@ const Screen1 = () => {
 function NavigationButton() {
   const User = useContext(UserContext);
   const navigation = useNavigation();
+  const [sex, setSex] = useState(); 
+  const [id, setId] = useState();
+
+  useEffect(() => {
+    const fetchUserName = async () => {
+      const auth = getAuth();
+      const userId = auth.currentUser.uid;
+      const db = getDatabase();
+      const userRef = ref(db, 'users/' + userId);
+
+      onValue(userRef, (snapshot) => {
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          setSex(data.gender === 'f' ? 2 : 1);
+          setId(data.planId);
+        } else {
+          console.log("No data available");
+        }
+      });
+    };
+  fetchUserName();
+}, []);
   const _renderIcon = (routeName, selectedTab) => {
     let icon = '';
     switch (routeName) {
@@ -41,9 +65,16 @@ function NavigationButton() {
           // console.log(`Navigating to ${routeName}`);
           // Alert.alert(`Navigating to ${routeName}`);
           // navigation.navigate(routeName)
-          if (User.plan || routeName=='ProfileScreen') {
+          if (routeName=='ProfileScreen') {
             navigation.navigate(routeName);
-          } else {
+          } else if(User.plan){
+            navigation.navigate(
+              'Plan', 
+              {
+                id: id,
+                sex: sex,
+              })
+          }else {
             Alert.alert('Дасгалын заавар харахийн тул эхлээд төлөвлөгөө үүсгэнэ үү.');
           }
         }}

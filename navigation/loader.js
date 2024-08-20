@@ -3,11 +3,13 @@ import { View, ActivityIndicator, StyleSheet, Dimensions, Image, ImageBackground
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { useFonts, Philosopher_400Regular, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
+import { ShieldExclamationIcon } from 'react-native-heroicons/solid';
 
 const { width, height } = Dimensions.get('screen');
 
-const Loader = () => {
+const Loader = ({ route }) => {
   const navigation = useNavigation();
+  const { id, sex } = route.params;
   const anytimeIcon = require('../assets/anytimeLogo.png'); 
   const Icon1 = require('../assets/icon1.png');
   const Icon2 = require('../assets/icon2.png');
@@ -29,7 +31,7 @@ const Loader = () => {
   
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.navigate('FitnessApp');
+      navigation.navigate('Plan', {id, sex});
     }, 5000); // 5 seconds
 
     

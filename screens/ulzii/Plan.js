@@ -1,5 +1,4 @@
-// PlanList.js
-import React, {useContext} from "react";
+import React, {useContext, useState, useEffect} from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { useNavigation } from '@react-navigation/native';
 import UserContext from "../../context/UserContext";
@@ -8,9 +7,10 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  ScrollView,
   Dimensions
 } from "react-native";
+import { getDatabase, ref, onValue } from 'firebase/database';
+import { getAuth } from 'firebase/auth';
 
 const { height } = Dimensions.get('window');
 const plan_names = ["Enjoy plan", "Killer plan", "Iron discipline plan", 'Monster plan', "Unstopable plan"];
@@ -18,14 +18,43 @@ const plan_names = ["Enjoy plan", "Killer plan", "Iron discipline plan", 'Monste
 const Plan = () => {
   const User=useContext(UserContext)
   const navigation = useNavigation();
+  const [sex, setSex] = useState(); 
+  const [id, setId] = useState();
+
+  useEffect(() => {
+    const fetchUserName = async () => {
+      const auth = getAuth();
+      const userId = auth.currentUser.uid;
+      const db = getDatabase();
+      const userRef = ref(db, 'users/' + userId);
+
+      onValue(userRef, (snapshot) => {
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          setSex(data.gender === 'f' ? 2 : 1);
+          setId(data.planId);
+        } else {
+          console.log("No data available");
+        }
+      });
+    };
+  fetchUserName();
+}, []);
+
   return (
   <View style={styles.container}>
-    <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('Plan')}>
+    <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate(
+      'Plan', 
+      {
+        id: id,
+        sex: sex,
+      })}
+    >
           <View style={styles.plan}>
             <Text style={styles.planTitle}>{plan_names[User.planId-1]}</Text>
           </View>
     </TouchableOpacity>
-      <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('loader')}>
+      <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('FitnessApp')}>
         <View style={styles.plan}>
           <AntDesign name="plus" size={26} color="white" alignSelf="center"/>
         </View>

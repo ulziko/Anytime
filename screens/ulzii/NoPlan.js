@@ -41,7 +41,7 @@ const NoPlan = () => {
   return (
     <View style={styles.noPlanContainer}>
       <View style={styles.addButton}>
-        <TouchableOpacity onPress={() => navigation.navigate('loader')}>
+        <TouchableOpacity onPress={() => navigation.navigate('FitnessApp')}>
           <View style={styles.row_container}>
             <View style={styles.arrowContainer}>
               <Arrow delay={0} direction='L' />

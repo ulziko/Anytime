@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   View,
   Text,
@@ -10,8 +10,9 @@ import {
   Alert,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { getDatabase, ref, onValue, set } from 'firebase/database';
+import { getDatabase, ref, onValue, update } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
+import UserContext from "../../../context/UserContext";
 
 const { width, height } = Dimensions.get("window");
 
@@ -86,6 +87,7 @@ const BodyTypeCarousel = () => {
   const [sex, setSex] = useState(); 
   const [age, setAge] = useState();
   const [weight, setWeight] = useState();
+  const User = useContext(UserContext);
 
   useEffect(() => {
     const fetchUserName = async () => {
@@ -188,10 +190,33 @@ const BodyTypeCarousel = () => {
           },
         ];
 
-  const handlePress = (id, sex) => {
-    // User.setPlanId(id);
-    // User.checkPlan(true);
-    navigation.navigate("Plan", { id, sex });
+  const handlePress = async (id, sex) => {
+    User.setPlanId(id);
+    User.checkPlan(true);
+    
+    const auth = getAuth();
+    const user = auth.currentUser;
+  
+    if (user) {
+      try {
+        const database = getDatabase();
+        const userRef = ref(database, 'users/' + user.uid);
+        
+        await update(userRef, {
+          planId: id,
+          plan: true
+        });
+  
+        console.log("Plan ID saved successfully!");
+      } catch (error) {
+        console.error("Error saving plan ID: ", error.message);
+        Alert.alert("Error", "Failed to save plan ID. Please try again.");
+      }
+    } else {
+      Alert.alert("Error", "No authenticated user found.");
+    }
+  
+    navigation.navigate("loader", { id, sex });
   };
 
   const renderItem = ({ item }) => {

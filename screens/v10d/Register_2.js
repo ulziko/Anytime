@@ -73,6 +73,8 @@ export default function Register_2() {
           weight: User.weight,
           gender: User.gender,
           height: User.height,
+          planId: User.planId,
+          plan: User.plan,
         });
 
         console.log('User data saved successfully!');

@@ -8,7 +8,8 @@ import LoginHeader from './components/LoginHeader';
 import Textt from './components/Textt';
 import UserContext from "../../context/UserContext";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { getDatabase, ref, onValue } from 'firebase/database';
 import { auth } from '../../config/firebase';
 
 export default function Login() {
