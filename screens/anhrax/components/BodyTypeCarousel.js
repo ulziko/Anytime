@@ -189,8 +189,8 @@ const BodyTypeCarousel = () => {
         ];
 
   const handlePress = (id, sex) => {
-    User.setPlanId(id);
-    User.checkPlan(true);
+    // User.setPlanId(id);
+    // User.checkPlan(true);
     navigation.navigate("Plan", { id, sex });
   };
 

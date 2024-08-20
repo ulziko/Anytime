@@ -23,6 +23,7 @@ const Plan = ({ route }) => {
   const [plan, setPlan] = React.useState([]);
   const { id, sex } = route.params;
   const [planDetail, setPlanDetail] = React.useState([]);
+  const fileKey = `${sex === 1 ? "m" : "f"}_${id}`;
 
   const showPlanDetails = () => {
     setPlanDetail(!planDetail);
@@ -30,14 +31,8 @@ const Plan = ({ route }) => {
   };
 
   React.useEffect(() => {
-    const getPlanFileKey = (id, sex) => {
-      const genderPrefix = sex === 1 ? "m" : "f";
-      return `${genderPrefix}_${id}`;
-    };
-
     const loadPlan = () => {
       try {
-        const fileKey = getPlanFileKey(id, sex);
         const planData = plansMapping[fileKey];
         setPlan(planData);
       } catch (error) {
@@ -155,9 +150,14 @@ const Plan = ({ route }) => {
                     onPress={() => {
                       console.log(
                         "Navigating to Workout with workoutId:",
-                        index
+                        index,
+                        "and fileKey:",
+                        fileKey
                       );
-                      navigation.navigate("Workout", { workoutId: index });
+                      navigation.navigate("Workout", {
+                        workoutId: index,
+                        fileKey: fileKey,
+                      });
                     }}
                   >
                     <Text

@@ -10,55 +10,40 @@ import {
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
 import { Svg, Circle } from "react-native-svg";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import workoutsData from "./plans/f_1.json";
-// import { WebView } from "react-native-webview";
+import workoutsMapping from './Mapping';
 
 const WorkoutPage = () => {
   const navigation1 = useNavigation();
   const route = useRoute();
-  const [workout, setWorkout] = useState(null);
-  const [id, setId] = useState(0);
+  const [selectedWorkout, setSelectedWorkout] = useState([]);
+  const [exerciseIndex, setExerciseIndex] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [isVideoVisible, setVideoVisible] = useState(false);
   const [questionVisible, setQuestionVisible] = useState(false);
-  const { workoutId } = route.params || {};
-  const selectedWorkout = workoutsData.find((w) => w.id === workoutId);
-  const watchVideo = () => {
-    setVideoVisible(!isVideoVisible);
-  };
+  const { workoutId, fileKey } = route.params || {};
 
-  const showDetails = () => {
-    setQuestionVisible(!questionVisible);
-    console.log("show details");
-  };
+  useEffect(() => {
+    if (!fileKey) {
+      console.error('fileKey is undefined');
+      return;
+    }
+    const workoutData = workoutsMapping[fileKey];
+    if (!workoutData) {
+      console.error('No workout data found for fileKey:', fileKey);
+      return;
+    }
 
-  const prevWorkout = () => {
-    setId(id - 1);
-    resetPage();
-    console.log({ id });
-  };
-
-  const nextWorkout = () => {
-    setId(id + 1);
-    resetPage();
-    console.log({ id });
-  };
-
-  const resetPage = () => {
-    const selectedWorkout = workoutsData.find((w) => w.id === id);
-    setWorkout(null);
-    setSeconds(0);
-    setIsActive(false);
-    setWorkout(selectedWorkout);
-  };
-
-  const loadWorkout = () => {
-    setId(workoutId);
-    setWorkout(selectedWorkout);
-  };
+    const workoutBatch = workoutData.find((w) => String(w.exercise_set) === String(workoutId));
+  
+    if (workoutBatch) {
+      // console.log('Found workoutBatch:', workoutBatch);
+      setSelectedWorkout(workoutBatch.exercises || []); 
+    } else {
+      console.error('No workout batch found for workoutId:', workoutId);
+    }
+  }, [fileKey, workoutId]);
 
   useEffect(() => {
     let interval = null;
@@ -76,6 +61,51 @@ const WorkoutPage = () => {
     setSeconds(0);
     setIsActive(false);
   };
+
+  const watchVideo = () => {
+    setVideoVisible(!isVideoVisible);
+  };
+
+  const showDetails = () => {
+    setQuestionVisible(!questionVisible);
+    console.log("show details");
+  };
+
+  const nextWorkout = () => {
+    if (selectedWorkout.length > 0 && exerciseIndex < selectedWorkout.length - 1){
+      setExerciseIndex(exerciseIndex + 1);
+      resetPage();
+      console.log({ exerciseIndex });
+    } else {
+      console.log("No more exercises.");
+    }
+  };
+
+  const prevWorkout = () => {
+    if (exerciseIndex > 0) {
+      setExerciseIndex(exerciseIndex - 1);
+      resetPage();
+      console.log({ exerciseIndex });
+    } else {
+      console.log("Already at the first exercise.");
+    }    
+  };
+
+  const resetPage = () => {
+    setSeconds(0);
+    setIsActive(false);
+  };
+
+  if (!selectedWorkout.length) {
+    return (
+      <View className="flex-1 bg-purple-600 items-center justify-center">
+        <Text className="text-white">Loading...</Text>
+        <Text>Workout ID: {workoutId}</Text>
+      </View>
+    );
+  }
+
+  const currentExercise = selectedWorkout[exerciseIndex];
 
   const formatTime = (sec) => {
     const minutes = Math.floor(sec / 60);
@@ -104,15 +134,6 @@ const WorkoutPage = () => {
   const circumference = 2 * Math.PI * radius;
   const progress = (seconds % 60) / 60;
 
-  if (!workout) {
-    return (
-      <View className="flex-1 bg-purple-600 items-center justify-center">
-        <Text className="text-white">Loading...</Text>
-        <Text>Workout ID: {workoutId}</Text>
-      </View>
-    );
-  }
-
   return (
     <View className="flex w-screen h-screen bg-black p-5">
       {/* Header */}
@@ -135,7 +156,7 @@ const WorkoutPage = () => {
           />
           <View className="flex-col mt-5 mx-auto">
             <Text className="text-purple-600 text-3xl font-bold">
-              {workout.name}
+              {currentExercise.name}
             </Text>
             <View className="flex items-center justify-around mt-3 w-full">
               <View className="flex-row justify-start items-start p-[1vh] m-[2vh]">
@@ -144,7 +165,7 @@ const WorkoutPage = () => {
                   className="h-[3vh] w-[3vh]"
                 />
                 <Text className="text-white text-xl pl-8">
-                  {workout.bodyPart}
+                  {currentExercise.bodyPart}
                 </Text>
               </View>
               <View className="flex-row justify-start items-start p-[1vh]">
@@ -153,7 +174,7 @@ const WorkoutPage = () => {
                   className="h-[3vh] w-[3vh] left-2.5"
                 />
                 <Text className="text-white text-xl pl-8">
-                  {workout.equipment}
+                  {currentExercise.equipment}
                 </Text>
               </View>
             </View>
@@ -199,7 +220,7 @@ const WorkoutPage = () => {
             />
           </View>
           <Text className="text-purple-600 text-2xl ml-3">Оролт: </Text>
-          <Text className="text-white text-lg">{workout.sets}</Text>
+          <Text className="text-white text-lg">{currentExercise.sets}</Text>
         </View>
         <View className="flex-row items-center mb-3">
           <View className="bg-gray-700 p-3 rounded-full">
@@ -209,7 +230,7 @@ const WorkoutPage = () => {
             />
           </View>
           <Text className="text-purple-600 text-2xl ml-3">Давталт: </Text>
-          <Text className="text-white text-lg">{workout.reps}</Text>
+          <Text className="text-white text-lg">{currentExercise.reps}</Text>
         </View>
         <View className="flex-row items-center">
           <View className="bg-gray-700 p-3 rounded-full">
@@ -219,7 +240,7 @@ const WorkoutPage = () => {
             />
           </View>
           <Text className="text-purple-600 text-2xl ml-3">Нэмэлт: </Text>
-          <Text className="text-white text-lg">{workout.additionalInfo}</Text>
+          <Text className="text-white text-lg">{currentExercise.additionalInfo}</Text>
         </View>
       </View>
       {/* Start Button */}
@@ -290,13 +311,16 @@ const WorkoutPage = () => {
         <View className="flex flex-row w-full h-1/5">
           <TouchableOpacity
             className={`${
-              id === 0 ? "invisible" : "bg-purple-600"
+              exerciseIndex === 0 ? "invisible" : "bg-purple-600"
             } rounded-full mr-auto -ml-10 w-[10%] h-full`}
-            disabled={`${id === 0 ? "disable" : ""}`}
+            disabled={`${exerciseIndex === 0 ? "disable" : ""}`}
             onPress={prevWorkout}
           ></TouchableOpacity>
           <TouchableOpacity
-            className="bg-purple-300 rounded-full ml-auto -mr-10 w-[10%] h-full"
+            className={`${
+              exerciseIndex === selectedWorkout.length - 1 ? "invisible" : "bg-purple-300"
+            } rounded-full ml-auto -mr-10 w-[10%] h-full`}
+            disabled={`${exerciseIndex ===  selectedWorkout.length - 1? "disable" : ""}`}
             onPress={nextWorkout}
           ></TouchableOpacity>
         </View>
