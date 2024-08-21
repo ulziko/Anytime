@@ -49,11 +49,23 @@ const Plan = ({ route }) => {
     }
   }).current;
 
+  const handleScroll = Animated.event(
+    [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+    { useNativeDriver: false }
+  );
+
+  const handleScrollEnd = (event) => {
+    const index = Math.floor(
+      event.nativeEvent.contentOffset.x / cardWidth.toFixed(0)
+    );
+    setActive(index);
+  };
+
   return (
     <View className={"flex flex-1 h-full bg-black justify-center items-center"}>
       <View className="flex-row justify-between items-center w-full mt-5">
         <TouchableOpacity
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate("Home")}
           className="flex justify-center items-center mt-[2vh] bg-purple-600 rounded-3xl w-[11vw] h-[5vh]"
         >
           <ArrowLeftIcon size="20" color="white" />
@@ -67,14 +79,11 @@ const Plan = ({ route }) => {
         snapToInterval={cardWidth}
         keyExtractor={(item) => item.id}
         showsHorizontalScrollIndicator={false}
-        scrollEventThrottle={16}
+        scrollEventThrottle={8}
         snapToAlignment="center"
         decelerationRate="fast"
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-          { useNativeDriver: true }
-        )}
-        onViewableItemsChanged={onCardChanged}
+        onScroll={handleScroll}
+        onMomentumScrollEnd={handleScrollEnd}
         contentContainerStyle={{
           flexGrow: 1,
           justifyContent: "center",
