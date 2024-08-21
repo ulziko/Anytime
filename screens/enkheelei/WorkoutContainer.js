@@ -12,6 +12,7 @@ import { Svg, Circle } from "react-native-svg";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import workoutsMapping from './Mapping';
+import Video from 'react-native-video';
 
 const WorkoutPage = () => {
   const navigation1 = useNavigation();
@@ -30,6 +31,7 @@ const WorkoutPage = () => {
       return;
     }
     const workoutData = workoutsMapping[fileKey];
+    // console.log('workoutdata:', workoutData);
     if (!workoutData) {
       console.error('No workout data found for fileKey:', fileKey);
       return;
@@ -40,6 +42,7 @@ const WorkoutPage = () => {
     if (workoutBatch) {
       // console.log('Found workoutBatch:', workoutBatch);
       setSelectedWorkout(workoutBatch.exercises || []); 
+      // console.log('SelectedWorkoutBatch:', selectedWorkout);
     } else {
       console.error('No workout batch found for workoutId:', workoutId);
     }
@@ -96,6 +99,7 @@ const WorkoutPage = () => {
     setIsActive(false);
   };
 
+  // console.log('SelectedWorkoutBatch:', selectedWorkout.length);
   if (!selectedWorkout.length) {
     return (
       <View className="flex-1 bg-purple-600 items-center justify-center">
@@ -313,14 +317,16 @@ const WorkoutPage = () => {
             className={`${
               exerciseIndex === 0 ? "invisible" : "bg-purple-600"
             } rounded-full mr-auto -ml-10 w-[10%] h-full`}
-            disabled={`${exerciseIndex === 0 ? "disable" : ""}`}
+            // disabled={`${exerciseIndex === 0 ? "disable" : ""}`}
+            disabled={exerciseIndex === 0}
             onPress={prevWorkout}
           ></TouchableOpacity>
           <TouchableOpacity
             className={`${
               exerciseIndex === selectedWorkout.length - 1 ? "invisible" : "bg-purple-300"
             } rounded-full ml-auto -mr-10 w-[10%] h-full`}
-            disabled={`${exerciseIndex ===  selectedWorkout.length - 1? "disable" : ""}`}
+            // disabled={`${exerciseIndex ===  selectedWorkout.length - 1? "disable" : ""}`}
+            disabled={exerciseIndex ===  selectedWorkout.length - 1}
             onPress={nextWorkout}
           ></TouchableOpacity>
         </View>

@@ -8,12 +8,12 @@ const RegisterHeader = () => {
     return (
         <View className="bg-black rounded-b-2xl h-[35%]">
                 <SafeAreaView className="flex">
-                    <View  className="flex-row justify-center py-[23%]">
+                    <View  className="flex-row justify-center py-[18%]">
                         <Image 
                         className='h-[5vh] w-[45%]'
                         source={require('../../../assets/logo.png')}  />
                     </View>
-                    <View className="flex-row justify-center pt-[4%]">
+                    <View className="flex-row justify-center">
                         <TouchableOpacity onPress={()=> navigation.navigate('Login')}>
                             <Text className="font-semibold text-purple-600"> Нэвтрэх</Text>
                         </TouchableOpacity>
