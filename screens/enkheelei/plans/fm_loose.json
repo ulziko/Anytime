@@ -1,268 +1,273 @@
 [
-    {
-        "id": "1",
-        "title": "Day 1",
-        "exercises": [
-            {
-                "name": "Incline Bench Press",
-                "bodyPart": "Chest",
-                "sets": "3",
-                "reps": "8-10",
-                "weight": "",
-                "additionalInfo": "Technique first, weight second - no one cares how much you bench if you get injured.So start without any additional weight.Keep the bar in line with your wrist and elbows and ensure it travels in a straight line"
-            },
-            {
-                "name": "One Arm Dumbbell Row ",
-                "bodyPart": "Upper Back",
-                "sets": "3",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Experiment with head position and see which option (looking forward vs. packing the neck) works better for you."
-            },
-            {
-                "name": "Seated Barbell Press",
-                "bodyPart": "Shoulders",
-                "sets": "3",
-                "reps": "8-10",
-                "weight": "",
-                "additionalInfo": "Reach tall at the top and don’t worry about keeping the shoulders packed down and back. Brace your abs as you press, you shouldn’t be leaning back excessively."
-            },
-            {
-                "name": "Pull Ups",
-                "bodyPart": "Lats",
-                "sets": "3",
-                "reps": "10",
-                "weight": "",
-                "additionalInfo": "To decrease bicep involvement, use a false (thumbless grip). Try to keep a neutral head position (looking straight ahead or slightly up) as hyperextending the neck can lead to compensations throughout the spine."
-            },
-            {
-                "name": "Skullcrushers",
-                "bodyPart": "riceps",
-                "sets": "3",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Don’t overextend through the lumbar spine as you lower the weight, keep some tension through the abdominals. Exhale as you extend the elbows and lockout the weight overhead.If you experience elbow pain during the movement, consider implementing a slight angle (incline or decline) or adjust elbow position (in versus out)."
-            },
-            {
-                "name": "Dumbbell Curl",
-                "bodyPart": "Biceps",
-                "sets": "3",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Keep the tension on both of your biceps throughout the set. Do not rest the weights on your body or let them hang down. Keep your body fixed throughout the set"
-            }
-        ]
-    },
-    {
-        "id": "2",
-        "title": "Day 2",
-        "exercises": [
-            {
-                "name": "Squats",
-                "bodyPart": "Quads",
-                "sets": "3",
-                "reps": "8-10",
-                "weight": "",
-                "additionalInfo": "The are many mistakes that can be made when squatting, so it's important that you have your technique down before you attempt squatting heavy weights. If you are squatting correctly, you should not feel pain in your lower back. Lower back pain is usually a sign that you are not using correct form and/or your core is weak.  "
-            },
-            {
-                "name": "Leg Curl ",
-                "bodyPart": "Hamstrings",
-                "sets": "3",
-                "reps": "12-15",
-                "weight": "",
-                "additionalInfo": "Common mistakes with the leg curl are; moving the weight up and down too fast and not using a full range of motion."
-            },
-            {
-                "name": "Leg Extension",
-                "bodyPart": "Quads",
-                "sets": "3",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Ensure the axis of rotation for the knee directly matches that of the machine. In other words, the point of rotation for the machine should be in line with your knee joint itself. "
-            },
-            {
-                "name": "Leg Press Calf Raise",
-                "bodyPart": "Calves",
-                "sets": "3",
-                "reps": "15-20",
-                "weight": "",
-                "additionalInfo": "SAFETY NOTE: Be extremely careful when re-positioning the feet at the base of the platform. If the safeties are not in place and you lose control of the platform, this could result in very serious injury."
-            },
-            {
-                "name": "Plank",
-                "bodyPart": "abs",
-                "sets": "3",
-                "reps": "60sec",
-                "weight": "",
-                "additionalInfo": "Do not let your mid section sag in the middle. You need to keep yourself straight at all times. Do this exercise in front of a mirror to make sure you are not letting your technique slip."
-            },
-            {
-                "name": "Twisting Hanging Knee Raise",
-                "bodyPart": "Abs",
-                "sets": "3",
-                "reps": "20",
-                "weight": "",
-                "additionalInfo": "Hold at the top of the movement (with your knees up) to increase the intensity of the twisting knee raise."
-            }
-        ]
-    },
-    {
-        "id": "3",
-        "title": "Day 3",
-        "exercises": [
-            {
-                "name": "Rest",
-                "bodyPart": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": "30-40 minutes of jogging or walk"
-            }
-        ]
-    },
-    {
-        "id": "4",
-        "title": "Day 4",
-        "exercises": [
-            {
-                "name": "Dumbbell Bench Press",
-                "bodyPart": "Chest",
-                "sets": "3",
-                "reps": "10",
-                "weight": "",
-                "additionalInfo": "Maintain more tension through the pecs by not locking out the elbows entirely.Keep the weights slightly tilted at a 45 degree angle in order to keep the elbows in a neutral position."
-            },
-            {
-                "name": "Barbell Row",
-                "bodyPart": "Upper Back",
-                "sets": "3",
-                "reps": "8-10",
-                "weight": "",
-                "additionalInfo": "Experiment with head position and see which option (looking forward vs. packing the neck) works better for you"
-            },
-            {
-                "name": "Dumbbell Lateral Raise",
-                "bodyPart": "Shoulders",
-                "sets": "3",
-                "reps": "12-15",
-                "weight": "",
-                "additionalInfo": "Focus on keeping the reps slow and controlled. Because this is an isolation exercise, the focus should be on correctly working the muscle - not moving as much weight as possible."
-            },
-            {
-                "name": "Lat Pull Down",
-                "bodyPart": "Lats",
-                "sets": "3",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Keep some tone through your abdominals as you pull the bar into your body to ensure you don’t arch excessively through the spine"
-            },
-            {
-                "name": "Cable Tricep Extensions",
-                "bodyPart": "Triceps",
-                "sets": "3",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "If you want to keep more tension in the triceps, don’t lock the elbows out entirely. Imagine there’s a screw running through your elbow and don’t allow them to move in front of the body as you extend at the bottom of the movement."
-            },
-            {
-                "name": "EZ Bar Preacher Curl",
-                "bodyPart": "Biceps",
-                "sets": "3",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Keep the motion slow and controlled throughout the set. Don't rest at the top of the movement."
-            }
-        ]
-    },
-    {
-        "id": "5",
-        "title": "Day 5",
-        "exercises": [
-            {
-                "name": "Leg Press",
-                "bodyPart": "Quads",
-                "sets": "3",
-                "reps": "15-20",
-                "weight": "",
-                "additionalInfo": "To keep tension on the quads, keep the knees just shy of lockout. To emphasize the glutes more, push through the heels."
-            },
-            {
-                "name": "Stiff Leg Deadlift",
-                "bodyPart": "Hamstrings",
-                "sets": "3",
-                "reps": "8-10",
-                "weight": "",
-                "additionalInfo": "This style of deadlift will look VERY similar to a conventional deadlift only the lifter will start with higher hips and a vertical shin angle. The hips and shoulders will likely be at just about the same height."
-            },
-            {
-                "name": "Walking Dumbbell Lunge",
-                "bodyPart": "Quads",
-                "sets": "3",
-                "reps": "10",
-                "weight": "",
-                "additionalInfo": "Never allow your knees to track out over your toes during this movement. Doing so will place undue stress on the knee joints."
-            },
-            {
-                "name": "Seated Calf Raise",
-                "bodyPart": "Calves",
-                "sets": "3",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Keep the repetitions slow and controlled. Limit momentum and pause at the top to emphasize the contraction."
-            },
-            {
-                "name": "Cable Tricep Extensions",
-                "bodyPart": "Triceps",
-                "sets": "3",
-                "reps": "15-20",
-                "weight": "",
-                "additionalInfo": "If you want to keep more tension in the triceps, don’t lock the elbows out entirely. Imagine there’s a screw running through your elbow and don’t allow them to move in front of the body as you extend at the bottom of the movement."
-            },
-            {
-                "name": "Cable Crunch",
-                "bodyPart": "Abs",
-                "sets": "3",
-                "reps": "20",
-                "weight": "",
-                "additionalInfo": "This exercise works best when done slowly with perfect form."
-            },
-            {
-                "name": "Russian Twist",
-                "bodyPart": "Abs",
-                "sets": "3",
-                "reps": "20",
-                "weight": "",
-                "additionalInfo": "The higher you lift your shoulder blades off the mat, the harder the exercise becomes.For an advanced alternative to the Russian Twist, hold a dumbbell in your hands."
-            }
-        ]
-    },
-    {
-        "id": "6",
-        "title": "Day 6",
-        "exercises": [
-            {
-                "name": "Rest",
-                "bodyPart": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": "30-40 minutes of jogging or walk"
-            }
-        ]
-    },
-    {
-        "id": "7",
-        "title": "Day 7",
-        "exercises": [
-            {
-                "name": "Rest",
-                "bodyPart": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": "30-40 minutes of jogging or walk"
-            }
-        ]
-    }
+  {
+    "id": "0",
+    "title": "Ерөнхий мэдээлэл",
+    "desc": "Энэхүү төлөвлөгөө нь 12 7 хоногийн төлөвлөгөө юм. Төлөлөгөөний эцэст хүн өөрийн жингээс хамааран ойролцоогоор 10-20 кг турах, булчин масс нэмэх боломжтой. Мэдээж таны хичээл зүтгэл, тууштай байдал үр дүнд шууд нөлөөлнө."
+  },
+  {
+    "id": "1",
+    "title": "Day 1",
+    "exercises": [
+      {
+        "name": "Incline Bench Press",
+        "bodyPart": "Chest",
+        "sets": "3",
+        "reps": "8-10",
+        "weight": "",
+        "additionalInfo": "Technique first, weight second - no one cares how much you bench if you get injured.So start without any additional weight.Keep the bar in line with your wrist and elbows and ensure it travels in a straight line"
+      },
+      {
+        "name": "One Arm Dumbbell Row ",
+        "bodyPart": "Upper Back",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Experiment with head position and see which option (looking forward vs. packing the neck) works better for you."
+      },
+      {
+        "name": "Seated Barbell Press",
+        "bodyPart": "Shoulders",
+        "sets": "3",
+        "reps": "8-10",
+        "weight": "",
+        "additionalInfo": "Reach tall at the top and don’t worry about keeping the shoulders packed down and back. Brace your abs as you press, you shouldn’t be leaning back excessively."
+      },
+      {
+        "name": "Pull Ups",
+        "bodyPart": "Lats",
+        "sets": "3",
+        "reps": "10",
+        "weight": "",
+        "additionalInfo": "To decrease bicep involvement, use a false (thumbless grip). Try to keep a neutral head position (looking straight ahead or slightly up) as hyperextending the neck can lead to compensations throughout the spine."
+      },
+      {
+        "name": "Skullcrushers",
+        "bodyPart": "riceps",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Don’t overextend through the lumbar spine as you lower the weight, keep some tension through the abdominals. Exhale as you extend the elbows and lockout the weight overhead.If you experience elbow pain during the movement, consider implementing a slight angle (incline or decline) or adjust elbow position (in versus out)."
+      },
+      {
+        "name": "Dumbbell Curl",
+        "bodyPart": "Biceps",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Keep the tension on both of your biceps throughout the set. Do not rest the weights on your body or let them hang down. Keep your body fixed throughout the set"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Day 2",
+    "exercises": [
+      {
+        "name": "Squats",
+        "bodyPart": "Quads",
+        "sets": "3",
+        "reps": "8-10",
+        "weight": "",
+        "additionalInfo": "The are many mistakes that can be made when squatting, so it's important that you have your technique down before you attempt squatting heavy weights. If you are squatting correctly, you should not feel pain in your lower back. Lower back pain is usually a sign that you are not using correct form and/or your core is weak.  "
+      },
+      {
+        "name": "Leg Curl ",
+        "bodyPart": "Hamstrings",
+        "sets": "3",
+        "reps": "12-15",
+        "weight": "",
+        "additionalInfo": "Common mistakes with the leg curl are; moving the weight up and down too fast and not using a full range of motion."
+      },
+      {
+        "name": "Leg Extension",
+        "bodyPart": "Quads",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Ensure the axis of rotation for the knee directly matches that of the machine. In other words, the point of rotation for the machine should be in line with your knee joint itself. "
+      },
+      {
+        "name": "Leg Press Calf Raise",
+        "bodyPart": "Calves",
+        "sets": "3",
+        "reps": "15-20",
+        "weight": "",
+        "additionalInfo": "SAFETY NOTE: Be extremely careful when re-positioning the feet at the base of the platform. If the safeties are not in place and you lose control of the platform, this could result in very serious injury."
+      },
+      {
+        "name": "Plank",
+        "bodyPart": "abs",
+        "sets": "3",
+        "reps": "60sec",
+        "weight": "",
+        "additionalInfo": "Do not let your mid section sag in the middle. You need to keep yourself straight at all times. Do this exercise in front of a mirror to make sure you are not letting your technique slip."
+      },
+      {
+        "name": "Twisting Hanging Knee Raise",
+        "bodyPart": "Abs",
+        "sets": "3",
+        "reps": "20",
+        "weight": "",
+        "additionalInfo": "Hold at the top of the movement (with your knees up) to increase the intensity of the twisting knee raise."
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Day 3",
+    "exercises": [
+      {
+        "name": "Rest",
+        "bodyPart": "",
+        "sets": "",
+        "reps": "",
+        "weight": "",
+        "additionalInfo": "30-40 minutes of jogging or walk"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Day 4",
+    "exercises": [
+      {
+        "name": "Dumbbell Bench Press",
+        "bodyPart": "Chest",
+        "sets": "3",
+        "reps": "10",
+        "weight": "",
+        "additionalInfo": "Maintain more tension through the pecs by not locking out the elbows entirely.Keep the weights slightly tilted at a 45 degree angle in order to keep the elbows in a neutral position."
+      },
+      {
+        "name": "Barbell Row",
+        "bodyPart": "Upper Back",
+        "sets": "3",
+        "reps": "8-10",
+        "weight": "",
+        "additionalInfo": "Experiment with head position and see which option (looking forward vs. packing the neck) works better for you"
+      },
+      {
+        "name": "Dumbbell Lateral Raise",
+        "bodyPart": "Shoulders",
+        "sets": "3",
+        "reps": "12-15",
+        "weight": "",
+        "additionalInfo": "Focus on keeping the reps slow and controlled. Because this is an isolation exercise, the focus should be on correctly working the muscle - not moving as much weight as possible."
+      },
+      {
+        "name": "Lat Pull Down",
+        "bodyPart": "Lats",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Keep some tone through your abdominals as you pull the bar into your body to ensure you don’t arch excessively through the spine"
+      },
+      {
+        "name": "Cable Tricep Extensions",
+        "bodyPart": "Triceps",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "If you want to keep more tension in the triceps, don’t lock the elbows out entirely. Imagine there’s a screw running through your elbow and don’t allow them to move in front of the body as you extend at the bottom of the movement."
+      },
+      {
+        "name": "EZ Bar Preacher Curl",
+        "bodyPart": "Biceps",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Keep the motion slow and controlled throughout the set. Don't rest at the top of the movement."
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Day 5",
+    "exercises": [
+      {
+        "name": "Leg Press",
+        "bodyPart": "Quads",
+        "sets": "3",
+        "reps": "15-20",
+        "weight": "",
+        "additionalInfo": "To keep tension on the quads, keep the knees just shy of lockout. To emphasize the glutes more, push through the heels."
+      },
+      {
+        "name": "Stiff Leg Deadlift",
+        "bodyPart": "Hamstrings",
+        "sets": "3",
+        "reps": "8-10",
+        "weight": "",
+        "additionalInfo": "This style of deadlift will look VERY similar to a conventional deadlift only the lifter will start with higher hips and a vertical shin angle. The hips and shoulders will likely be at just about the same height."
+      },
+      {
+        "name": "Walking Dumbbell Lunge",
+        "bodyPart": "Quads",
+        "sets": "3",
+        "reps": "10",
+        "weight": "",
+        "additionalInfo": "Never allow your knees to track out over your toes during this movement. Doing so will place undue stress on the knee joints."
+      },
+      {
+        "name": "Seated Calf Raise",
+        "bodyPart": "Calves",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Keep the repetitions slow and controlled. Limit momentum and pause at the top to emphasize the contraction."
+      },
+      {
+        "name": "Cable Tricep Extensions",
+        "bodyPart": "Triceps",
+        "sets": "3",
+        "reps": "15-20",
+        "weight": "",
+        "additionalInfo": "If you want to keep more tension in the triceps, don’t lock the elbows out entirely. Imagine there’s a screw running through your elbow and don’t allow them to move in front of the body as you extend at the bottom of the movement."
+      },
+      {
+        "name": "Cable Crunch",
+        "bodyPart": "Abs",
+        "sets": "3",
+        "reps": "20",
+        "weight": "",
+        "additionalInfo": "This exercise works best when done slowly with perfect form."
+      },
+      {
+        "name": "Russian Twist",
+        "bodyPart": "Abs",
+        "sets": "3",
+        "reps": "20",
+        "weight": "",
+        "additionalInfo": "The higher you lift your shoulder blades off the mat, the harder the exercise becomes.For an advanced alternative to the Russian Twist, hold a dumbbell in your hands."
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Day 6",
+    "exercises": [
+      {
+        "name": "Rest",
+        "bodyPart": "",
+        "sets": "",
+        "reps": "",
+        "weight": "",
+        "additionalInfo": "30-40 minutes of jogging or walk"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "title": "Day 7",
+    "exercises": [
+      {
+        "name": "Rest",
+        "bodyPart": "",
+        "sets": "",
+        "reps": "",
+        "weight": "",
+        "additionalInfo": "30-40 minutes of jogging or walk"
+      }
+    ]
+  }
 ]

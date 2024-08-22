@@ -1,333 +1,338 @@
 [
-    {
-        "id": "1",
-        "title": "Day1",
-        "exercises": [
-            {
-                "name": "Bench Press",
-                "bodyPart": "Chest",
-                "equipment": "Barbell",
-                "sets": "3",
-                "reps": "6-12",
-                "weight": "",
-                "additionalInfo": "Keep the bar in line with your wrist and elbows and ensure it travels in a straight line."
-            },
-            {
-                "name": "Barbell Row",
-                "bodyPart": "Upper Back",
-                "equipment": "Barbell",
-                "sets": "3",
-                "reps": "6-12",
-                "weight": "",
-                "additionalInfo": "Don’t allow momentum to dictate the movement, control the bar throughout the entirety of each rep."
-            },
-            {
-                "name": "Seated Overhead Dumbbell Press",
-                "bodyPart": "Shoulders",
-                "equipment": "Dumbbell",
-                "sets": "3",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "Keeping the elbows slightly bent at the top and not locking out entirely will help to keep tension on the shoulders."
-            },
-            {
-                "name": "Pec Dec",
-                "bodyPart": "Chest",
-                "equipment": "Machine",
-                "sets": "2 (3 sec negative)",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Don't bring your torso forward as you squeeze the weight up."
-            },
-            {
-                "name": "V-Bar LAt Pull Down",
-                "bodyPart": "Lats",
-                "equipment": "Cable",
-                "sets": "2 (3 sec negative)",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Keep some tone through your abdominals as you pull the bar into your body to ensure you don’t arch excessively through the spine."
-            },
-            {
-                "name": "Side Lateral Raise",
-                "bodyPart": "Shoulders",
-                "equipment": "Dumbbell",
-                "sets": "2",
-                "reps": "10-15",
-                "weight": "",
-                "additionalInfo": "Don't bring your arms up too high - up to shoulder height is far enough."
-            },
-            {
-                "name": "Cable tricep extensions",
-                "bodyPart": "Triceps",
-                "equipment": "Cable",
-                "sets": "3 (3 sec negative)",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "If you want to keep more tension in the triceps, don’t lock the elbows out entirely."
-            },
-            {
-                "name": "Cable Curls",
-                "bodyPart": "Biceps",
-                "equipment": "Cable",
-                "sets": "3 (3 sec negative)",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "Keep your elbows tucked in at your sides and don't allow them to come forward as you curl the weight up."
-            }
-        ]
-    },
-    {
-        "id": "2",
-        "title": "Day2",
-        "exercises": [
-            {
-                "name": "Squats",
-                "bodyPart": "Quads",
-                "equipment": "Barbell",
-                "sets": "3",
-                "reps": "6-12",
-                "weight": "",
-                "additionalInfo": "Knees come too far forward: When you squat down, your hips should be dropping straight down, not coming forward."
-            },
-            {
-                "name": "Stiff Leg Deadlifts",
-                "bodyPart": "Hamstrings",
-                "equipment": "Barbell",
-                "sets": "3",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "Do not allow the bar to drift away from your body during the lift."
-            },
-            {
-                "name": "Standing Calf Raise",
-                "bodyPart": "Calves",
-                "equipment": "Bodyweight",
-                "sets": "3",
-                "reps": "10-15",
-                "weight": "",
-                "additionalInfo": "Once your heels are down as far as they go, start the next rep."
-            },
-            {
-                "name": "Leg Extensions",
-                "bodyPart": "Quads",
-                "equipment": "Machine",
-                "sets": "2 (3 sec negative)",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Ensure the axis of rotation for the knee directly matches that of the machine. In other words, the point of rotation for the machine should be in line with your knee joint itself."
-            },
-            {
-                "name": "Leg Curl",
-                "bodyPart": "Hamstrings",
-                "equipment": "Machine",
-                "sets": "2 (3 sec negative)",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Always use a full range of motion by curling the weight up as far as possible and lowering it as far as possible without the weight dropping on the stack."
-            },
-            {
-                "name": "Seated Calf Raise",
-                "bodyPart": "Calves",
-                "equipment": "Machine(Isolation)",
-                "sets": "2 (3 sec negative) ",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Limit depth of the heels if you feel any sort of stretch through the bottom of the foot during the exercise."
-            },
-            {
-                "name": "Cable Crunch",
-                "bodyPart": "Abs",
-                "equipment": "Cable",
-                "sets": "3 (3 sec negative) ",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Don't choose a weight so heavy that your lower back handles most of the resistance. "
-            }
-            
-        ]
-    },
-    {
-        "id": "3",
-        "title": "Day3",
-        "exercises": [
-            {
-                "name": "Rest"
-            }
-        ]
-    },
-    {
-        "id": "4",
-        "title": "Day4",
-        "exercises": [
-            {
-                "name": "Incline Dumbbell Bench Press",
-                "bodyPart": "Chest",
-                "equipment": "Dumbbell",
-                "sets": "3",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "Keep your feet flat on the floor and don’t allow the lower body to move during the set."
-            },
-            {
-                "name": "Rack Deadlifts - 3 to 5 off ground",
-                "bodyPart": "Hamstrings",
-                "equipment": "Barbell",
-                "sets": "3",
-                "reps": "5-8",
-                "weight": "",
-                "additionalInfo": "You MUST keep the crease of the armpit over the bar and the midfoot in order to allow the bar to travel linearly."
-            },
-            {
-                "name": "Military Press",
-                "bodyPart": "Shoulders",
-                "equipment": "Barbell",
-                "sets": "3",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "Squeeze your glutes and brace your abs as you press. You shouldn’t be leaning back excessively as you press."
-            },
-            {
-                "name": "Machine Chest Press ",
-                "bodyPart": "Chest",
-                "equipment": "Machine",
-                "sets": "2 (3 sec negative)",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "Ensure you maintain some tension in your abs and don’t allow your lower back to excessive arch."
-            },
-            {
-                "name": "Pull Ups or Machine Rows ",
-                "bodyPart": "Upper Back",
-                "equipment": "Machine",
-                "sets": "2(3 sec negative) ",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "Try to keep a neutral head position (looking straight ahead or slightly up) as hyperextending the neck can lead to compensations throughout the spine."
-            },
-            {
-                "name": "Machine Shoulder Press",
-                "bodyPart": "Shoulders",
-                "equipment": "Machine",
-                "sets": "2(3 sec negative)",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "Don’t allow the head to jut forward excessively."
-            },
-            {
-                "name": "Dumbbell Curls",
-                "bodyPart": "Biceps",
-                "equipment": "Dumbbell",
-                "sets": "3 (3 sec negative)",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "Keep the tension on both of your biceps throughout the set. Do not rest the weights on your body or let them hang down."
-            },
-            {
-                "name": "Machine Tricep Dip",
-                "bodyPart": "Triceps",
-                "equipment": "Bodyweight",
-                "sets": "3 (3 sec negative)",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "Do not lock your elbows out at the top of the movement."
-            }
-        ]
-    },
-    {
-        "id": "5",
-        "title": "Day5",
-        "exercises": [
-            {
-                "name": "Leg Press",
-                "bodyPart": "Quads",
-                "equipment": "Machine",
-                "sets": "3",
-                "reps": "10-20",
-                "weight": "",
-                "additionalInfo": "To keep tension on the quads, keep the knees just shy of lockout."
-            },
-            {
-                "name": "Dumbbell Stiff Leg Deadlifts",
-                "bodyPart": "Hamstrings",
-                "equipment": "Dumbbell",
-                "sets": "3",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "You must keep your eyes looking up at all times. As soon as you look down at the floor your back will round!"
-            },
-            {
-                "name": "Leg Press Calf Raise",
-                "bodyPart": "Calves",
-                "equipment": "Machine",
-                "sets": "3",
-                "reps": "10-15",
-                "weight": "",
-                "additionalInfo": "Be extremely careful when re-positioning the feet at the base of the platform. If the safeties are not in place and you lose control of the platform, this could result in very serious injury."
-            },
-            {
-                "name": "Hack Squat",
-                "bodyPart": "Quads",
-                "equipment": "Machine",
-                "sets": "2",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "Ensure the head does not jut forward excessively."
-            },
-            {
-                "name": "Seated Leg Curl",
-                "bodyPart": "Hamstrings",
-                "equipment": "Machine",
-                "sets": "2 (3 sec negative)",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "moving the weight up and down too fast and not using a full range of motion."
-            },
-            {
-                "name": "Seated Calf Raise",
-                "bodyPart": "Calves",
-                "equipment": "Machine",
-                "sets": " 2 (3 sec negative)",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Keep the repetitions slow and controlled. Limit momentum and pause at the top to emphasize the contraction."
-            },
-            {
-                "name": "Planks",
-                "bodyPart": "Abs",
-                "equipment": "Bodyweight",
-                "sets": "3",
-                "reps": "60 sec",
-                "weight": "",
-                "additionalInfo": "Do not let your mid section sag in the middle. You need to keep yourself straight at all times."
-            },
-            {
-                "name": "Hyperextension",
-                "bodyPart": "Glutes",
-                "equipment": "Bodyweight",
-                "sets": "3",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Slightly flex your upper back and extend your hips until your body is in a straight line and focus entirely on gluteal activation."
-            }
-        ]
-    },
-    {
-        "id": "6",
-        "title": "Day6",
-        "exercises": [
-            {
-                "name": "Rest"
-            }
-        ]
-    },
-    {
-        "id": "7",
-        "title": "Day7",
-        "exercises": [
-            {
-                "name": "Rest"
-            }
-        ]
-    }
+  {
+    "id": "0",
+    "title": "Ерөнхий мэдээлэл",
+    "desc": "Энэхүү төлөвлөгөө нь 6 7 хоногийн төлөвлөгөө юм. Төлөлөгөөний эцэст хүн өөрийн жингээс хамааран ойролцоогоор 5-10 кг булчингийн масс нэмэх боломжтой. Мэдээж таны хичээл зүтгэл, тууштай байдал үр дүнд шууд нөлөөлнө."
+  },
+
+  {
+    "id": "1",
+    "title": "Day1",
+    "exercises": [
+      {
+        "name": "Bench Press",
+        "bodyPart": "Chest",
+        "equipment": "Barbell",
+        "sets": "3",
+        "reps": "6-12",
+        "weight": "",
+        "additionalInfo": "Keep the bar in line with your wrist and elbows and ensure it travels in a straight line."
+      },
+      {
+        "name": "Barbell Row",
+        "bodyPart": "Upper Back",
+        "equipment": "Barbell",
+        "sets": "3",
+        "reps": "6-12",
+        "weight": "",
+        "additionalInfo": "Don’t allow momentum to dictate the movement, control the bar throughout the entirety of each rep."
+      },
+      {
+        "name": "Seated Overhead Dumbbell Press",
+        "bodyPart": "Shoulders",
+        "equipment": "Dumbbell",
+        "sets": "3",
+        "reps": "8-12",
+        "weight": "",
+        "additionalInfo": "Keeping the elbows slightly bent at the top and not locking out entirely will help to keep tension on the shoulders."
+      },
+      {
+        "name": "Pec Dec",
+        "bodyPart": "Chest",
+        "equipment": "Machine",
+        "sets": "2 (3 sec negative)",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Don't bring your torso forward as you squeeze the weight up."
+      },
+      {
+        "name": "V-Bar LAt Pull Down",
+        "bodyPart": "Lats",
+        "equipment": "Cable",
+        "sets": "2 (3 sec negative)",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Keep some tone through your abdominals as you pull the bar into your body to ensure you don’t arch excessively through the spine."
+      },
+      {
+        "name": "Side Lateral Raise",
+        "bodyPart": "Shoulders",
+        "equipment": "Dumbbell",
+        "sets": "2",
+        "reps": "10-15",
+        "weight": "",
+        "additionalInfo": "Don't bring your arms up too high - up to shoulder height is far enough."
+      },
+      {
+        "name": "Cable tricep extensions",
+        "bodyPart": "Triceps",
+        "equipment": "Cable",
+        "sets": "3 (3 sec negative)",
+        "reps": "8-12",
+        "weight": "",
+        "additionalInfo": "If you want to keep more tension in the triceps, don’t lock the elbows out entirely."
+      },
+      {
+        "name": "Cable Curls",
+        "bodyPart": "Biceps",
+        "equipment": "Cable",
+        "sets": "3 (3 sec negative)",
+        "reps": "8-12",
+        "weight": "",
+        "additionalInfo": "Keep your elbows tucked in at your sides and don't allow them to come forward as you curl the weight up."
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Day2",
+    "exercises": [
+      {
+        "name": "Squats",
+        "bodyPart": "Quads",
+        "equipment": "Barbell",
+        "sets": "3",
+        "reps": "6-12",
+        "weight": "",
+        "additionalInfo": "Knees come too far forward: When you squat down, your hips should be dropping straight down, not coming forward."
+      },
+      {
+        "name": "Stiff Leg Deadlifts",
+        "bodyPart": "Hamstrings",
+        "equipment": "Barbell",
+        "sets": "3",
+        "reps": "8-12",
+        "weight": "",
+        "additionalInfo": "Do not allow the bar to drift away from your body during the lift."
+      },
+      {
+        "name": "Standing Calf Raise",
+        "bodyPart": "Calves",
+        "equipment": "Bodyweight",
+        "sets": "3",
+        "reps": "10-15",
+        "weight": "",
+        "additionalInfo": "Once your heels are down as far as they go, start the next rep."
+      },
+      {
+        "name": "Leg Extensions",
+        "bodyPart": "Quads",
+        "equipment": "Machine",
+        "sets": "2 (3 sec negative)",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Ensure the axis of rotation for the knee directly matches that of the machine. In other words, the point of rotation for the machine should be in line with your knee joint itself."
+      },
+      {
+        "name": "Leg Curl",
+        "bodyPart": "Hamstrings",
+        "equipment": "Machine",
+        "sets": "2 (3 sec negative)",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Always use a full range of motion by curling the weight up as far as possible and lowering it as far as possible without the weight dropping on the stack."
+      },
+      {
+        "name": "Seated Calf Raise",
+        "bodyPart": "Calves",
+        "equipment": "Machine(Isolation)",
+        "sets": "2 (3 sec negative) ",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Limit depth of the heels if you feel any sort of stretch through the bottom of the foot during the exercise."
+      },
+      {
+        "name": "Cable Crunch",
+        "bodyPart": "Abs",
+        "equipment": "Cable",
+        "sets": "3 (3 sec negative) ",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Don't choose a weight so heavy that your lower back handles most of the resistance. "
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Day3",
+    "exercises": [
+      {
+        "name": "Rest"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Day4",
+    "exercises": [
+      {
+        "name": "Incline Dumbbell Bench Press",
+        "bodyPart": "Chest",
+        "equipment": "Dumbbell",
+        "sets": "3",
+        "reps": "8-12",
+        "weight": "",
+        "additionalInfo": "Keep your feet flat on the floor and don’t allow the lower body to move during the set."
+      },
+      {
+        "name": "Rack Deadlifts - 3 to 5 off ground",
+        "bodyPart": "Hamstrings",
+        "equipment": "Barbell",
+        "sets": "3",
+        "reps": "5-8",
+        "weight": "",
+        "additionalInfo": "You MUST keep the crease of the armpit over the bar and the midfoot in order to allow the bar to travel linearly."
+      },
+      {
+        "name": "Military Press",
+        "bodyPart": "Shoulders",
+        "equipment": "Barbell",
+        "sets": "3",
+        "reps": "8-12",
+        "weight": "",
+        "additionalInfo": "Squeeze your glutes and brace your abs as you press. You shouldn’t be leaning back excessively as you press."
+      },
+      {
+        "name": "Machine Chest Press ",
+        "bodyPart": "Chest",
+        "equipment": "Machine",
+        "sets": "2 (3 sec negative)",
+        "reps": "8-12",
+        "weight": "",
+        "additionalInfo": "Ensure you maintain some tension in your abs and don’t allow your lower back to excessive arch."
+      },
+      {
+        "name": "Pull Ups or Machine Rows ",
+        "bodyPart": "Upper Back",
+        "equipment": "Machine",
+        "sets": "2(3 sec negative) ",
+        "reps": "8-12",
+        "weight": "",
+        "additionalInfo": "Try to keep a neutral head position (looking straight ahead or slightly up) as hyperextending the neck can lead to compensations throughout the spine."
+      },
+      {
+        "name": "Machine Shoulder Press",
+        "bodyPart": "Shoulders",
+        "equipment": "Machine",
+        "sets": "2(3 sec negative)",
+        "reps": "8-12",
+        "weight": "",
+        "additionalInfo": "Don’t allow the head to jut forward excessively."
+      },
+      {
+        "name": "Dumbbell Curls",
+        "bodyPart": "Biceps",
+        "equipment": "Dumbbell",
+        "sets": "3 (3 sec negative)",
+        "reps": "8-12",
+        "weight": "",
+        "additionalInfo": "Keep the tension on both of your biceps throughout the set. Do not rest the weights on your body or let them hang down."
+      },
+      {
+        "name": "Machine Tricep Dip",
+        "bodyPart": "Triceps",
+        "equipment": "Bodyweight",
+        "sets": "3 (3 sec negative)",
+        "reps": "8-12",
+        "weight": "",
+        "additionalInfo": "Do not lock your elbows out at the top of the movement."
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Day5",
+    "exercises": [
+      {
+        "name": "Leg Press",
+        "bodyPart": "Quads",
+        "equipment": "Machine",
+        "sets": "3",
+        "reps": "10-20",
+        "weight": "",
+        "additionalInfo": "To keep tension on the quads, keep the knees just shy of lockout."
+      },
+      {
+        "name": "Dumbbell Stiff Leg Deadlifts",
+        "bodyPart": "Hamstrings",
+        "equipment": "Dumbbell",
+        "sets": "3",
+        "reps": "8-12",
+        "weight": "",
+        "additionalInfo": "You must keep your eyes looking up at all times. As soon as you look down at the floor your back will round!"
+      },
+      {
+        "name": "Leg Press Calf Raise",
+        "bodyPart": "Calves",
+        "equipment": "Machine",
+        "sets": "3",
+        "reps": "10-15",
+        "weight": "",
+        "additionalInfo": "Be extremely careful when re-positioning the feet at the base of the platform. If the safeties are not in place and you lose control of the platform, this could result in very serious injury."
+      },
+      {
+        "name": "Hack Squat",
+        "bodyPart": "Quads",
+        "equipment": "Machine",
+        "sets": "2",
+        "reps": "8-12",
+        "weight": "",
+        "additionalInfo": "Ensure the head does not jut forward excessively."
+      },
+      {
+        "name": "Seated Leg Curl",
+        "bodyPart": "Hamstrings",
+        "equipment": "Machine",
+        "sets": "2 (3 sec negative)",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "moving the weight up and down too fast and not using a full range of motion."
+      },
+      {
+        "name": "Seated Calf Raise",
+        "bodyPart": "Calves",
+        "equipment": "Machine",
+        "sets": " 2 (3 sec negative)",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Keep the repetitions slow and controlled. Limit momentum and pause at the top to emphasize the contraction."
+      },
+      {
+        "name": "Planks",
+        "bodyPart": "Abs",
+        "equipment": "Bodyweight",
+        "sets": "3",
+        "reps": "60 sec",
+        "weight": "",
+        "additionalInfo": "Do not let your mid section sag in the middle. You need to keep yourself straight at all times."
+      },
+      {
+        "name": "Hyperextension",
+        "bodyPart": "Glutes",
+        "equipment": "Bodyweight",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Slightly flex your upper back and extend your hips until your body is in a straight line and focus entirely on gluteal activation."
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "title": "Day6",
+    "exercises": [
+      {
+        "name": "Rest"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "title": "Day7",
+    "exercises": [
+      {
+        "name": "Rest"
+      }
+    ]
+  }
 ]

@@ -43,12 +43,6 @@ const Plan = ({ route }) => {
     loadPlan();
   }, [idd, sex]);
 
-  const onCardChanged = React.useRef(({ viewableItems }) => {
-    if (viewableItems.length > 0) {
-      setActive(viewableItems[0].index);
-    }
-  }).current;
-
   const handleScroll = Animated.event(
     [{ nativeEvent: { contentOffset: { x: scrollX } } }],
     { useNativeDriver: false }
@@ -56,7 +50,7 @@ const Plan = ({ route }) => {
 
   const handleScrollEnd = (event) => {
     const index = Math.floor(
-      event.nativeEvent.contentOffset.x / cardWidth.toFixed(0)
+      event.nativeEvent.contentOffset.x / cardWidth.toFixed(0) + 0.01
     );
     setActive(index);
   };
