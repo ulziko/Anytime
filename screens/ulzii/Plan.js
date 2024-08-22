@@ -30,7 +30,7 @@ const Plan = () => {
   const User=useContext(UserContext)
   const navigation = useNavigation();
   const [sex, setSex] = useState(); 
-  const [id, setId] = useState();
+  const [idd, setId] = useState();
 
   useEffect(() => {
     const fetchUserName = async () => {
@@ -57,12 +57,12 @@ const Plan = () => {
     <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate(
       'Plan', 
       {
-        id: id,
+        idd: idd,
         sex: sex,
       })}
     >
           <View style={styles.plan}>
-            <Text style={styles.planTitle}>{plan_names[id-1]}</Text>
+            <Text style={styles.planTitle}>{plan_names[idd-1]}</Text>
           </View>
     </TouchableOpacity>
       <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('FitnessApp')}>

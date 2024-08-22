@@ -35,6 +35,9 @@ function calcID(currentW, id, sex) {
   currentW = Number(currentW);
   id = Number(id);
   sex = Number(sex);
+  console.log("Current Weight:", currentW);
+  console.log("ID:", id);
+  console.log("Sex:", sex);
   
   let weight = 15 * (5 - sex) + (id / sex * 10);
   let difference = currentW - weight;
@@ -144,6 +147,7 @@ const BodyTypeCarousel = () => {
         if (snapshot.exists()) {
           const data = snapshot.val();
           setSex(data.gender === 'f' ? 2 : 1);
+          console.log(sex);
           setAge(data.age);
           setWeight(data.weight);
         } else {
@@ -237,7 +241,7 @@ const BodyTypeCarousel = () => {
   const handlePress = async (id, sex) => {
     const idd = calcID(weight, id, sex); 
     console.log("Selected IDD:", idd);
-    User.setPlanId(id);
+    User.setPlanId(idd);
     User.checkPlan(true);
     
     const auth = getAuth();
@@ -283,7 +287,7 @@ const BodyTypeCarousel = () => {
               text: "Тийм",
               onPress: () => {
                 console.log("OK Pressed");
-                handlePress(item.id);
+                handlePress(item.id, sex);
               },
             },
           ]);

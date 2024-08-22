@@ -21,7 +21,7 @@ function NavigationButton() {
   const User = useContext(UserContext);
   const navigation = useNavigation();
   const [sex, setSex] = useState(); 
-  const [id, setId] = useState();
+  const [idd, setId] = useState();
 
   useEffect(() => {
     const fetchUserName = async () => {
@@ -71,7 +71,7 @@ function NavigationButton() {
             navigation.navigate(
               'Plan', 
               {
-                id: id,
+                idd: idd,
                 sex: sex,
               })
           }else {

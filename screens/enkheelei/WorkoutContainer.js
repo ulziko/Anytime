@@ -12,7 +12,7 @@ import { Svg, Circle } from "react-native-svg";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import workoutsMapping from "./Mapping";
-import Video from "react-native-video";
+import Video from "expo-av";
 import { CountdownCircleTimer } from "react-native-countdown-circle-timer";
 
 const WorkoutPage = () => {
