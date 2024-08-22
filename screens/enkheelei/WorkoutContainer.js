@@ -11,7 +11,7 @@ import { ArrowLeftIcon } from "react-native-heroicons/solid";
 import { Svg, Circle } from "react-native-svg";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import workoutsMapping from './Mapping';
+import workoutsMapping from "./Mapping";
 
 const WorkoutPage = () => {
   const navigation1 = useNavigation();
@@ -26,22 +26,24 @@ const WorkoutPage = () => {
 
   useEffect(() => {
     if (!fileKey) {
-      console.error('fileKey is undefined');
+      console.error("fileKey is undefined");
       return;
     }
     const workoutData = workoutsMapping[fileKey];
     if (!workoutData) {
-      console.error('No workout data found for fileKey:', fileKey);
+      console.error("No workout data found for fileKey:", fileKey);
       return;
     }
 
-    const workoutBatch = workoutData.find((w) => String(w.exercise_set) === String(workoutId));
-  
+    const workoutBatch = workoutData.find(
+      (w) => String(w.exercise_set) === String(workoutId)
+    );
+
     if (workoutBatch) {
       // console.log('Found workoutBatch:', workoutBatch);
-      setSelectedWorkout(workoutBatch.exercises || []); 
+      setSelectedWorkout(workoutBatch.exercises || []);
     } else {
-      console.error('No workout batch found for workoutId:', workoutId);
+      console.error("No workout batch found for workoutId:", workoutId);
     }
   }, [fileKey, workoutId]);
 
@@ -72,7 +74,10 @@ const WorkoutPage = () => {
   };
 
   const nextWorkout = () => {
-    if (selectedWorkout.length > 0 && exerciseIndex < selectedWorkout.length - 1){
+    if (
+      selectedWorkout.length > 0 &&
+      exerciseIndex < selectedWorkout.length - 1
+    ) {
       setExerciseIndex(exerciseIndex + 1);
       resetPage();
       console.log({ exerciseIndex });
@@ -88,7 +93,7 @@ const WorkoutPage = () => {
       console.log({ exerciseIndex });
     } else {
       console.log("Already at the first exercise.");
-    }    
+    }
   };
 
   const resetPage = () => {
@@ -150,7 +155,7 @@ const WorkoutPage = () => {
       <View className="flex mt-5 h-[50%]">
         <View className="flex-row bg-gray-800 p-[3vh] rounded-3xl w-full h-full">
           <Image
-            source={require("../../assets/man.png")}
+            source={`../../assets/${currentExercise.bodyImage}.png`}
             className="w-[40%] h-[90%] m-5"
             resizeMode="stretch"
           />
@@ -240,7 +245,9 @@ const WorkoutPage = () => {
             />
           </View>
           <Text className="text-purple-600 text-2xl ml-3">Нэмэлт: </Text>
-          <Text className="text-white text-lg">{currentExercise.additionalInfo}</Text>
+          <Text className="text-white text-lg">
+            {currentExercise.additionalInfo}
+          </Text>
         </View>
       </View>
       {/* Start Button */}
@@ -318,9 +325,13 @@ const WorkoutPage = () => {
           ></TouchableOpacity>
           <TouchableOpacity
             className={`${
-              exerciseIndex === selectedWorkout.length - 1 ? "invisible" : "bg-purple-300"
+              exerciseIndex === selectedWorkout.length - 1
+                ? "invisible"
+                : "bg-purple-300"
             } rounded-full ml-auto -mr-10 w-[10%] h-full`}
-            disabled={`${exerciseIndex ===  selectedWorkout.length - 1? "disable" : ""}`}
+            disabled={`${
+              exerciseIndex === selectedWorkout.length - 1 ? "disable" : ""
+            }`}
             onPress={nextWorkout}
           ></TouchableOpacity>
         </View>
