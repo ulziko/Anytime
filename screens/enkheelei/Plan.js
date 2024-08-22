@@ -56,7 +56,7 @@ const Plan = ({ route }) => {
 
   const handleScrollEnd = (event) => {
     const index = Math.floor(
-      event.nativeEvent.contentOffset.x / cardWidth.toFixed(0)
+      event.nativeEvent.contentOffset.x / cardWidth.toFixed(0) + 0.01
     );
     setActive(index);
   };

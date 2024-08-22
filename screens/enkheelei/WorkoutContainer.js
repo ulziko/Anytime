@@ -142,6 +142,20 @@ const WorkoutPage = () => {
   const strokeWidth = 3;
   const circumference = 2 * Math.PI * radius;
   const progress = (seconds % 60) / 60;
+  const images = {
+    Belly: require("../../assets/Belly.png"),
+    Calves: require("../../assets/Calves.png"),
+    Chest: require("../../assets/Chest.png"),
+    Glutes: require("../../assets/Glutes.png"),
+    Hamstrings: require("../../assets/Hamstrings.png"),
+    Lats: require("../../assets/Lats.png"),
+    Quads: require("../../assets/Quads.png"),
+    Shoulders: require("../../assets/Shoulders.png"),
+    Traps: require("../../assets/Traps.png"),
+    Triceps: require("../../assets/Triceps.png"),
+    Upper: require("../../assets/Upper.png"),
+  };
+  const imagePath = images[currentExercise.bodyImage];
 
   return (
     <View className="flex w-screen h-screen bg-black p-5">
@@ -159,7 +173,8 @@ const WorkoutPage = () => {
       <View className="flex mt-5 h-[50%]">
         <View className="flex-row bg-gray-800 p-[3vh] rounded-3xl w-full h-full">
           <Image
-            source={`../../assets/${currentExercise.bodyImage}.png`}
+            // source={require(`../../assets/${currentExercise.bodyImage}.png`)}
+            source={imagePath}
             className="w-[40%] h-[90%] m-5"
             resizeMode="stretch"
           />
