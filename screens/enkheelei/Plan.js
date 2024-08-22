@@ -21,9 +21,9 @@ const Plan = ({ route }) => {
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const [active, setActive] = React.useState(0);
   const [plan, setPlan] = React.useState([]);
-  const { id, sex } = route.params;
+  const { idd, sex } = route.params;
   const [planDetail, setPlanDetail] = React.useState([]);
-  const fileKey = `${sex === 1 ? "m" : "f"}_${id}`;
+  const fileKey = `${sex === 1 ? "m" : "f"}_${idd}`;
 
   const showPlanDetails = () => {
     setPlanDetail(!planDetail);
@@ -41,7 +41,7 @@ const Plan = ({ route }) => {
     };
 
     loadPlan();
-  }, [id, sex]);
+  }, [idd, sex]);
 
   const onCardChanged = React.useRef(({ viewableItems }) => {
     if (viewableItems.length > 0) {

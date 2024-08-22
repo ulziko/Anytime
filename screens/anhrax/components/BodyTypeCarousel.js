@@ -31,6 +31,49 @@ function alertt(currentW, id, sex) {
   }
 };
 
+function calcID(currentW, id, sex) {
+  currentW = Number(currentW);
+  id = Number(id);
+  sex = Number(sex);
+  
+  let weight = 15 * (5 - sex) + (id / sex * 10);
+  let difference = currentW - weight;
+  let idd;
+
+  if (difference <= 0) {
+    if (difference > (-1) * (id / sex * 10) - 1) {
+      idd = 1;
+    } else if (difference > (-2) * (id / sex * 10) - 1) {
+      idd = 2;
+    } else if (difference > (-3) * (id / sex * 10) - 1) {
+      idd = 3;
+    } else if (difference > (-4) * (id / sex * 10) - 1) {
+      idd = 4;
+    } else {
+      idd = 5;
+    }
+  } else {
+    if (difference < (id / sex * 10) + 1) {
+      idd = 6;
+    } else if (difference < 2 * (id / sex * 10) + 1) {
+      idd = 7;
+    } else if (difference < 3 * (id / sex * 10) + 1) {
+      idd = 8;
+    } else if (difference < 4 * (id / sex * 10) + 1) {
+      idd = 9;
+    } else {
+      idd = 10;
+    }
+  }
+
+  console.log("Current Weight:", currentW);
+  console.log("Calculated Weight:", weight);
+  console.log("Difference:", difference);
+  console.log("Assigned IDD:", idd);
+
+  return idd;
+}
+
 function calculateMuscleMass(age, sex) {
   let muscleMass;
 
@@ -86,6 +129,7 @@ function calculateMuscleMass(age, sex) {
 const BodyTypeCarousel = () => {
   const [sex, setSex] = useState(); 
   const [age, setAge] = useState();
+  const [idd, setIdd] = useState();
   const [weight, setWeight] = useState();
   const User = useContext(UserContext);
 
@@ -191,6 +235,8 @@ const BodyTypeCarousel = () => {
         ];
 
   const handlePress = async (id, sex) => {
+    const idd = calcID(weight, id, sex); 
+    console.log("Selected IDD:", idd);
     User.setPlanId(id);
     User.checkPlan(true);
     
@@ -203,7 +249,7 @@ const BodyTypeCarousel = () => {
         const userRef = ref(database, 'users/' + user.uid);
         
         await update(userRef, {
-          planId: id,
+          planId: idd,
           plan: true
         });
   
@@ -216,7 +262,7 @@ const BodyTypeCarousel = () => {
       Alert.alert("Error", "No authenticated user found.");
     }
   
-    navigation.navigate("loader", { id, sex });
+    navigation.navigate("loader", { idd, sex });
   };
 
   const renderItem = ({ item }) => {
