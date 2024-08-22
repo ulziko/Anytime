@@ -43,12 +43,6 @@ const Plan = ({ route }) => {
     loadPlan();
   }, [id, sex]);
 
-  const onCardChanged = React.useRef(({ viewableItems }) => {
-    if (viewableItems.length > 0) {
-      setActive(viewableItems[0].index);
-    }
-  }).current;
-
   const handleScroll = Animated.event(
     [{ nativeEvent: { contentOffset: { x: scrollX } } }],
     { useNativeDriver: false }

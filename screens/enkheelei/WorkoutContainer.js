@@ -13,14 +13,14 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import workoutsMapping from "./Mapping";
 import Video from "react-native-video";
+import { CountdownCircleTimer } from "react-native-countdown-circle-timer";
 
 const WorkoutPage = () => {
   const navigation1 = useNavigation();
   const route = useRoute();
   const [selectedWorkout, setSelectedWorkout] = useState([]);
   const [exerciseIndex, setExerciseIndex] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+  const [timerStart, setTimer] = useState(false);
   const [isVideoVisible, setVideoVisible] = useState(false);
   const [questionVisible, setQuestionVisible] = useState(false);
   const { workoutId, fileKey } = route.params || {};
@@ -50,21 +50,9 @@ const WorkoutPage = () => {
     }
   }, [fileKey, workoutId]);
 
-  useEffect(() => {
-    let interval = null;
-    if (isActive) {
-      interval = setInterval(() => {
-        setSeconds((seconds) => seconds + 1);
-      }, 1000);
-    } else if (!isActive && seconds !== 0) {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  }, [isActive, seconds]);
-
-  const reset = () => {
-    setSeconds(0);
-    setIsActive(false);
+  const changeTimeHandler = (timerStart, setTimer) => {
+    setTimer(!timerStart);
+    return { delay: 1 };
   };
 
   const watchVideo = () => {
@@ -99,11 +87,6 @@ const WorkoutPage = () => {
     }
   };
 
-  const resetPage = () => {
-    setSeconds(0);
-    setIsActive(false);
-  };
-
   // console.log('SelectedWorkoutBatch:', selectedWorkout.length);
   if (!selectedWorkout.length) {
     return (
@@ -116,32 +99,6 @@ const WorkoutPage = () => {
 
   const currentExercise = selectedWorkout[exerciseIndex];
 
-  const formatTime = (sec) => {
-    const minutes = Math.floor(sec / 60);
-    const seconds = sec % 60;
-    return `${minutes < 10 ? "0" : ""}${minutes}:${
-      seconds < 10 ? "0" : ""
-    }${seconds}`;
-  };
-
-  const toggle = () => {
-    setIsActive(!isActive);
-  };
-
-  const handleCircleClick = () => {
-    if (isActive) {
-      setIsActive(false);
-    } else if (seconds !== 0) {
-      reset();
-    } else {
-      setIsActive(true);
-    }
-  };
-
-  const radius = 40;
-  const strokeWidth = 3;
-  const circumference = 2 * Math.PI * radius;
-  const progress = (seconds % 60) / 60;
   const images = {
     Belly: require("../../assets/Belly.png"),
     Calves: require("../../assets/Calves.png"),
@@ -205,8 +162,27 @@ const WorkoutPage = () => {
           </View>
           {/* timer */}
           <View className="absolute top-[75%] right-[20%]">
-            <TouchableOpacity onPress={handleCircleClick} activeOpacity={1}>
+            <TouchableOpacity
+              className="w-full h-full"
+              onPress={() => {
+                setTimer(true);
+              }}
+            >
+              <CountdownCircleTimer
+                isPlaying={timerStart}
+                duration={5}
+                colors={["#9800FF", "#8902a0", "#670178", "#1b0020"]}
+                colorsTime={[7, 5, 3, 0]}
+                onComplete={() => changeTimeHandler(timerStart, setTimer)}
+              >
+                {({ remainingTime }) => <Text>{remainingTime}</Text>}
+              </CountdownCircleTimer>
+            </TouchableOpacity>
+            {/* <TouchableOpacity onPress={handleCircleClick} activeOpacity={1}>
               <Svg height="100" width="100" viewBox="0 0 100 100">
+                <Text className="mx-auto my-auto text-center text-purple-600">
+                  {formatTime(seconds)}
+                </Text>
                 <Circle
                   cx="50"
                   cy="50"
@@ -227,10 +203,7 @@ const WorkoutPage = () => {
                   strokeLinecap="round"
                 />
               </Svg>
-              <Text className="absolute top-[43%] left-[37%] text-center text-purple-600">
-                {formatTime(seconds)}
-              </Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </View>
       </View>
