@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Modal,
   Pressable,
+  Alert,
 } from "react-native";
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
 import { Svg, Circle } from "react-native-svg";
@@ -21,6 +22,7 @@ const WorkoutPage = () => {
   const [selectedWorkout, setSelectedWorkout] = useState([]);
   const [exerciseIndex, setExerciseIndex] = useState(0);
   const [timerStart, setTimer] = useState(false);
+  const [key, setKey] = useState(0);
   const [isVideoVisible, setVideoVisible] = useState(false);
   const [questionVisible, setQuestionVisible] = useState(false);
   const { workoutId, fileKey } = route.params || {};
@@ -52,7 +54,8 @@ const WorkoutPage = () => {
 
   const changeTimeHandler = (timerStart, setTimer) => {
     setTimer(!timerStart);
-    return { delay: 1 };
+    console.log("timer end");
+    return { shouldRepeat: true, delay: 1 };
   };
 
   const watchVideo = () => {
@@ -70,7 +73,6 @@ const WorkoutPage = () => {
       exerciseIndex < selectedWorkout.length - 1
     ) {
       setExerciseIndex(exerciseIndex + 1);
-      resetPage();
       console.log({ exerciseIndex });
     } else {
       console.log("No more exercises.");
@@ -80,7 +82,6 @@ const WorkoutPage = () => {
   const prevWorkout = () => {
     if (exerciseIndex > 0) {
       setExerciseIndex(exerciseIndex - 1);
-      resetPage();
       console.log({ exerciseIndex });
     } else {
       console.log("Already at the first exercise.");
@@ -170,10 +171,14 @@ const WorkoutPage = () => {
             >
               <CountdownCircleTimer
                 isPlaying={timerStart}
-                duration={5}
+                duration={30}
                 colors={["#9800FF", "#8902a0", "#670178", "#1b0020"]}
                 colorsTime={[7, 5, 3, 0]}
-                onComplete={() => changeTimeHandler(timerStart, setTimer)}
+                key={key}
+                onComplete={() => {
+                  setKey((prevKey) => prevKey + 1);
+                  setTimer(false);
+                }}
               >
                 {({ remainingTime }) => <Text>{remainingTime}</Text>}
               </CountdownCircleTimer>
@@ -322,7 +327,7 @@ const WorkoutPage = () => {
             } rounded-full mr-auto -ml-10 w-[10%] h-full`}
             // disabled={`${exerciseIndex === 0 ? "disable" : ""}`}
             disabled={exerciseIndex === 0}
-            onPress={prevWorkout}
+            onPress={timerStart ? {} : prevWorkout}
           ></TouchableOpacity>
           <TouchableOpacity
             className={`${
@@ -332,7 +337,15 @@ const WorkoutPage = () => {
             } rounded-full ml-auto -mr-10 w-[10%] h-full`}
             // disabled={`${exerciseIndex ===  selectedWorkout.length - 1? "disable" : ""}`}
             disabled={exerciseIndex === selectedWorkout.length - 1}
-            onPress={nextWorkout}
+            onPress={
+              timerStart
+                ? Alert.alert("Амралтын цаг дуусаагүй байна.", {
+                    text: "Ойлголоо",
+                    onPress: () => console.log("Cancel Pressed"),
+                    style: "cancel",
+                  })
+                : nextWorkout
+            }
           ></TouchableOpacity>
         </View>
       </View>
