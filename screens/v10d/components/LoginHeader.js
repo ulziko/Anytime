@@ -10,7 +10,7 @@ const LoginHeader = () => {
         <View className="bg-black rounded-b-3xl h-[40%]">
             <SafeAreaView className="flex">
                 <TouchableOpacity 
-                    className="flex-row justify-center py-[26%]"
+                    className="flex-row justify-center py-[18%]"
                     onPress={() => navigation.navigate('Home')}
                 >
                     <Image

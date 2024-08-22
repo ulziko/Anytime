@@ -23,6 +23,7 @@
     "@react-navigation/native-stack": "^6.10.1",
     "eas-cli": "^10.2.2",
     "expo": "~51.0.24",
+    "expo-av": "~14.0.7",
     "expo-image-picker": "^15.0.7",
     "expo-linear-gradient": "^13.0.2",
     "expo-splash-screen": "~0.27.5",
@@ -50,6 +51,7 @@
     "react-native-screens": "3.31.1",
     "react-native-svg": "15.2.0",
     "react-native-svg-circular-progress": "^1.0.4",
+    "react-native-video": "^6.4.5",
     "react-native-web": "^0.19.12"
   },
   "devDependencies": {
