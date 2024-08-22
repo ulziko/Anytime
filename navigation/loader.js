@@ -9,7 +9,7 @@ const { width, height } = Dimensions.get('screen');
 
 const Loader = ({ route }) => {
   const navigation = useNavigation();
-  const { id, sex } = route.params;
+  const { idd, sex } = route.params;
   const anytimeIcon = require('../assets/anytimeLogo.png'); 
   const Icon1 = require('../assets/icon1.png');
   const Icon2 = require('../assets/icon2.png');
@@ -31,7 +31,7 @@ const Loader = ({ route }) => {
   
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.navigate('Plan', {id, sex});
+      navigation.navigate('Plan', {idd, sex});
     }, 5000); // 5 seconds
 
     

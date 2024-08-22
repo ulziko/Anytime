@@ -13,7 +13,18 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
 
 const { height } = Dimensions.get('window');
-const plan_names = ["Enjoy plan", "Killer plan", "Iron discipline plan", 'Monster plan', "Unstopable plan"];
+const plan_names = [
+  "Enjoy plan",
+  "Killer plan",
+  "Iron discipline plan",
+  "Monster plan",
+  "Unstoppable plan",
+  "Beast mode plan",
+  "Champion plan",
+  "Titan strength plan",
+  "Ultimate endurance plan",
+  "Warrior spirit plan"
+];
 
 const Plan = () => {
   const User=useContext(UserContext)
@@ -51,7 +62,7 @@ const Plan = () => {
       })}
     >
           <View style={styles.plan}>
-            <Text style={styles.planTitle}>{plan_names[User.planId-1]}</Text>
+            <Text style={styles.planTitle}>{plan_names[id-1]}</Text>
           </View>
     </TouchableOpacity>
       <TouchableOpacity style={styles.addButton}  onPress={() => navigation.navigate('FitnessApp')}>

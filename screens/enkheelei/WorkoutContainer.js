@@ -268,10 +268,18 @@ const WorkoutPage = () => {
             className="flex h-screen w-screen justify-center items-center content-center bg-black/75"
           >
             <View className="flex bg-white items-center border-solid border-2 rounded-xl w-[80%] h-[22%]">
-              {/* <WebView
-                source={{ uri: `https://www.youtube.com/watch?v=Dduy3fa9X74` }}
-                style={{ flex: 1 }}
-              /> */}
+              <Text className='absolute top-[45%] text-purple-600 text-lg'>Loading...</Text>
+              <Video
+                source={{ uri: 'https://drive.google.com/uc?id=1WaTR8TqoaHsyb6A7QAGK72y3eogPDXyZ' }}
+                rate={1.0}
+                volume={1.0}
+                isMuted={false}
+                resizeMode="cover"
+                shouldPlay
+                isLooping
+                className='justify-center items-center mt-[1%] w-[98%] h-[96%] rounded-xl'
+                // style={{ width: 300, height: 200 }}
+              />
             </View>
             <TouchableOpacity
               onPress={() => {
