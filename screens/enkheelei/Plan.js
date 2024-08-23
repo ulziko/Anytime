@@ -11,6 +11,7 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import plansMapping from "./Mapping"; // Import the mapping
 
 const { width, height } = Dimensions.get("window");
@@ -182,9 +183,14 @@ const Plan = ({ route }) => {
       <View className="flex-row justify-end items-center w-full pr-5 pb-5">
         <TouchableOpacity
           onPress={() => setPlanDetail(!planDetail)}
-          className="flex justify-center items-center mt-[2vh] bg-purple-600 rounded-3xl w-[11vw] h-[5vh]"
+          className="flex justify-center items-center mt-[2vh] rounded-3xl w-[10%] h-[5vh]"
         >
-          <ArrowLeftIcon size="20" color="white" />
+          <FontAwesome
+                name="question-circle-o"
+                size={24}
+                color="white"
+                className="w-[10%] h-[10%]"
+              />
         </TouchableOpacity>
       </View>
       {/* Plan Detail */}

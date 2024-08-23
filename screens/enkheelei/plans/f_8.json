@@ -1,407 +1,367 @@
 [
-    {
-        "exercise_set": "0",
-        "title": "Даваа",
-        "exercises": [
-            {
-                "id": "0",
-                "name": "Warm-up /f-8/",
-                "bodyPart": "Мөр",
-                "desc": "5-10 minutes of light cardio (e.g., jogging or jumping jacks)",
-                "equipment": "Алчуур",
-                "sets": "3-4 (30 секундын зайтай)",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Оролт бүрд усаа солих"
-            },
-            {
-                "id": "1",
-                "name": "Push-ups",
-                "bodyPart": "Цээж",
-                "desc": "Standard push-ups",
-                "equipment": "",
-                "sets": "3",
-                "reps": "10-15",
-                "weight": "",
-                "additionalInfo": "Maintain a straight body line"
-            },
-            {
-                "id": "2",
-                "name": "Dumbbell Bench Press",
-                "bodyPart": "Цээж",
-                "desc": "Press dumbbells upward while lying on a bench",
-                "equipment": "Дамббелл",
-                "sets": "3",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "Keep elbows at 45 degrees"
-            },
-            {
-                "id": "3",
-                "name": "Bent Over Rows",
-                "bodyPart": "Нуруу",
-                "desc": "Pull weights towards your torso while bent over",
-                "equipment": "Дамббелл",
-                "sets": "3",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Keep back straight"
-            },
-            {
-                "id": "4",
-                "name": "Shoulder Press",
-                "bodyPart": "Мөр",
-                "desc": "Press weights overhead while seated or standing",
-                "equipment": "Дамббелл",
-                "sets": "3",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Avoid arching back"
-            },
-            {
-                "id": "5",
-                "name": "Bicep Curls",
-                "bodyPart": "Гар",
-                "desc": "Curl weights towards shoulders",
-                "equipment": "Дамббелл",
-                "sets": "3",
-                "reps": "12-15",
-                "weight": "",
-                "additionalInfo": "Keep elbows close to sides"
-            },
-            {
-                "id": "6",
-                "name": "Tricep Dips",
-                "bodyPart": "Гар",
-                "desc": "Lower and lift body using arms on parallel bars",
-                "equipment": "Параллел бар",
-                "sets": "3",
-                "reps": "10-15",
-                "weight": "",
-                "additionalInfo": "Keep elbows pointing back"
-            },
-            {
-                "id": "7",
-                "name": "Cool down",
-                "bodyPart": "",
-                "desc": "Stretching for 5-10 minutes",
-                "equipment": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": "Focus on all major muscle groups"
-            }
-        ]
-    },
-    {
-        "exercise_set": "1",
-        "title": "Мягмар",
-        "exercises": [
-            {
-                "id": "0",
-                "name": "Warm-up",
-                "bodyPart": "",
-                "desc": "5 minutes of light cardio",
-                "equipment": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": ""
-            },
-            {
-                "id": "1",
-                "name": "Steady-state cardio",
-                "bodyPart": "Бүх бие",
-                "desc": "30-40 minutes of steady-state cardio (e.g., running, cycling, swimming)",
-                "equipment": "Cardio machine or space for running",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": "Maintain a consistent pace"
-            },
-            {
-                "id": "2",
-                "name": "Plank",
-                "bodyPart": "Цээж",
-                "desc": "Hold a plank position",
-                "equipment": "",
-                "sets": "3",
-                "reps": "30-60 секунд",
-                "weight": "",
-                "additionalInfo": "Keep body straight"
-            },
-            {
-                "id": "3",
-                "name": "Russian Twists",
-                "bodyPart": "Гэдэс",
-                "desc": "Rotate torso side to side while holding a weight",
-                "equipment": "Дамббелл эсвэл бөмбөг",
-                "sets": "3",
-                "reps": "20",
-                "weight": "",
-                "additionalInfo": "Keep feet off the ground"
-            },
-            {
-                "id": "4",
-                "name": "Leg Raises",
-                "bodyPart": "Гэдэс",
-                "desc": "Lift legs while lying flat on your back",
-                "equipment": "",
-                "sets": "3",
-                "reps": "15",
-                "weight": "",
-                "additionalInfo": "Keep legs straight"
-            },
-            {
-                "id": "5",
-                "name": "Cool down",
-                "bodyPart": "",
-                "desc": "Stretching for 5-10 minutes",
-                "equipment": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": "Focus on all major muscle groups"
-            }
-        ]
-    },
-    {
-        "exercise_set": "2",
-        "title": "Лхагва",
-        "exercises": [
-            {
-                "id": "0",
-                "name": "Warm-up",
-                "bodyPart": "",
-                "desc": "5-10 minutes of light cardio",
-                "equipment": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": ""
-            },
-            {
-                "id": "1",
-                "name": "Squats",
-                "bodyPart": "Хөл",
-                "desc": "Lower body while bending knees",
-                "equipment": "",
-                "sets": "3",
-                "reps": "10-15",
-                "weight": "",
-                "additionalInfo": "Keep back straight"
-            },
-            {
-                "id": "2",
-                "name": "Deadlifts",
-                "bodyPart": "Хөл",
-                "desc": "Lift weight from the ground to hip level",
-                "equipment": "Барбелл",
-                "sets": "3",
-                "reps": "8-12",
-                "weight": "",
-                "additionalInfo": "Keep back straight"
-            },
-            {
-                "id": "3",
-                "name": "Lunges",
-                "bodyPart": "Хөл",
-                "desc": "Step forward and lower body",
-                "equipment": "",
-                "sets": "3",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Keep knee behind toes"
-            },
-            {
-                "id": "4",
-                "name": "Leg Press",
-                "bodyPart": "Хөл",
-                "desc": "Press weight away from body using legs",
-                "equipment": "Leg press machine",
-                "sets": "3",
-                "reps": "10-15",
-                "weight": "",
-                "additionalInfo": "Keep feet shoulder-width apart"
-            },
-            {
-                "id": "5",
-                "name": "Calf Raises",
-                "bodyPart": "Хөл",
-                "desc": "Raise heels off the ground",
-                "equipment": "",
-                "sets": "3",
-                "reps": "15-20",
-                "weight": "",
-                "additionalInfo": "Hold for a second at the top"
-            },
-            {
-                "id": "6",
-                "name": "Cool down",
-                "bodyPart": "",
-                "desc": "Stretching for 5-10 minutes",
-                "equipment": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": "Focus on all major muscle groups"
-            }
-        ]
-    },
-    {
-        "exercise_set": "3",
-        "title": "Пүрэв",
-        "exercises": [
-            {
-                "id": "0",
-                "name": "Light activity",
-                "bodyPart": "Бүх бие",
-                "desc": "Light activity such as walking, yoga, or stretching for 30-45 minutes",
-                "equipment": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": "Keep it gentle and relaxing"
-            }
-        ]
-    },
-    {
-        "exercise_set": "4",
-        "title": "Баасан",
-        "exercises": [
-            {
-                "id": "0",
-                "name": "Warm-up",
-                "bodyPart": "",
-                "desc": "5-10 minutes of light cardio",
-                "equipment": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": ""
-            },
-            {
-                "id": "1",
-                "name": "Burpees",
-                "bodyPart": "Бүх бие",
-                "desc": "Perform a full-body exercise combining a squat, push-up, and jump",
-                "equipment": "",
-                "sets": "3",
-                "reps": "10-15",
-                "weight": "",
-                "additionalInfo": "Explosive movements"
-            },
-            {
-                "id": "2",
-                "name": "Kettlebell Swings",
-                "bodyPart": "Хөл",
-                "desc": "Swing a kettlebell between legs and up to chest level",
-                "equipment": "Kettlebell",
-                "sets": "3",
-                "reps": "15",
-                "weight": "",
-                "additionalInfo": "Engage the core"
-            },
-            {
-                "id": "3",
-                "name": "Mountain Climbers",
-                "bodyPart": "Бүх бие",
-                "desc": "Run in place in a plank position",
-                "equipment": "",
-                "sets": "3",
-                "reps": "30 секунд",
-                "weight": "",
-                "additionalInfo": "Keep hips low"
-            },
-            {
-                "id": "4",
-                "name": "Dumbbell Snatches",
-                "bodyPart": "Бүх бие",
-                "desc": "Lift a dumbbell from the ground to overhead in one motion",
-                "equipment": "Дамббелл",
-                "sets": "3",
-                "reps": "10-12",
-                "weight": "",
-                "additionalInfo": "Use explosive power"
-            },
-            {
-                "id": "5",
-                "name": "Box Jumps",
-                "bodyPart": "Хөл",
-                "desc": "Jump onto a box or platform",
-                "equipment": "Box or platform",
-                "sets": "3",
-                "reps": "10-15",
-                "weight": "",
-                "additionalInfo": "Land softly"
-            },
-            {
-                "id": "6",
-                "name": "Cool down",
-                "bodyPart": "",
-                "desc": "Stretching for 5-10 minutes",
-                "equipment": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": "Focus on all major muscle groups"
-            }
-        ]
-    },
-    {
-        "exercise_set": "5",
-        "title": "Бямба",
-        "exercises": [
-            {
-                "id": "0",
-                "name": "Warm-up",
-                "bodyPart": "",
-                "desc": "5 minutes of light cardio",
-                "equipment": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": ""
-            },
-            {
-                "id": "1",
-                "name": "High-intensity interval training (HIIT)",
-                "bodyPart": "Бүх бие",
-                "desc": "20-30 minutes of high-intensity interval training",
-                "equipment": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": "Alternate between high-intensity exercise and low-intensity recovery"
-            },
-            {
-                "id": "2",
-                "name": "Cool down",
-                "bodyPart": "",
-                "desc": "Stretching for 5-10 minutes",
-                "equipment": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": "Focus on all major muscle groups"
-            }
-        ]
-    },
-    {
-        "exercise_set": "6",
-        "title": "Ням",
-        "exercises": [
-            {
-                "id": "0",
-                "name": "Optional light activity",
-                "bodyPart": "Бүх бие",
-                "desc": "Optional light activity such as a leisurely walk or gentle stretching",
-                "equipment": "",
-                "sets": "",
-                "reps": "",
-                "weight": "",
-                "additionalInfo": "Keep it light and relaxing"
-            }
-        ]
-    }
+  {
+    "exercise_set": "0",
+    "title": "Upper A",
+    "exercises": [
+      {
+        "id": "0",
+        "name": "Incline Bench Press",
+        "bodyPart": "Chest",
+        "bodyImage": "Chest",
+        "video": "https://drive.google.com/uc?id=1wu9fp8YSWGXljaPaVxghSai5b-xbt40D",
+        "equipment": "",
+        "sets": "3",
+        "reps": "8-10",
+        "weight": "",
+        "additionalInfo": "Technique first, weight second - no one cares how much you bench if you get injured.So start without any additional weight.Keep the bar in line with your wrist and elbows and ensure it travels in a straight line"
+      },
+
+      {
+        "id": "1",
+        "name": "One Arm Dumbbell Row ",
+        "bodyPart": "Upper Back",
+        "bodyImage": "Upper",
+        "video": "https://drive.google.com/uc?id=1G62kgZlfg9egj9Y0ncAa3vZqs2B44-zc",
+        "equipment": "",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Experiment with head position and see which option (looking forward vs. packing the neck) works better for you."
+      },
+
+      {
+        "id": "2",
+        "equipment": "",
+        "name": "Seated Barbell Press",
+        "bodyPart": "Shoulders",
+        "bodyImage": "Shoulders",
+        "video": "https://drive.google.com/uc?id=1CijaiEUOj5aCbJcFuXjXHiNvirJ961ZJ",
+        "sets": "3",
+        "reps": "8-10",
+        "weight": "",
+        "additionalInfo": "Reach tall at the top and don’t worry about keeping the shoulders packed down and back. Brace your abs as you press, you shouldn’t be leaning back excessively."
+      },
+      {
+        "id": "3",
+        "equipment": "",
+        "name": "Pull Ups",
+        "bodyPart": "Lats",
+        "bodyImage": "Lats",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
+        "sets": "3",
+        "reps": "10",
+        "weight": "",
+        "additionalInfo": "To decrease bicep involvement, use a false (thumbless grip). Try to keep a neutral head position (looking straight ahead or slightly up) as hyperextending the neck can lead to compensations throughout the spine."
+      },
+      {
+        "id": "4",
+        "equipment": "",
+        "name": "Skullcrushers",
+        "bodyPart": "riceps",
+        "bodyImage": "riceps",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Don’t overextend through the lumbar spine as you lower the weight, keep some tension through the abdominals. Exhale as you extend the elbows and lockout the weight overhead.If you experience elbow pain during the movement, consider implementing a slight angle (incline or decline) or adjust elbow position (in versus out)."
+      },
+      {
+        "id": "5",
+        "equipment": "",
+        "name": "Dumbbell Curl",
+        "bodyPart": "Biceps",
+        "bodyImage": "Biceps",
+        "video": "https://drive.google.com/uc?id=1EACoujmrLLYXHp-tPNB4LiYwJQzjhWZM",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Keep the tension on both of your biceps throughout the set. Do not rest the weights on your body or let them hang down. Keep your body fixed throughout the set"
+      }
+    ]
+  },
+  {
+    "exercise_set": "1",
+    "title": "Lower A",
+    "exercises": [
+      {
+        "id": "0",
+        "name": "Squats",
+        "bodyPart": "Quads",
+        "bodyImage": "Quads",
+        "video": "https://drive.google.com/uc?id=1ldzGMIt_3mLaOweu0A5BTNF6JLYQe1bR",
+        "equipment": "",
+        "sets": "3",
+        "reps": "8-10",
+        "weight": "",
+        "additionalInfo": "The are many mistakes that can be made when squatting, so it's important that you have your technique down before you attempt squatting heavy weights. If you are squatting correctly, you should not feel pain in your lower back. Lower back pain is usually a sign that you are not using correct form and/or your core is weak.  "
+      },
+      {
+        "id": "1",
+        "name": "Leg Curl ",
+        "bodyPart": "Hamstrings",
+        "bodyImage": "Hamstrings",
+        "video": "https://drive.google.com/uc?id=1tTMe7WDp-rTbpOV84pHUotbiqOd6DXVE",
+        "equipment": "",
+        "sets": "3",
+        "reps": "12-15",
+        "weight": "",
+        "additionalInfo": "Common mistakes with the leg curl are; moving the weight up and down too fast and not using a full range of motion."
+      },
+      {
+        "id": "2",
+        "name": "Leg Extension",
+        "bodyPart": "Quads",
+        "bodyImage": "Quads",
+        "video": "https://drive.google.com/uc?id=1IoiEDGQtiF5vizNE5RAGZuUIorbTDb15",
+        "equipment": "",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Ensure the axis of rotation for the knee directly matches that of the machine. In other words, the point of rotation for the machine should be in line with your knee joint itself. "
+      },
+      {
+        "id": "3",
+        "name": "Leg Press Calf Raise",
+        "bodyPart": "Calves",
+        "bodyImage": "Calves",
+        "video": "https://drive.google.com/uc?id=1vK-FfTVmjlPaKA4oyIpqkK1Qfw3scrXB",
+        "equipment": "",
+        "sets": "3",
+        "reps": "15-20",
+        "weight": "",
+        "additionalInfo": "SAFETY NOTE: Be extremely careful when re-positioning the feet at the base of the platform. If the safeties are not in place and you lose control of the platform, this could result in very serious injury."
+      },
+      {
+        "id": "4",
+        "name": "Plank",
+        "bodyPart": "abs",
+        "bodyImage": "abs",
+        "video": "https://drive.google.com/uc?id=1FDU4yu7xdwVuBym8fd5RfHgbOJqQxeav",
+        "equipment": "",
+        "sets": "3",
+        "reps": "60sec",
+        "weight": "",
+        "additionalInfo": "Do not let your mid section sag in the middle. You need to keep yourself straight at all times. Do this exercise in front of a mirror to make sure you are not letting your technique slip."
+      },
+      {
+        "id": "5",
+        "name": "Twisting Hanging Knee Raise",
+        "bodyPart": "Abs",
+        "bodyImage": "Abs",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
+        "equipment": "",
+        "sets": "3",
+        "reps": "20",
+        "weight": "",
+        "additionalInfo": "Hold at the top of the movement (with your knees up) to increase the intensity of the twisting knee raise."
+      }
+    ]
+  },
+  {
+    "exercise_set": "2",
+    "title": "Амрах",
+    "exercises": [
+      {
+        "id": "0",
+        "name": "Rest",
+        "bodyPart": "",
+        "bodyImage": "",
+        "equipment": "",
+        "sets": "",
+        "reps": "",
+        "weight": "",
+        "additionalInfo": "30-40 minutes of jogging or walk"
+      }
+    ]
+  },
+  {
+    "exercise_set": "3",
+    "title": "Upper B",
+    "exercises": [
+      {
+        "id": "0",
+        "name": "Dumbbell Bench Press",
+        "bodyPart": "Chest",
+        "bodyImage": "Chest",
+        "video": "https://drive.google.com/uc?id=1M0E27MKSHnklYUicX2vvHSL-UXhTOK0-",
+        "equipment": "",
+        "sets": "3",
+        "reps": "10",
+        "weight": "",
+        "additionalInfo": "Maintain more tension through the pecs by not locking out the elbows entirely.Keep the weights slightly tilted at a 45 degree angle in order to keep the elbows in a neutral position."
+      },
+      {
+        "id": "1",
+        "name": "Barbell Row",
+        "bodyPart": "Upper Back",
+        "bodyImage": "Upper",
+        "video": "https://drive.google.com/uc?id=1PxD0pu03XmehfqIvsQ-Dv1ArWW9iQ_MI",
+        "equipment": "",
+        "sets": "3",
+        "reps": "8-10",
+        "weight": "",
+        "additionalInfo": "Experiment with head position and see which option (looking forward vs. packing the neck) works better for you"
+      },
+      {
+        "id": "2",
+        "name": "Dumbbell Lateral Raise",
+        "bodyPart": "Shoulders",
+        "bodyImage": "Shoulders",
+        "video": "https://drive.google.com/uc?id=1GD7P1G2qJ9WmMDaXF41SVjK5xHkHD8A1",
+        "equipment": "",
+        "sets": "3",
+        "reps": "12-15",
+        "weight": "",
+        "additionalInfo": "Focus on keeping the reps slow and controlled. Because this is an isolation exercise, the focus should be on correctly working the muscle - not moving as much weight as possible."
+      },
+      {
+        "id": "3",
+        "name": "Lat Pull Down",
+        "bodyPart": "Lats",
+        "bodyImage": "Lats",
+        "video": "https://drive.google.com/uc?id=1qPhcwm2qIBUlGdIhjJLv6bAf4S5v3KOj",
+        "equipment": "",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Keep some tone through your abdominals as you pull the bar into your body to ensure you don’t arch excessively through the spine"
+      },
+      {
+        "id": "4",
+        "name": "Cable Tricep Extensions",
+        "bodyPart": "Triceps",
+        "bodyImage": "Triceps",
+        "video": "https://drive.google.com/uc?id=1DSUb_XK6BGt9H3gpnpQkPKCnfh2pVPOK",
+        "equipment": "",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "If you want to keep more tension in the triceps, don’t lock the elbows out entirely. Imagine there’s a screw running through your elbow and don’t allow them to move in front of the body as you extend at the bottom of the movement."
+      },
+      {
+        "id": "5",
+        "name": "EZ Bar Preacher Curl",
+        "bodyPart": "Biceps",
+        "bodyImage": "Biceps",
+        "video": "https://drive.google.com/uc?id=1SZk3bl7z1mj93GRr5gVWFdqod9Ll8Jl7",
+        "equipment": "",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Keep the motion slow and controlled throughout the set. Don't rest at the top of the movement."
+      }
+    ]
+  },
+  {
+    "exercise_set": "4",
+    "title": "Lower B",
+    "exercises": [
+      {
+        "id": "0",
+        "name": "Leg Press",
+        "bodyPart": "Quads",
+        "bodyImage": "Quads",
+        "video": "https://drive.google.com/uc?id=1vK-FfTVmjlPaKA4oyIpqkK1Qfw3scrXB",
+        "equipment": "",
+        "sets": "3",
+        "reps": "15-20",
+        "weight": "",
+        "additionalInfo": "To keep tension on the quads, keep the knees just shy of lockout. To emphasize the glutes more, push through the heels."
+      },
+      {
+        "id": "1",
+        "name": "Stiff Leg Deadlift",
+        "bodyPart": "Hamstrings",
+        "bodyImage": "Hamstrings",
+        "video": "https://drive.google.com/uc?id=1PxD0pu03XmehfqIvsQ-Dv1ArWW9iQ_MI",
+        "equipment": "",
+        "sets": "3",
+        "reps": "8-10",
+        "weight": "",
+        "additionalInfo": "This style of deadlift will look VERY similar to a conventional deadlift only the lifter will start with higher hips and a vertical shin angle. The hips and shoulders will likely be at just about the same height."
+      },
+      {
+        "id": "2",
+        "name": "Walking Dumbbell Lunge",
+        "bodyPart": "Quads",
+        "bodyImage": "Quads",
+        "video": "https://drive.google.com/uc?id=1Ip_B7bNR88evacDeybQ1DeYVn0-p9g9h",
+        "equipment": "",
+        "sets": "3",
+        "reps": "10",
+        "weight": "",
+        "additionalInfo": "Never allow your knees to track out over your toes during this movement. Doing so will place undue stress on the knee joints."
+      },
+      {
+        "id": "3",
+        "name": "Seated Calf Raise",
+        "bodyPart": "Calves",
+        "bodyImage": "Calves",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
+        "equipment": "",
+        "sets": "3",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "Keep the repetitions slow and controlled. Limit momentum and pause at the top to emphasize the contraction."
+      },
+      {
+        "id": "4",
+        "name": "Cable Crunch",
+        "bodyPart": "Abs",
+        "bodyImage": "Abs",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
+        "equipment": "",
+        "sets": "3",
+        "reps": "20",
+        "weight": "",
+        "additionalInfo": "This exercise works best when done slowly with perfect form."
+      },
+      {
+        "id": "5",
+        "name": "Russian Twist",
+        "bodyPart": "Abs",
+        "bodyImage": "Abs",
+        "video": "https://drive.google.com/uc?id=1Esvc6RV3U9zWCbh6bZIyV6tqIjEfgBEz",  
+        "equipment": "",
+        "sets": "3",
+        "reps": "20",
+        "weight": "",
+        "additionalInfo": "The higher you lift your shoulder blades off the mat, the harder the exercise becomes.For an advanced alternative to the Russian Twist, hold a dumbbell in your hands."
+      }
+    ]
+  },
+  {
+    "exercise_set": "5",
+    "title": "Амрах",
+    "exercises": [
+      {
+        "id": "0",
+        "name": "Rest",
+        "bodyPart": "",
+        "bodyImage": "",
+        "equipment": "",
+        "sets": "",
+        "reps": "",
+        "weight": "",
+        "additionalInfo": "30-40 minutes of jogging or walk"
+      }
+    ]
+  },
+  {
+    "exercise_set": "6",
+    "title": "Амрах",
+    "exercises": [
+      {
+        "id": "0",
+        "name": "Rest",
+        "bodyPart": "",
+        "bodyImage": "",
+        "equipment": "",
+        "sets": "",
+        "reps": "",
+        "weight": "",
+        "additionalInfo": "30-40 minutes of jogging or walk"
+      }
+    ]
+  }
 ]

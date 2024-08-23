@@ -1,13 +1,14 @@
 [
   {
     "exercise_set": "0",
-    "title": "Даваа",
+    "title": "Upper A",
     "exercises": [
       {
         "id": "0",
         "name": "Incline Bench Press",
         "bodyPart": "Chest",
         "bodyImage": "Chest",
+        "video": "https://drive.google.com/uc?id=1wu9fp8YSWGXljaPaVxghSai5b-xbt40D",
         "equipment": "",
         "sets": "3",
         "reps": "8-10",
@@ -19,7 +20,8 @@
         "id": "1",
         "name": "One Arm Dumbbell Row ",
         "bodyPart": "Upper Back",
-        "bodyImage": "Upper Back",
+        "bodyImage": "Upper",
+        "video": "https://drive.google.com/uc?id=1G62kgZlfg9egj9Y0ncAa3vZqs2B44-zc",
         "equipment": "",
         "sets": "3",
         "reps": "10-12",
@@ -33,6 +35,7 @@
         "name": "Seated Barbell Press",
         "bodyPart": "Shoulders",
         "bodyImage": "Shoulders",
+        "video": "https://drive.google.com/uc?id=1CijaiEUOj5aCbJcFuXjXHiNvirJ961ZJ",
         "sets": "3",
         "reps": "8-10",
         "weight": "",
@@ -44,6 +47,7 @@
         "name": "Pull Ups",
         "bodyPart": "Lats",
         "bodyImage": "Lats",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
         "sets": "3",
         "reps": "10",
         "weight": "",
@@ -55,6 +59,7 @@
         "name": "Skullcrushers",
         "bodyPart": "riceps",
         "bodyImage": "riceps",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
         "sets": "3",
         "reps": "10-12",
         "weight": "",
@@ -66,6 +71,7 @@
         "name": "Dumbbell Curl",
         "bodyPart": "Biceps",
         "bodyImage": "Biceps",
+        "video": "https://drive.google.com/uc?id=1EACoujmrLLYXHp-tPNB4LiYwJQzjhWZM",
         "sets": "3",
         "reps": "10-12",
         "weight": "",
@@ -75,13 +81,14 @@
   },
   {
     "exercise_set": "1",
-    "title": "Мягмар",
+    "title": "Lower A",
     "exercises": [
       {
         "id": "0",
         "name": "Squats",
         "bodyPart": "Quads",
         "bodyImage": "Quads",
+        "video": "https://drive.google.com/uc?id=1ldzGMIt_3mLaOweu0A5BTNF6JLYQe1bR",
         "equipment": "",
         "sets": "3",
         "reps": "8-10",
@@ -93,6 +100,7 @@
         "name": "Leg Curl ",
         "bodyPart": "Hamstrings",
         "bodyImage": "Hamstrings",
+        "video": "https://drive.google.com/uc?id=1tTMe7WDp-rTbpOV84pHUotbiqOd6DXVE",
         "equipment": "",
         "sets": "3",
         "reps": "12-15",
@@ -104,6 +112,7 @@
         "name": "Leg Extension",
         "bodyPart": "Quads",
         "bodyImage": "Quads",
+        "video": "https://drive.google.com/uc?id=1IoiEDGQtiF5vizNE5RAGZuUIorbTDb15",
         "equipment": "",
         "sets": "3",
         "reps": "10-12",
@@ -115,6 +124,7 @@
         "name": "Leg Press Calf Raise",
         "bodyPart": "Calves",
         "bodyImage": "Calves",
+        "video": "https://drive.google.com/uc?id=1vK-FfTVmjlPaKA4oyIpqkK1Qfw3scrXB",
         "equipment": "",
         "sets": "3",
         "reps": "15-20",
@@ -126,6 +136,7 @@
         "name": "Plank",
         "bodyPart": "abs",
         "bodyImage": "abs",
+        "video": "https://drive.google.com/uc?id=1FDU4yu7xdwVuBym8fd5RfHgbOJqQxeav",
         "equipment": "",
         "sets": "3",
         "reps": "60sec",
@@ -137,6 +148,7 @@
         "name": "Twisting Hanging Knee Raise",
         "bodyPart": "Abs",
         "bodyImage": "Abs",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
         "equipment": "",
         "sets": "3",
         "reps": "20",
@@ -147,7 +159,7 @@
   },
   {
     "exercise_set": "2",
-    "title": "Лхагва",
+    "title": "Амрах",
     "exercises": [
       {
         "id": "0",
@@ -164,13 +176,14 @@
   },
   {
     "exercise_set": "3",
-    "title": "Пүрэв",
+    "title": "Upper B",
     "exercises": [
       {
         "id": "0",
         "name": "Dumbbell Bench Press",
         "bodyPart": "Chest",
         "bodyImage": "Chest",
+        "video": "https://drive.google.com/uc?id=1M0E27MKSHnklYUicX2vvHSL-UXhTOK0-",
         "equipment": "",
         "sets": "3",
         "reps": "10",
@@ -181,7 +194,8 @@
         "id": "1",
         "name": "Barbell Row",
         "bodyPart": "Upper Back",
-        "bodyImage": "Upper_Back",
+        "bodyImage": "Upper",
+        "video": "https://drive.google.com/uc?id=1PxD0pu03XmehfqIvsQ-Dv1ArWW9iQ_MI",
         "equipment": "",
         "sets": "3",
         "reps": "8-10",
@@ -193,6 +207,7 @@
         "name": "Dumbbell Lateral Raise",
         "bodyPart": "Shoulders",
         "bodyImage": "Shoulders",
+        "video": "https://drive.google.com/uc?id=1GD7P1G2qJ9WmMDaXF41SVjK5xHkHD8A1",
         "equipment": "",
         "sets": "3",
         "reps": "12-15",
@@ -204,6 +219,7 @@
         "name": "Lat Pull Down",
         "bodyPart": "Lats",
         "bodyImage": "Lats",
+        "video": "https://drive.google.com/uc?id=1qPhcwm2qIBUlGdIhjJLv6bAf4S5v3KOj",
         "equipment": "",
         "sets": "3",
         "reps": "10-12",
@@ -215,6 +231,7 @@
         "name": "Cable Tricep Extensions",
         "bodyPart": "Triceps",
         "bodyImage": "Triceps",
+        "video": "https://drive.google.com/uc?id=1DSUb_XK6BGt9H3gpnpQkPKCnfh2pVPOK",
         "equipment": "",
         "sets": "3",
         "reps": "10-12",
@@ -226,6 +243,7 @@
         "name": "EZ Bar Preacher Curl",
         "bodyPart": "Biceps",
         "bodyImage": "Biceps",
+        "video": "https://drive.google.com/uc?id=1SZk3bl7z1mj93GRr5gVWFdqod9Ll8Jl7",
         "equipment": "",
         "sets": "3",
         "reps": "10-12",
@@ -236,13 +254,14 @@
   },
   {
     "exercise_set": "4",
-    "title": "Баасан",
+    "title": "Lower B",
     "exercises": [
       {
         "id": "0",
         "name": "Leg Press",
         "bodyPart": "Quads",
         "bodyImage": "Quads",
+        "video": "https://drive.google.com/uc?id=1vK-FfTVmjlPaKA4oyIpqkK1Qfw3scrXB",
         "equipment": "",
         "sets": "3",
         "reps": "15-20",
@@ -254,6 +273,7 @@
         "name": "Stiff Leg Deadlift",
         "bodyPart": "Hamstrings",
         "bodyImage": "Hamstrings",
+        "video": "https://drive.google.com/uc?id=1PxD0pu03XmehfqIvsQ-Dv1ArWW9iQ_MI",
         "equipment": "",
         "sets": "3",
         "reps": "8-10",
@@ -265,6 +285,7 @@
         "name": "Walking Dumbbell Lunge",
         "bodyPart": "Quads",
         "bodyImage": "Quads",
+        "video": "https://drive.google.com/uc?id=1Ip_B7bNR88evacDeybQ1DeYVn0-p9g9h",
         "equipment": "",
         "sets": "3",
         "reps": "10",
@@ -276,6 +297,7 @@
         "name": "Seated Calf Raise",
         "bodyPart": "Calves",
         "bodyImage": "Calves",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
         "equipment": "",
         "sets": "3",
         "reps": "10-12",
@@ -284,20 +306,10 @@
       },
       {
         "id": "4",
-        "name": "Cable Tricep Extensions",
-        "bodyPart": "Triceps",
-        "bodyImage": "Triceps",
-        "equipment": "",
-        "sets": "3",
-        "reps": "15-20",
-        "weight": "",
-        "additionalInfo": "If you want to keep more tension in the triceps, don’t lock the elbows out entirely. Imagine there’s a screw running through your elbow and don’t allow them to move in front of the body as you extend at the bottom of the movement."
-      },
-      {
-        "id": "5",
         "name": "Cable Crunch",
         "bodyPart": "Abs",
         "bodyImage": "Abs",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
         "equipment": "",
         "sets": "3",
         "reps": "20",
@@ -305,10 +317,11 @@
         "additionalInfo": "This exercise works best when done slowly with perfect form."
       },
       {
-        "id": "6",
+        "id": "5",
         "name": "Russian Twist",
         "bodyPart": "Abs",
         "bodyImage": "Abs",
+        "video": "https://drive.google.com/uc?id=1Esvc6RV3U9zWCbh6bZIyV6tqIjEfgBEz",  
         "equipment": "",
         "sets": "3",
         "reps": "20",
@@ -319,7 +332,7 @@
   },
   {
     "exercise_set": "5",
-    "title": "Бямба",
+    "title": "Амрах",
     "exercises": [
       {
         "id": "0",
@@ -336,7 +349,7 @@
   },
   {
     "exercise_set": "6",
-    "title": "Ням",
+    "title": "Амрах",
     "exercises": [
       {
         "id": "0",

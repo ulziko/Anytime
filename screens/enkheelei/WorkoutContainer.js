@@ -13,7 +13,7 @@ import { Svg, Circle } from "react-native-svg";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import workoutsMapping from "./Mapping";
-import Video from "expo-av";
+import { Video } from "expo-av";
 import { CountdownCircleTimer } from "react-native-countdown-circle-timer";
 
 const WorkoutPage = () => {
@@ -118,7 +118,6 @@ const WorkoutPage = () => {
     Triceps: require("../../assets/Triceps.png"),
     Upper: require("../../assets/Upper_Back.png"),
   };
-  const imagePath = images[currentExercise.bodyImage];
 
   return (
     <View className="flex w-screen h-screen bg-black p-5">
@@ -136,8 +135,8 @@ const WorkoutPage = () => {
       <View className="flex mt-5 h-[50%]">
         <View className="flex-row bg-gray-800 p-[3vh] rounded-3xl w-full h-full">
           <Image
-            // source={require(`../../assets/${currentExercise.bodyImage}.png`)}
-            source={{ uri: imagePath }}
+            source={images[currentExercise.bodyImage]}
+            // source={{ uri: imagePath }}
             className="w-[40%] h-[90%] m-5"
             resizeMode="stretch"
           />
@@ -251,13 +250,14 @@ const WorkoutPage = () => {
             }}
             className="flex h-screen w-screen justify-center items-center content-center bg-black/75"
           >
-            <View className="flex bg-white items-center border-solid border-2 rounded-xl w-[80%] h-[22%]">
+            <View className="flex bg-white items-center border-solid border-2 rounded-xl w-[80%] h-[32%]">
               <Text className="absolute top-[45%] text-purple-600 text-lg">
                 Loading...
               </Text>
               <Video
                 source={{
-                  uri: "https://drive.google.com/uc?id=1WaTR8TqoaHsyb6A7QAGK72y3eogPDXyZ",
+                  // uri: "https://drive.google.com/uc?id=1WaTR8TqoaHsyb6A7QAGK72y3eogPDXyZ",
+                  uri: currentExercise.video,
                 }}
                 rate={1.0}
                 volume={1.0}
@@ -325,16 +325,7 @@ const WorkoutPage = () => {
             } rounded-full ml-auto -mr-10 w-[10%] h-full`}
             // disabled={`${exerciseIndex ===  selectedWorkout.length - 1? "disable" : ""}`}
             disabled={exerciseIndex === selectedWorkout.length - 1}
-            onPress={
-              () => {}
-              // timerStart
-              //   ? Alert.alert("Амралтын цаг дуусаагүй байна.", "", {
-              //       text: "Ойлголоо",
-              //       onPress: () => console.log("Cancel Pressed"),
-              //       style: "cancel",
-              //     })
-              //   : nextWorkout
-            }
+            onPress={timerStart ? {} : nextWorkout}
           ></TouchableOpacity>
         </View>
       </View>
