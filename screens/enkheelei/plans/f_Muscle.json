@@ -99,6 +99,7 @@
       {
         "name": "Flat Bench Dumbbell Flye",
         "bodyPart": "Chest",
+        "bodyImage": "Chest",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -116,6 +117,7 @@
       {
         "name": "Dumbbell Shoulder Press",
         "bodyPart": "Shoulders",
+        "bodyImage": "Shoulders",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -124,6 +126,7 @@
       {
         "name": "Dumbbell Bicep Curl",
         "bodyPart": "Biceps",
+        "bodyImage": "Biceps",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -132,6 +135,7 @@
       {
         "name": "Tricep Kickback",
         "bodyPart": "Triceps",
+        "bodyImage": "Triceps",
         "sets": "3",
         "reps": "15",
         "weight": "",
@@ -140,6 +144,7 @@
       {
         "name": " Adduction",
         "bodyPart": "Adductors",
+        "bodyImage": "Adductors",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -148,6 +153,7 @@
       {
         "name": "Abduction",
         "bodyPart": "Abductors",
+        "bodyImage": "Abductors",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -156,6 +162,7 @@
       {
         "name": "Seated Calf Raise",
         "bodyPart": "Calves",
+        "bodyImage": "Calves",
         "sets": "2",
         "reps": "30",
         "weight": "",
@@ -164,6 +171,7 @@
       {
         "name": "Crunch",
         "bodyPart": "Abs",
+        "bodyImage": "Abs",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -187,6 +195,7 @@
       {
         "name": "Sissy Squat",
         "bodyPart": "Quads",
+        "bodyImage": "Quads",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -195,6 +204,7 @@
       {
         "name": "Lying Leg Curl",
         "bodyPart": "Hamstrings",
+        "bodyImage": "Hamstrings",
         "sets": "1",
         "reps": "60",
         "weight": "",
@@ -203,6 +213,7 @@
       {
         "name": "Standing Calf Raise",
         "bodyPart": "Calves",
+        "bodyImage": "Calves",
         "sets": "2",
         "reps": "30",
         "weight": "",
@@ -211,6 +222,7 @@
       {
         "name": "Chest Dip",
         "bodyPart": "Chest",
+        "bodyImage": "Chest",
         "sets": "2",
         "reps": "15",
         "weight": "",
@@ -219,6 +231,7 @@
       {
         "name": "Push Up",
         "bodyPart": "Chest",
+        "bodyImage": "Chest",
         "sets": "2",
         "reps": "15",
         "weight": "",
@@ -227,6 +240,7 @@
       {
         "name": "Dumbbell Pullover",
         "bodyPart": "Chest",
+        "bodyImage": "Chest",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -235,6 +249,7 @@
       {
         "name": "Dumbbell Reverse Flye",
         "bodyPart": "Shoulders",
+        "bodyImage": "Shoulders",
         "sets": "3",
         "reps": "15",
         "weight": "",
@@ -243,6 +258,7 @@
       {
         "name": "Bicep Concentration Curl",
         "bodyPart": "Biceps",
+        "bodyImage": "Biceps",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -251,6 +267,7 @@
       {
         "name": "Lying Two Arm Dumbbell Tricep Extension",
         "bodyPart": "Triceps",
+        "bodyImage": "Triceps",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -259,6 +276,7 @@
       {
         "name": "Obliques Curl",
         "bodyPart": "Abs",
+        "bodyImage": "Abs",
         "sets": "3",
         "reps": "20",
         "weight": "",
