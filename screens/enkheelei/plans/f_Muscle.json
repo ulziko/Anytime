@@ -12,6 +12,7 @@
       {
         "name": "Dumbbell Squat",
         "bodyPart": "Quads",
+        "bodyImage": "Quads",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -20,6 +21,7 @@
       {
         "name": "Dumbbell Bench Press",
         "bodyPart": "Chest",
+        "bodyImage": "Chest",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -28,6 +30,7 @@
       {
         "name": "Dumbbell Pullover",
         "bodyPart": "Chest",
+        "bodyImage": "Chest",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -36,6 +39,7 @@
       {
         "name": "Dumbbell Lateral Raise",
         "bodyPart": "Shoulders",
+        "bodyImage": "Shoulders",
         "sets": "3",
         "reps": "15",
         "weight": "",
@@ -44,6 +48,7 @@
       {
         "name": "Dumbbell Hammer Curl",
         "bodyPart": "Biceps",
+        "bodyImage": "Biceps",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -52,6 +57,7 @@
       {
         "name": "Two Arm Dumbbell Overhead Tricep Extension",
         "bodyPart": "Triceps",
+        "bodyImage": "Triceps",
         "sets": "3",
         "reps": "20",
         "weight": "",
@@ -60,6 +66,7 @@
       {
         "name": "Standing Calf Raise",
         "bodyPart": "Calves",
+        "bodyImage": "Calves",
         "sets": "2",
         "reps": "30",
         "weight": "",
@@ -68,6 +75,7 @@
       {
         "name": "Reverse Hyperextension",
         "bodyPart": "Glutes",
+        "bodyImage": "Glutes",
         "sets": "3 ",
         "reps": "20",
         "weight": "",
@@ -76,6 +84,7 @@
       {
         "name": "Ab Crunches",
         "bodyPart": "Abs",
+        "bodyImage": "Abs",
         "sets": "3 ",
         "reps": "20",
         "weight": "",
@@ -108,7 +117,7 @@
       {
         "name": "One Arm Dumbbell Row",
         "bodyPart": "Upper Back",
-        "bodyImage": "Upper",
+        "bodyImage": "Upper_Back",
         "sets": "3",
         "reps": "20",
         "weight": "",

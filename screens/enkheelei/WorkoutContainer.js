@@ -95,7 +95,7 @@ const WorkoutPage = () => {
   const currentExercise = selectedWorkout[exerciseIndex];
 
   const images = {
-    Belly: require("../../assets/Belly.png"),
+    Belly: require("../../assets/Biceps.png"),
     Calves: require("../../assets/Calves.png"),
     Chest: require("../../assets/Chest.png"),
     Glutes: require("../../assets/Glutes.png"),
@@ -105,7 +105,7 @@ const WorkoutPage = () => {
     Shoulders: require("../../assets/Shoulders.png"),
     Traps: require("../../assets/Traps.png"),
     Triceps: require("../../assets/Triceps.png"),
-    Upper: require("../../assets/Upper.png"),
+    Upper: require("../../assets/Upper_Back.png"),
   };
   const imagePath = images[currentExercise.bodyImage];
 
@@ -315,13 +315,14 @@ const WorkoutPage = () => {
             // disabled={`${exerciseIndex ===  selectedWorkout.length - 1? "disable" : ""}`}
             disabled={exerciseIndex === selectedWorkout.length - 1}
             onPress={
-              timerStart
-                ? Alert.alert("Амралтын цаг дуусаагүй байна.", "", {
-                    text: "Ойлголоо",
-                    onPress: () => console.log("Cancel Pressed"),
-                    style: "cancel",
-                  })
-                : nextWorkout
+              () => {}
+              // timerStart
+              //   ? Alert.alert("Амралтын цаг дуусаагүй байна.", "", {
+              //       text: "Ойлголоо",
+              //       onPress: () => console.log("Cancel Pressed"),
+              //       style: "cancel",
+              //     })
+              //   : nextWorkout
             }
           ></TouchableOpacity>
         </View>
