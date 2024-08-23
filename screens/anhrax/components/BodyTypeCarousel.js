@@ -16,119 +16,6 @@ import UserContext from "../../../context/UserContext";
 
 const { width, height } = Dimensions.get("window");
 
-function alertt(currentW, id, sex) {
-  currentW = Number(currentW);
-  id = Number(id);
-  sex = Number(sex);
-  let weight = 15*(5-sex) + (id/sex*10);
-  let difference = currentW - weight;
-  if (difference < 0) {
-    return sex === 1
-      ? `Таньд зориулсан булчингийн масс нэмэх 10 долоо хоногийн төлөвлөө байна.`
-      : `Таньд зориулсан булчингийн масс нэмэх 6 долоо хоногийн төлөвлөө байна.`;
-  } else {
-    return `Таньд зориулсан жин хасах 12 долоо хоногийн төлөвлөө байна.`;
-  }
-};
-
-function calcID(currentW, id, sex) {
-  currentW = Number(currentW);
-  id = Number(id);
-  sex = Number(sex);
-  console.log("Current Weight:", currentW);
-  console.log("ID:", id);
-  console.log("Sex:", sex);
-  
-  let weight = 15 * (5 - sex) + (id / sex * 10);
-  let difference = currentW - weight;
-  let idd;
-
-  if (difference <= 0) {
-    if (difference > (-1) * (id / sex * 10) - 1) {
-      idd = 1;
-    } else if (difference > (-2) * (id / sex * 10) - 1) {
-      idd = 2;
-    } else if (difference > (-3) * (id / sex * 10) - 1) {
-      idd = 3;
-    } else if (difference > (-4) * (id / sex * 10) - 1) {
-      idd = 4;
-    } else {
-      idd = 5;
-    }
-  } else {
-    if (difference < (id / sex * 10) + 1) {
-      idd = 6;
-    } else if (difference < 2 * (id / sex * 10) + 1) {
-      idd = 7;
-    } else if (difference < 3 * (id / sex * 10) + 1) {
-      idd = 8;
-    } else if (difference < 4 * (id / sex * 10) + 1) {
-      idd = 9;
-    } else {
-      idd = 10;
-    }
-  }
-
-  console.log("Current Weight:", currentW);
-  console.log("Calculated Weight:", weight);
-  console.log("Difference:", difference);
-  console.log("Assigned IDD:", idd);
-
-  return idd;
-}
-
-function calculateMuscleMass(age, sex) {
-  let muscleMass;
-
-  switch (sex) {
-    case 1:
-      switch (true) {
-        case age >= 18 && age <= 35:
-          muscleMass = 0.42;
-          break;
-        case age >= 36 && age <= 55:
-          muscleMass = 0.38;
-          break;
-        case age >= 56 && age <= 75:
-          muscleMass = 0.34;
-          break;
-        case age > 75:
-          muscleMass = 0.3;
-          break;
-        default:
-          muscleMass = "Unknown";
-          break;
-      }
-      break;
-
-    case 2:
-      switch (true) {
-        case age >= 18 && age <= 35:
-          muscleMass = 0.32;
-          break;
-        case age >= 36 && age <= 55:
-          muscleMass = 0.3;
-          break;
-        case age >= 56 && age <= 75:
-          muscleMass = 0.28;
-          break;
-        case age > 75:
-          muscleMass = 0.26;
-          break;
-        default:
-          muscleMass = "Unknown";
-          break;
-      }
-      break;
-
-    default:
-      muscleMass = "Unknown";
-      break;
-  }
-
-  return muscleMass;
-}
-
 const BodyTypeCarousel = () => {
   const [sex, setSex] = useState(); 
   const [age, setAge] = useState();
@@ -147,7 +34,6 @@ const BodyTypeCarousel = () => {
         if (snapshot.exists()) {
           const data = snapshot.val();
           setSex(data.gender === 'f' ? 2 : 1);
-          console.log(sex);
           setAge(data.age);
           setWeight(data.weight);
         } else {
@@ -318,6 +204,118 @@ const BodyTypeCarousel = () => {
     </View>
   );
 };
+
+function alertt(currentW, id, sex) {
+  currentW = Number(currentW);
+  id = Number(id);
+  sex = Number(sex);
+  let weight = 15*(5-sex) + (id/sex*10);
+  let difference = currentW - weight;
+  if (difference < 0) {
+    return sex === 1
+      ? `Таньд зориулсан булчингийн масс нэмэх 10 долоо хоногийн төлөвлөө байна.`
+      : `Таньд зориулсан булчингийн масс нэмэх 6 долоо хоногийн төлөвлөө байна.`;
+  } else {
+    return `Таньд зориулсан жин хасах 12 долоо хоногийн төлөвлөө байна.`;
+  }
+};
+
+function calcID(currentW, id, sex) {
+  currentW = Number(currentW);
+  id = Number(id);
+  sex = Number(sex);
+  // console.log("Current Weight:", currentW);
+  // console.log("ID:", id);
+  // console.log("Sex:", sex);
+  
+  let weight = 15 * (5 - sex) + (id / sex * 10);
+  let difference = currentW - weight;
+  let idd;
+  let tmp = sex === 1 ? 10 : 5;
+  
+  // console.log("Calculated Weight:", weight);
+  // console.log("Difference:", difference);
+  // console.log('tmp', tmp);
+
+  if (difference <= 0) {
+    if (difference >= -tmp) {
+      idd = 1;
+    } else if (difference >= (-2) * tmp) {
+      idd = 2;
+    } else if (difference >= (-3) * tmp) {
+      idd = 3;
+    } else if (difference >= (-4) * tmp) {
+      idd = 4;
+    } else {
+      idd = 5;
+    }
+  } else {
+    if (difference <= tmp) {
+      idd = 6;
+    } else if (difference <= 2 * tmp) {
+      idd = 7;
+    } else if (difference <= 3 * tmp) {
+      idd = 8;
+    } else if (difference <= 4 * tmp) {
+      idd = 9;
+    } else {
+      idd = 10;
+    }
+  }
+  return idd;
+}
+
+function calculateMuscleMass(age, sex) {
+  let muscleMass;
+
+  switch (sex) {
+    case 1:
+      switch (true) {
+        case age >= 18 && age <= 35:
+          muscleMass = 0.42;
+          break;
+        case age >= 36 && age <= 55:
+          muscleMass = 0.38;
+          break;
+        case age >= 56 && age <= 75:
+          muscleMass = 0.34;
+          break;
+        case age > 75:
+          muscleMass = 0.3;
+          break;
+        default:
+          muscleMass = "Unknown";
+          break;
+      }
+      break;
+
+    case 2:
+      switch (true) {
+        case age >= 18 && age <= 35:
+          muscleMass = 0.32;
+          break;
+        case age >= 36 && age <= 55:
+          muscleMass = 0.3;
+          break;
+        case age >= 56 && age <= 75:
+          muscleMass = 0.28;
+          break;
+        case age > 75:
+          muscleMass = 0.26;
+          break;
+        default:
+          muscleMass = "Unknown";
+          break;
+      }
+      break;
+
+    default:
+      muscleMass = "Unknown";
+      break;
+  }
+
+  return muscleMass;
+}
 
 const styles = StyleSheet.create({
   carouselContainer: {
