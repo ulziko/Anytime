@@ -1,36 +1,41 @@
 [
   {
     "exercise_set": "0",
-    "title": "Даваа",
+    "title": "Upper A",
     "exercises": [
       {
         "id": "0",
-        "name": "Bench Press/m-1/",
+        "name": "Bench Press",
         "bodyPart": "Chest",
         "bodyImage": "Chest",
+        "video": "https://drive.google.com/uc?id=1WaTR8TqoaHsyb6A7QAGK72y3eogPDXyZ",
         "equipment": "Barbell",
         "sets": "3",
         "reps": "6-12",
         "weight": "",
         "additionalInfo": "Keep the bar in line with your wrist and elbows and ensure it travels in a straight line."
       },
+
       {
         "id": "1",
         "name": "Barbell Row",
         "bodyPart": "Upper Back",
-        "bodyImage": "Upper Back",
+        "bodyImage": "Upper",
+        "video": "https://drive.google.com/uc?id=1PxD0pu03XmehfqIvsQ-Dv1ArWW9iQ_MI",
         "equipment": "Barbell",
         "sets": "3",
-        "reps": "6-12",
+        "reps": "10-12",
         "weight": "",
         "additionalInfo": "Don’t allow momentum to dictate the movement, control the bar throughout the entirety of each rep."
       },
+
       {
         "id": "2",
         "name": "Seated Overhead Dumbbell Press",
         "bodyPart": "Shoulders",
         "bodyImage": "Shoulders",
         "equipment": "Dumbbell",
+        "video": "https://drive.google.com/uc?id=1gQHan2q7PqDHA_1zqLpCvwBtglVrnVcK",
         "sets": "3",
         "reps": "8-12",
         "weight": "",
@@ -42,6 +47,7 @@
         "bodyPart": "Chest",
         "bodyImage": "Chest",
         "equipment": "Machine",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
         "sets": "2 (3 sec negative)",
         "reps": "10-12",
         "weight": "",
@@ -52,6 +58,7 @@
         "name": "V-Bar LAt Pull Down",
         "bodyPart": "Lats",
         "bodyImage": "Lats",
+        "video": "https://drive.google.com/uc?id=1qPhcwm2qIBUlGdIhjJLv6bAf4S5v3KOj",
         "equipment": "Cable",
         "sets": "2 (3 sec negative)",
         "reps": "10-12",
@@ -64,6 +71,7 @@
         "bodyPart": "Shoulders",
         "bodyImage": "Shoulders",
         "equipment": "Dumbbell",
+        "video": "https://drive.google.com/uc?id=1GD7P1G2qJ9WmMDaXF41SVjK5xHkHD8A1",
         "sets": "2",
         "reps": "10-15",
         "weight": "",
@@ -75,6 +83,7 @@
         "bodyPart": "Triceps",
         "bodyImage": "Triceps",
         "equipment": "Cable",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
         "sets": "3 (3 sec negative)",
         "reps": "8-12",
         "weight": "",
@@ -86,6 +95,7 @@
         "bodyPart": "Biceps",
         "bodyImage": "Biceps",
         "equipment": "Cable",
+        "video": "https://drive.google.com/uc?id=1TVCqDp_iP1ugfqn8EeIpchk4FwFG-xgJ",
         "sets": "3 (3 sec negative)",
         "reps": "8-12",
         "weight": "",
@@ -95,13 +105,14 @@
   },
   {
     "exercise_set": "1",
-    "title": "Мягмар",
+    "title": "Lower A",
     "exercises": [
       {
         "id": "0",
         "name": "Squats",
         "bodyPart": "Quads",
         "bodyImage": "Quads",
+        "video": "https://drive.google.com/uc?id=1ldzGMIt_3mLaOweu0A5BTNF6JLYQe1bR",
         "equipment": "Barbell",
         "sets": "3",
         "reps": "6-12",
@@ -113,6 +124,7 @@
         "name": "Stiff Leg Deadlifts",
         "bodyPart": "Hamstrings",
         "bodyImage": "Hamstrings",
+        "video": "https://drive.google.com/uc?id=1PxD0pu03XmehfqIvsQ-Dv1ArWW9iQ_MI",
         "equipment": "Barbell",
         "sets": "3",
         "reps": "8-12",
@@ -124,6 +136,7 @@
         "name": "Standing Calf Raise",
         "bodyPart": "Calves",
         "bodyImage": "Calves",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
         "equipment": "Bodyweight",
         "sets": "3",
         "reps": "10-15",
@@ -136,6 +149,7 @@
         "bodyPart": "Quads",
         "bodyImage": "Quads",
         "equipment": "Machine",
+        "video": "https://drive.google.com/uc?id=1IoiEDGQtiF5vizNE5RAGZuUIorbTDb15",
         "sets": "2 (3 sec negative)",
         "reps": "10-12",
         "weight": "",
@@ -147,6 +161,7 @@
         "bodyPart": "Hamstrings",
         "bodyImage": "Hamstrings",
         "equipment": "Machine",
+        "video": "https://drive.google.com/uc?id=1tTMe7WDp-rTbpOV84pHUotbiqOd6DXVE",
         "sets": "2 (3 sec negative)",
         "reps": "10-12",
         "weight": "",
@@ -158,17 +173,19 @@
         "bodyPart": "Calves",
         "bodyImage": "Calves",
         "equipment": "Machine(Isolation)",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
         "sets": "2 (3 sec negative) ",
         "reps": "10-12",
         "weight": "",
         "additionalInfo": "Limit depth of the heels if you feel any sort of stretch through the bottom of the foot during the exercise."
       },
       {
-        "id": "5",
+        "id": "6",
         "name": "Cable Crunch",
         "bodyPart": "Abs",
         "bodyImage": "Abs",
         "equipment": "Cable",
+        "video": "https://drive.google.com/uc?id=1DSUb_XK6BGt9H3gpnpQkPKCnfh2pVPOK",
         "sets": "3 (3 sec negative) ",
         "reps": "10-12",
         "weight": "",
@@ -178,7 +195,7 @@
   },
   {
     "exercise_set": "2",
-    "title": "Лхагва",
+    "title": "Амрах",
     "exercises": [
       {
         "id": "0",
@@ -189,20 +206,21 @@
         "sets": "",
         "reps": "",
         "weight": "",
-        "additionalInfo": ""
+        "additionalInfo": "30-40 minutes of jogging or walk"
       }
     ]
   },
   {
     "exercise_set": "3",
-    "title": "Пүрэв",
+    "title": "Upper B",
     "exercises": [
       {
         "id": "0",
-        "name": "Incline Dumbbell Bench Press",
+        "name": "Dumbbell Bench Press",
         "bodyPart": "Chest",
         "bodyImage": "Chest",
         "equipment": "Dumbbell",
+        "video": "https://drive.google.com/uc?id=1M0E27MKSHnklYUicX2vvHSL-UXhTOK0-",
         "sets": "3",
         "reps": "8-12",
         "weight": "",
@@ -210,10 +228,11 @@
       },
       {
         "id": "1",
-        "name": "Rack Deadlifts - 3 to 5 off ground",
+        "name": "Rack Deadlifts",
         "bodyPart": "Hamstrings",
         "bodyImage": "Hamstrings",
         "equipment": "Barbell",
+        "video": "https://drive.google.com/uc?id=1PxD0pu03XmehfqIvsQ-Dv1ArWW9iQ_MI",
         "sets": "3",
         "reps": "5-8",
         "weight": "",
@@ -225,6 +244,7 @@
         "bodyPart": "Shoulders",
         "bodyImage": "Shoulders",
         "equipment": "Barbell",
+        "video": "https://drive.google.com/uc?id=1LgsKyw-4ZusFu5ol6cGZkvC9FdmcuCcO",
         "sets": "3",
         "reps": "8-12",
         "weight": "",
@@ -236,6 +256,7 @@
         "bodyPart": "Chest",
         "bodyImage": "Chest",
         "equipment": "Machine",
+        "video": "https://drive.google.com/uc?id=1XITJLm_JJ2k6yV7Ighj1DwPvPkh8HCoW",
         "sets": "2 (3 sec negative)",
         "reps": "8-12",
         "weight": "",
@@ -243,10 +264,11 @@
       },
       {
         "id": "4",
-        "name": "Pull Ups or Machine Rows ",
+        "name": "Machine Rows ",
         "bodyPart": "Upper Back",
-        "bodyImage": "Upper Back",
+        "bodyImage": "Upper",
         "equipment": "Machine",
+        "video": "https://drive.google.com/uc?id=1agSoFhlef61uef8ULaUHW3jkaklVvDhL",
         "sets": "2(3 sec negative) ",
         "reps": "8-12",
         "weight": "",
@@ -258,6 +280,7 @@
         "bodyPart": "Shoulders",
         "bodyImage": "Shoulders",
         "equipment": "Machine",
+        "video": "https://drive.google.com/uc?id=1CijaiEUOj5aCbJcFuXjXHiNvirJ961ZJ",
         "sets": "2(3 sec negative)",
         "reps": "8-12",
         "weight": "",
@@ -269,6 +292,7 @@
         "bodyPart": "Biceps",
         "bodyImage": "Biceps",
         "equipment": "Dumbbell",
+        "video": "https://drive.google.com/uc?id=1EACoujmrLLYXHp-tPNB4LiYwJQzjhWZM",
         "sets": "3 (3 sec negative)",
         "reps": "8-12",
         "weight": "",
@@ -280,6 +304,7 @@
         "bodyPart": "Triceps",
         "bodyImage": "Triceps",
         "equipment": "Bodyweight",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
         "sets": "3 (3 sec negative)",
         "reps": "8-12",
         "weight": "",
@@ -289,25 +314,27 @@
   },
   {
     "exercise_set": "4",
-    "title": "Баасан",
+    "title": "Lower B",
     "exercises": [
       {
         "id": "0",
         "name": "Leg Press",
         "bodyPart": "Quads",
         "bodyImage": "Quads",
+        "video": "https://drive.google.com/uc?id=1vK-FfTVmjlPaKA4oyIpqkK1Qfw3scrXB",
         "equipment": "Machine",
         "sets": "3",
-        "reps": "10-20",
+        "reps": "15-20",
         "weight": "",
-        "additionalInfo": "To keep tension on the quads, keep the knees just shy of lockout."
+        "additionalInfo": "To keep tension on the quads, keep the knees just shy of lockout. To emphasize the glutes more, push through the heels."
       },
       {
         "id": "1",
-        "name": "Dumbbell Stiff Leg Deadlifts",
+        "name": "Stiff Leg Deadlift",
         "bodyPart": "Hamstrings",
         "bodyImage": "Hamstrings",
-        "equipment": "Dumbbell",
+        "video": "https://drive.google.com/uc?id=1PxD0pu03XmehfqIvsQ-Dv1ArWW9iQ_MI",
+        "equipment": "",
         "sets": "3",
         "reps": "8-12",
         "weight": "",
@@ -319,6 +346,7 @@
         "bodyPart": "Calves",
         "bodyImage": "Calves",
         "equipment": "Machine",
+        "video": "https://drive.google.com/uc?id=1vK-FfTVmjlPaKA4oyIpqkK1Qfw3scrXB",
         "sets": "3",
         "reps": "10-15",
         "weight": "",
@@ -326,31 +354,10 @@
       },
       {
         "id": "3",
-        "name": "Hack Squat",
-        "bodyPart": "Quads",
-        "bodyImage": "Quads",
-        "equipment": "Machine",
-        "sets": "2",
-        "reps": "8-12",
-        "weight": "",
-        "additionalInfo": "Ensure the head does not jut forward excessively."
-      },
-      {
-        "id": "4",
-        "name": "Seated Leg Curl",
-        "bodyPart": "Hamstrings",
-        "bodyImage": "Hamstrings",
-        "equipment": "Machine",
-        "sets": "2 (3 sec negative)",
-        "reps": "10-12",
-        "weight": "",
-        "additionalInfo": "moving the weight up and down too fast and not using a full range of motion."
-      },
-      {
-        "id": "5",
         "name": "Seated Calf Raise",
         "bodyPart": "Calves",
         "bodyImage": "Calves",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
         "equipment": "Machine",
         "sets": " 2 (3 sec negative)",
         "reps": "10-12",
@@ -358,32 +365,58 @@
         "additionalInfo": "Keep the repetitions slow and controlled. Limit momentum and pause at the top to emphasize the contraction."
       },
       {
-        "id": "6",
+        "id": "4",
+        "name": "Hack Squat",
+        "bodyPart": "Quads",
+        "bodyImage": "Quads",
+        "equipment": "Machine",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
+        "sets": "2",
+        "reps": "8-12",
+        "weight": "",
+        "additionalInfo": "Ensure the head does not jut forward excessively."
+      },
+      {
+        "id": "5",
         "name": "Planks",
         "bodyPart": "Abs",
         "bodyImage": "Abs",
         "equipment": "Bodyweight",
+        "video": "https://drive.google.com/uc?id=1FDU4yu7xdwVuBym8fd5RfHgbOJqQxeav",
         "sets": "3",
         "reps": "60 sec",
         "weight": "",
         "additionalInfo": "Do not let your mid section sag in the middle. You need to keep yourself straight at all times."
       },
       {
-        "id": "7",
+        "id": "6",
         "name": "Hyperextension",
         "bodyPart": "Glutes",
         "bodyImage": "Glutes",
         "equipment": "Bodyweight",
+        "video": "https://drive.google.com/uc?id=1mlXewSaJQ6N2MtvzdUS39bA49vexxAqd",
         "sets": "3",
         "reps": "10-12",
         "weight": "",
         "additionalInfo": "Slightly flex your upper back and extend your hips until your body is in a straight line and focus entirely on gluteal activation."
+      },
+      {
+        "id": "7",
+        "name": "Seated Leg Curl",
+        "bodyPart": "Hamstrings",
+        "bodyImage": "Hamstrings",
+        "equipment": "Machine",
+        "video": "https://drive.google.com/uc?id=1tTMe7WDp-rTbpOV84pHUotbiqOd6DXVE",
+        "sets": "2 (3 sec negative)",
+        "reps": "10-12",
+        "weight": "",
+        "additionalInfo": "moving the weight up and down too fast and not using a full range of motion."
       }
     ]
   },
   {
     "exercise_set": "5",
-    "title": "Бямба",
+    "title": "Амрах",
     "exercises": [
       {
         "id": "0",
@@ -394,13 +427,13 @@
         "sets": "",
         "reps": "",
         "weight": "",
-        "additionalInfo": ""
+        "additionalInfo": "30-40 minutes of jogging or walk"
       }
     ]
   },
   {
     "exercise_set": "6",
-    "title": "Ням",
+    "title": "Амрах",
     "exercises": [
       {
         "id": "0",
@@ -411,7 +444,7 @@
         "sets": "",
         "reps": "",
         "weight": "",
-        "additionalInfo": ""
+        "additionalInfo": "30-40 minutes of jogging or walk"
       }
     ]
   }

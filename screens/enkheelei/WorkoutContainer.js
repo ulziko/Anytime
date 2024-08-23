@@ -105,7 +105,7 @@ const WorkoutPage = () => {
     Glutes: require("../../assets/Glutes.png"),
     Hamstrings: require("../../assets/Hamstrings.png"),
     Hip_Flexors: require("../../assets/Hip_Flexors.png"),
-    It_Band: require("../../assets/It_Band.png"),
+    It_Band: require("../../assets/IT_Band.png"),
     Lats: require("../../assets/Lats.png"),
     Lower_Back: require("../../assets/Lower_Back.png"),
     Neck: require("../../assets/Neck.png"),
