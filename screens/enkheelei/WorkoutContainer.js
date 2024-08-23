@@ -21,7 +21,7 @@ const WorkoutPage = () => {
   const route = useRoute();
   const [selectedWorkout, setSelectedWorkout] = useState([]);
   const [exerciseIndex, setExerciseIndex] = useState(0);
-  const [timerStart, setTimer] = useState(false);
+  const [timerStart, setTimerStart] = useState(false);
   const [key, setKey] = useState(0);
   const [isVideoVisible, setVideoVisible] = useState(false);
   const [questionVisible, setQuestionVisible] = useState(false);
@@ -51,12 +51,6 @@ const WorkoutPage = () => {
       console.error("No workout batch found for workoutId:", workoutId);
     }
   }, [fileKey, workoutId]);
-
-  const changeTimeHandler = (timerStart, setTimer) => {
-    setTimer(!timerStart);
-    console.log("timer end");
-    return { shouldRepeat: true, delay: 1 };
-  };
 
   const watchVideo = () => {
     setVideoVisible(!isVideoVisible);
@@ -132,7 +126,7 @@ const WorkoutPage = () => {
         <View className="flex-row bg-gray-800 p-[3vh] rounded-3xl w-full h-full">
           <Image
             // source={require(`../../assets/${currentExercise.bodyImage}.png`)}
-            source={imagePath}
+            source={{ uri: imagePath }}
             className="w-[40%] h-[90%] m-5"
             resizeMode="stretch"
           />
@@ -162,11 +156,12 @@ const WorkoutPage = () => {
             </View>
           </View>
           {/* timer */}
-          <View className="absolute top-[75%] right-[20%]">
+          <View className="absolute top-[68%] right-[10%]">
             <TouchableOpacity
-              className="w-full h-full"
               onPress={() => {
-                setTimer(true);
+                console.log("Before setTimer:", timerStart);
+                setTimerStart((prev) => (!prev ? true : prev));
+                console.log("After setTimer:", timerStart);
               }}
             >
               <CountdownCircleTimer
@@ -174,41 +169,19 @@ const WorkoutPage = () => {
                 duration={30}
                 colors={["#9800FF", "#8902a0", "#670178", "#1b0020"]}
                 colorsTime={[7, 5, 3, 0]}
+                size={150}
                 key={key}
                 onComplete={() => {
                   setKey((prevKey) => prevKey + 1);
-                  setTimer(false);
+                  setTimerStart(false);
+                  return undefined;
                 }}
               >
-                {({ remainingTime }) => <Text>{remainingTime}</Text>}
+                {({ remainingTime }) => (
+                  <Text className="text-xl text-white">{remainingTime}</Text>
+                )}
               </CountdownCircleTimer>
             </TouchableOpacity>
-            {/* <TouchableOpacity onPress={handleCircleClick} activeOpacity={1}>
-              <Svg height="100" width="100" viewBox="0 0 100 100">
-                <Text className="mx-auto my-auto text-center text-purple-600">
-                  {formatTime(seconds)}
-                </Text>
-                <Circle
-                  cx="50"
-                  cy="50"
-                  r={radius}
-                  stroke="grey"
-                  strokeWidth={strokeWidth}
-                  fill="none"
-                />
-                <Circle
-                  cx="50"
-                  cy="50"
-                  r={radius}
-                  stroke="#9800FF"
-                  strokeWidth={strokeWidth}
-                  fill="none"
-                  strokeDasharray={circumference}
-                  strokeDashoffset={circumference - progress * circumference}
-                  strokeLinecap="round"
-                />
-              </Svg>
-            </TouchableOpacity> */}
           </View>
         </View>
       </View>
@@ -268,16 +241,20 @@ const WorkoutPage = () => {
             className="flex h-screen w-screen justify-center items-center content-center bg-black/75"
           >
             <View className="flex bg-white items-center border-solid border-2 rounded-xl w-[80%] h-[22%]">
-              <Text className='absolute top-[45%] text-purple-600 text-lg'>Loading...</Text>
+              <Text className="absolute top-[45%] text-purple-600 text-lg">
+                Loading...
+              </Text>
               <Video
-                source={{ uri: 'https://drive.google.com/uc?id=1WaTR8TqoaHsyb6A7QAGK72y3eogPDXyZ' }}
+                source={{
+                  uri: "https://drive.google.com/uc?id=1WaTR8TqoaHsyb6A7QAGK72y3eogPDXyZ",
+                }}
                 rate={1.0}
                 volume={1.0}
                 isMuted={false}
                 resizeMode="cover"
                 shouldPlay
                 isLooping
-                className='justify-center items-center mt-[1%] w-[98%] h-[96%] rounded-xl'
+                className="justify-center items-center mt-[1%] w-[98%] h-[96%] rounded-xl"
                 // style={{ width: 300, height: 200 }}
               />
             </View>
@@ -339,7 +316,7 @@ const WorkoutPage = () => {
             disabled={exerciseIndex === selectedWorkout.length - 1}
             onPress={
               timerStart
-                ? Alert.alert("Амралтын цаг дуусаагүй байна.", {
+                ? Alert.alert("Амралтын цаг дуусаагүй байна.", "", {
                     text: "Ойлголоо",
                     onPress: () => console.log("Cancel Pressed"),
                     style: "cancel",
