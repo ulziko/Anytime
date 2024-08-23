@@ -14,11 +14,11 @@ import { LinearGradient } from "expo-linear-gradient";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import RegisterHeader from "./components/RegisterHeader";
 import { themeColors } from "../../theme";
-import Input from "./components/Input";
+import Input2 from "./components/Input2";
 import UserContext from "../../context/UserContext";
 import { RadioButton } from "react-native-paper";
-import { getDatabase, ref, set } from 'firebase/database';
-import { getAuth } from 'firebase/auth';
+import { getDatabase, ref, set } from "firebase/database";
+import { getAuth } from "firebase/auth";
 
 function calculateAge(birthDate) {
   const today = new Date();
@@ -48,10 +48,10 @@ export default function Register_2() {
       setDate(currentDate);
       toggleDatePicker();
       const year = currentDate.getFullYear();
-      const month = String(currentDate.getMonth() + 1).padStart(2, '0'); 
-      const day = String(currentDate.getDate()).padStart(2, ''); 
+      const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+      const day = String(currentDate.getDate()).padStart(2, "");
       const formattedDate = `${year}-${month}-${day}`;
-  
+
       User.setBday(formattedDate);
       User.setAge(calculateAge(currentDate));
     } else {
@@ -64,9 +64,11 @@ export default function Register_2() {
     const user = auth.currentUser;
 
     if (user) {
+      // if (){
+
       try {
         const database = getDatabase();
-        await set(ref(database, 'users/' + user.uid), {
+        await set(ref(database, "users/" + user.uid), {
           username: User.name,
           age: User.age,
           dateOfBirth: User.bday,
@@ -77,12 +79,13 @@ export default function Register_2() {
           plan: User.plan,
         });
 
-        console.log('User data saved successfully!');
+        console.log("User data saved successfully!");
         navigation.navigate("Register4");
       } catch (err) {
         console.error("Error saving user data: ", err.message);
         Alert.alert("Error", "Failed to save user data. Please try again.");
       }
+      // }
     } else {
       Alert.alert("Error", "No authenticated user found.");
     }
@@ -140,7 +143,7 @@ export default function Register_2() {
                   />
                 </Pressable>
               )}
-              <Input inputs={inputs} />
+              <Input2 inputs={inputs} />
               <Text className=" text-white ml-[2vw]">Хүйс</Text>
               <View className="flex-row items-center justify-around mt-[1.8%] rounded-2xl p-[3%]">
                 <View className="flex-row items-center">
