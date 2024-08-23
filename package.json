@@ -52,7 +52,8 @@
     "react-native-svg": "15.2.0",
     "react-native-svg-circular-progress": "^1.0.4",
     "react-native-web": "^0.19.12",
-    "expo-av": "~14.0.7"
+    "expo-av": "~14.0.7",
+    "expo-device": "~6.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
