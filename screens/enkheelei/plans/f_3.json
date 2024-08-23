@@ -5,99 +5,91 @@
     "exercises": [
       {
         "id": "0",
-        "name": "Warm-up /f-3/",
-        "bodyPart": "Мөр",
-        "bodyImage": "Shoulders",
-        "desc": "5-10 minutes of light cardio (e.g., jogging or jumping jacks)",
-        "equipment": "Алчуур",
-        "sets": "3-4 (30 секундын зайтай)",
-        "reps": "10-12",
+        "name": "Dumbbell Squat",
+        "bodyPart": "Quads",
+        "bodyImage": "Quads",
+        "equipment": "",
+        "sets": "3",
+        "reps": "20",
         "weight": "",
-        "additionalInfo": "Оролт бүрд усаа солих"
+        "additionalInfo": "It's crucially important that you keep a straight back when you squat! You can ensure your back is straight by keeping your eyes facing forward, chest out, shoulder blades back, and back arched."
       },
       {
         "id": "1",
-        "name": "Push-ups",
-        "bodyPart": "Цээж",
+        "name": "Dumbbell Bench Press",
+        "bodyPart": "Chest",
         "bodyImage": "Chest",
-        "desc": "Standard push-ups",
         "equipment": "",
         "sets": "3",
-        "reps": "10-15",
+        "reps": "20",
         "weight": "",
-        "additionalInfo": "Maintain a straight body line"
+        "additionalInfo": "Ensure you maintain some tension in your abs and don’t allow your lower back to arch excessively."
       },
       {
         "id": "2",
-        "name": "Dumbbell Bench Press",
-        "bodyPart": "Цээж",
-        "bodyImage": "Chest",
-        "desc": "Press dumbbells upward while lying on a bench",
-        "equipment": "Дамббелл",
+        "name": "Dumbbell Lateral Raise",
+        "bodyPart": "Shoulders",
+        "bodyImage": "Shoulders",
+        "equipment": "",
         "sets": "3",
-        "reps": "8-12",
+        "reps": "15",
         "weight": "",
-        "additionalInfo": "Keep elbows at 45 degrees"
+        "additionalInfo": "Don't bring your arms up too high - up to shoulder height is far enough."
       },
       {
         "id": "3",
-        "name": "Bent Over Rows",
-        "bodyPart": "Нуруу",
-        "bodyImage": "Chest",
-        "desc": "Pull weights towards your torso while bent over",
-        "equipment": "Дамббелл",
+        "name": "Dumbbell Hammer Curl",
+        "bodyPart": "Biceps",
+        "bodyImage": "Biceps",
+        "equipment": "",
         "sets": "3",
-        "reps": "10-12",
+        "reps": "20",
         "weight": "",
-        "additionalInfo": "Keep back straight"
+        "additionalInfo": "Keep the rep timing slow and control the weight for the whole set."
       },
       {
         "id": "4",
-        "name": "Shoulder Press",
-        "bodyPart": "Мөр",
-        "bodyImage": "Chest",
-        "desc": "Press weights overhead while seated or standing",
-        "equipment": "Дамббелл",
+        "name": "Two Arm Dumbbell Overhead Tricep Extension",
+        "bodyPart": "Triceps",
+        "bodyImage": "Triceps",
+        "equipment": "",
         "sets": "3",
-        "reps": "10-12",
+        "reps": "20",
         "weight": "",
-        "additionalInfo": "Avoid arching back"
+        "additionalInfo": "Don’t overextend through the lumbar spine, keep your ribcage down by maintaining tension through the abs and glutes."
       },
       {
         "id": "5",
-        "name": "Bicep Curls",
-        "bodyPart": "Гар",
-        "bodyImage": "Chest",
-        "desc": "Curl weights towards shoulders",
-        "equipment": "Дамббелл",
-        "sets": "3",
-        "reps": "12-15",
+        "name": "Standing Calf Raise",
+        "bodyPart": "Calves",
+        "bodyImage": "Calves",
+        "equipment": "",
+        "sets": "2",
+        "reps": "30",
         "weight": "",
-        "additionalInfo": "Keep elbows close to sides"
+        "additionalInfo": "Use the maximum range of motion by pushing up as high as you can and letting your heel drop as far as possible."
       },
       {
         "id": "6",
-        "name": "Tricep Dips",
-        "bodyPart": "Гар",
-        "bodyImage": "Chest",
-        "desc": "Lower and lift body using arms on parallel bars",
-        "equipment": "Параллел бар",
-        "sets": "3",
-        "reps": "10-15",
+        "name": "Reverse Hyperextension",
+        "bodyPart": "Glutes",
+        "bodyImage": "Glutes",
+        "equipment": "",
+        "sets": "3 ",
+        "reps": "20",
         "weight": "",
-        "additionalInfo": "Keep elbows pointing back"
+        "additionalInfo": "Arch globally through the spine and focus entirely on erector activation."
       },
       {
         "id": "7",
-        "name": "Cool down",
-        "bodyPart": "",
-        "bodyImage": "Chest",
-        "desc": "Stretching for 5-10 minutes",
+        "name": "Ab Crunches",
+        "bodyPart": "Abs",
+        "bodyImage": "Abs",
         "equipment": "",
-        "sets": "",
-        "reps": "",
+        "sets": "3 ",
+        "reps": "20",
         "weight": "",
-        "additionalInfo": "Focus on all major muscle groups"
+        "additionalInfo": "Keep your shoulder blades just off the mat for the entire set."
       }
     ]
   },
@@ -107,75 +99,14 @@
     "exercises": [
       {
         "id": "0",
-        "name": "Warm-up",
-        "bodyPart": "",
-        "bodyImage": "Chest",
-        "desc": "5 minutes of light cardio",
         "equipment": "",
+        "name": "Cardio 45 minutes",
+        "bodyPart": "",
+        "bodyImage": "",
         "sets": "",
         "reps": "",
         "weight": "",
         "additionalInfo": ""
-      },
-      {
-        "id": "1",
-        "name": "Steady-state cardio",
-        "bodyPart": "Бүх бие",
-        "bodyImage": "Chest",
-        "desc": "30-40 minutes of steady-state cardio (e.g., running, cycling, swimming)",
-        "equipment": "Cardio machine or space for running",
-        "sets": "",
-        "reps": "",
-        "weight": "",
-        "additionalInfo": "Maintain a consistent pace"
-      },
-      {
-        "id": "2",
-        "name": "Plank",
-        "bodyPart": "Цээж",
-        "bodyImage": "Chest",
-        "desc": "Hold a plank position",
-        "equipment": "",
-        "sets": "3",
-        "reps": "30-60 секунд",
-        "weight": "",
-        "additionalInfo": "Keep body straight"
-      },
-      {
-        "id": "3",
-        "name": "Russian Twists",
-        "bodyPart": "Гэдэс",
-        "bodyImage": "Chest",
-        "desc": "Rotate torso side to side while holding a weight",
-        "equipment": "Дамббелл эсвэл бөмбөг",
-        "sets": "3",
-        "reps": "20",
-        "weight": "",
-        "additionalInfo": "Keep feet off the ground"
-      },
-      {
-        "id": "4",
-        "name": "Leg Raises",
-        "bodyPart": "Гэдэс",
-        "bodyImage": "Chest",
-        "desc": "Lift legs while lying flat on your back",
-        "equipment": "",
-        "sets": "3",
-        "reps": "15",
-        "weight": "",
-        "additionalInfo": "Keep legs straight"
-      },
-      {
-        "id": "5",
-        "name": "Cool down",
-        "bodyPart": "",
-        "bodyImage": "Chest",
-        "desc": "Stretching for 5-10 minutes",
-        "equipment": "",
-        "sets": "",
-        "reps": "",
-        "weight": "",
-        "additionalInfo": "Focus on all major muscle groups"
       }
     ]
   },
@@ -185,87 +116,102 @@
     "exercises": [
       {
         "id": "0",
-        "name": "Warm-up",
-        "bodyPart": "",
+        "name": "Flat Bench Dumbbell Flye",
+        "bodyPart": "Chest",
         "bodyImage": "Chest",
-        "desc": "5-10 minutes of light cardio",
         "equipment": "",
-        "sets": "",
-        "reps": "",
+        "sets": "3",
+        "reps": "20",
         "weight": "",
-        "additionalInfo": ""
+        "additionalInfo": "Don’t squeeze the dumbbell handles excessively tight as this can over recruit the forearms and biceps thereby reducing activation of the pecs."
       },
       {
         "id": "1",
-        "name": "Squats",
-        "bodyPart": "Хөл",
-        "bodyImage": "Chest",
-        "desc": "Lower body while bending knees",
+        "name": "One Arm Dumbbell Row",
+        "bodyPart": "Upper Back",
+        "bodyImage": "Upper_Back",
         "equipment": "",
         "sets": "3",
-        "reps": "10-15",
+        "reps": "20",
         "weight": "",
-        "additionalInfo": "Keep back straight"
+        "additionalInfo": "Keep some tone through your abdominals as you pull the dumbbell into your body to ensure you don’t arch excessively through your spine."
       },
       {
         "id": "2",
-        "name": "Deadlifts",
-        "bodyPart": "Хөл",
-        "bodyImage": "Chest",
-        "desc": "Lift weight from the ground to hip level",
-        "equipment": "Барбелл",
+        "name": "Dumbbell Shoulder Press",
+        "bodyPart": "Shoulders",
+        "bodyImage": "Shoulders",
+        "equipment": "",
         "sets": "3",
-        "reps": "8-12",
+        "reps": "20",
         "weight": "",
-        "additionalInfo": "Keep back straight"
+        "additionalInfo": "Keep your back flat against the pad throughout the duration of the exercise."
       },
       {
         "id": "3",
-        "name": "Lunges",
-        "bodyPart": "Хөл",
-        "bodyImage": "Chest",
-        "desc": "Step forward and lower body",
+        "name": "Dumbbell Bicep Curl",
+        "bodyPart": "Biceps",
+        "bodyImage": "Biceps",
         "equipment": "",
         "sets": "3",
-        "reps": "10-12",
+        "reps": "20",
         "weight": "",
-        "additionalInfo": "Keep knee behind toes"
+        "additionalInfo": "Do not let the dumbbells touch your body."
       },
       {
         "id": "4",
-        "name": "Leg Press",
-        "bodyPart": "Хөл",
-        "bodyImage": "Chest",
-        "desc": "Press weight away from body using legs",
-        "equipment": "Leg press machine",
+        "name": "Tricep Kickback",
+        "bodyPart": "Triceps",
+        "bodyImage": "Triceps",
+        "equipment": "",
         "sets": "3",
-        "reps": "10-15",
+        "reps": "15",
         "weight": "",
-        "additionalInfo": "Keep feet shoulder-width apart"
+        "additionalInfo": "Keep your head up and your eyes facing forwards, as this will keep your back straight."
       },
       {
         "id": "5",
-        "name": "Calf Raises",
-        "bodyPart": "Хөл",
-        "bodyImage": "Chest",
-        "desc": "Raise heels off the ground",
+        "name": " Adduction",
+        "bodyPart": "Adductors",
+        "bodyImage": "Adductors",
         "equipment": "",
         "sets": "3",
-        "reps": "15-20",
+        "reps": "20",
         "weight": "",
-        "additionalInfo": "Hold for a second at the top"
+        "additionalInfo": "don’t allow the back to arch as this will tip the hips forward and place the adductors under excessive stretch before the contraction which can affect force output."
       },
       {
         "id": "6",
-        "name": "Cool down",
-        "bodyPart": "",
-        "bodyImage": "Chest",
-        "desc": "Stretching for 5-10 minutes",
         "equipment": "",
-        "sets": "",
-        "reps": "",
+        "name": "Abduction",
+        "bodyPart": "Abductors",
+        "bodyImage": "Abductors",
+        "sets": "3",
+        "reps": "20",
         "weight": "",
-        "additionalInfo": "Focus on all major muscle groups"
+        "additionalInfo": "Stand up straight and focus on moving only at the hip. Keep your torso as still as possible."
+      },
+      {
+        "id": "7",
+        "name": "Seated Calf Raise",
+        "bodyPart": "Calves",
+        "bodyImage": "Calves",
+        "equipment": "",
+        "sets": "2",
+        "reps": "30",
+        "weight": "",
+        "additionalInfo": "Don't let your heels touch the floor at any time throughout the exercise."
+      },
+      {
+        "id": "8",
+        "name": "Crunch",
+        "bodyPart": "Abs",
+        "bodyImage": "Abs",
+        "equipment": "",
+        "sets": "3",
+        "reps": "20",
+        "weight": "",
+        "additionalInfo": "Keep your shoulder blades just off the mat for the entire set."
       }
     ]
   },
@@ -275,15 +221,14 @@
     "exercises": [
       {
         "id": "0",
-        "name": "Light activity",
-        "bodyPart": "",
-        "bodyImage": "Chest",
-        "desc": "A light walk or yoga",
         "equipment": "",
+        "name": "Cardio 45 minutes",
+        "bodyPart": "",
+        "bodyImage": "",
         "sets": "",
         "reps": "",
         "weight": "",
-        "additionalInfo": "Focus on recovery"
+        "additionalInfo": ""
       }
     ]
   },
@@ -293,75 +238,113 @@
     "exercises": [
       {
         "id": "0",
-        "name": "Warm-up",
-        "bodyPart": "",
-        "bodyImage": "Chest",
-        "desc": "5-10 minutes of light cardio",
+        "name": "Sissy Squat",
+        "bodyPart": "Quads",
+        "bodyImage": "Quads",
         "equipment": "",
-        "sets": "",
-        "reps": "",
+        "sets": "3",
+        "reps": "20",
         "weight": "",
-        "additionalInfo": ""
+        "additionalInfo": "Form a straight line with your body (from your neck to your knees) by leaning back at the start of the exercise."
       },
       {
         "id": "1",
-        "name": "Jumping Jacks",
-        "bodyPart": "Бүх бие",
-        "bodyImage": "Chest",
-        "desc": "Jump while spreading arms and legs",
+        "name": "Lying Leg Curl",
+        "bodyPart": "Hamstrings",
+        "bodyImage": "Hamstrings",
         "equipment": "",
-        "sets": "3",
-        "reps": "20-30",
+        "sets": "1",
+        "reps": "60",
         "weight": "",
-        "additionalInfo": "Keep pace steady"
+        "additionalInfo": "Common mistakes with the leg curl are; moving the weight up and down too fast and not using a full range of motion."
       },
       {
         "id": "2",
-        "name": "Mountain Climbers",
-        "bodyPart": "Бүх бие",
-        "bodyImage": "Chest",
-        "desc": "Alternate legs in a running motion while in plank position",
+        "name": "Standing Calf Raise",
+        "bodyPart": "Calves",
+        "bodyImage": "Calves",
         "equipment": "",
-        "sets": "3",
-        "reps": "20-30",
+        "sets": "2",
+        "reps": "30",
         "weight": "",
-        "additionalInfo": "Maintain speed and form"
+        "additionalInfo": "Use the maximum range of motion by pushing up as high as you can and letting your heel drop as far as possible."
       },
       {
         "id": "3",
-        "name": "Burpees",
-        "bodyPart": "Бүх бие",
+        "name": "Chest Dip",
+        "bodyPart": "Chest",
         "bodyImage": "Chest",
-        "desc": "Squat, kick back into a push-up, return to squat, and jump",
         "equipment": "",
-        "sets": "3",
-        "reps": "10-15",
+        "sets": "2",
+        "reps": "15",
         "weight": "",
-        "additionalInfo": "Focus on fluid motion"
+        "additionalInfo": "Staying upright and keeping the elbows in close to increase tricep recruitment."
       },
       {
         "id": "4",
-        "name": "High Knees",
-        "bodyPart": "Бүх бие",
-        "bodyImage": "Chest",
-        "desc": "Run in place while lifting knees high",
         "equipment": "",
-        "sets": "3",
-        "reps": "30 секунд",
+        "name": "Push Up",
+        "bodyPart": "Chest",
+        "bodyImage": "Chest",
+        "sets": "2",
+        "reps": "15",
         "weight": "",
-        "additionalInfo": "Maintain pace and form"
+        "additionalInfo": "Squeeze your glutes and brace your abs before descending in order to keep the ribcage neutral."
       },
       {
         "id": "5",
-        "name": "Cool down",
-        "bodyPart": "",
+        "name": "Dumbbell Pullover",
+        "bodyPart": "Chest",
         "bodyImage": "Chest",
-        "desc": "Stretching for 5-10 minutes",
         "equipment": "",
-        "sets": "",
-        "reps": "",
+        "sets": "3",
+        "reps": "20",
         "weight": "",
-        "additionalInfo": "Focus on all major muscle groups"
+        "additionalInfo": "Do not let the dumbbell go too far forward. The starting position is directly above your head and the dumbbell should not go any further than that."
+      },
+      {
+        "id": "6",
+        "name": "Dumbbell Reverse Flye",
+        "bodyPart": "Shoulders",
+        "bodyImage": "Shoulders",
+        "equipment": "",
+        "sets": "3",
+        "reps": "15",
+        "weight": "",
+        "additionalInfo": "Move the shoulder within the joint, not the shoulder blade on the ribcage. Keep the abs braced and don’t arch the back at the top of the movement."
+      },
+      {
+        "id": "7",
+        "name": "Bicep Concentration Curl",
+        "bodyPart": "Biceps",
+        "bodyImage": "Biceps",
+        "equipment": "",
+        "sets": "3",
+        "reps": "20",
+        "weight": "",
+        "additionalInfo": "Maintain a slight bend in the elbow at the bottom of the movement in order to keep tension through the biceps."
+      },
+      {
+        "id": "8",
+        "equipment": "",
+        "name": "Lying Two Arm Dumbbell Tricep Extension",
+        "bodyPart": "Triceps",
+        "bodyImage": "Triceps",
+        "sets": "3",
+        "reps": "20",
+        "weight": "",
+        "additionalInfo": "It's important to keep your elbows in and facing toward your hips. Don't let them flare out as you lower the dumbbells down."
+      },
+      {
+        "id": "9",
+        "equipment": "",
+        "name": "Obliques Curl",
+        "bodyPart": "Abs",
+        "bodyImage": "Abs",
+        "sets": "3",
+        "reps": "20",
+        "weight": "",
+        "additionalInfo": "Always keep your back straight, eyes facing forwards, and bend at the torso only."
       }
     ]
   },
@@ -371,87 +354,15 @@
     "exercises": [
       {
         "id": "0",
-        "name": "Warm-up",
+        "name": "Cardio 45 minutes",
         "bodyPart": "",
-        "bodyImage": "Chest",
-        "desc": "5-10 minutes of light cardio",
+        "bodyImage": "",
         "equipment": "",
+        "desc": "",
         "sets": "",
         "reps": "",
         "weight": "",
         "additionalInfo": ""
-      },
-      {
-        "id": "1",
-        "name": "Pull-ups",
-        "bodyPart": "Нуруу",
-        "bodyImage": "Chest",
-        "desc": "Pull body up until chin is above the bar",
-        "equipment": "Таталтын бар",
-        "sets": "3",
-        "reps": "Max",
-        "weight": "",
-        "additionalInfo": "Use proper form to avoid injury"
-      },
-      {
-        "id": "2",
-        "name": "Lat Pulldowns",
-        "bodyPart": "Нуруу",
-        "bodyImage": "Chest",
-        "desc": "Pull the bar down towards your chest",
-        "equipment": "Lat pulldown machine",
-        "sets": "3",
-        "reps": "10-12",
-        "weight": "",
-        "additionalInfo": "Avoid using momentum"
-      },
-      {
-        "id": "3",
-        "name": "Barbell Rows",
-        "bodyPart": "Нуруу",
-        "bodyImage": "Chest",
-        "desc": "Pull barbell towards your torso while bent over",
-        "equipment": "Барбелл",
-        "sets": "3",
-        "reps": "8-12",
-        "weight": "",
-        "additionalInfo": "Keep back straight"
-      },
-      {
-        "id": "4",
-        "name": "Dumbbell Shrugs",
-        "bodyPart": "Мөр",
-        "bodyImage": "Chest",
-        "desc": "Lift shoulders towards ears while holding dumbbells",
-        "equipment": "Дамббелл",
-        "sets": "3",
-        "reps": "12-15",
-        "weight": "",
-        "additionalInfo": "Keep arms straight"
-      },
-      {
-        "id": "5",
-        "name": "Face Pulls",
-        "bodyPart": "Мөр",
-        "bodyImage": "Chest",
-        "desc": "Pull rope towards face while keeping elbows high",
-        "equipment": "Cable machine with rope attachment",
-        "sets": "3",
-        "reps": "12-15",
-        "weight": "",
-        "additionalInfo": "Focus on squeezing shoulder blades"
-      },
-      {
-        "id": "6",
-        "name": "Cool down",
-        "bodyPart": "",
-        "bodyImage": "Chest",
-        "desc": "Stretching for 5-10 minutes",
-        "equipment": "",
-        "sets": "",
-        "reps": "",
-        "weight": "",
-        "additionalInfo": "Focus on all major muscle groups"
       }
     ]
   },
@@ -461,15 +372,15 @@
     "exercises": [
       {
         "id": "0",
-        "name": "Rest day",
-        "bodyPart": "",
-        "bodyImage": "Chest",
-        "desc": "Complete rest or light activity (e.g., walking or stretching)",
         "equipment": "",
+        "name": "A 60 minute walk/cycle ride (at a good pace, based on your current fitness level)",
+        "bodyPart": "",
+        "bodyImage": "",
+        "desc": "",
         "sets": "",
         "reps": "",
         "weight": "",
-        "additionalInfo": "Focus on recovery"
+        "additionalInfo": ""
       }
     ]
   }

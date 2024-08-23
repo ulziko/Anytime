@@ -12,6 +12,7 @@
       {
         "name": "Bench Press",
         "bodyPart": "Chest",
+        "bodyImage": "Chest",
         "equipment": "Barbell",
         "sets": "3",
         "reps": "6-12",
@@ -21,6 +22,7 @@
       {
         "name": "Barbell Row",
         "bodyPart": "Upper Back",
+        "bodyImage": "Upper Back",
         "equipment": "Barbell",
         "sets": "3",
         "reps": "6-12",
@@ -30,6 +32,7 @@
       {
         "name": "Seated Overhead Dumbbell Press",
         "bodyPart": "Shoulders",
+        "bodyImage": "Shoulders",
         "equipment": "Dumbbell",
         "sets": "3",
         "reps": "8-12",
@@ -39,6 +42,7 @@
       {
         "name": "Pec Dec",
         "bodyPart": "Chest",
+        "bodyImage": "Chest",
         "equipment": "Machine",
         "sets": "2 (3 sec negative)",
         "reps": "10-12",
@@ -48,6 +52,7 @@
       {
         "name": "V-Bar LAt Pull Down",
         "bodyPart": "Lats",
+        "bodyImage": "Lats",
         "equipment": "Cable",
         "sets": "2 (3 sec negative)",
         "reps": "10-12",
@@ -57,6 +62,7 @@
       {
         "name": "Side Lateral Raise",
         "bodyPart": "Shoulders",
+        "bodyImage": "Shoulders",
         "equipment": "Dumbbell",
         "sets": "2",
         "reps": "10-15",
@@ -66,6 +72,7 @@
       {
         "name": "Cable tricep extensions",
         "bodyPart": "Triceps",
+        "bodyImage": "Triceps",
         "equipment": "Cable",
         "sets": "3 (3 sec negative)",
         "reps": "8-12",
@@ -75,6 +82,7 @@
       {
         "name": "Cable Curls",
         "bodyPart": "Biceps",
+        "bodyImage": "Biceps",
         "equipment": "Cable",
         "sets": "3 (3 sec negative)",
         "reps": "8-12",
@@ -90,6 +98,7 @@
       {
         "name": "Squats",
         "bodyPart": "Quads",
+        "bodyImage": "Quads",
         "equipment": "Barbell",
         "sets": "3",
         "reps": "6-12",
@@ -99,6 +108,7 @@
       {
         "name": "Stiff Leg Deadlifts",
         "bodyPart": "Hamstrings",
+        "bodyImage": "Hamstrings",
         "equipment": "Barbell",
         "sets": "3",
         "reps": "8-12",
@@ -108,6 +118,7 @@
       {
         "name": "Standing Calf Raise",
         "bodyPart": "Calves",
+        "bodyImage": "Calves",
         "equipment": "Bodyweight",
         "sets": "3",
         "reps": "10-15",
@@ -117,6 +128,7 @@
       {
         "name": "Leg Extensions",
         "bodyPart": "Quads",
+        "bodyImage": "Quads",
         "equipment": "Machine",
         "sets": "2 (3 sec negative)",
         "reps": "10-12",
@@ -126,6 +138,7 @@
       {
         "name": "Leg Curl",
         "bodyPart": "Hamstrings",
+        "bodyImage": "Hamstrings",
         "equipment": "Machine",
         "sets": "2 (3 sec negative)",
         "reps": "10-12",
@@ -135,6 +148,7 @@
       {
         "name": "Seated Calf Raise",
         "bodyPart": "Calves",
+        "bodyImage": "Calves",
         "equipment": "Machine(Isolation)",
         "sets": "2 (3 sec negative) ",
         "reps": "10-12",
@@ -144,6 +158,7 @@
       {
         "name": "Cable Crunch",
         "bodyPart": "Abs",
+        "bodyImage": "Abs",
         "equipment": "Cable",
         "sets": "3 (3 sec negative) ",
         "reps": "10-12",
@@ -168,6 +183,7 @@
       {
         "name": "Incline Dumbbell Bench Press",
         "bodyPart": "Chest",
+        "bodyImage": "Chest",
         "equipment": "Dumbbell",
         "sets": "3",
         "reps": "8-12",
@@ -177,6 +193,7 @@
       {
         "name": "Rack Deadlifts - 3 to 5 off ground",
         "bodyPart": "Hamstrings",
+        "bodyImage": "Hamstrings",
         "equipment": "Barbell",
         "sets": "3",
         "reps": "5-8",
@@ -186,6 +203,7 @@
       {
         "name": "Military Press",
         "bodyPart": "Shoulders",
+        "bodyImage": "Shoulders",
         "equipment": "Barbell",
         "sets": "3",
         "reps": "8-12",
@@ -195,6 +213,7 @@
       {
         "name": "Machine Chest Press ",
         "bodyPart": "Chest",
+        "bodyImage": "Chest",
         "equipment": "Machine",
         "sets": "2 (3 sec negative)",
         "reps": "8-12",
@@ -204,6 +223,7 @@
       {
         "name": "Pull Ups or Machine Rows ",
         "bodyPart": "Upper Back",
+        "bodyImage": "Upper Back",
         "equipment": "Machine",
         "sets": "2(3 sec negative) ",
         "reps": "8-12",
@@ -213,6 +233,7 @@
       {
         "name": "Machine Shoulder Press",
         "bodyPart": "Shoulders",
+        "bodyImage": "Shoulders",
         "equipment": "Machine",
         "sets": "2(3 sec negative)",
         "reps": "8-12",
@@ -222,6 +243,7 @@
       {
         "name": "Dumbbell Curls",
         "bodyPart": "Biceps",
+        "bodyImage": "Biceps",
         "equipment": "Dumbbell",
         "sets": "3 (3 sec negative)",
         "reps": "8-12",
@@ -231,6 +253,7 @@
       {
         "name": "Machine Tricep Dip",
         "bodyPart": "Triceps",
+        "bodyImage": "Triceps",
         "equipment": "Bodyweight",
         "sets": "3 (3 sec negative)",
         "reps": "8-12",
@@ -246,6 +269,7 @@
       {
         "name": "Leg Press",
         "bodyPart": "Quads",
+        "bodyImage": "Quads",
         "equipment": "Machine",
         "sets": "3",
         "reps": "10-20",
@@ -255,6 +279,7 @@
       {
         "name": "Dumbbell Stiff Leg Deadlifts",
         "bodyPart": "Hamstrings",
+        "bodyImage": "Hamstrings",
         "equipment": "Dumbbell",
         "sets": "3",
         "reps": "8-12",
@@ -264,6 +289,7 @@
       {
         "name": "Leg Press Calf Raise",
         "bodyPart": "Calves",
+        "bodyImage": "Calves",
         "equipment": "Machine",
         "sets": "3",
         "reps": "10-15",
@@ -273,6 +299,7 @@
       {
         "name": "Hack Squat",
         "bodyPart": "Quads",
+        "bodyImage": "Quads",
         "equipment": "Machine",
         "sets": "2",
         "reps": "8-12",
@@ -282,6 +309,7 @@
       {
         "name": "Seated Leg Curl",
         "bodyPart": "Hamstrings",
+        "bodyImage": "Hamstrings",
         "equipment": "Machine",
         "sets": "2 (3 sec negative)",
         "reps": "10-12",
@@ -291,6 +319,7 @@
       {
         "name": "Seated Calf Raise",
         "bodyPart": "Calves",
+        "bodyImage": "Calves",
         "equipment": "Machine",
         "sets": " 2 (3 sec negative)",
         "reps": "10-12",
@@ -300,6 +329,7 @@
       {
         "name": "Planks",
         "bodyPart": "Abs",
+        "bodyImage": "Abs",
         "equipment": "Bodyweight",
         "sets": "3",
         "reps": "60 sec",
@@ -309,6 +339,7 @@
       {
         "name": "Hyperextension",
         "bodyPart": "Glutes",
+        "bodyImage": "Glutes",
         "equipment": "Bodyweight",
         "sets": "3",
         "reps": "10-12",
