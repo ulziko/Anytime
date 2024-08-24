@@ -7,6 +7,7 @@ import {
   Modal,
   Pressable,
   Alert,
+  Dimensions,
 } from "react-native";
 import { ArrowLeftIcon } from "react-native-heroicons/solid";
 import { Svg, Circle } from "react-native-svg";
@@ -15,6 +16,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import workoutsMapping from "./Mapping";
 import { Video } from "expo-av";
 import { CountdownCircleTimer } from "react-native-countdown-circle-timer";
+import * as Device from "expo-device";
 
 const WorkoutPage = () => {
   const navigation1 = useNavigation();
@@ -59,6 +61,7 @@ const WorkoutPage = () => {
   const showDetails = () => {
     setQuestionVisible(!questionVisible);
     console.log("show details");
+    console.log(Device.deviceType);
   };
 
   const nextWorkout = () => {
@@ -132,29 +135,53 @@ const WorkoutPage = () => {
         <Text className="text-white text-4xl mx-auto">Workout</Text>
       </View>
       {/* Main Content */}
-      <View className="flex mt-5 h-[50%]">
-        <View className="flex-row bg-gray-800 p-[3vh] rounded-3xl w-full h-full">
+      <View
+        className={`${
+          Device.deviceType === 1 ? "h-[45%]" : "h-[50%]"
+        } flex mt-5 `}
+      >
+        <View
+          className={`${
+            Device.deviceType === 1 ? "w-full" : "w-[90%]"
+          } flex-row bg-gray-800 p-[3vh] rounded-3xl h-full mx-auto`}
+        >
           <Image
             source={images[currentExercise.bodyImage]}
             // source={{ uri: imagePath }}
-            className="w-[40%] h-[90%] m-5"
+            className="w-[40%] h-[90%] my-auto"
             resizeMode="stretch"
           />
           <View className="flex-col mt-5 mx-auto">
-            <Text className="text-purple-600 text-3xl font-bold">
+            <Text
+              className={`${
+                Device.deviceType === 1 ? "text-2xl" : "text-3xl"
+              } text-purple-600 font-bold`}
+            >
               {currentExercise.name}
             </Text>
-            <View className="flex items-center justify-around mt-3 w-full">
-              <View className="flex-row justify-start items-start p-[1vh] m-[2vh]">
+            <View
+              className={`${
+                Device.deviceType === 1 ? "mt-4" : "mt-5"
+              } flex items-center justify-around w-full`}
+            >
+              <View className="flex-row justify-start items-start p-[1vh]">
                 <Image
                   source={require("../../assets/e_target.png")}
                   className="h-[3vh] w-[3vh]"
                 />
-                <Text className="text-white text-xl pl-8">
+                <Text
+                  className={`${
+                    Device.deviceType === 1 ? "text-lg" : "text-xl"
+                  } text-white pl-8`}
+                >
                   {currentExercise.bodyPart}
                 </Text>
               </View>
-              <View className="flex-row justify-start items-start p-[1vh]">
+              <View
+                className={`${
+                  Device.deviceType === 1 ? "mt-1" : "mt-3"
+                } flex-row justify-start items-start p-[1vh]`}
+              >
                 <Image
                   source={require("../../assets/e_weight.png")}
                   className="h-[3vh] w-[3vh] left-2.5"
@@ -179,7 +206,7 @@ const WorkoutPage = () => {
                 duration={30}
                 colors={["#9800FF", "#8902a0", "#670178", "#1b0020"]}
                 colorsTime={[7, 5, 3, 0]}
-                size={150}
+                size={Device.deviceType === 1 ? 120 : 150}
                 key={key}
                 onComplete={() => {
                   setKey((prevKey) => prevKey + 1);
@@ -217,16 +244,9 @@ const WorkoutPage = () => {
           <Text className="text-purple-600 text-2xl ml-3">Давталт: </Text>
           <Text className="text-white text-lg">{currentExercise.reps}</Text>
         </View>
-        <View className="flex-row items-center">
-          <View className="bg-gray-700 p-3 rounded-full">
-            <Image
-              source={require("../../assets/e_plus.png")}
-              className="h-[3vh] w-[3vh]"
-            />
-          </View>
-          <Text className="text-purple-600 text-2xl ml-3">Нэмэлт: </Text>
-          <Text className="text-white text-lg">
-            {currentExercise.additionalInfo}
+        <View className="flex-row items-center justify-center">
+          <Text className="text-white text-center text-md mt-10">
+            7 хоног болгон өөрт тохирсон хэмжээгээр жинг нэмэх ёстой шүү :3
           </Text>
         </View>
       </View>
@@ -298,10 +318,18 @@ const WorkoutPage = () => {
             }}
             className="flex h-screen w-screen justify-center items-center content-center bg-black/75"
           >
-            <View className="flex items-center rounded-xl w-[80%] h-[22%]">
-              <Text className="text-lg font-bold text-white">Хөтөлбөр</Text>
+            <View className="flex items-center rounded-xl w-[80%] h-fit">
+              <Text className="text-lg font-bold text-purple-600 w-full text-left -mb-3">
+                Дараалал
+              </Text>
+              <Text className="text-md font-bold text-white text-justify p-5">
+                {currentExercise.steps}
+              </Text>
               <Text className="text-lg font-bold text-purple-600">
-                Хөтөлбөр
+                Анхаарах
+              </Text>
+              <Text className="text-md text-white text-justify indent-5">
+                {currentExercise.additionalInfo}
               </Text>
             </View>
           </Pressable>
