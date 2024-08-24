@@ -266,6 +266,9 @@ function calcID(currentW, id, sex) {
 }
 
 function calculateMuscleMass(age, sex) {
+  console.log("Age:", age);
+  console.log("Sex:", sex);
+
   let muscleMass;
 
   switch (sex) {
@@ -284,7 +287,7 @@ function calculateMuscleMass(age, sex) {
           muscleMass = 0.3;
           break;
         default:
-          muscleMass = "Unknown";
+          muscleMass = 0.44;
           break;
       }
       break;
@@ -304,7 +307,7 @@ function calculateMuscleMass(age, sex) {
           muscleMass = 0.26;
           break;
         default:
-          muscleMass = "Unknown";
+          muscleMass = 0.34;
           break;
       }
       break;
