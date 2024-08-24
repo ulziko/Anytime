@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect, useContext, useRef } from "react";
 import {
   View,
   Text,
@@ -10,26 +10,30 @@ import {
   KeyboardAvoidingView,
   Platform,
   Alert,
-} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import {
   useFonts,
   Nunito_400Regular,
   Nunito_700Bold,
-} from '@expo-google-fonts/nunito';
-import { Philosopher_400Regular, Philosopher_700Bold } from '@expo-google-fonts/philosopher';
-import UserContext from '../../context/UserContext';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { getDatabase, ref, update, get } from 'firebase/database';
-import { database } from '../../config/firebase';
-import { getAuth } from 'firebase/auth';
+} from "@expo-google-fonts/nunito";
+import {
+  Philosopher_400Regular,
+  Philosopher_700Bold,
+} from "@expo-google-fonts/philosopher";
+import UserContext from "../../context/UserContext";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { getDatabase, ref, update, get } from "firebase/database";
+import { database } from "../../config/firebase";
+import { getAuth } from "firebase/auth";
+import * as Device from "expo-device";
 
-const DateIcon = require('./../../assets/Date.png');
-const JinIcon = require('./../../assets/Jin.png');
-const OndorIcon = require('./../../assets/Ondor.png');
-const NuutsugIcon = require('./../../assets/Nuutsug.png');
+const DateIcon = require("./../../assets/Date.png");
+const JinIcon = require("./../../assets/Jin.png");
+const OndorIcon = require("./../../assets/Ondor.png");
+const NuutsugIcon = require("./../../assets/Nuutsug.png");
 
-const { width } = Dimensions.get('window');
+const { width } = Dimensions.get("window");
 
 const InfoSection = () => {
   const [editingField, setEditingField] = useState(null);
@@ -40,7 +44,7 @@ const InfoSection = () => {
     dateOfBirth: User.bday,
     weight: User.weight,
     height: User.height,
-    password: 'Нууц үг солих',
+    password: "Нууц үг солих",
   });
 
   const navigation = useNavigation();
@@ -55,18 +59,17 @@ const InfoSection = () => {
   });
 
   useEffect(() => {
-    const auth = getAuth(); 
-    const user = auth.currentUser; 
+    const auth = getAuth();
+    const user = auth.currentUser;
 
     if (user) {
-      const userId = user.uid; 
+      const userId = user.uid;
       fetchUserData(userId);
     } else {
-      console.log('No user is logged in');
+      console.log("No user is logged in");
       Alert.alert("Error", "User not logged in. Please login.");
     }
   }, []);
-
 
   const fetchUserData = async (userId) => {
     try {
@@ -75,52 +78,55 @@ const InfoSection = () => {
       if (snapshot.exists()) {
         const userData = snapshot.val();
         setInfo({
-          dateOfBirth: userData.dateOfBirth || '',
-          weight: userData.weight ? `${userData.weight}кг` : '',
-          height: userData.height ? `${userData.height}см` : '',
-          password: 'Нууц үг солих',
+          dateOfBirth: userData.dateOfBirth || "",
+          weight: userData.weight ? `${userData.weight}кг` : "",
+          height: userData.height ? `${userData.height}см` : "",
+          password: "Нууц үг солих",
         });
       } else {
-        console.log('No data available');
-        Alert.alert("Error", "Failed to find user data. Please try login again or register again.");
+        console.log("No data available");
+        Alert.alert(
+          "Error",
+          "Failed to find user data. Please try login again or register again."
+        );
       }
     } catch (error) {
-      console.error('Error fetching data: ', error);
+      console.error("Error fetching data: ", error);
     }
   };
 
   const handlePress = (field) => {
-    if (field === 'password') {
-      navigation.navigate('Question');
+    if (field === "password") {
+      navigation.navigate("Question");
     } else {
       setEditingField(field);
-      setInfo((prevInfo) => ({ ...prevInfo, [field]: '' }));
+      setInfo((prevInfo) => ({ ...prevInfo, [field]: "" }));
     }
   };
 
   const handleChange = (field, value) => {
     let formattedValue = value;
-    if (field === 'dateOfBirth') {
+    if (field === "dateOfBirth") {
       formattedValue = formatDate(value);
       User.setBday(formattedValue);
       setEditedFields((prev) => ({ ...prev, [field]: true }));
       setEditedFields((prev) => ({ ...prev, age: true }));
-    } else if (field === 'weight') {
-      formattedValue = value.replace(/[^0-9]/g, '');
+    } else if (field === "weight") {
+      formattedValue = value.replace(/[^0-9]/g, "");
       if (formattedValue.length > 3) {
         formattedValue = formattedValue.slice(0, 3);
       }
       User.setWeight(formattedValue);
       setEditedFields((prev) => ({ ...prev, [field]: true }));
-      formattedValue += 'кг';
-    } else if (field === 'height') {
-      formattedValue = value.replace(/[^0-9]/g, '');
+      formattedValue += "кг";
+    } else if (field === "height") {
+      formattedValue = value.replace(/[^0-9]/g, "");
       if (formattedValue.length > 3) {
         formattedValue = formattedValue.slice(0, 3);
       }
       User.setHeight(formattedValue);
       setEditedFields((prev) => ({ ...prev, [field]: true }));
-      formattedValue += 'см';
+      formattedValue += "см";
     }
 
     setInfo((prevInfo) => ({ ...prevInfo, [field]: formattedValue }));
@@ -129,15 +135,18 @@ const InfoSection = () => {
   };
 
   const formatDate = (date) => {
-    const cleaned = date.replace(/\D/g, '');
-    let formatted = '';
+    const cleaned = date.replace(/\D/g, "");
+    let formatted = "";
 
     if (cleaned.length <= 4) {
       formatted = cleaned;
     } else if (cleaned.length <= 6) {
       formatted = `${cleaned.slice(0, 4)}-${cleaned.slice(4)}`;
     } else {
-      formatted = `${cleaned.slice(0, 4)}-${cleaned.slice(4, 6)}-${cleaned.slice(6, 8)}`;
+      formatted = `${cleaned.slice(0, 4)}-${cleaned.slice(
+        4,
+        6
+      )}-${cleaned.slice(6, 8)}`;
     }
 
     return formatted;
@@ -165,20 +174,20 @@ const InfoSection = () => {
           updates.age = calculateAge(info.dateOfBirth);
         }
 
-        await update(ref(database, 'users/' + user.uid), updates);
+        await update(ref(database, "users/" + user.uid), updates);
 
-        console.log('User data updated successfully!');
-        Alert.alert('Success', 'Your profile has been updated.');
+        console.log("User data updated successfully!");
+        Alert.alert("Success", "Your profile has been updated.");
 
         // Reset edited fields
         setEditedFields({});
         setIsEdited(false); // Reset edited state
       } catch (err) {
-        console.error('Error updating user data: ', err.message);
-        Alert.alert('Error', 'Failed to update user data. Please try again.');
+        console.error("Error updating user data: ", err.message);
+        Alert.alert("Error", "Failed to update user data. Please try again.");
       }
     } else {
-      Alert.alert('Error', 'No authenticated user found.');
+      Alert.alert("Error", "No authenticated user found.");
     }
   };
 
@@ -187,7 +196,10 @@ const InfoSection = () => {
     const birth = new Date(birthDate);
     let age = today.getFullYear() - birth.getFullYear();
     const monthDiff = today.getMonth() - birth.getMonth();
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birth.getDate())
+    ) {
       age--;
     }
     return age;
@@ -195,7 +207,7 @@ const InfoSection = () => {
 
   const renderInfoItem = (icon, field, value) => (
     <TouchableOpacity
-      style={[styles.infoItem, styles.customBackground]}
+      className="flex-row items-center mb-2 p-2 rounded-2xl border-2 border-purple-500 bg-purple-950/50"
       onPress={() => handlePress(field)}
     >
       <Image source={icon} style={styles.image} resizeMode="contain" />
@@ -206,18 +218,28 @@ const InfoSection = () => {
           onChangeText={(text) => handleChange(field, text)}
           onBlur={() => setEditingField(null)}
           placeholder={
-            field === 'dateOfBirth' ? 'Он-сар-өдөр' :
-            field === 'weight' ? 'Жин' :
-            field === 'height' ? 'Өндөр' : ''
+            field === "dateOfBirth"
+              ? "Он-сар-өдөр"
+              : field === "weight"
+              ? "Жин"
+              : field === "height"
+              ? "Өндөр"
+              : ""
           }
-          placeholderTextColor='rgba(255, 255, 255, 0.6)'
-          maxLength={field === 'dateOfBirth' ? 10 : 6}
-          keyboardType={field === 'dateOfBirth' ? 'numeric' : 'number-pad'}
-          ref={(ref) => { inputRefs.current[field] = ref; }}
+          placeholderTextColor="rgba(255, 255, 255, 0.6)"
+          maxLength={field === "dateOfBirth" ? 10 : 6}
+          keyboardType={field === "dateOfBirth" ? "numeric" : "number-pad"}
+          ref={(ref) => {
+            inputRefs.current[field] = ref;
+          }}
           onFocus={() => {
             setTimeout(() => {
               if (scrollViewRef.current && inputRefs.current[field]) {
-                scrollViewRef.current.scrollToPosition(0, inputRefs.current[field].offsetTop, true);
+                scrollViewRef.current.scrollToPosition(
+                  0,
+                  inputRefs.current[field].offsetTop,
+                  true
+                );
               }
             }, 100);
           }}
@@ -226,7 +248,9 @@ const InfoSection = () => {
         <Text
           style={[
             styles.infoValue,
-            field === 'weight' || field === 'height' || field === 'password' ? styles.boldText : null,
+            field === "weight" || field === "height" || field === "password"
+              ? styles.boldText
+              : null,
           ]}
         >
           {value}
@@ -237,24 +261,29 @@ const InfoSection = () => {
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      className="flex flex-1"
     >
       <KeyboardAwareScrollView
-        style={styles.infoSection}
+        className="p-8"
         contentContainerStyle={styles.scrollViewContent}
         enableOnAndroid={true}
-        extraScrollHeight={Platform.OS === 'ios' ? 0 : 0}
+        extraScrollHeight={Platform.OS === "ios" ? 0 : 0}
         ref={scrollViewRef}
       >
-        {renderInfoItem(DateIcon, 'dateOfBirth', info.dateOfBirth)}
-        {renderInfoItem(JinIcon, 'weight', info.weight)}
-        {renderInfoItem(OndorIcon, 'height', info.height)}
-        {renderInfoItem(NuutsugIcon, 'password', info.password)}
+        {renderInfoItem(DateIcon, "dateOfBirth", info.dateOfBirth)}
+        {renderInfoItem(JinIcon, "weight", info.weight)}
+        {renderInfoItem(OndorIcon, "height", info.height)}
+        {renderInfoItem(NuutsugIcon, "password", info.password)}
       </KeyboardAwareScrollView>
-      {isEdited && ( 
-        <TouchableOpacity style={styles.saveButton} onPress={handleSave}>
-          <Text style={styles.saveButtonText}>Save</Text>
+      {isEdited && (
+        <TouchableOpacity
+          className={`${
+            Device.deviceType === 1 ? "mt-14" : ""
+          } items-center bg-purple-600 rounded-full h-fit w-[30%] mx-auto`}
+          onPress={handleSave}
+        >
+          <Text className="text-white text-xl font-bold p-2">Save</Text>
         </TouchableOpacity>
       )}
     </KeyboardAvoidingView>
@@ -268,30 +297,30 @@ const styles = StyleSheet.create({
   infoSection: {
     paddingHorizontal: width * 0.05,
     paddingVertical: width * 0.15,
-    backgroundColor: '#000',
+    backgroundColor: "#000",
   },
   scrollViewContent: {
     paddingBottom: 20,
   },
   infoItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 7,
     padding: width * 0.04,
     borderRadius: 25,
     borderWidth: 1,
-    borderColor: '#9800ff',
+    borderColor: "#9800ff",
   },
   infoValue: {
-    color: 'white',
+    color: "white",
     fontSize: width * 0.04,
     flex: 1,
   },
   boldText: {
-    fontFamily: 'Nunito_700Bold',
+    fontFamily: "Nunito_700Bold",
   },
   customBackground: {
-    backgroundColor: 'rgba(152, 0, 255, 0.33)',
+    backgroundColor: "rgba(152, 0, 255, 0.33)",
   },
   image: {
     width: width * 0.1,
@@ -303,13 +332,13 @@ const styles = StyleSheet.create({
     margin: 20,
     padding: 10,
     borderRadius: 15,
-    backgroundColor: '#9800ff',
-    alignItems: 'center',
+    backgroundColor: "#9800ff",
+    alignItems: "center",
   },
   saveButtonText: {
-    color: 'white',
+    color: "white",
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
 
