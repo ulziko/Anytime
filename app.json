@@ -18,10 +18,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/anytimeIcon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.v10ddd.Anytime"
     },
     "web": {
       "favicon": "./assets/anytimeIcon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "624ff0fc-4d7c-4c78-8e71-efd3dac611bf"
+      }
     }
   }
 }

@@ -10,15 +10,15 @@ const LoginHeader = () => {
   return (
     <View className="bg-black rounded-b-3xl h-[40%]">
       <SafeAreaView className="flex">
-        <TouchableOpacity
-          className="flex-row justify-center py-[18%]"
+        {/* <TouchableOpacity
+          className=""
           onPress={() => navigation.navigate("Home")}
-        >
+        > */}
           <Image
-            className="mt-[2%] w-[45%] h-[7vh]"
+            className="mx-auto my-[17%] w-[55%] h-[25%]"
             source={require("../../../assets/logo.png")}
           />
-        </TouchableOpacity>
+        {/* </TouchableOpacity> */}
         <View
           className={`${
             Device.deviceType === 1 ? "mt-14" : ""
