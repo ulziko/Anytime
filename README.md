@@ -1,5 +1,9 @@
-Anytime Fitness App
+## Anytime Fitness App
+
 A simple and user-friendly fitness application developed using React Native and Expo Go. This app is designed to help users track their fitness goals, access workout routines, and stay motivated on their fitness journey.
+
+****![image](https://github.com/user-attachments/assets/7b5cc027-0a38-445d-9002-a2c5bf537d3d)
+
 
 Features
 User authentication and profile management.
